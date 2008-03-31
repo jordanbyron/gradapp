@@ -712,3 +712,688 @@ NameError (uninitialized constant SessionsController):
     script/server:3
 
 Rendering /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing HomeController#index (for 127.0.0.1 at 2008-03-27 19:10:17) [GET]
+  Session ID: BAh7ByIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7ADoMY3NyZl9pZCIlYmY2OGQ3ZjEyMmRmYzZkODRj%0AOTJjMGQ3NWVmYjA4NjE%3D--0961af4626332e66bfbc743875eb9053556d7329
+  Parameters: {"action"=>"index", "controller"=>"home"}
+Rendering home/index
+Completed in 0.01806 (55 reqs/sec) | Rendering: 0.01035 (57%) | DB: 0.00000 (0%) | 200 OK [http://localhost/]
+
+
+Processing SessionController#new (for 127.0.0.1 at 2008-03-27 19:10:21) [GET]
+  Session ID: BAh7ByIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7ADoMY3NyZl9pZCIlYmY2OGQ3ZjEyMmRmYzZkODRj%0AOTJjMGQ3NWVmYjA4NjE%3D--0961af4626332e66bfbc743875eb9053556d7329
+  Parameters: {"action"=>"new", "controller"=>"session"}
+Rendering session/new
+Completed in 0.01303 (76 reqs/sec) | Rendering: 0.00694 (53%) | DB: 0.00000 (0%) | 200 OK [http://localhost/login]
+
+
+Processing ApplicationController#create (for 127.0.0.1 at 2008-03-27 19:10:25) [POST]
+  Session ID: BAh7ByIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7ADoMY3NyZl9pZCIlYmY2OGQ3ZjEyMmRmYzZkODRj%0AOTJjMGQ3NWVmYjA4NjE%3D--0961af4626332e66bfbc743875eb9053556d7329
+  Parameters: {"commit"=>"Log in", "authenticity_token"=>"fe69329a30913d162f269d445242560c4d85c561", "action"=>"create", "controller"=>"sessions", "password"=>"temp123", "login"=>"jordanb"}
+
+
+NameError (uninitialized constant SessionsController):
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:266:in `load_missing_constant'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:453:in `const_missing'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:465:in `const_missing'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/inflector.rb:257:in `constantize'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/core_ext/string/inflections.rb:148:in `constantize'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/routing.rb:1426:in `recognize'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:170:in `handle_request'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/rails-2.0.2/lib/webrick_server.rb:112:in `handle_dispatch'
+    /Library/Ruby/Gems/1.8/gems/rails-2.0.2/lib/webrick_server.rb:78:in `service'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /Library/Ruby/Gems/1.8/gems/rails-2.0.2/lib/webrick_server.rb:62:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/rails-2.0.2/lib/commands/servers/webrick.rb:66
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /Library/Ruby/Gems/1.8/gems/rails-2.0.2/lib/commands/server.rb:39
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing UsersController#new (for 127.0.0.1 at 2008-03-27 19:13:54) [GET]
+  Session ID: BAh7ByIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7ADoMY3NyZl9pZCIlYmY2OGQ3ZjEyMmRmYzZkODRj%0AOTJjMGQ3NWVmYjA4NjE%3D--0961af4626332e66bfbc743875eb9053556d7329
+  Parameters: {"action"=>"new", "controller"=>"users"}
+Rendering users/new
+Completed in 0.02041 (48 reqs/sec) | Rendering: 0.01099 (53%) | DB: 0.00000 (0%) | 200 OK [http://localhost/signup]
+
+
+Processing SessionController#new (for 127.0.0.1 at 2008-03-27 19:14:00) [GET]
+  Session ID: BAh7ByIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7ADoMY3NyZl9pZCIlYmY2OGQ3ZjEyMmRmYzZkODRj%0AOTJjMGQ3NWVmYjA4NjE%3D--0961af4626332e66bfbc743875eb9053556d7329
+  Parameters: {"action"=>"new", "controller"=>"session"}
+Rendering session/new
+Completed in 0.01704 (58 reqs/sec) | Rendering: 0.00869 (50%) | DB: 0.00000 (0%) | 200 OK [http://localhost/login]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2008-03-27 19:14:02) [GET]
+  Session ID: BAh7ByIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7ADoMY3NyZl9pZCIlYmY2OGQ3ZjEyMmRmYzZkODRj%0AOTJjMGQ3NWVmYjA4NjE%3D--0961af4626332e66bfbc743875eb9053556d7329
+  Parameters: {"action"=>"new", "controller"=>"users"}
+Rendering users/new
+Completed in 0.01809 (55 reqs/sec) | Rendering: 0.01187 (65%) | DB: 0.00000 (0%) | 200 OK [http://localhost/signup]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2008-03-27 19:14:15) [POST]
+  Session ID: BAh7ByIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7ADoMY3NyZl9pZCIlYmY2OGQ3ZjEyMmRmYzZkODRj%0AOTJjMGQ3NWVmYjA4NjE%3D--0961af4626332e66bfbc743875eb9053556d7329
+  Parameters: {"user"=>{"password_confirmation"=>"temp123", "login"=>"Jesus", "password"=>"temp123", "email"=>"Jesus@lord.com"}, "commit"=>"Sign up", "authenticity_token"=>"fe69329a30913d162f269d445242560c4d85c561", "action"=>"create", "controller"=>"users"}
+Cookie set: auth_token=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT
+  [4;36;1mUser Load (0.000899)[0m   [0;1mSELECT * FROM users WHERE (LOWER(users.login) = 'jesus') LIMIT 1[0m
+  [4;35;1mUser Load (0.000505)[0m   [0mSELECT * FROM users WHERE (LOWER(users.email) = 'jesus@lord.com') LIMIT 1[0m
+  [4;36;1mUser Create (0.001480)[0m   [0;1mINSERT INTO users ("department", "salt", "updated_at", "crypted_password", "remember_token_expires_at", "firstname", "lastname", "remember_token", "login", "created_at", "email") VALUES(NULL, 'f4c96297cb56fe1aafbe6ab75446318fbbc1b8b8', '2008-03-27 19:14:15', '07821f56c6ad21e7ec46ed2aac814a0c8e417ce7', NULL, NULL, NULL, NULL, 'Jesus', '2008-03-27 19:14:15', 'Jesus@lord.com')[0m
+Redirected to http://localhost:3000/
+Completed in 0.06470 (15 reqs/sec) | DB: 0.00288 (4%) | 302 Found [http://localhost/users]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2008-03-27 19:14:15) [GET]
+  Session ID: BAh7CToOcmV0dXJuX3RvMDoMdXNlcl9pZGkIIgpmbGFzaElDOidBY3Rpb25D%0Ab250cm9sbGVyOjpGbGFzaDo6Rmxhc2hIYXNoewY6C25vdGljZSIbVGhhbmtz%0AIGZvciBzaWduaW5nIHVwIQY6CkB1c2VkewY7CFQ6DGNzcmZfaWQiJWJmNjhk%0AN2YxMjJkZmM2ZDg0YzkyYzBkNzVlZmIwODYx--d74bd61dac396b29616ae0278ec0e18382fbbc40
+  Parameters: {"action"=>"index", "controller"=>"home"}
+Rendering home/index
+  [4;35;1mUser Load (0.001826)[0m   [0mSELECT * FROM users WHERE (users."id" = 3) LIMIT 1[0m
+Completed in 0.04226 (23 reqs/sec) | Rendering: 0.03458 (81%) | DB: 0.00183 (4%) | 200 OK [http://localhost/]
+
+
+Processing SessionController#destroy (for 127.0.0.1 at 2008-03-27 19:14:18) [GET]
+  Session ID: BAh7CToOcmV0dXJuX3RvMDoMdXNlcl9pZGkIIgpmbGFzaElDOidBY3Rpb25D%0Ab250cm9sbGVyOjpGbGFzaDo6Rmxhc2hIYXNoewAGOgpAdXNlZHsAOgxjc3Jm%0AX2lkIiViZjY4ZDdmMTIyZGZjNmQ4NGM5MmMwZDc1ZWZiMDg2MQ%3D%3D--37c86dc03c59774cafb48e4260c3602a29d4b131
+  Parameters: {"action"=>"destroy", "controller"=>"session"}
+  [4;36;1mUser Load (0.009546)[0m   [0;1mSELECT * FROM users WHERE (users."id" = 3) LIMIT 1[0m
+  [4;35;1mUser Update (0.001705)[0m   [0mUPDATE users SET "created_at" = '2008-03-27 19:14:15', "email" = 'Jesus@lord.com', "lastname" = NULL, "firstname" = NULL, "remember_token" = NULL, "login" = 'Jesus', "remember_token_expires_at" = NULL, "department" = NULL, "crypted_password" = '07821f56c6ad21e7ec46ed2aac814a0c8e417ce7', "updated_at" = '2008-03-27 19:14:18', "salt" = 'f4c96297cb56fe1aafbe6ab75446318fbbc1b8b8' WHERE "id" = 3[0m
+Cookie set: auth_token=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT
+Redirected to http://localhost:3000/
+Completed in 0.06819 (14 reqs/sec) | DB: 0.01125 (16%) | 302 Found [http://localhost/logout]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2008-03-27 19:14:19) [GET]
+  Session ID: BAh7BzoOcmV0dXJuX3RvMCIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6%0ARmxhc2g6OkZsYXNoSGFzaHsGOgtub3RpY2UiHllvdSBoYXZlIGJlZW4gbG9n%0AZ2VkIG91dC4GOgpAdXNlZHsGOwdU--f8181d820610d9832c790cff3e2e3b0bac083bfe
+  Parameters: {"action"=>"index", "controller"=>"home"}
+Rendering home/index
+Completed in 0.01579 (63 reqs/sec) | Rendering: 0.00347 (21%) | DB: 0.00000 (0%) | 200 OK [http://localhost/]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2008-03-27 19:14:19) [GET]
+  Session ID: BAh7BzoOcmV0dXJuX3RvMCIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6%0ARmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7AA%3D%3D--38135ce9af6c84ac143b63e9f26ac0912d9e8d67
+  Parameters: {"action"=>"new", "controller"=>"users"}
+Rendering users/new
+Completed in 0.01015 (98 reqs/sec) | Rendering: 0.00425 (41%) | DB: 0.00000 (0%) | 200 OK [http://localhost/signup]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2008-03-27 19:14:21) [POST]
+  Session ID: BAh7CDoOcmV0dXJuX3RvMCIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6%0ARmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7ADoMY3NyZl9pZCIlYmQ5YWJl%0AODEwODRhNzY2MmMxNjVlNDEzYTNiMmViYjk%3D--b00523a550bef4fa1c9cc43112e84f1b7113fec5
+  Parameters: {"user"=>{"password_confirmation"=>"", "login"=>"", "password"=>"", "email"=>""}, "commit"=>"Sign up", "authenticity_token"=>"287047af76e7de65d48d145aa4e3ed46d3b420b1", "action"=>"create", "controller"=>"users"}
+Cookie set: auth_token=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT
+  [4;36;1mUser Load (0.000800)[0m   [0;1mSELECT * FROM users WHERE (LOWER(users.login) = '') LIMIT 1[0m
+  [4;35;1mUser Load (0.000533)[0m   [0mSELECT * FROM users WHERE (LOWER(users.email) = '') LIMIT 1[0m
+Rendering users/new
+Completed in 0.05670 (17 reqs/sec) | Rendering: 0.00536 (9%) | DB: 0.00133 (2%) | 200 OK [http://localhost/users]
+
+
+Processing SessionController#new (for 127.0.0.1 at 2008-03-27 19:14:40) [GET]
+  Session ID: BAh7CDoOcmV0dXJuX3RvMCIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6%0ARmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7ADoMY3NyZl9pZCIlYmQ5YWJl%0AODEwODRhNzY2MmMxNjVlNDEzYTNiMmViYjk%3D--b00523a550bef4fa1c9cc43112e84f1b7113fec5
+  Parameters: {"action"=>"new", "controller"=>"session"}
+Rendering session/new
+Completed in 0.16628 (6 reqs/sec) | Rendering: 0.00462 (2%) | DB: 0.00000 (0%) | 200 OK [http://localhost/login]
+
+
+Processing ApplicationController#create (for 127.0.0.1 at 2008-03-27 19:14:45) [POST]
+  Session ID: BAh7CDoOcmV0dXJuX3RvMCIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6%0ARmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7ADoMY3NyZl9pZCIlYmQ5YWJl%0AODEwODRhNzY2MmMxNjVlNDEzYTNiMmViYjk%3D--b00523a550bef4fa1c9cc43112e84f1b7113fec5
+  Parameters: {"commit"=>"Log in", "authenticity_token"=>"287047af76e7de65d48d145aa4e3ed46d3b420b1", "action"=>"create", "controller"=>"sessions", "password"=>"temp123", "login"=>"Jesus"}
+
+
+NameError (uninitialized constant SessionsController):
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:266:in `load_missing_constant'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:453:in `const_missing'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:465:in `const_missing'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/inflector.rb:257:in `constantize'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/core_ext/string/inflections.rb:148:in `constantize'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/routing.rb:1426:in `recognize'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:170:in `handle_request'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/rails-2.0.2/lib/webrick_server.rb:112:in `handle_dispatch'
+    /Library/Ruby/Gems/1.8/gems/rails-2.0.2/lib/webrick_server.rb:78:in `service'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /Library/Ruby/Gems/1.8/gems/rails-2.0.2/lib/webrick_server.rb:62:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/rails-2.0.2/lib/commands/servers/webrick.rb:66
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /Library/Ruby/Gems/1.8/gems/rails-2.0.2/lib/commands/server.rb:39
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing HomeController#index (for 127.0.0.1 at 2008-03-31 09:33:32) [GET]
+  Session ID: 4fa8e28594896f76e7f524c7c2a900e8
+  Parameters: {"action"=>"index", "controller"=>"home"}
+Rendering home/index
+Completed in 0.06107 (16 reqs/sec) | Rendering: 0.05418 (88%) | DB: 0.00000 (0%) | 200 OK [http://localhost/]
+
+
+Processing SessionController#new (for 127.0.0.1 at 2008-03-31 09:33:46) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--2c912f44c616d7c8d261663959289cfff3a87506
+  Parameters: {"action"=>"new", "controller"=>"session"}
+Rendering session/new
+Completed in 0.02155 (46 reqs/sec) | Rendering: 0.01296 (60%) | DB: 0.00000 (0%) | 200 OK [http://localhost/login]
+
+
+Processing SessionController#create (for 127.0.0.1 at 2008-03-31 09:33:51) [POST]
+  Session ID: BAh7ByIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7ADoMY3NyZl9pZCIlOTViNDRjZDUwYWY1OWZiYWVm%0AZmY3NGRlMDQ5MTM3ZmY%3D--e507b0e97a7d9bceb14a6aeeebb95fb8d2a194a7
+  Parameters: {"commit"=>"Log in", "authenticity_token"=>"5fc69011504e787a895c5df114bee848b448fc73", "action"=>"create", "controller"=>"session", "password"=>"temp123", "login"=>"test"}
+  [4;36;1mUser Load (0.000933)[0m   [0;1mSELECT * FROM users WHERE (users."login" = 'test') LIMIT 1[0m
+Rendering session/new
+Completed in 0.08337 (11 reqs/sec) | Rendering: 0.00754 (9%) | DB: 0.00093 (1%) | 200 OK [http://localhost/session]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2008-03-31 09:33:55) [GET]
+  Session ID: BAh7CDoMdXNlcl9pZDAiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZs%0AYXNoOjpGbGFzaEhhc2h7AAY6CkB1c2VkewA6DGNzcmZfaWQiJTk1YjQ0Y2Q1%0AMGFmNTlmYmFlZmZmNzRkZTA0OTEzN2Zm--ff2785d7c0e549e0723c785958960b060ccac9ab
+  Parameters: {"action"=>"new", "controller"=>"users"}
+Rendering users/new
+Completed in 0.04055 (24 reqs/sec) | Rendering: 0.02620 (64%) | DB: 0.00000 (0%) | 200 OK [http://localhost/signup]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2008-03-31 09:34:07) [POST]
+  Session ID: BAh7CDoMdXNlcl9pZDAiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZs%0AYXNoOjpGbGFzaEhhc2h7AAY6CkB1c2VkewA6DGNzcmZfaWQiJTk1YjQ0Y2Q1%0AMGFmNTlmYmFlZmZmNzRkZTA0OTEzN2Zm--ff2785d7c0e549e0723c785958960b060ccac9ab
+  Parameters: {"user"=>{"password_confirmation"=>"temp123", "login"=>"test", "password"=>"temp123", "email"=>"test@aol.com"}, "commit"=>"Sign up", "authenticity_token"=>"5fc69011504e787a895c5df114bee848b448fc73", "action"=>"create", "controller"=>"users"}
+Cookie set: auth_token=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT
+  [4;35;1mUser Load (0.086911)[0m   [0mSELECT * FROM users WHERE (LOWER(users.login) = 'test') LIMIT 1[0m
+  [4;36;1mUser Load (0.001154)[0m   [0;1mSELECT * FROM users WHERE (LOWER(users.email) = 'test@aol.com') LIMIT 1[0m
+  [4;35;1mUser Create (0.001569)[0m   [0mINSERT INTO users ("department", "salt", "updated_at", "crypted_password", "remember_token_expires_at", "firstname", "lastname", "remember_token", "login", "created_at", "email") VALUES(NULL, 'dd2cc9c658a4b6e6a0f35ec02b0e2437ffd6ff01', '2008-03-31 09:34:07', '10952e73ac9d315bc025974dc08d56e0cc3c2075', NULL, NULL, NULL, NULL, 'test', '2008-03-31 09:34:07', 'test@aol.com')[0m
+Redirected to http://localhost:3000/
+Completed in 0.23032 (4 reqs/sec) | DB: 0.08963 (38%) | 302 Found [http://localhost/users]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2008-03-31 09:34:07) [GET]
+  Session ID: BAh7CToOcmV0dXJuX3RvMDoMdXNlcl9pZGkJIgpmbGFzaElDOidBY3Rpb25D%0Ab250cm9sbGVyOjpGbGFzaDo6Rmxhc2hIYXNoewY6C25vdGljZSIbVGhhbmtz%0AIGZvciBzaWduaW5nIHVwIQY6CkB1c2VkewY7CFQ6DGNzcmZfaWQiJTk1YjQ0%0AY2Q1MGFmNTlmYmFlZmZmNzRkZTA0OTEzN2Zm--4936910db990a910d4b050521e80e548d50ba57c
+  Parameters: {"action"=>"index", "controller"=>"home"}
+Rendering home/index
+  [4;36;1mUser Load (0.028548)[0m   [0;1mSELECT * FROM users WHERE (users."id" = 4) LIMIT 1[0m
+Completed in 0.19127 (5 reqs/sec) | Rendering: 0.11352 (59%) | DB: 0.02855 (14%) | 200 OK [http://localhost/]
+
+
+Processing SessionController#destroy (for 127.0.0.1 at 2008-03-31 09:34:09) [GET]
+  Session ID: BAh7CToOcmV0dXJuX3RvMDoMdXNlcl9pZGkJIgpmbGFzaElDOidBY3Rpb25D%0Ab250cm9sbGVyOjpGbGFzaDo6Rmxhc2hIYXNoewAGOgpAdXNlZHsAOgxjc3Jm%0AX2lkIiU5NWI0NGNkNTBhZjU5ZmJhZWZmZjc0ZGUwNDkxMzdmZg%3D%3D--1de421fdb35214db4c076af9b20ed59a0f989303
+  Parameters: {"action"=>"destroy", "controller"=>"session"}
+  [4;35;1mUser Load (0.001689)[0m   [0mSELECT * FROM users WHERE (users."id" = 4) LIMIT 1[0m
+  [4;36;1mUser Update (0.001359)[0m   [0;1mUPDATE users SET "created_at" = '2008-03-31 09:34:07', "email" = 'test@aol.com', "lastname" = NULL, "firstname" = NULL, "remember_token" = NULL, "login" = 'test', "remember_token_expires_at" = NULL, "department" = NULL, "crypted_password" = '10952e73ac9d315bc025974dc08d56e0cc3c2075', "updated_at" = '2008-03-31 09:34:09', "salt" = 'dd2cc9c658a4b6e6a0f35ec02b0e2437ffd6ff01' WHERE "id" = 4[0m
+Cookie set: auth_token=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT
+Redirected to http://localhost:3000/
+Completed in 0.07834 (12 reqs/sec) | DB: 0.00305 (3%) | 302 Found [http://localhost/logout]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2008-03-31 09:34:09) [GET]
+  Session ID: BAh7BzoOcmV0dXJuX3RvMCIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6%0ARmxhc2g6OkZsYXNoSGFzaHsGOgtub3RpY2UiHllvdSBoYXZlIGJlZW4gbG9n%0AZ2VkIG91dC4GOgpAdXNlZHsGOwdU--f8181d820610d9832c790cff3e2e3b0bac083bfe
+  Parameters: {"action"=>"index", "controller"=>"home"}
+Rendering home/index
+Completed in 0.01544 (64 reqs/sec) | Rendering: 0.00534 (34%) | DB: 0.00000 (0%) | 200 OK [http://localhost/]
+
+
+Processing SessionController#new (for 127.0.0.1 at 2008-03-31 09:34:11) [GET]
+  Session ID: BAh7BzoOcmV0dXJuX3RvMCIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6%0ARmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7AA%3D%3D--38135ce9af6c84ac143b63e9f26ac0912d9e8d67
+  Parameters: {"action"=>"new", "controller"=>"session"}
+Rendering session/new
+Completed in 0.08644 (11 reqs/sec) | Rendering: 0.00455 (5%) | DB: 0.00000 (0%) | 200 OK [http://localhost/login]
+
+
+Processing SessionController#create (for 127.0.0.1 at 2008-03-31 09:34:14) [POST]
+  Session ID: BAh7CDoOcmV0dXJuX3RvMCIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6%0ARmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7ADoMY3NyZl9pZCIlMGU2Yjkw%0AOTRhN2JhM2E3MDljNDI0NTkyNzRmZmM5NWU%3D--efe8b1fec660dad445403437dddff28e2b75acc4
+  Parameters: {"commit"=>"Log in", "authenticity_token"=>"dccabb785a9b86db064f5dddbef0216285f4ad3e", "action"=>"create", "controller"=>"session", "password"=>"temp123", "login"=>"test"}
+  [4;35;1mUser Load (0.004481)[0m   [0mSELECT * FROM users WHERE (users."login" = 'test') LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed in 0.20268 (4 reqs/sec) | DB: 0.00448 (2%) | 302 Found [http://localhost/session]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2008-03-31 09:34:15) [GET]
+  Session ID: BAh7CToOcmV0dXJuX3RvMDoMdXNlcl9pZGkJIgpmbGFzaElDOidBY3Rpb25D%0Ab250cm9sbGVyOjpGbGFzaDo6Rmxhc2hIYXNoewY6C25vdGljZSIbTG9nZ2Vk%0AIGluIHN1Y2Nlc3NmdWxseQY6CkB1c2VkewY7CFQ6DGNzcmZfaWQiJTBlNmI5%0AMDk0YTdiYTNhNzA5YzQyNDU5Mjc0ZmZjOTVl--49ebc48336bb828672b64f9a176755ef0014c5e9
+  Parameters: {"action"=>"index", "controller"=>"home"}
+Rendering home/index
+  [4;36;1mUser Load (0.001588)[0m   [0;1mSELECT * FROM users WHERE (users."id" = 4) LIMIT 1[0m
+Completed in 0.13295 (7 reqs/sec) | Rendering: 0.07488 (56%) | DB: 0.00159 (1%) | 200 OK [http://localhost/]
+
+
+Processing SessionController#destroy (for 127.0.0.1 at 2008-03-31 09:34:18) [GET]
+  Session ID: BAh7CToOcmV0dXJuX3RvMDoMdXNlcl9pZGkJIgpmbGFzaElDOidBY3Rpb25D%0Ab250cm9sbGVyOjpGbGFzaDo6Rmxhc2hIYXNoewAGOgpAdXNlZHsAOgxjc3Jm%0AX2lkIiUwZTZiOTA5NGE3YmEzYTcwOWM0MjQ1OTI3NGZmYzk1ZQ%3D%3D--0f7c9c3c9beba2835d3a101afbd626ebb4b38f29
+  Parameters: {"action"=>"destroy", "controller"=>"session"}
+  [4;35;1mUser Load (0.037431)[0m   [0mSELECT * FROM users WHERE (users."id" = 4) LIMIT 1[0m
+  [4;36;1mUser Update (0.017598)[0m   [0;1mUPDATE users SET "created_at" = '2008-03-31 09:34:07', "email" = 'test@aol.com', "lastname" = NULL, "firstname" = NULL, "remember_token" = NULL, "login" = 'test', "remember_token_expires_at" = NULL, "department" = NULL, "crypted_password" = '10952e73ac9d315bc025974dc08d56e0cc3c2075', "updated_at" = '2008-03-31 09:34:18', "salt" = 'dd2cc9c658a4b6e6a0f35ec02b0e2437ffd6ff01' WHERE "id" = 4[0m
+Cookie set: auth_token=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT
+Redirected to http://localhost:3000/
+Completed in 0.22317 (4 reqs/sec) | DB: 0.05503 (24%) | 302 Found [http://localhost/logout]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2008-03-31 09:34:19) [GET]
+  Session ID: BAh7BzoOcmV0dXJuX3RvMCIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6%0ARmxhc2g6OkZsYXNoSGFzaHsGOgtub3RpY2UiHllvdSBoYXZlIGJlZW4gbG9n%0AZ2VkIG91dC4GOgpAdXNlZHsGOwdU--f8181d820610d9832c790cff3e2e3b0bac083bfe
+  Parameters: {"action"=>"index", "controller"=>"home"}
+Rendering home/index
+Completed in 0.02163 (46 reqs/sec) | Rendering: 0.00437 (20%) | DB: 0.00000 (0%) | 200 OK [http://localhost/]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2008-03-31 09:35:34) [GET]
+  Session ID: BAh7BzoOcmV0dXJuX3RvMCIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6%0ARmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7AA%3D%3D--38135ce9af6c84ac143b63e9f26ac0912d9e8d67
+  Parameters: {"action"=>"index", "controller"=>"home"}
+Rendering home/index
+Completed in 0.02503 (39 reqs/sec) | Rendering: 0.01722 (68%) | DB: 0.00000 (0%) | 200 OK [http://localhost/]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2008-03-31 09:49:24) [GET]
+  Session ID: BAh7BzoOcmV0dXJuX3RvMCIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6%0ARmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7AA%3D%3D--38135ce9af6c84ac143b63e9f26ac0912d9e8d67
+  Parameters: {"action"=>"index", "controller"=>"home"}
+Rendering home/index
+Completed in 0.03648 (27 reqs/sec) | Rendering: 0.02942 (80%) | DB: 0.00000 (0%) | 200 OK [http://localhost/]
+
+
+Processing SessionController#new (for 127.0.0.1 at 2008-03-31 09:49:27) [GET]
+  Session ID: BAh7BzoOcmV0dXJuX3RvMCIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6%0ARmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7AA%3D%3D--38135ce9af6c84ac143b63e9f26ac0912d9e8d67
+  Parameters: {"action"=>"new", "controller"=>"session"}
+Rendering session/new
+Completed in 0.02468 (40 reqs/sec) | Rendering: 0.01498 (60%) | DB: 0.00000 (0%) | 200 OK [http://localhost/login]
+
+
+Processing SessionController#create (for 127.0.0.1 at 2008-03-31 09:49:31) [POST]
+  Session ID: BAh7CDoOcmV0dXJuX3RvMCIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6%0ARmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7ADoMY3NyZl9pZCIlYTJhNTYy%0ANGNjOWZjNWI1MjFiZjkyZmYyOTFjM2ZkM2M%3D--58f4185f3151f3931778841c1b61e7fd4525d2a8
+  Parameters: {"commit"=>"Log in", "authenticity_token"=>"b53c43cb0a9859969f42090f011c44aecae70284", "action"=>"create", "controller"=>"session", "password"=>"temp123", "login"=>"test"}
+  [4;35;1mUser Load (0.001597)[0m   [0mSELECT * FROM users WHERE (users."login" = 'test') LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed in 0.05591 (17 reqs/sec) | DB: 0.00160 (2%) | 302 Found [http://localhost/session]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2008-03-31 09:49:32) [GET]
+  Session ID: BAh7CToOcmV0dXJuX3RvMDoMdXNlcl9pZGkJIgpmbGFzaElDOidBY3Rpb25D%0Ab250cm9sbGVyOjpGbGFzaDo6Rmxhc2hIYXNoewY6C25vdGljZSIbTG9nZ2Vk%0AIGluIHN1Y2Nlc3NmdWxseQY6CkB1c2VkewY7CFQ6DGNzcmZfaWQiJWEyYTU2%0AMjRjYzlmYzViNTIxYmY5MmZmMjkxYzNmZDNj--5c711a3f88e41174186f59257069063c34d24097
+  Parameters: {"action"=>"index", "controller"=>"home"}
+Rendering home/index
+  [4;36;1mUser Load (0.001570)[0m   [0;1mSELECT * FROM users WHERE (users."id" = 4) LIMIT 1[0m
+
+
+ActionView::TemplateError (undefined method `start_tabnav' for #<ActionView::Base:0x19fccec>) on line #6 of home/index.rhtml:
+3: <h1>Welcome</h1>
+4: 
+5: <% if logged_in? %>
+6:   <%= start_tabnav :main %>
+7:   <%= @content_for_layout %>
+8:   <%= end_tabnav %>
+9:   <p><strong>You are logged in as <%=h current_user.login %></strong></p>
+
+    app/views/home/index.rhtml:6:in `_run_erb_47app47views47home47index46rhtml'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_view/base.rb:637:in `send'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_view/base.rb:637:in `compile_and_render_template'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_view/base.rb:365:in `render_template'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_view/base.rb:316:in `render_file'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1100:in `render_for_file'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:836:in `render_with_no_layout'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/layout.rb:270:in `render_without_benchmark'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:51:in `render'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:51:in `render'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1153:in `default_render'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1159:in `perform_action_without_filters'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:697:in `call_filters'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:689:in `perform_action_without_benchmark'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/rescue.rb:199:in `perform_action_without_caching'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/caching.rb:678:in `perform_action'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.0.2/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.0.2/lib/active_record/query_cache.rb:8:in `cache'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/caching.rb:677:in `perform_action'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:524:in `send'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:524:in `process_without_filters'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:685:in `process_without_session_management_support'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/session_management.rb:123:in `process'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:388:in `process'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:171:in `handle_request'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/rails-2.0.2/lib/webrick_server.rb:112:in `handle_dispatch'
+    /Library/Ruby/Gems/1.8/gems/rails-2.0.2/lib/webrick_server.rb:78:in `service'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /Library/Ruby/Gems/1.8/gems/rails-2.0.2/lib/webrick_server.rb:62:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/rails-2.0.2/lib/commands/servers/webrick.rb:66
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /Library/Ruby/Gems/1.8/gems/rails-2.0.2/lib/commands/server.rb:39
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing HomeController#index (for 127.0.0.1 at 2008-03-31 09:50:45) [GET]
+  Session ID: BAh7CToOcmV0dXJuX3RvMDoMdXNlcl9pZGkJIgpmbGFzaElDOidBY3Rpb25D%0Ab250cm9sbGVyOjpGbGFzaDo6Rmxhc2hIYXNoewAGOgpAdXNlZHsAOgxjc3Jm%0AX2lkIiVhMmE1NjI0Y2M5ZmM1YjUyMWJmOTJmZjI5MWMzZmQzYw%3D%3D--ffc885d65ee62e82b36f3432f922aa2d8b5b21b9
+  Parameters: {"action"=>"index", "controller"=>"home"}
+Rendering home/index
+  [4;35;1mUser Load (0.001844)[0m   [0mSELECT * FROM users WHERE (users."id" = 4) LIMIT 1[0m
+
+
+ActionView::TemplateError (undefined method `tabnav' for #<ActionView::Base:0x110bb38>) on line #6 of home/index.rhtml:
+3: <h1>Welcome</h1>
+4: 
+5: <% if logged_in? %>
+6:   <%= tabnav :main %>
+7:   <p><strong>You are logged in as <%=h current_user.login %></strong></p>
+8:   <p><%= link_to 'Logout', logout_path %></p>
+9: <% else %>
+
+    app/views/home/index.rhtml:6:in `_run_erb_47app47views47home47index46rhtml'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_view/base.rb:637:in `send'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_view/base.rb:637:in `compile_and_render_template'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_view/base.rb:365:in `render_template'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_view/base.rb:316:in `render_file'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1100:in `render_for_file'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:836:in `render_with_no_layout'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/layout.rb:270:in `render_without_benchmark'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:51:in `render'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:51:in `render'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1153:in `default_render'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1159:in `perform_action_without_filters'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:697:in `call_filters'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:689:in `perform_action_without_benchmark'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/rescue.rb:199:in `perform_action_without_caching'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/caching.rb:678:in `perform_action'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.0.2/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.0.2/lib/active_record/query_cache.rb:8:in `cache'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/caching.rb:677:in `perform_action'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:524:in `send'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:524:in `process_without_filters'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:685:in `process_without_session_management_support'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/session_management.rb:123:in `process'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:388:in `process'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:171:in `handle_request'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/rails-2.0.2/lib/webrick_server.rb:112:in `handle_dispatch'
+    /Library/Ruby/Gems/1.8/gems/rails-2.0.2/lib/webrick_server.rb:78:in `service'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /Library/Ruby/Gems/1.8/gems/rails-2.0.2/lib/webrick_server.rb:62:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/rails-2.0.2/lib/commands/servers/webrick.rb:66
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /Library/Ruby/Gems/1.8/gems/rails-2.0.2/lib/commands/server.rb:39
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing HomeController#index (for 127.0.0.1 at 2008-03-31 09:51:38) [GET]
+  Session ID: BAh7CToOcmV0dXJuX3RvMDoMdXNlcl9pZGkJIgpmbGFzaElDOidBY3Rpb25D%0Ab250cm9sbGVyOjpGbGFzaDo6Rmxhc2hIYXNoewAGOgpAdXNlZHsAOgxjc3Jm%0AX2lkIiVhMmE1NjI0Y2M5ZmM1YjUyMWJmOTJmZjI5MWMzZmQzYw%3D%3D--ffc885d65ee62e82b36f3432f922aa2d8b5b21b9
+  Parameters: {"action"=>"index", "controller"=>"home"}
+Rendering home/index
+  [4;36;1mUser Load (0.005162)[0m   [0;1mSELECT * FROM users WHERE (users."id" = 4) LIMIT 1[0m
+
+
+ActionView::TemplateError (undefined method `tabnav' for #<ActionView::Base:0x127d714>) on line #6 of home/index.rhtml:
+3: <h1>Welcome</h1>
+4: 
+5: <% if logged_in? %>
+6:   <%= tabnav :main %>
+7:   <p><strong>You are logged in as <%=h current_user.login %></strong></p>
+8:   <p><%= link_to 'Logout', logout_path %></p>
+9: <% else %>
+
+    app/views/home/index.rhtml:6:in `_run_erb_47app47views47home47index46rhtml'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_view/base.rb:637:in `send'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_view/base.rb:637:in `compile_and_render_template'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_view/base.rb:365:in `render_template'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_view/base.rb:316:in `render_file'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1100:in `render_for_file'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:836:in `render_with_no_layout'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/layout.rb:270:in `render_without_benchmark'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:51:in `render'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:51:in `render'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1153:in `default_render'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1159:in `perform_action_without_filters'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:697:in `call_filters'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:689:in `perform_action_without_benchmark'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/rescue.rb:199:in `perform_action_without_caching'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/caching.rb:678:in `perform_action'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.0.2/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.0.2/lib/active_record/query_cache.rb:8:in `cache'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/caching.rb:677:in `perform_action'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:524:in `send'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:524:in `process_without_filters'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:685:in `process_without_session_management_support'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/session_management.rb:123:in `process'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:388:in `process'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:171:in `handle_request'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/rails-2.0.2/lib/webrick_server.rb:112:in `handle_dispatch'
+    /Library/Ruby/Gems/1.8/gems/rails-2.0.2/lib/webrick_server.rb:78:in `service'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /Library/Ruby/Gems/1.8/gems/rails-2.0.2/lib/webrick_server.rb:62:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/rails-2.0.2/lib/commands/servers/webrick.rb:66
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /Library/Ruby/Gems/1.8/gems/rails-2.0.2/lib/commands/server.rb:39
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing HomeController#index (for 127.0.0.1 at 2008-03-31 09:53:44) [GET]
+  Session ID: BAh7CToOcmV0dXJuX3RvMDoMdXNlcl9pZGkJIgpmbGFzaElDOidBY3Rpb25D%0Ab250cm9sbGVyOjpGbGFzaDo6Rmxhc2hIYXNoewAGOgpAdXNlZHsAOgxjc3Jm%0AX2lkIiVhMmE1NjI0Y2M5ZmM1YjUyMWJmOTJmZjI5MWMzZmQzYw%3D%3D--ffc885d65ee62e82b36f3432f922aa2d8b5b21b9
+  Parameters: {"action"=>"index", "controller"=>"home"}
+Rendering home/index
+  [4;36;1mUser Load (0.002105)[0m   [0;1mSELECT * FROM users WHERE (users."id" = 4) LIMIT 1[0m
+Rendered tabnav/_main_tabnav (0.01912)
+Completed in 0.20087 (4 reqs/sec) | Rendering: 0.19174 (95%) | DB: 0.00210 (1%) | 200 OK [http://localhost/]
+
+
+Processing SessionController#destroy (for 127.0.0.1 at 2008-03-31 09:53:52) [GET]
+  Session ID: BAh7CSIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7ADoOcmV0dXJuX3RvMDoMY3NyZl9pZCIlYTJhNTYy%0ANGNjOWZjNWI1MjFiZjkyZmYyOTFjM2ZkM2M6DHVzZXJfaWRpCQ%3D%3D--e0566ca4471e6c3ddf7c79e29b1be8e0c063d0d2
+  Parameters: {"action"=>"destroy", "controller"=>"session"}
+  [4;35;1mUser Load (0.001835)[0m   [0mSELECT * FROM users WHERE (users."id" = 4) LIMIT 1[0m
+  [4;36;1mUser Update (0.001497)[0m   [0;1mUPDATE users SET "created_at" = '2008-03-31 09:34:07', "email" = 'test@aol.com', "lastname" = NULL, "firstname" = NULL, "remember_token" = NULL, "login" = 'test', "remember_token_expires_at" = NULL, "department" = NULL, "crypted_password" = '10952e73ac9d315bc025974dc08d56e0cc3c2075', "updated_at" = '2008-03-31 09:53:52', "salt" = 'dd2cc9c658a4b6e6a0f35ec02b0e2437ffd6ff01' WHERE "id" = 4[0m
+Cookie set: auth_token=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT
+Redirected to http://localhost:3000/
+Completed in 0.18719 (5 reqs/sec) | DB: 0.00333 (1%) | 302 Found [http://localhost/logout]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2008-03-31 09:53:52) [GET]
+  Session ID: BAh7BzoOcmV0dXJuX3RvMCIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6%0ARmxhc2g6OkZsYXNoSGFzaHsGOgtub3RpY2UiHllvdSBoYXZlIGJlZW4gbG9n%0AZ2VkIG91dC4GOgpAdXNlZHsGOwdU--f8181d820610d9832c790cff3e2e3b0bac083bfe
+  Parameters: {"action"=>"index", "controller"=>"home"}
+Rendering home/index
+Completed in 0.02214 (45 reqs/sec) | Rendering: 0.00789 (35%) | DB: 0.00000 (0%) | 200 OK [http://localhost/]
+
+
+Processing SessionController#new (for 127.0.0.1 at 2008-03-31 09:53:54) [GET]
+  Session ID: BAh7ByIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7ADoOcmV0dXJuX3RvMA%3D%3D--9b554502c4fe8c313fe3d996ddcd234b00568256
+  Parameters: {"action"=>"new", "controller"=>"session"}
+Rendering session/new
+Completed in 0.01786 (55 reqs/sec) | Rendering: 0.00945 (52%) | DB: 0.00000 (0%) | 200 OK [http://localhost/login]
+
+
+Processing SessionController#create (for 127.0.0.1 at 2008-03-31 09:53:59) [POST]
+  Session ID: BAh7CDoOcmV0dXJuX3RvMCIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6%0ARmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7ADoMY3NyZl9pZCIlNGRkYWNi%0AZDY5NWM3MjU0ZTkxYmUzZDc0MTBjZjFjZTc%3D--4077074e675e1d91448432f6e2fbd02b7b091ea3
+  Parameters: {"commit"=>"Log in", "authenticity_token"=>"0b5acb6271ae2aa6680067a4700e39e8bd2707fd", "action"=>"create", "controller"=>"session", "password"=>"temp123", "login"=>"test"}
+  [4;35;1mUser Load (0.004838)[0m   [0mSELECT * FROM users WHERE (users."login" = 'test') LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed in 0.07621 (13 reqs/sec) | DB: 0.00484 (6%) | 302 Found [http://localhost/session]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2008-03-31 09:54:00) [GET]
+  Session ID: BAh7CSIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsGOgtub3RpY2UiG0xvZ2dlZCBpbiBzdWNjZXNzZnVsbHkGOgpAdXNl%0AZHsGOwZUOg5yZXR1cm5fdG8wOgx1c2VyX2lkaQk6DGNzcmZfaWQiJTRkZGFj%0AYmQ2OTVjNzI1NGU5MWJlM2Q3NDEwY2YxY2U3--99a27b472a0b506412a69de17bbcc65795d9b61c
+  Parameters: {"action"=>"index", "controller"=>"home"}
+Rendering home/index
+  [4;36;1mUser Load (0.005754)[0m   [0;1mSELECT * FROM users WHERE (users."id" = 4) LIMIT 1[0m
+Rendered tabnav/_main_tabnav (0.00124)
+Completed in 0.18596 (5 reqs/sec) | Rendering: 0.16186 (87%) | DB: 0.00575 (3%) | 200 OK [http://localhost/]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2008-03-31 09:54:05) [GET]
+  Session ID: BAh7CToOcmV0dXJuX3RvMCIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6%0ARmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7ADoMY3NyZl9pZCIlNGRkYWNi%0AZDY5NWM3MjU0ZTkxYmUzZDc0MTBjZjFjZTc6DHVzZXJfaWRpCQ%3D%3D--93ff9ffc9bb88de19b9214befe6751c6d671b87d
+  Parameters: {"action"=>"index", "controller"=>"home"}
+Rendering home/index
+  [4;35;1mUser Load (0.001929)[0m   [0mSELECT * FROM users WHERE (users."id" = 4) LIMIT 1[0m
+Rendered tabnav/_main_tabnav (0.00107)
+Completed in 0.11750 (8 reqs/sec) | Rendering: 0.06163 (52%) | DB: 0.00193 (1%) | 200 OK [http://localhost/]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2008-03-31 09:54:07) [GET]
+  Session ID: BAh7CSIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7ADoOcmV0dXJuX3RvMDoMdXNlcl9pZGkJOgxjc3Jm%0AX2lkIiU0ZGRhY2JkNjk1YzcyNTRlOTFiZTNkNzQxMGNmMWNlNw%3D%3D--4041e1af27843b891aab0563552883d2c64c1173
+  Parameters: {"action"=>"index", "controller"=>"home"}
+Rendering home/index
+  [4;36;1mUser Load (0.001600)[0m   [0;1mSELECT * FROM users WHERE (users."id" = 4) LIMIT 1[0m
+Rendered tabnav/_main_tabnav (0.00253)
+Completed in 0.30221 (3 reqs/sec) | Rendering: 0.28852 (95%) | DB: 0.00160 (0%) | 200 OK [http://localhost/]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2008-03-31 09:54:44) [GET]
+  Session ID: BAh7CToOcmV0dXJuX3RvMCIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6%0ARmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7ADoMY3NyZl9pZCIlNGRkYWNi%0AZDY5NWM3MjU0ZTkxYmUzZDc0MTBjZjFjZTc6DHVzZXJfaWRpCQ%3D%3D--93ff9ffc9bb88de19b9214befe6751c6d671b87d
+  Parameters: {"action"=>"index", "controller"=>"home"}
+Rendering home/index
+  [4;35;1mUser Load (0.004813)[0m   [0mSELECT * FROM users WHERE (users."id" = 4) LIMIT 1[0m
+Rendered tabnav/_main_tabnav (0.00113)
+Completed in 0.17634 (5 reqs/sec) | Rendering: 0.15193 (86%) | DB: 0.00481 (2%) | 200 OK [http://localhost/]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2008-03-31 09:54:46) [GET]
+  Session ID: BAh7CSIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7ADoOcmV0dXJuX3RvMDoMdXNlcl9pZGkJOgxjc3Jm%0AX2lkIiU0ZGRhY2JkNjk1YzcyNTRlOTFiZTNkNzQxMGNmMWNlNw%3D%3D--4041e1af27843b891aab0563552883d2c64c1173
+  Parameters: {"action"=>"index", "controller"=>"home"}
+Rendering home/index
+  [4;36;1mUser Load (0.003246)[0m   [0;1mSELECT * FROM users WHERE (users."id" = 4) LIMIT 1[0m
+Rendered tabnav/_main_tabnav (0.00366)
+Completed in 0.11934 (8 reqs/sec) | Rendering: 0.10372 (86%) | DB: 0.00325 (2%) | 200 OK [http://localhost/]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2008-03-31 09:54:47) [GET]
+  Session ID: BAh7CToOcmV0dXJuX3RvMCIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6%0ARmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7ADoMY3NyZl9pZCIlNGRkYWNi%0AZDY5NWM3MjU0ZTkxYmUzZDc0MTBjZjFjZTc6DHVzZXJfaWRpCQ%3D%3D--93ff9ffc9bb88de19b9214befe6751c6d671b87d
+  Parameters: {"action"=>"index", "controller"=>"home"}
+Rendering home/index
+  [4;35;1mUser Load (0.003075)[0m   [0mSELECT * FROM users WHERE (users."id" = 4) LIMIT 1[0m
+Rendered tabnav/_main_tabnav (0.00137)
+Completed in 0.62248 (1 reqs/sec) | Rendering: 0.60156 (96%) | DB: 0.00307 (0%) | 200 OK [http://localhost/]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2008-03-31 09:54:49) [GET]
+  Session ID: BAh7CSIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7ADoOcmV0dXJuX3RvMDoMdXNlcl9pZGkJOgxjc3Jm%0AX2lkIiU0ZGRhY2JkNjk1YzcyNTRlOTFiZTNkNzQxMGNmMWNlNw%3D%3D--4041e1af27843b891aab0563552883d2c64c1173
+  Parameters: {"action"=>"index", "controller"=>"home"}
+Rendering home/index
+  [4;36;1mUser Load (0.006385)[0m   [0;1mSELECT * FROM users WHERE (users."id" = 4) LIMIT 1[0m
+Rendered tabnav/_main_tabnav (0.00282)
+Completed in 0.11941 (8 reqs/sec) | Rendering: 0.10338 (86%) | DB: 0.00638 (5%) | 200 OK [http://localhost/]
+
+
+Processing SessionController#destroy (for 127.0.0.1 at 2008-03-31 09:55:03) [GET]
+  Session ID: BAh7CToOcmV0dXJuX3RvMCIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6%0ARmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7ADoMY3NyZl9pZCIlNGRkYWNi%0AZDY5NWM3MjU0ZTkxYmUzZDc0MTBjZjFjZTc6DHVzZXJfaWRpCQ%3D%3D--93ff9ffc9bb88de19b9214befe6751c6d671b87d
+  Parameters: {"action"=>"destroy", "controller"=>"session"}
+  [4;35;1mUser Load (0.001612)[0m   [0mSELECT * FROM users WHERE (users."id" = 4) LIMIT 1[0m
+  [4;36;1mUser Update (0.001314)[0m   [0;1mUPDATE users SET "created_at" = '2008-03-31 09:34:07', "email" = 'test@aol.com', "lastname" = NULL, "firstname" = NULL, "remember_token" = NULL, "login" = 'test', "remember_token_expires_at" = NULL, "department" = NULL, "crypted_password" = '10952e73ac9d315bc025974dc08d56e0cc3c2075', "updated_at" = '2008-03-31 09:55:04', "salt" = 'dd2cc9c658a4b6e6a0f35ec02b0e2437ffd6ff01' WHERE "id" = 4[0m
+Cookie set: auth_token=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT
+Redirected to http://localhost:3000/
+Completed in 0.14908 (6 reqs/sec) | DB: 0.00293 (1%) | 302 Found [http://localhost/logout]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2008-03-31 09:55:04) [GET]
+  Session ID: BAh7BzoOcmV0dXJuX3RvMCIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6%0ARmxhc2g6OkZsYXNoSGFzaHsGOgtub3RpY2UiHllvdSBoYXZlIGJlZW4gbG9n%0AZ2VkIG91dC4GOgpAdXNlZHsGOwdU--f8181d820610d9832c790cff3e2e3b0bac083bfe
+  Parameters: {"action"=>"index", "controller"=>"home"}
+Rendering home/index
+Completed in 0.03084 (32 reqs/sec) | Rendering: 0.01241 (40%) | DB: 0.00000 (0%) | 200 OK [http://localhost/]
+
+
+Processing SessionController#new (for 127.0.0.1 at 2008-03-31 09:55:28) [GET]
+  Session ID: BAh7ByIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7ADoOcmV0dXJuX3RvMA%3D%3D--9b554502c4fe8c313fe3d996ddcd234b00568256
+  Parameters: {"action"=>"new", "controller"=>"session"}
+Rendering session/new
+Completed in 0.01709 (58 reqs/sec) | Rendering: 0.00591 (34%) | DB: 0.00000 (0%) | 200 OK [http://localhost/login]
+
+
+Processing SessionController#create (for 127.0.0.1 at 2008-03-31 09:55:34) [POST]
+  Session ID: BAh7CDoOcmV0dXJuX3RvMCIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6%0ARmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7ADoMY3NyZl9pZCIlZjBiNjY3%0AZDBlNmI1ZDczN2NkZDVmNzkxNDEwZTBkMDM%3D--f348d7c80a9a80fef8ab1b7ca23891e0e23341e2
+  Parameters: {"commit"=>"Log in", "authenticity_token"=>"4dbae09a300dd4a75a3671c0651967c16d7b10ee", "action"=>"create", "controller"=>"session", "password"=>"temp123", "login"=>"test"}
+  [4;35;1mUser Load (0.001568)[0m   [0mSELECT * FROM users WHERE (users."login" = 'test') LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed in 0.07692 (12 reqs/sec) | DB: 0.00157 (2%) | 302 Found [http://localhost/session]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2008-03-31 09:55:34) [GET]
+  Session ID: BAh7CSIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsGOgtub3RpY2UiG0xvZ2dlZCBpbiBzdWNjZXNzZnVsbHkGOgpAdXNl%0AZHsGOwZUOg5yZXR1cm5fdG8wOgx1c2VyX2lkaQk6DGNzcmZfaWQiJWYwYjY2%0AN2QwZTZiNWQ3MzdjZGQ1Zjc5MTQxMGUwZDAz--52d2397290a4d317a18a9b00f1c83723162f6d14
+  Parameters: {"action"=>"index", "controller"=>"home"}
+Rendering home/index
+  [4;36;1mUser Load (0.012953)[0m   [0;1mSELECT * FROM users WHERE (users."id" = 4) LIMIT 1[0m
+Rendered tabnav/_main_tabnav (0.00144)
+Completed in 0.20940 (4 reqs/sec) | Rendering: 0.16312 (77%) | DB: 0.01295 (6%) | 200 OK [http://localhost/]
