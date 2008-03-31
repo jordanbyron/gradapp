@@ -1397,3 +1397,350 @@ Rendering home/index
   [4;36;1mUser Load (0.012953)[0m   [0;1mSELECT * FROM users WHERE (users."id" = 4) LIMIT 1[0m
 Rendered tabnav/_main_tabnav (0.00144)
 Completed in 0.20940 (4 reqs/sec) | Rendering: 0.16312 (77%) | DB: 0.01295 (6%) | 200 OK [http://localhost/]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2008-03-31 18:24:17) [GET]
+  Session ID: BAh7CToOcmV0dXJuX3RvMDoMdXNlcl9pZGkJIgpmbGFzaElDOidBY3Rpb25D%0Ab250cm9sbGVyOjpGbGFzaDo6Rmxhc2hIYXNoewAGOgpAdXNlZHsAOgxjc3Jm%0AX2lkIiU0ZjdjYjM0NTI4NTc5NGViZWFhNGQ5NDI0ODRmNWY1Zg%3D%3D--2fcffc86645f1fdcc5f36252e9a97d0fa2b44835
+  Parameters: {"action"=>"index", "controller"=>"home"}
+Rendering home/index
+  [4;36;1mUser Load (0.013703)[0m   [0;1mSELECT * FROM users WHERE (users."id" = 4) LIMIT 1[0m
+Rendered tabnav/_main_tabnav (0.01219)
+Completed in 0.09493 (10 reqs/sec) | Rendering: 0.07530 (79%) | DB: 0.01370 (14%) | 200 OK [http://localhost/]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2008-03-31 18:26:15) [GET]
+  Session ID: BAh7CToOcmV0dXJuX3RvMDoMdXNlcl9pZGkJIgpmbGFzaElDOidBY3Rpb25D%0Ab250cm9sbGVyOjpGbGFzaDo6Rmxhc2hIYXNoewAGOgpAdXNlZHsAOgxjc3Jm%0AX2lkIiU0ZjdjYjM0NTI4NTc5NGViZWFhNGQ5NDI0ODRmNWY1Zg%3D%3D--2fcffc86645f1fdcc5f36252e9a97d0fa2b44835
+  Parameters: {"action"=>"index", "controller"=>"home"}
+Rendering home/index
+  [4;35;1mUser Load (0.001479)[0m   [0mSELECT * FROM users WHERE (users."id" = 4) LIMIT 1[0m
+Rendered tabnav/_main_tabnav (0.00380)
+Completed in 0.22323 (4 reqs/sec) | Rendering: 0.21594 (96%) | DB: 0.00148 (0%) | 200 OK [http://localhost/]
+
+
+Processing GraduateApplicantsController#index (for 127.0.0.1 at 2008-03-31 18:26:18) [GET]
+  Session ID: BAh7CToOcmV0dXJuX3RvMDoMdXNlcl9pZGkJIgpmbGFzaElDOidBY3Rpb25D%0Ab250cm9sbGVyOjpGbGFzaDo6Rmxhc2hIYXNoewAGOgpAdXNlZHsAOgxjc3Jm%0AX2lkIiU0ZjdjYjM0NTI4NTc5NGViZWFhNGQ5NDI0ODRmNWY1Zg%3D%3D--2fcffc86645f1fdcc5f36252e9a97d0fa2b44835
+  Parameters: {"action"=>"index", "controller"=>"graduate_applicants"}
+  [4;36;1mUser Load (0.001508)[0m   [0;1mSELECT * FROM users WHERE (users."id" = 4) LIMIT 1[0m
+  [4;35;1mGraduateApplicant Load (0.000000)[0m   [0mSQLite3::SQLException: no such table: graduate_applicants: SELECT * FROM graduate_applicants [0m
+
+
+ActiveRecord::StatementInvalid (SQLite3::SQLException: no such table: graduate_applicants: SELECT * FROM graduate_applicants   ):
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.0.2/lib/active_record/connection_adapters/abstract_adapter.rb:150:in `log'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.0.2/lib/active_record/connection_adapters/sqlite_adapter.rb:132:in `execute'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.0.2/lib/active_record/connection_adapters/sqlite_adapter.rb:345:in `catch_schema_changes'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.0.2/lib/active_record/connection_adapters/sqlite_adapter.rb:132:in `execute'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.0.2/lib/active_record/connection_adapters/sqlite_adapter.rb:256:in `select'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.0.2/lib/active_record/connection_adapters/abstract/database_statements.rb:7:in `select_all_without_query_cache'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.0.2/lib/active_record/connection_adapters/abstract/query_cache.rb:53:in `select_all'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.0.2/lib/active_record/connection_adapters/abstract/query_cache.rb:74:in `cache_sql'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.0.2/lib/active_record/connection_adapters/abstract/query_cache.rb:53:in `select_all'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.0.2/lib/active_record/base.rb:532:in `find_by_sql'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.0.2/lib/active_record/base.rb:1233:in `find_every'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.0.2/lib/active_record/base.rb:503:in `find'
+    /app/controllers/graduate_applicants_controller.rb:8:in `index'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1158:in `send'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1158:in `perform_action_without_filters'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:697:in `call_filters'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:689:in `perform_action_without_benchmark'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/rescue.rb:199:in `perform_action_without_caching'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/caching.rb:678:in `perform_action'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.0.2/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.0.2/lib/active_record/query_cache.rb:8:in `cache'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/caching.rb:677:in `perform_action'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:524:in `send'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:524:in `process_without_filters'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:685:in `process_without_session_management_support'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/session_management.rb:123:in `process'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:388:in `process'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:171:in `handle_request'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/rails-2.0.2/lib/webrick_server.rb:112:in `handle_dispatch'
+    /Library/Ruby/Gems/1.8/gems/rails-2.0.2/lib/webrick_server.rb:78:in `service'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /Library/Ruby/Gems/1.8/gems/rails-2.0.2/lib/webrick_server.rb:62:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/rails-2.0.2/lib/commands/servers/webrick.rb:66
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /Library/Ruby/Gems/1.8/gems/rails-2.0.2/lib/commands/server.rb:39
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+  [4;36;1mSQL (0.000900)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;35;1mSQL (0.001135)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.000935)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to CreateDepartments (2)
+  [4;35;1mSQL (0.004810)[0m   [0mCREATE TABLE departments ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255) DEFAULT NULL, "short_name" varchar(255) DEFAULT NULL, "created_at" datetime DEFAULT NULL, "updated_at" datetime DEFAULT NULL) [0m
+  [4;36;1mSQL (0.003109)[0m   [0;1mUPDATE schema_info SET version = 2[0m
+  [4;35;1mSQL (0.001086)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to CreateGraduateApplicants (3)
+  [4;36;1mSQL (0.005706)[0m   [0;1mCREATE TABLE graduate_applicants ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar(255) DEFAULT NULL, "last_name" varchar(255) DEFAULT NULL, "address1" varchar(255) DEFAULT NULL, "address2" varchar(255) DEFAULT NULL, "city" varchar(255) DEFAULT NULL, "state" varchar(255) DEFAULT NULL, "zip" varchar(255) DEFAULT NULL, "phone" varchar(255) DEFAULT NULL, "email" varchar(255) DEFAULT NULL, "status" varchar(255) DEFAULT NULL, "department" integer DEFAULT NULL, "gpa" decimal DEFAULT NULL, "studentID" varchar(255) DEFAULT NULL, "created_at" datetime DEFAULT NULL, "updated_at" datetime DEFAULT NULL) [0m
+  [4;35;1mSQL (0.003374)[0m   [0mUPDATE schema_info SET version = 3[0m
+  [4;36;1mSQL (0.001465)[0m   [0;1mSELECT * FROM schema_info[0m
+  [4;35;1mSQL (0.001316)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000300)[0m   [0;1mPRAGMA index_list(departments)[0m
+  [4;35;1mSQL (0.000319)[0m   [0mPRAGMA index_list(graduate_applicants)[0m
+  [4;36;1mSQL (0.000293)[0m   [0;1mPRAGMA index_list(users)[0m
+
+
+Processing GraduateApplicantsController#index (for 127.0.0.1 at 2008-03-31 18:26:37) [GET]
+  Session ID: BAh7CToOcmV0dXJuX3RvMDoMdXNlcl9pZGkJIgpmbGFzaElDOidBY3Rpb25D%0Ab250cm9sbGVyOjpGbGFzaDo6Rmxhc2hIYXNoewAGOgpAdXNlZHsAOgxjc3Jm%0AX2lkIiU0ZjdjYjM0NTI4NTc5NGViZWFhNGQ5NDI0ODRmNWY1Zg%3D%3D--2fcffc86645f1fdcc5f36252e9a97d0fa2b44835
+  Parameters: {"action"=>"index", "controller"=>"graduate_applicants"}
+  [4;36;1mUser Load (0.001538)[0m   [0;1mSELECT * FROM users WHERE (users."id" = 4) LIMIT 1[0m
+  [4;35;1mGraduateApplicant Load (0.000979)[0m   [0mSELECT * FROM graduate_applicants [0m
+Rendering template within layouts/graduate_applicants
+Rendering graduate_applicants/index
+Rendered tabnav/_main_tabnav (0.00146)
+Completed in 0.08720 (11 reqs/sec) | Rendering: 0.03954 (45%) | DB: 0.00252 (2%) | 200 OK [http://localhost/graduate_applicants]
+
+
+Processing GraduateApplicantsController#index (for 127.0.0.1 at 2008-03-31 18:26:42) [GET]
+  Session ID: BAh7CToOcmV0dXJuX3RvMDoMdXNlcl9pZGkJIgpmbGFzaElDOidBY3Rpb25D%0Ab250cm9sbGVyOjpGbGFzaDo6Rmxhc2hIYXNoewAGOgpAdXNlZHsAOgxjc3Jm%0AX2lkIiU0ZjdjYjM0NTI4NTc5NGViZWFhNGQ5NDI0ODRmNWY1Zg%3D%3D--2fcffc86645f1fdcc5f36252e9a97d0fa2b44835
+  Parameters: {"action"=>"index", "controller"=>"graduate_applicants"}
+  [4;36;1mUser Load (0.001715)[0m   [0;1mSELECT * FROM users WHERE (users."id" = 4) LIMIT 1[0m
+  [4;35;1mGraduateApplicant Load (0.000835)[0m   [0mSELECT * FROM graduate_applicants [0m
+Rendering template within layouts/graduate_applicants
+Rendering graduate_applicants/index
+Rendered tabnav/_main_tabnav (0.00108)
+Completed in 0.27026 (3 reqs/sec) | Rendering: 0.21840 (80%) | DB: 0.00255 (0%) | 200 OK [http://localhost/graduate_applicants]
+
+
+Processing GraduateApplicantsController#index (for 127.0.0.1 at 2008-03-31 18:27:01) [GET]
+  Session ID: BAh7CToOcmV0dXJuX3RvMDoMdXNlcl9pZGkJIgpmbGFzaElDOidBY3Rpb25D%0Ab250cm9sbGVyOjpGbGFzaDo6Rmxhc2hIYXNoewAGOgpAdXNlZHsAOgxjc3Jm%0AX2lkIiU0ZjdjYjM0NTI4NTc5NGViZWFhNGQ5NDI0ODRmNWY1Zg%3D%3D--2fcffc86645f1fdcc5f36252e9a97d0fa2b44835
+  Parameters: {"action"=>"index", "controller"=>"graduate_applicants"}
+  [4;36;1mUser Load (0.001542)[0m   [0;1mSELECT * FROM users WHERE (users."id" = 4) LIMIT 1[0m
+  [4;35;1mGraduateApplicant Load (0.000767)[0m   [0mSELECT * FROM graduate_applicants [0m
+Rendering template within layouts/graduate_applicants
+Rendering graduate_applicants/index
+Rendered tabnav/_main_tabnav (0.00102)
+Completed in 0.07697 (12 reqs/sec) | Rendering: 0.02724 (35%) | DB: 0.00231 (3%) | 200 OK [http://localhost/graduate_applicants]
+
+
+Processing DepartmentsController#index (for 127.0.0.1 at 2008-03-31 18:27:03) [GET]
+  Session ID: BAh7CToOcmV0dXJuX3RvMDoMdXNlcl9pZGkJIgpmbGFzaElDOidBY3Rpb25D%0Ab250cm9sbGVyOjpGbGFzaDo6Rmxhc2hIYXNoewAGOgpAdXNlZHsAOgxjc3Jm%0AX2lkIiU0ZjdjYjM0NTI4NTc5NGViZWFhNGQ5NDI0ODRmNWY1Zg%3D%3D--2fcffc86645f1fdcc5f36252e9a97d0fa2b44835
+  Parameters: {"action"=>"index", "controller"=>"departments"}
+  [4;36;1mUser Load (0.001505)[0m   [0;1mSELECT * FROM users WHERE (users."id" = 4) LIMIT 1[0m
+  [4;35;1mDepartment Load (0.000817)[0m   [0mSELECT * FROM departments [0m
+Rendering template within layouts/departments
+Rendering departments/index
+Rendered tabnav/_main_tabnav (0.00114)
+Completed in 0.07724 (12 reqs/sec) | Rendering: 0.02915 (37%) | DB: 0.00232 (3%) | 200 OK [http://localhost/departments]
+
+
+Processing GraduateApplicantsController#index (for 127.0.0.1 at 2008-03-31 18:27:04) [GET]
+  Session ID: BAh7CToOcmV0dXJuX3RvMDoMdXNlcl9pZGkJIgpmbGFzaElDOidBY3Rpb25D%0Ab250cm9sbGVyOjpGbGFzaDo6Rmxhc2hIYXNoewAGOgpAdXNlZHsAOgxjc3Jm%0AX2lkIiU0ZjdjYjM0NTI4NTc5NGViZWFhNGQ5NDI0ODRmNWY1Zg%3D%3D--2fcffc86645f1fdcc5f36252e9a97d0fa2b44835
+  Parameters: {"action"=>"index", "controller"=>"graduate_applicants"}
+  [4;36;1mUser Load (0.001474)[0m   [0;1mSELECT * FROM users WHERE (users."id" = 4) LIMIT 1[0m
+  [4;35;1mGraduateApplicant Load (0.000734)[0m   [0mSELECT * FROM graduate_applicants [0m
+Rendering template within layouts/graduate_applicants
+Rendering graduate_applicants/index
+Rendered tabnav/_main_tabnav (0.00382)
+Completed in 0.07124 (14 reqs/sec) | Rendering: 0.02498 (35%) | DB: 0.00221 (3%) | 200 OK [http://localhost/graduate_applicants]
+
+
+Processing DepartmentsController#index (for 127.0.0.1 at 2008-03-31 18:27:06) [GET]
+  Session ID: BAh7CToOcmV0dXJuX3RvMDoMdXNlcl9pZGkJIgpmbGFzaElDOidBY3Rpb25D%0Ab250cm9sbGVyOjpGbGFzaDo6Rmxhc2hIYXNoewAGOgpAdXNlZHsAOgxjc3Jm%0AX2lkIiU0ZjdjYjM0NTI4NTc5NGViZWFhNGQ5NDI0ODRmNWY1Zg%3D%3D--2fcffc86645f1fdcc5f36252e9a97d0fa2b44835
+  Parameters: {"action"=>"index", "controller"=>"departments"}
+  [4;36;1mUser Load (0.001586)[0m   [0;1mSELECT * FROM users WHERE (users."id" = 4) LIMIT 1[0m
+  [4;35;1mDepartment Load (0.003649)[0m   [0mSELECT * FROM departments [0m
+Rendering template within layouts/departments
+Rendering departments/index
+Rendered tabnav/_main_tabnav (0.00104)
+Completed in 0.26709 (3 reqs/sec) | Rendering: 0.02030 (7%) | DB: 0.00523 (1%) | 200 OK [http://localhost/departments]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2008-03-31 18:27:23) [GET]
+  Session ID: BAh7CToOcmV0dXJuX3RvMDoMdXNlcl9pZGkJIgpmbGFzaElDOidBY3Rpb25D%0Ab250cm9sbGVyOjpGbGFzaDo6Rmxhc2hIYXNoewAGOgpAdXNlZHsAOgxjc3Jm%0AX2lkIiU0ZjdjYjM0NTI4NTc5NGViZWFhNGQ5NDI0ODRmNWY1Zg%3D%3D--2fcffc86645f1fdcc5f36252e9a97d0fa2b44835
+  Parameters: {"action"=>"index", "controller"=>"home"}
+Rendering home/index
+  [4;36;1mUser Load (0.001434)[0m   [0;1mSELECT * FROM users WHERE (users."id" = 4) LIMIT 1[0m
+Rendered tabnav/_main_tabnav (0.00106)
+Completed in 0.05868 (17 reqs/sec) | Rendering: 0.05132 (87%) | DB: 0.00143 (2%) | 200 OK [http://localhost/]
+
+
+Processing SessionController#destroy (for 127.0.0.1 at 2008-03-31 18:27:26) [GET]
+  Session ID: BAh7CToOcmV0dXJuX3RvMDoMdXNlcl9pZGkJIgpmbGFzaElDOidBY3Rpb25D%0Ab250cm9sbGVyOjpGbGFzaDo6Rmxhc2hIYXNoewAGOgpAdXNlZHsAOgxjc3Jm%0AX2lkIiU0ZjdjYjM0NTI4NTc5NGViZWFhNGQ5NDI0ODRmNWY1Zg%3D%3D--2fcffc86645f1fdcc5f36252e9a97d0fa2b44835
+  Parameters: {"action"=>"destroy", "controller"=>"session"}
+  [4;35;1mUser Load (0.001613)[0m   [0mSELECT * FROM users WHERE (users."id" = 4) LIMIT 1[0m
+  [4;36;1mUser Update (0.001488)[0m   [0;1mUPDATE users SET "created_at" = '2008-03-31 09:34:07', "email" = 'test@aol.com', "lastname" = NULL, "firstname" = NULL, "remember_token" = NULL, "login" = 'test', "remember_token_expires_at" = NULL, "department" = NULL, "crypted_password" = '10952e73ac9d315bc025974dc08d56e0cc3c2075', "updated_at" = '2008-03-31 18:27:26', "salt" = 'dd2cc9c658a4b6e6a0f35ec02b0e2437ffd6ff01' WHERE "id" = 4[0m
+Cookie set: auth_token=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT
+Redirected to http://localhost:3000/
+Completed in 0.05341 (18 reqs/sec) | DB: 0.00310 (5%) | 302 Found [http://localhost/logout]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2008-03-31 18:27:26) [GET]
+  Session ID: BAh7BzoOcmV0dXJuX3RvMCIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6%0ARmxhc2g6OkZsYXNoSGFzaHsGOgtub3RpY2UiHllvdSBoYXZlIGJlZW4gbG9n%0AZ2VkIG91dC4GOgpAdXNlZHsGOwdU--f8181d820610d9832c790cff3e2e3b0bac083bfe
+  Parameters: {"action"=>"index", "controller"=>"home"}
+Rendering home/index
+Completed in 0.01274 (78 reqs/sec) | Rendering: 0.00390 (30%) | DB: 0.00000 (0%) | 200 OK [http://localhost/]
+
+
+Processing SessionController#new (for 127.0.0.1 at 2008-03-31 18:27:28) [GET]
+  Session ID: BAh7BzoOcmV0dXJuX3RvMCIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6%0ARmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7AA%3D%3D--38135ce9af6c84ac143b63e9f26ac0912d9e8d67
+  Parameters: {"action"=>"new", "controller"=>"session"}
+Rendering session/new
+Completed in 0.01538 (65 reqs/sec) | Rendering: 0.00649 (42%) | DB: 0.00000 (0%) | 200 OK [http://localhost/login]
+
+
+Processing SessionController#create (for 127.0.0.1 at 2008-03-31 18:27:33) [POST]
+  Session ID: BAh7CDoOcmV0dXJuX3RvMCIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6%0ARmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7ADoMY3NyZl9pZCIlMmU4NjU3%0AMjEwZTRkY2U2MmFhMzM5OGJhYmVhMGJhZTk%3D--e2a9ee0606021a958e5af3de53a758bef40d06d8
+  Parameters: {"commit"=>"Log in", "authenticity_token"=>"93e98afa875dd08422fd99c60df8b21f0b911525", "action"=>"create", "controller"=>"session", "password"=>"temp123", "login"=>"test"}
+  [4;35;1mUser Load (0.004392)[0m   [0mSELECT * FROM users WHERE (users."login" = 'test') LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed in 0.04245 (23 reqs/sec) | DB: 0.00439 (10%) | 302 Found [http://localhost/session]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2008-03-31 18:27:33) [GET]
+  Session ID: BAh7CToOcmV0dXJuX3RvMDoMdXNlcl9pZGkJIgpmbGFzaElDOidBY3Rpb25D%0Ab250cm9sbGVyOjpGbGFzaDo6Rmxhc2hIYXNoewY6C25vdGljZSIbTG9nZ2Vk%0AIGluIHN1Y2Nlc3NmdWxseQY6CkB1c2VkewY7CFQ6DGNzcmZfaWQiJTJlODY1%0ANzIxMGU0ZGNlNjJhYTMzOThiYWJlYTBiYWU5--73c656ca40159b4979f15225eaf20238f08cc9dd
+  Parameters: {"action"=>"index", "controller"=>"home"}
+Rendering home/index
+  [4;36;1mUser Load (0.001457)[0m   [0;1mSELECT * FROM users WHERE (users."id" = 4) LIMIT 1[0m
+Rendered tabnav/_main_tabnav (0.00107)
+Completed in 0.05786 (17 reqs/sec) | Rendering: 0.05031 (86%) | DB: 0.00146 (2%) | 200 OK [http://localhost/]
+
+
+Processing GraduateApplicantsController#index (for 127.0.0.1 at 2008-03-31 18:27:34) [GET]
+  Session ID: BAh7CToOcmV0dXJuX3RvMDoMdXNlcl9pZGkJIgpmbGFzaElDOidBY3Rpb25D%0Ab250cm9sbGVyOjpGbGFzaDo6Rmxhc2hIYXNoewAGOgpAdXNlZHsAOgxjc3Jm%0AX2lkIiUyZTg2NTcyMTBlNGRjZTYyYWEzMzk4YmFiZWEwYmFlOQ%3D%3D--a1d39fd9310374ad6839b4ae44f77b9cfddd35ea
+  Parameters: {"action"=>"index", "controller"=>"graduate_applicants"}
+  [4;35;1mUser Load (0.001465)[0m   [0mSELECT * FROM users WHERE (users."id" = 4) LIMIT 1[0m
+  [4;36;1mGraduateApplicant Load (0.000741)[0m   [0;1mSELECT * FROM graduate_applicants [0m
+Rendering template within layouts/graduate_applicants
+Rendering graduate_applicants/index
+Rendered tabnav/_main_tabnav (0.00106)
+Completed in 0.07045 (14 reqs/sec) | Rendering: 0.02129 (30%) | DB: 0.00221 (3%) | 200 OK [http://localhost/graduate_applicants]
+
+
+Processing DepartmentsController#index (for 127.0.0.1 at 2008-03-31 18:27:35) [GET]
+  Session ID: BAh7CToOcmV0dXJuX3RvMDoMdXNlcl9pZGkJIgpmbGFzaElDOidBY3Rpb25D%0Ab250cm9sbGVyOjpGbGFzaDo6Rmxhc2hIYXNoewAGOgpAdXNlZHsAOgxjc3Jm%0AX2lkIiUyZTg2NTcyMTBlNGRjZTYyYWEzMzk4YmFiZWEwYmFlOQ%3D%3D--a1d39fd9310374ad6839b4ae44f77b9cfddd35ea
+  Parameters: {"action"=>"index", "controller"=>"departments"}
+  [4;35;1mUser Load (0.001468)[0m   [0mSELECT * FROM users WHERE (users."id" = 4) LIMIT 1[0m
+  [4;36;1mDepartment Load (0.000810)[0m   [0;1mSELECT * FROM departments [0m
+Rendering template within layouts/departments
+Rendering departments/index
+Rendered tabnav/_main_tabnav (0.00104)
+Completed in 0.06922 (14 reqs/sec) | Rendering: 0.02196 (31%) | DB: 0.00228 (3%) | 200 OK [http://localhost/departments]
+
+
+Processing GraduateApplicantsController#index (for 127.0.0.1 at 2008-03-31 18:27:37) [GET]
+  Session ID: BAh7CToOcmV0dXJuX3RvMDoMdXNlcl9pZGkJIgpmbGFzaElDOidBY3Rpb25D%0Ab250cm9sbGVyOjpGbGFzaDo6Rmxhc2hIYXNoewAGOgpAdXNlZHsAOgxjc3Jm%0AX2lkIiUyZTg2NTcyMTBlNGRjZTYyYWEzMzk4YmFiZWEwYmFlOQ%3D%3D--a1d39fd9310374ad6839b4ae44f77b9cfddd35ea
+  Parameters: {"action"=>"index", "controller"=>"graduate_applicants"}
+  [4;35;1mUser Load (0.007259)[0m   [0mSELECT * FROM users WHERE (users."id" = 4) LIMIT 1[0m
+  [4;36;1mGraduateApplicant Load (0.000762)[0m   [0;1mSELECT * FROM graduate_applicants [0m
+Rendering template within layouts/graduate_applicants
+Rendering graduate_applicants/index
+Rendered tabnav/_main_tabnav (0.00149)
+Completed in 0.08462 (11 reqs/sec) | Rendering: 0.02861 (33%) | DB: 0.00802 (9%) | 200 OK [http://localhost/graduate_applicants]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2008-03-31 18:27:38) [GET]
+  Session ID: BAh7CToOcmV0dXJuX3RvMDoMdXNlcl9pZGkJIgpmbGFzaElDOidBY3Rpb25D%0Ab250cm9sbGVyOjpGbGFzaDo6Rmxhc2hIYXNoewAGOgpAdXNlZHsAOgxjc3Jm%0AX2lkIiUyZTg2NTcyMTBlNGRjZTYyYWEzMzk4YmFiZWEwYmFlOQ%3D%3D--a1d39fd9310374ad6839b4ae44f77b9cfddd35ea
+  Parameters: {"action"=>"index", "controller"=>"home"}
+Rendering home/index
+  [4;35;1mUser Load (0.001478)[0m   [0mSELECT * FROM users WHERE (users."id" = 4) LIMIT 1[0m
+Rendered tabnav/_main_tabnav (0.00399)
+Completed in 0.05848 (17 reqs/sec) | Rendering: 0.05120 (87%) | DB: 0.00148 (2%) | 200 OK [http://localhost/]
+
+
+Processing GraduateApplicantsController#index (for 127.0.0.1 at 2008-03-31 18:27:42) [GET]
+  Session ID: BAh7CToOcmV0dXJuX3RvMDoMdXNlcl9pZGkJIgpmbGFzaElDOidBY3Rpb25D%0Ab250cm9sbGVyOjpGbGFzaDo6Rmxhc2hIYXNoewAGOgpAdXNlZHsAOgxjc3Jm%0AX2lkIiUyZTg2NTcyMTBlNGRjZTYyYWEzMzk4YmFiZWEwYmFlOQ%3D%3D--a1d39fd9310374ad6839b4ae44f77b9cfddd35ea
+  Parameters: {"action"=>"index", "controller"=>"graduate_applicants"}
+  [4;36;1mUser Load (0.001497)[0m   [0;1mSELECT * FROM users WHERE (users."id" = 4) LIMIT 1[0m
+  [4;35;1mGraduateApplicant Load (0.000736)[0m   [0mSELECT * FROM graduate_applicants [0m
+Rendering template within layouts/graduate_applicants
+Rendering graduate_applicants/index
+Rendered tabnav/_main_tabnav (0.00156)
+Completed in 0.07017 (14 reqs/sec) | Rendering: 0.02205 (31%) | DB: 0.00223 (3%) | 200 OK [http://localhost/graduate_applicants]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2008-03-31 18:27:45) [GET]
+  Session ID: BAh7CToOcmV0dXJuX3RvMDoMdXNlcl9pZGkJIgpmbGFzaElDOidBY3Rpb25D%0Ab250cm9sbGVyOjpGbGFzaDo6Rmxhc2hIYXNoewAGOgpAdXNlZHsAOgxjc3Jm%0AX2lkIiUyZTg2NTcyMTBlNGRjZTYyYWEzMzk4YmFiZWEwYmFlOQ%3D%3D--a1d39fd9310374ad6839b4ae44f77b9cfddd35ea
+  Parameters: {"action"=>"index", "controller"=>"home"}
+Rendering home/index
+  [4;36;1mUser Load (0.001741)[0m   [0;1mSELECT * FROM users WHERE (users."id" = 4) LIMIT 1[0m
+Rendered tabnav/_main_tabnav (0.00107)
+Completed in 0.05655 (17 reqs/sec) | Rendering: 0.04847 (85%) | DB: 0.00174 (3%) | 200 OK [http://localhost/]
+
+
+Processing GraduateApplicantsController#index (for 127.0.0.1 at 2008-03-31 18:27:50) [GET]
+  Session ID: BAh7CToOcmV0dXJuX3RvMDoMdXNlcl9pZGkJIgpmbGFzaElDOidBY3Rpb25D%0Ab250cm9sbGVyOjpGbGFzaDo6Rmxhc2hIYXNoewAGOgpAdXNlZHsAOgxjc3Jm%0AX2lkIiUyZTg2NTcyMTBlNGRjZTYyYWEzMzk4YmFiZWEwYmFlOQ%3D%3D--a1d39fd9310374ad6839b4ae44f77b9cfddd35ea
+  Parameters: {"action"=>"index", "controller"=>"graduate_applicants"}
+  [4;35;1mUser Load (0.001503)[0m   [0mSELECT * FROM users WHERE (users."id" = 4) LIMIT 1[0m
+  [4;36;1mGraduateApplicant Load (0.000767)[0m   [0;1mSELECT * FROM graduate_applicants [0m
+Rendering template within layouts/graduate_applicants
+Rendering graduate_applicants/index
+Rendered tabnav/_main_tabnav (0.00105)
+Completed in 0.07039 (14 reqs/sec) | Rendering: 0.02123 (30%) | DB: 0.00227 (3%) | 200 OK [http://localhost/graduate_applicants]
+
+
+Processing DepartmentsController#index (for 127.0.0.1 at 2008-03-31 18:27:51) [GET]
+  Session ID: BAh7CToOcmV0dXJuX3RvMDoMdXNlcl9pZGkJIgpmbGFzaElDOidBY3Rpb25D%0Ab250cm9sbGVyOjpGbGFzaDo6Rmxhc2hIYXNoewAGOgpAdXNlZHsAOgxjc3Jm%0AX2lkIiUyZTg2NTcyMTBlNGRjZTYyYWEzMzk4YmFiZWEwYmFlOQ%3D%3D--a1d39fd9310374ad6839b4ae44f77b9cfddd35ea
+  Parameters: {"action"=>"index", "controller"=>"departments"}
+  [4;35;1mUser Load (0.001483)[0m   [0mSELECT * FROM users WHERE (users."id" = 4) LIMIT 1[0m
+  [4;36;1mDepartment Load (0.000692)[0m   [0;1mSELECT * FROM departments [0m
+Rendering template within layouts/departments
+Rendering departments/index
+Rendered tabnav/_main_tabnav (0.00102)
+Completed in 0.07072 (14 reqs/sec) | Rendering: 0.02387 (33%) | DB: 0.00217 (3%) | 200 OK [http://localhost/departments]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2008-03-31 18:27:53) [GET]
+  Session ID: BAh7CToOcmV0dXJuX3RvMDoMdXNlcl9pZGkJIgpmbGFzaElDOidBY3Rpb25D%0Ab250cm9sbGVyOjpGbGFzaDo6Rmxhc2hIYXNoewAGOgpAdXNlZHsAOgxjc3Jm%0AX2lkIiUyZTg2NTcyMTBlNGRjZTYyYWEzMzk4YmFiZWEwYmFlOQ%3D%3D--a1d39fd9310374ad6839b4ae44f77b9cfddd35ea
+  Parameters: {"action"=>"index", "controller"=>"home"}
+Rendering home/index
+  [4;35;1mUser Load (0.001475)[0m   [0mSELECT * FROM users WHERE (users."id" = 4) LIMIT 1[0m
+Rendered tabnav/_main_tabnav (0.00107)
+Completed in 0.05863 (17 reqs/sec) | Rendering: 0.05135 (87%) | DB: 0.00148 (2%) | 200 OK [http://localhost/]
+
+
+Processing SessionController#destroy (for 127.0.0.1 at 2008-03-31 18:27:54) [GET]
+  Session ID: BAh7CToOcmV0dXJuX3RvMDoMdXNlcl9pZGkJIgpmbGFzaElDOidBY3Rpb25D%0Ab250cm9sbGVyOjpGbGFzaDo6Rmxhc2hIYXNoewAGOgpAdXNlZHsAOgxjc3Jm%0AX2lkIiUyZTg2NTcyMTBlNGRjZTYyYWEzMzk4YmFiZWEwYmFlOQ%3D%3D--a1d39fd9310374ad6839b4ae44f77b9cfddd35ea
+  Parameters: {"action"=>"destroy", "controller"=>"session"}
+  [4;36;1mUser Load (0.001474)[0m   [0;1mSELECT * FROM users WHERE (users."id" = 4) LIMIT 1[0m
+  [4;35;1mUser Update (0.001488)[0m   [0mUPDATE users SET "created_at" = '2008-03-31 09:34:07', "email" = 'test@aol.com', "lastname" = NULL, "firstname" = NULL, "remember_token" = NULL, "login" = 'test', "remember_token_expires_at" = NULL, "department" = NULL, "crypted_password" = '10952e73ac9d315bc025974dc08d56e0cc3c2075', "updated_at" = '2008-03-31 18:27:54', "salt" = 'dd2cc9c658a4b6e6a0f35ec02b0e2437ffd6ff01' WHERE "id" = 4[0m
+Cookie set: auth_token=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT
+Redirected to http://localhost:3000/
+Completed in 0.14731 (6 reqs/sec) | DB: 0.00296 (2%) | 302 Found [http://localhost/logout]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2008-03-31 18:27:55) [GET]
+  Session ID: BAh7BzoOcmV0dXJuX3RvMCIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6%0ARmxhc2g6OkZsYXNoSGFzaHsGOgtub3RpY2UiHllvdSBoYXZlIGJlZW4gbG9n%0AZ2VkIG91dC4GOgpAdXNlZHsGOwdU--f8181d820610d9832c790cff3e2e3b0bac083bfe
+  Parameters: {"action"=>"index", "controller"=>"home"}
+Rendering home/index
+Completed in 0.01011 (98 reqs/sec) | Rendering: 0.00347 (34%) | DB: 0.00000 (0%) | 200 OK [http://localhost/]
+
+
+Processing SessionController#new (for 127.0.0.1 at 2008-03-31 18:27:57) [GET]
+  Session ID: BAh7BzoOcmV0dXJuX3RvMCIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6%0ARmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7AA%3D%3D--38135ce9af6c84ac143b63e9f26ac0912d9e8d67
+  Parameters: {"action"=>"new", "controller"=>"session"}
+Rendering session/new
+Completed in 0.01000 (99 reqs/sec) | Rendering: 0.00401 (40%) | DB: 0.00000 (0%) | 200 OK [http://localhost/login]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2008-03-31 18:28:00) [GET]
+  Session ID: BAh7CDoOcmV0dXJuX3RvMCIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6%0ARmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7ADoMY3NyZl9pZCIlNTg0OTZh%0AODVmMTFiZWJjMzk3MjRhODdjOGU2MDg1NTQ%3D--5963fd80777084b9e857eec834f36d4465f6dce7
+  Parameters: {"action"=>"new", "controller"=>"users"}
+Rendering users/new
+Completed in 0.01625 (61 reqs/sec) | Rendering: 0.00711 (43%) | DB: 0.00000 (0%) | 200 OK [http://localhost/signup]
