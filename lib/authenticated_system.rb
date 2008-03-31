@@ -65,6 +65,7 @@ module AuthenticatedSystem
         format.html do
           store_location
           redirect_to new_session_path
+		  flash.now[:notice] = "You must login to continue."
         end
         format.any do
           request_http_basic_authentication 'Web Password'
