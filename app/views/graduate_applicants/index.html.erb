@@ -1,0 +1,45 @@
+<%= tabnav :main %>
+<h1>Listing graduate_applicants</h1>
+
+<table>
+  <tr>
+    <th>First name</th>
+    <th>Last name</th>
+    <th>Address1</th>
+    <th>Address2</th>
+    <th>City</th>
+    <th>State</th>
+    <th>Zip</th>
+    <th>Phone</th>
+    <th>Email</th>
+    <th>Status</th>
+    <th>Department</th>
+    <th>Gpa</th>
+    <th>Studentid</th>
+  </tr>
+
+<% for graduate_applicant in @graduate_applicants %>
+  <tr>
+    <td><%=h graduate_applicant.first_name %></td>
+    <td><%=h graduate_applicant.last_name %></td>
+    <td><%=h graduate_applicant.address1 %></td>
+    <td><%=h graduate_applicant.address2 %></td>
+    <td><%=h graduate_applicant.city %></td>
+    <td><%=h graduate_applicant.state %></td>
+    <td><%=h graduate_applicant.zip %></td>
+    <td><%=h graduate_applicant.phone %></td>
+    <td><%=h graduate_applicant.email %></td>
+    <td><%=h graduate_applicant.status %></td>
+    <td><%=h graduate_applicant.department %></td>
+    <td><%=h graduate_applicant.gpa %></td>
+    <td><%=h graduate_applicant.studentID %></td>
+    <td><%= link_to 'Show', graduate_applicant %></td>
+    <td><%= link_to 'Edit', edit_graduate_applicant_path(graduate_applicant) %></td>
+    <td><%= link_to 'Destroy', graduate_applicant, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New graduate_applicant', new_graduate_applicant_path %>

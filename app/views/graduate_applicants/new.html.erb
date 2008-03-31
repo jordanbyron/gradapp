@@ -1,0 +1,76 @@
+<h1>New graduate_applicant</h1>
+
+<%= error_messages_for :graduate_applicant %>
+
+<% form_for(@graduate_applicant) do |f| %>
+  <p>
+    <b>First name</b><br />
+    <%= f.text_field :first_name %>
+  </p>
+
+  <p>
+    <b>Last name</b><br />
+    <%= f.text_field :last_name %>
+  </p>
+
+  <p>
+    <b>Address1</b><br />
+    <%= f.text_field :address1 %>
+  </p>
+
+  <p>
+    <b>Address2</b><br />
+    <%= f.text_field :address2 %>
+  </p>
+
+  <p>
+    <b>City</b><br />
+    <%= f.text_field :city %>
+  </p>
+
+  <p>
+    <b>State</b><br />
+    <%= f.text_field :state %>
+  </p>
+
+  <p>
+    <b>Zip</b><br />
+    <%= f.text_field :zip %>
+  </p>
+
+  <p>
+    <b>Phone</b><br />
+    <%= f.text_field :phone %>
+  </p>
+
+  <p>
+    <b>Email</b><br />
+    <%= f.text_field :email %>
+  </p>
+
+  <p>
+    <b>Status</b><br />
+    <%= f.text_field :status %>
+  </p>
+
+  <p>
+    <b>Department</b><br />
+    <%= f.text_field :department %>
+  </p>
+
+  <p>
+    <b>Gpa</b><br />
+    <%= f.text_field :gpa %>
+  </p>
+
+  <p>
+    <b>Studentid</b><br />
+    <%= f.text_field :studentID %>
+  </p>
+
+  <p>
+    <%= f.submit "Create" %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', graduate_applicants_path %>

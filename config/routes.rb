@@ -1,4 +1,8 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :graduate_applicants
+
+  map.resources :departments
+
 	map.home '', :controller =>'home', :action => 'index'
 	
 	map.resources :users

@@ -1,0 +1,31 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  first_name: MyString
+  last_name: MyString
+  address1: MyString
+  address2: MyString
+  city: MyString
+  state: MyString
+  zip: MyString
+  phone: MyString
+  email: MyString
+  status: MyString
+  department: 1
+  gpa: 9.99
+  studentID: MyString
+
+two:
+  first_name: MyString
+  last_name: MyString
+  address1: MyString
+  address2: MyString
+  city: MyString
+  state: MyString
+  zip: MyString
+  phone: MyString
+  email: MyString
+  status: MyString
+  department: 1
+  gpa: 9.99
+  studentID: MyString
