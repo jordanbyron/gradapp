@@ -1,12 +1,21 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
 <title>[GradTrak] Login</title>
-<img src="/images/gradtrak.png">
 <%= stylesheet_link_tag "scaffold" %>
+</head>
+<body style="text-align: center">
+<div style="background-color: #eee; width: 200px; border: 4px solid #999; padding: 10px; margin: 0 auto">
 <% form_tag session_path do -%>
 
-<p><label for="login">Login</label></br>
+<img src="/images/gradtrak.png">
+<p style="color: green"><%= flash[:notice] %></p>
+<p><label for="login">Login</label><br>
 <%= text_field_tag 'login' %></p>
 
-<p><label for="password">Password</label></br>
+<p><label for="password">Password</label><br>
 <%= password_field_tag 'password' %></p>
 
 <p><label for="remember_me">Remember me:</label>
@@ -14,3 +23,6 @@
 
 <p><%= submit_tag 'Log in' %></p>
 <% end -%>
+</div>
+</body>
+</html>

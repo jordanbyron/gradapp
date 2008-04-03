@@ -11,6 +11,8 @@
 <div id="contents2">
 <h1>Editing department</h1>
 
+<p style="color: green"><%= flash[:notice] %></p>
+
 <%= error_messages_for :department %>
 
 <% form_for(@department) do |f| %>

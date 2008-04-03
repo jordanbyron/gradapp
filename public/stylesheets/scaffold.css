@@ -1,5 +1,5 @@
 body {
-  background-color: #fff;
+  background-color: #eaeaff;
   color: #333;
 }
 
@@ -18,12 +18,13 @@ body, p, ol, ul, td {
 }
 
 #header {
-  background-color: #fff;
+  background-color: #eee;
   padding: 10px 10px 8px 10px;
+  height: 40px;
 }
 
 #primary {
-  background-color: #ace;
+  background-color: #9ab;
   height: 488px;
 }
 
@@ -35,6 +36,24 @@ body, p, ol, ul, td {
 
 #contents2 {
   padding: 10px;
+  margin: 10px;
+  border: 2px solid black;
+  background-color: #ddd;
+  width: auto;
+}
+
+#contents2 table, tr, th, td{
+  border-collapse: collapse;
+  border: 1px solid black;
+  font: normal 12px "Trebuchet MS", Arial, sans-serif;
+}
+
+#contents2 td, th {
+  padding: 0 6px 0 6px;
+}
+
+#contents2 th {
+  font-weight: bold;
 }
 
 #sidebar {
@@ -42,12 +61,18 @@ body, p, ol, ul, td {
   width: 150px;
   float: left;
   background-color: #9ac;
+  background-image: url("/images/sidebar.png");
+  background-repeat: repeat-y;
+  background-position: top left;
 }
 
 #footer {
   text-align: right;
   background-color: #69D;
-  color: DDD;
+  background-image: url("/images/bottombar.png");
+  background-repeat: repeat-x;
+  background-position: center left;
+  color: #ddd;
   padding: 3px 6px 3px 0;
   border-top: 2px solid black;
 }
@@ -58,8 +83,8 @@ pre {
 }
 
 a { color: #000; }
-a:visited { color: #666; }
-a:hover { color: #fff; background-color:#000; }
+a:visited { color: #000; }
+a:hover { color: #666; }
 
 .fieldWithErrors {
   padding: 2px;
@@ -137,8 +162,7 @@ div.progressBar div.background {
 }
 
 .main_tabnav a, a.active {
-	color: #fff;
-	background-color: #9ac;
+	color: #ddd;
 	font: bold 1em "Trebuchet MS", Arial, sans-serif;
 	margin: 0;
 	padding: 5px 10px 5px 10px;
@@ -146,34 +170,34 @@ div.progressBar div.background {
 }
 
 .main_tabnav a.active {
-    background-color: #ace;
+    color: #ddd;
 }
 
 .main_tabnav a:hover {
 	color: #fff;
-	background: #69d;
 }
 
 .main_tabnav a:visited {
-	color: #fff;
+	color: #ddd;
 }
 
 .main_tabnav a.active:hover {
-	background: #69d;
-	color: #fff;
+	color: #ddd;
 }
 
 .main_tabnav_content {
     font: 0.9em/1.3em "bitstream vera sans", verdana, sans-serif;
 	text-align: justify;
 	background: #9af;
-
 	border-top: none;
 }
 
 .main_navigation {
   background-color: #69D;
-  color: DDD;
+  background-image: url("/images/topbar.png");
+  background-repeat: repeat-x;
+  background-position: center left;
+  color: #ddd;
   padding: 3px 6px 3px 0;
   border-top: 2px solid black;
   border-bottom: 2px solid black;
@@ -207,7 +231,6 @@ div.progressBar div.background {
 .main_navigation a:hover {
   font-weight: bold;
   color: #FFF;
-  background-color: #36D;
 }
 
 .main_navigation a.active {

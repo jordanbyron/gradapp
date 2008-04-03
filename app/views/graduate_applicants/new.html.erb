@@ -12,6 +12,8 @@
 
 <h1>New graduate_applicant</h1>
 
+<p style="color: green"><%= flash[:notice] %></p>
+
 <%= error_messages_for :graduate_applicant %>
 
 <% form_for(@graduate_applicant) do |f| %>
