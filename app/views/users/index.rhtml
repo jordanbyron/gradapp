@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>[GradTrak] Users</title>
+  <%= stylesheet_link_tag "scaffold" %>
+</head>
+<body>
+  <div id="container">
+  <div id="header">
+    <img src="/images/gradtrak.png">
+  </div>
+  <%= navigation :main %>
+  <div id="primary">
+    <div id="sidebar">
+      <%= tabnav :main %>
+    </div>
+  <div id="contents">
+  <div id="contents2">
+    <h1>Users</h1>
+      <p style="color: green"><%= flash[:notice] %></p>
+      <p style="color: red"><%= flash[:error] %></p>
+<table>
+  <tr>
+    <th>Login</th>
+	<th colspan=3>Controls</th>
+  </tr>
+
+<% for user in @users %>
+  <tr>
+    <td><%=h user.login %></td>
+	<td>Show</td>
+    <td>Edit</td>
+    <td><%= link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New User', :controller => 'users', :action => 'new' %>
+
+    </div>
+  </div>
+</div>
+<div id="footer">
+hadoken
+</div>
+</div>
+</body>
+</html>

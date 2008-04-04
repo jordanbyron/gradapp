@@ -18,17 +18,19 @@ render_tabnav :main,
       t.named 'Home'
       t.links_to :controller => 'home'
     end
+	
+	if logged_in?
+      add_tab do |t|
+        t.named 'Graduate Tracking'
+        t.links_to :controller => 'graduate_applicants'
+      end
 
-    add_tab do |t|
-      t.named 'Graduate Tracking'
-      t.links_to :controller => 'graduate_applicants'
+	  add_tab do |t|
+        t.named 'Departments'
+        t.links_to :controller => 'departments'
+      end
     end
-
-	add_tab do |t|
-      t.named 'Departments'
-      t.links_to :controller => 'departments'
-    end
-
+	
   #add_tab do |t|
   #  t.named 'Home'
   #  t.titled 'Home Page'
