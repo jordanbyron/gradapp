@@ -1,23 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-<head>
-<title>[GradTrak] New User</title>
-<%= stylesheet_link_tag "scaffold" %>
-</head>
-<body>
-<div id="container">
-<div id="header">
-<img src="/images/gradtrak.png">
-</div>
-<%= navigation :main %>
-<div id="primary">
-<div id="sidebar">
-<%= tabnav :main %>
-</div>
-<div id="contents">
-<div id="contents2">
+<% title 'Add User' %>
 
 <h1>New User</h1>
 
@@ -31,6 +12,9 @@
 <p><label for="email">Email</label><br/>
 <%= f.text_field :email %></p>
 
+<p><label for="department_id">Department</label><br/>
+<%= select("user", "department_id", Department.find(:all).collect {|d| [d.name, d.id] }) %></p>
+
 <p><label for="password">Password</label><br/>
 <%= f.password_field :password %></p>
 
@@ -41,13 +25,3 @@
 <% end -%>
 
 <%= link_to 'Back', users_path %>
-
-</div>
-</div>
-</div>
-<div id="footer">
-hadoken
-</div>
-</div>
-</body>
-</html>

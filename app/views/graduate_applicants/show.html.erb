@@ -1,14 +1,4 @@
-<div id="container">
-<div id="header">
-<img src="/images/gradtrak.png">
-</div>
-<%= navigation :main %>
-<div id="primary">
-<div id="sidebar">
-<%= tabnav :main %>
-</div>
-<div id="contents">
-<div id="contents2">
+<% title 'Graduate Applicant' %>
 
 <p style="color: green"><%= flash[:notice] %></p>
 
@@ -80,11 +70,3 @@
 
 <%= link_to 'Edit', edit_graduate_applicant_path(@graduate_applicant) %> |
 <%= link_to 'Back', graduate_applicants_path %>
-
-</div>
-</div>
-</div>
-<div id="footer">
-hadoken
-</div>
-</div>

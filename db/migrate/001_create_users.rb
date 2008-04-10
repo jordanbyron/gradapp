@@ -9,7 +9,7 @@ class CreateUsers < ActiveRecord::Migration
       t.column :updated_at,                :datetime
       t.column :remember_token,            :string
       t.column :remember_token_expires_at, :datetime
-      t.column :department,					:string, :limit => 3
+      t.column :department_id,				:integer
 	  t.column :firstname,					:string
 	  t.column :lastname,					:string
       

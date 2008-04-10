@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(:version => 3) do
     t.datetime "updated_at"
     t.string   "remember_token"
     t.datetime "remember_token_expires_at"
-    t.string   "department",                :limit => 3
+    t.integer  "department_id"
     t.string   "firstname"
     t.string   "lastname"
   end
