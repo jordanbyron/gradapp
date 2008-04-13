@@ -6,14 +6,19 @@
 <table>
   <tr>
     <th>Login</th>
-	<th colspan=3>Controls</th>
+    <th>Name</th>
+    <th>Admin</th>
+    <th>Grad. Coor.</th>
+    <th colspan=2>Controls</th>
   </tr>
 
 <% for user in @users %>
   <tr>
     <td><%=h user.login %></td>
-	<td>Show</td>
-    <td>Edit</td>
+    <td><%=h user.first_name %> <%=h user.last_name %></td>
+    <td><%=h user.admin %></td>
+    <td><%=h user.graduate_coordinator %></td>
+    <td><%= link_to 'Edit', edit_user_path(user) %></td>
     <td><%= link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>

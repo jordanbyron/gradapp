@@ -46,8 +46,10 @@ ActiveRecord::Schema.define(:version => 3) do
     t.string   "remember_token"
     t.datetime "remember_token_expires_at"
     t.integer  "department_id"
-    t.string   "firstname"
-    t.string   "lastname"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.boolean  "admin"
+    t.boolean  "graduate_coordinator"
   end
 
 end

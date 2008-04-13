@@ -14,7 +14,7 @@ class SessionController < ApplicationController
       redirect_back_or_default('/')
       flash[:notice] = "Logged in successfully"
     else
-	  flash.now[:error] = "Authentication Failed."
+      flash[:error] = "Authentication Failed."
       render :action => 'new'
     end
   end

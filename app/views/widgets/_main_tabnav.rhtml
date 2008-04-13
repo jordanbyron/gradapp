@@ -14,23 +14,33 @@
 render_tabnav :main,
               :generate_css => false do
 
-    add_tab do |t|
-      t.named 'Home'
-      t.links_to :controller => 'home'
-    end
+    #add_tab do |t|
+    #  t.named 'Home'
+    #  t.links_to :controller => 'home'
+    #end
 	
 	if logged_in?
+    if current_user.graduate_coordinator?
       add_tab do |t|
         t.named 'Graduate Tracking'
         t.links_to :controller => 'graduate_applicants'
       end
-
-	  add_tab do |t|
+    end
+    
+    if current_user.admin?
+      
+      add_tab do |t|
+        t.named 'Users'
+        t.links_to :controller => 'users'
+      end
+      
+      add_tab do |t|
         t.named 'Departments'
         t.links_to :controller => 'departments'
       end
     end
-	
+  end
+  
   #add_tab do |t|
   #  t.named 'Home'
   #  t.titled 'Home Page'

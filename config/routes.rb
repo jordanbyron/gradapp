@@ -5,7 +5,7 @@ ActionController::Routing::Routes.draw do |map|
 	map.resources :departments
 	
 	#User Autentication Routes	
-	map.resources :users
+	map.resources :users, :controller => 'users'
 	map.resource :session, :controller => 'session'
 	map.login '/login', :controller => 'session', :action => 'new'
 	map.logout '/logout', :controller => 'session', :action => 'destroy'

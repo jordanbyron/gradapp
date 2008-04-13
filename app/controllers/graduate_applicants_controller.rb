@@ -1,11 +1,11 @@
 class GraduateApplicantsController < ApplicationController
 
-  before_filter :login_required
+  before_filter :gc_required
 
   # GET /graduate_applicants
   # GET /graduate_applicants.xml
   def index
-    @graduate_applicants = GraduateApplicant.find(:all)
+    @graduate_applicants = GraduateApplicant.find(:all, :conditions => { :department => current_user.department_id })
 
     respond_to do |format|
       format.html # index.html.erb
@@ -44,6 +44,9 @@ class GraduateApplicantsController < ApplicationController
   # POST /graduate_applicants.xml
   def create
     @graduate_applicant = GraduateApplicant.new(params[:graduate_applicant])
+
+    # Set Graduate Applicant Department To The Current User's Department
+    @graduate_applicant.department = current_user.department_id
 
     respond_to do |format|
       if @graduate_applicant.save

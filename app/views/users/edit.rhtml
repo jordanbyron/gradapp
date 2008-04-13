@@ -1,11 +1,13 @@
-<% title 'Add User' %>
+<% title 'Edit User' %>
 
-<h1>New User</h1>
+<h1>Edit User</h1>
 
 <p style="color: green"><%= flash[:notice] %></p>
 
 <%= error_messages_for :user %>
-<% form_for :user, :url => users_path do |f| -%>
+
+<% form_for(@user) do |f| %>
+
 <p><label for="login">Login</label><br/>
 <%= f.text_field :login %></p>
 
@@ -33,13 +35,7 @@
   <%= select("user", "department_id", Department.find(:all).collect {|d| [d.name, d.id] }) %></p>
 </div>
 
-<p><label for="password">Password</label><br/>
-<%= f.password_field :password %></p>
-
-<p><label for="password_confirmation">Confirm Password</label><br/>
-<%= f.password_field :password_confirmation %></p>
-
-<p><%= submit_tag 'Add' %></p>
+<p><%= submit_tag 'Update' %></p>
 <% end -%>
 
 <%= link_to 'Back', users_path %>

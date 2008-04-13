@@ -34,6 +34,24 @@ module AuthenticatedSystem
       logged_in?
     end
 
+    # Filter method to enforce admin access rights
+    def admin_required
+      if logged_in?
+        !!current_user.admin || access_denied
+      else
+        access_denied
+      end
+    end
+    
+    # Filter method to enforce Graduate Coordinator access rights
+    def gc_required
+      if logged_in?
+        !!current_user.graduate_coordinator || access_denied
+      else
+        access_denied
+      end
+    end
+    
     # Filter method to enforce a login requirement.
     #
     # To require logins for all actions, use this in your controllers:
@@ -65,7 +83,7 @@ module AuthenticatedSystem
         format.html do
           store_location
           redirect_to new_session_path
-		  flash.now[:notice] = "You must login to continue."
+          flash[:error] = "Access Denied. Please Login To Continue"
         end
         format.any do
           request_http_basic_authentication 'Web Password'
