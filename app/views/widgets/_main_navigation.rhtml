@@ -8,10 +8,10 @@
 #
 render_navigation :main, :generate_css => false do
 	if logged_in?
-    add_item :name => 'Logout',
+    add_item :name => 'Log out',
              :link => logout_path
 	else
-    add_item :name => 'Login',
+    add_item :name => 'Log in',
              :link => login_path
 	end
 

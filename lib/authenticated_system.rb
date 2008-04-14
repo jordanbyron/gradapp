@@ -18,6 +18,13 @@ module AuthenticatedSystem
       @current_user = new_user || false
     end
 
+    # Check if any users exist
+    def users_exist
+      if User.count() == 0
+        redirect_to setup_index_path
+      end
+    end
+
     # Check if the user is authorized
     #
     # Override this method in your controllers if you want to restrict access

@@ -1,6 +1,7 @@
 class CreateGraduateApplicants < ActiveRecord::Migration
   def self.up
     create_table :graduate_applicants do |t|
+      t.integer :department_id
       t.string :first_name
       t.string :last_name
       t.string :address1
@@ -11,7 +12,6 @@ class CreateGraduateApplicants < ActiveRecord::Migration
       t.string :phone
       t.string :email
       t.string :status
-      t.integer :department
       t.decimal :gpa
       t.string :studentID
 

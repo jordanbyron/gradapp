@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(:version => 3) do
   end
 
   create_table "graduate_applicants", :force => true do |t|
+    t.integer  "department_id"
     t.string   "first_name"
     t.string   "last_name"
     t.string   "address1"
@@ -29,7 +30,6 @@ ActiveRecord::Schema.define(:version => 3) do
     t.string   "phone"
     t.string   "email"
     t.string   "status"
-    t.integer  "department"
     t.decimal  "gpa"
     t.string   "studentID"
     t.datetime "created_at"
@@ -41,15 +41,15 @@ ActiveRecord::Schema.define(:version => 3) do
     t.string   "email"
     t.string   "crypted_password",          :limit => 40
     t.string   "salt",                      :limit => 40
+    t.string   "first_name"
+    t.string   "last_name"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "remember_token"
     t.datetime "remember_token_expires_at"
-    t.integer  "department_id"
-    t.string   "first_name"
-    t.string   "last_name"
     t.boolean  "admin"
     t.boolean  "graduate_coordinator"
+    t.integer  "department_id"
   end
 
 end

@@ -5,7 +5,7 @@ class GraduateApplicantsController < ApplicationController
   # GET /graduate_applicants
   # GET /graduate_applicants.xml
   def index
-    @graduate_applicants = GraduateApplicant.find(:all, :conditions => { :department => current_user.department_id })
+    @graduate_applicants = GraduateApplicant.find(:all, :conditions => { :department_id => current_user.department_id })
 
     respond_to do |format|
       format.html # index.html.erb
@@ -46,7 +46,7 @@ class GraduateApplicantsController < ApplicationController
     @graduate_applicant = GraduateApplicant.new(params[:graduate_applicant])
 
     # Set Graduate Applicant Department To The Current User's Department
-    @graduate_applicant.department = current_user.department_id
+    @graduate_applicant.department_id = current_user.department_id
 
     respond_to do |format|
       if @graduate_applicant.save

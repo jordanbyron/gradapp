@@ -3,7 +3,8 @@ ActionController::Routing::Routes.draw do |map|
 
 	map.resources :graduate_applicants
 	map.resources :departments
-	
+  map.resources :setup
+  	
 	#User Autentication Routes	
 	map.resources :users, :controller => 'users'
 	map.resource :session, :controller => 'session'

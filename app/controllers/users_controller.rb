@@ -2,10 +2,10 @@ class UsersController < ApplicationController
   before_filter :admin_required
   
   def index
-	@users = User.find(:all)
+    @users = User.find(:all)
 
-	respond_to do |format|
-	  format.html # index.html.erb
+    respond_to do |format|
+      format.html # index.html.erb
       format.xml  { render :xml => @users }
     end
   end

@@ -1,4 +1,6 @@
 class HomeController < ApplicationController
-	def index
+	before_filter :users_exist
+
+  def index
 	end
 end
