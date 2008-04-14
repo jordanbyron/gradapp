@@ -46,7 +46,11 @@ module AuthenticatedSystem
       if logged_in?
         !!current_user.admin || access_denied
       else
-        access_denied
+        if User.count() == 0
+          true
+        else
+          access_denied
+        end
       end
     end
     

@@ -23,7 +23,9 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     @user.save
     if @user.errors.empty?
-      #self.current_user = @user //Don't set newly created user as current user
+      if User.count() == 1 #//Set newly created user as current user
+        self.current_user = @user 
+      end
       redirect_to(users_path)
       flash[:notice] = "User " + @user.login + " Created"
     else
