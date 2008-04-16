@@ -18,9 +18,11 @@ class GraduateApplicantsController < ApplicationController
   def show
     @graduate_applicant = GraduateApplicant.find(params[:id])
 
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @graduate_applicant }
+    if gc_authorized(@graduate_applicant.department_id)  # Verify Current GC Is Authorized
+      respond_to do |format|
+        format.html # show.html.erb
+        format.xml  { render :xml => @graduate_applicant }
+      end
     end
   end
 
@@ -38,6 +40,8 @@ class GraduateApplicantsController < ApplicationController
   # GET /graduate_applicants/1/edit
   def edit
     @graduate_applicant = GraduateApplicant.find(params[:id])
+
+    gc_authorized(@graduate_applicant.department_id)   # Verify Current GC Is Authorized
   end
 
   # POST /graduate_applicants
@@ -81,6 +85,9 @@ class GraduateApplicantsController < ApplicationController
   # DELETE /graduate_applicants/1.xml
   def destroy
     @graduate_applicant = GraduateApplicant.find(params[:id])
+
+    gc_authorized(@graduate_applicant.department_id) # Verify Current GC Is Authorized
+
     @graduate_applicant.destroy
 
     respond_to do |format|

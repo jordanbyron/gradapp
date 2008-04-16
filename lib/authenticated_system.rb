@@ -62,6 +62,15 @@ module AuthenticatedSystem
         access_denied
       end
     end
+
+    # Make sure the current graduate coordinator is in the passed department
+    def gc_authorized(department_id)
+      if current_user.department_id != department_id
+        access_denied
+      else
+        true
+      end
+    end
     
     # Filter method to enforce a login requirement.
     #
@@ -94,7 +103,7 @@ module AuthenticatedSystem
         format.html do
           store_location
           redirect_to new_session_path
-          flash[:error] = "Access Denied. Please Login To Continue"
+          flash[:error] = "Access Denied."
         end
         format.any do
           request_http_basic_authentication 'Web Password'
