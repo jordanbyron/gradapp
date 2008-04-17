@@ -9,7 +9,22 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 3) do
+ActiveRecord::Schema.define(:version => 6) do
+
+  create_table "applicant_requirements", :force => true do |t|
+    t.integer  "application_requirement_id"
+    t.integer  "graduate_applicant_id"
+    t.boolean  "met"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "application_requirements", :force => true do |t|
+    t.integer  "department_id"
+    t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "departments", :force => true do |t|
     t.string   "name"
@@ -32,6 +47,14 @@ ActiveRecord::Schema.define(:version => 3) do
     t.string   "status"
     t.decimal  "gpa"
     t.string   "studentID"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "notes", :force => true do |t|
+    t.integer  "graduate_applicant_id"
+    t.string   "text"
+    t.datetime "created_date_time"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

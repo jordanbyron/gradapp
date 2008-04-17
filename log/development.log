@@ -1,1 +1,529 @@
-# Logfile created on Thu Apr 17 18:43:36 -0400 2008
+# Logfile created on Thu Apr 17 18:43:36 -0400 2008  [4;36;1mSQL (0.001243)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.012310)[0m   [0mCREATE TABLE schema_info (version integer)[0m
+  [4;36;1mSQL (0.003158)[0m   [0;1mINSERT INTO schema_info (version) VALUES(0)[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;36;1mSQL (0.001466)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to CreateUsers (1)
+  [4;35;1mSQL (0.000000)[0m   [0mSQLite3::SQLException: no such table: users: DROP TABLE users[0m
+  [4;36;1mSQL (0.005133)[0m   [0;1mCREATE TABLE users ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "login" varchar(255) DEFAULT NULL, "email" varchar(255) DEFAULT NULL, "crypted_password" varchar(40) DEFAULT NULL, "salt" varchar(40) DEFAULT NULL, "first_name" varchar(255) DEFAULT NULL, "last_name" varchar(255) DEFAULT NULL, "created_at" datetime DEFAULT NULL, "updated_at" datetime DEFAULT NULL, "remember_token" varchar(255) DEFAULT NULL, "remember_token_expires_at" datetime DEFAULT NULL, "admin" boolean DEFAULT NULL, "graduate_coordinator" boolean DEFAULT NULL, "department_id" integer DEFAULT NULL) [0m
+  [4;35;1mSQL (0.003074)[0m   [0mUPDATE schema_info SET version = 1[0m
+  [4;36;1mSQL (0.002985)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to CreateDepartments (2)
+  [4;35;1mSQL (0.004260)[0m   [0mCREATE TABLE departments ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255) DEFAULT NULL, "short_name" varchar(255) DEFAULT NULL, "created_at" datetime DEFAULT NULL, "updated_at" datetime DEFAULT NULL) [0m
+  [4;36;1mSQL (0.003273)[0m   [0;1mUPDATE schema_info SET version = 2[0m
+  [4;35;1mSQL (0.001374)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to CreateGraduateApplicants (3)
+  [4;36;1mSQL (0.004375)[0m   [0;1mCREATE TABLE graduate_applicants ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "department_id" integer DEFAULT NULL, "first_name" varchar(255) DEFAULT NULL, "last_name" varchar(255) DEFAULT NULL, "address1" varchar(255) DEFAULT NULL, "address2" varchar(255) DEFAULT NULL, "city" varchar(255) DEFAULT NULL, "state" varchar(255) DEFAULT NULL, "zip" varchar(255) DEFAULT NULL, "phone" varchar(255) DEFAULT NULL, "email" varchar(255) DEFAULT NULL, "status" varchar(255) DEFAULT NULL, "gpa" decimal DEFAULT NULL, "studentID" varchar(255) DEFAULT NULL, "created_at" datetime DEFAULT NULL, "updated_at" datetime DEFAULT NULL) [0m
+  [4;35;1mSQL (0.003209)[0m   [0mUPDATE schema_info SET version = 3[0m
+  [4;36;1mSQL (0.001398)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to CreateApplicationRequirements (4)
+  [4;35;1mSQL (0.004845)[0m   [0mCREATE TABLE application_requirements ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "department_id" integer DEFAULT NULL, "description" varchar(255) DEFAULT NULL, "created_at" datetime DEFAULT NULL, "updated_at" datetime DEFAULT NULL) [0m
+  [4;36;1mSQL (0.003299)[0m   [0;1mUPDATE schema_info SET version = 4[0m
+  [4;35;1mSQL (0.048729)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to CreateApplicantRequirements (5)
+  [4;36;1mSQL (0.004193)[0m   [0;1mCREATE TABLE applicant_requirements ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "application_requirement_id" integer DEFAULT NULL, "graduate_applicant_id" integer DEFAULT NULL, "met" boolean DEFAULT NULL, "created_at" datetime DEFAULT NULL, "updated_at" datetime DEFAULT NULL) [0m
+  [4;35;1mSQL (0.007667)[0m   [0mUPDATE schema_info SET version = 5[0m
+  [4;36;1mSQL (0.001479)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to CreateNotes (6)
+  [4;35;1mSQL (0.004290)[0m   [0mCREATE TABLE notes ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "note_text" varchar(255) DEFAULT NULL, "note_datetime" datetime DEFAULT NULL, "graduate_applicant_id" integer DEFAULT NULL, "created_at" datetime DEFAULT NULL, "updated_at" datetime DEFAULT NULL) [0m
+  [4;36;1mSQL (0.002864)[0m   [0;1mUPDATE schema_info SET version = 6[0m
+  [4;35;1mSQL (0.001852)[0m   [0mSELECT * FROM schema_info[0m
+  [4;36;1mSQL (0.002586)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000506)[0m   [0mPRAGMA index_list(applicant_requirements)[0m
+  [4;36;1mSQL (0.000393)[0m   [0;1mPRAGMA index_list(application_requirements)[0m
+  [4;35;1mSQL (0.000487)[0m   [0mPRAGMA index_list(departments)[0m
+  [4;36;1mSQL (0.000431)[0m   [0;1mPRAGMA index_list(graduate_applicants)[0m
+  [4;35;1mSQL (0.000377)[0m   [0mPRAGMA index_list(notes)[0m
+  [4;36;1mSQL (0.000566)[0m   [0;1mPRAGMA index_list(users)[0m
+
+
+Processing HomeController#index (for 127.0.0.1 at 2008-04-17 19:01:30) [GET]
+  Session ID: f082fd05a17c6610c8ca7934aa5542e2
+  Parameters: {"action"=>"index", "controller"=>"home"}
+  [4;36;1mSQL (0.002129)[0m   [0;1mSELECT count(*) AS count_all FROM users [0m
+Redirected to http://localhost:3000/setup
+Filter chain halted as [#<ActionController::Filters::ClassMethods::SymbolFilter:0x1714d68 @filter=:users_exist>] rendered_or_redirected.
+Completed in 0.07673 (13 reqs/sec) | DB: 0.00213 (2%) | 302 Found [http://localhost/]
+
+
+Processing SetupController#index (for 127.0.0.1 at 2008-04-17 19:01:31) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--2c912f44c616d7c8d261663959289cfff3a87506
+  Parameters: {"action"=>"index", "controller"=>"setup"}
+Rendering template within layouts/application
+Rendering setup/index
+Rendered widgets/_main_navigation (0.01475)
+Rendered widgets/_main_tabnav (0.01095)
+Completed in 0.07270 (13 reqs/sec) | Rendering: 0.06121 (84%) | DB: 0.00000 (0%) | 200 OK [http://localhost/setup]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2008-04-17 19:02:00) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--2c912f44c616d7c8d261663959289cfff3a87506
+  Parameters: {"action"=>"new", "controller"=>"users"}
+  [4;35;1mSQL (0.001547)[0m   [0mSELECT count(*) AS count_all FROM users [0m
+Rendering template within layouts/application
+Rendering users/new
+  [4;36;1mDepartment Load (0.001187)[0m   [0;1mSELECT * FROM departments [0m
+Rendered widgets/_main_navigation (0.00395)
+Rendered widgets/_main_tabnav (0.00692)
+Completed in 0.13795 (7 reqs/sec) | Rendering: 0.07530 (54%) | DB: 0.00273 (1%) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2008-04-17 19:02:15) [POST]
+  Session ID: BAh7ByIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7ADoMY3NyZl9pZCIlNGYxYzQyOTQ5NDAzNjg3YWE4%0AODUzMWYxMjVmN2NhMDM%3D--a8b737e2e62ce86d511ebedb02b3ba28ff17fcbc
+  Parameters: {"user"=>{"password_confirmation"=>"temp123", "admin"=>"1", "graduate_coordinator"=>"0", "first_name"=>"Admin", "login"=>"Admin", "last_name"=>"User", "password"=>"temp123", "email"=>"asdfrasdf"}, "commit"=>"Add", "authenticity_token"=>"eb6305c7e681c8992077965ab4bbc3d75adeab11", "action"=>"create", "controller"=>"users"}
+  [4;35;1mSQL (0.001693)[0m   [0mSELECT count(*) AS count_all FROM users [0m
+  [4;36;1mUser Load (0.004683)[0m   [0;1mSELECT * FROM users WHERE (LOWER(users.login) = 'admin') LIMIT 1[0m
+  [4;35;1mUser Load (0.000748)[0m   [0mSELECT * FROM users WHERE (LOWER(users.email) = 'asdfrasdf') LIMIT 1[0m
+  [4;36;1mUser Create (0.001948)[0m   [0;1mINSERT INTO users ("salt", "updated_at", "crypted_password", "admin", "remember_token_expires_at", "graduate_coordinator", "remember_token", "department_id", "first_name", "last_name", "login", "created_at", "email") VALUES('fe71f5b201f0c251fe3adf5151ecb5668daafb4b', '2008-04-17 19:02:15', 'cc98ee91bb5472d6e5a88ae9ffbdff5050edfee5', 't', NULL, 'f', NULL, NULL, 'Admin', 'User', 'Admin', '2008-04-17 19:02:15', 'asdfrasdf')[0m
+  [4;35;1mSQL (0.007926)[0m   [0mSELECT count(*) AS count_all FROM users [0m
+Redirected to http://localhost:3000/users
+Completed in 0.11263 (8 reqs/sec) | DB: 0.01700 (15%) | 302 Found [http://localhost/users]
+
+
+Processing UsersController#index (for 127.0.0.1 at 2008-04-17 19:02:15) [GET]
+  Session ID: BAh7CDoMdXNlcl9pZGkGIgpmbGFzaElDOidBY3Rpb25Db250cm9sbGVyOjpG%0AbGFzaDo6Rmxhc2hIYXNoewY6C25vdGljZSIXVXNlciBBZG1pbiBDcmVhdGVk%0ABjoKQHVzZWR7BjsHVDoMY3NyZl9pZCIlNGYxYzQyOTQ5NDAzNjg3YWE4ODUz%0AMWYxMjVmN2NhMDM%3D--4b05207fb46e9f2ad344ac00cc01c40c032a8f95
+  Parameters: {"action"=>"index", "controller"=>"users"}
+  [4;36;1mUser Load (0.002459)[0m   [0;1mSELECT * FROM users WHERE (users."id" = 1) LIMIT 1[0m
+  [4;35;1mUser Load (0.002423)[0m   [0mSELECT * FROM users [0m
+Rendering template within layouts/application
+Rendering users/index
+Rendered widgets/_main_navigation (0.00352)
+Rendered widgets/_main_tabnav (0.01439)
+Completed in 0.14915 (6 reqs/sec) | Rendering: 0.05510 (36%) | DB: 0.00488 (3%) | 200 OK [http://localhost/users]
+
+
+Processing NotesController#index (for 127.0.0.1 at 2008-04-17 19:02:22) [GET]
+  Session ID: BAh7CCIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7ADoMdXNlcl9pZGkGOgxjc3JmX2lkIiU0ZjFjNDI5%0ANDk0MDM2ODdhYTg4NTMxZjEyNWY3Y2EwMw%3D%3D--2f38fe25cb652415189bb5807f835affd39d47cf
+  Parameters: {"action"=>"index", "controller"=>"notes"}
+  [4;36;1mNotes Load (0.002383)[0m   [0;1mSELECT * FROM notes [0m
+Rendering template within layouts/notes
+Rendering notes/index
+
+
+ActionView::TemplateError (undefined local variable or method `new_notes_path' for #<ActionView::Base:0x237ed9c>) on line #24 of notes/index.html.erb:
+21: 
+22: <br />
+23: 
+24: <%= link_to 'New notes', new_notes_path %>
+
+    app/views/notes/index.html.erb:24:in `_run_erb_47app47views47notes47index46html46erb'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_view/base.rb:637:in `send'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_view/base.rb:637:in `compile_and_render_template'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_view/base.rb:365:in `render_template'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_view/base.rb:316:in `render_file'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1100:in `render_for_file'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:858:in `render_with_no_layout'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:872:in `render_with_no_layout'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/layout.rb:262:in `render_without_benchmark'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:51:in `render'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:51:in `render'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/mime_responds.rb:131:in `send'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/mime_responds.rb:131:in `custom'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/mime_responds.rb:156:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/mime_responds.rb:156:in `respond'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/mime_responds.rb:150:in `each'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/mime_responds.rb:150:in `respond'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/mime_responds.rb:107:in `respond_to'
+    app/controllers/notes_controller.rb:7:in `index'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1158:in `send'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1158:in `perform_action_without_filters'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:697:in `call_filters'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:689:in `perform_action_without_benchmark'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/rescue.rb:199:in `perform_action_without_caching'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/caching.rb:678:in `perform_action'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.0.2/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.0.2/lib/active_record/query_cache.rb:8:in `cache'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/caching.rb:677:in `perform_action'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:524:in `send'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:524:in `process_without_filters'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:685:in `process_without_session_management_support'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/session_management.rb:123:in `process'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:388:in `process'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:171:in `handle_request'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/rails-2.0.2/lib/webrick_server.rb:112:in `handle_dispatch'
+    /Library/Ruby/Gems/1.8/gems/rails-2.0.2/lib/webrick_server.rb:78:in `service'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /Library/Ruby/Gems/1.8/gems/rails-2.0.2/lib/webrick_server.rb:62:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/rails-2.0.2/lib/commands/servers/webrick.rb:66
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /Library/Ruby/Gems/1.8/gems/rails-2.0.2/lib/commands/server.rb:39
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing NotesController#index (for 127.0.0.1 at 2008-04-17 19:03:00) [GET]
+  Session ID: BAh7CDoMdXNlcl9pZGkGIgpmbGFzaElDOidBY3Rpb25Db250cm9sbGVyOjpG%0AbGFzaDo6Rmxhc2hIYXNoewAGOgpAdXNlZHsAOgxjc3JmX2lkIiU0ZjFjNDI5%0ANDk0MDM2ODdhYTg4NTMxZjEyNWY3Y2EwMw%3D%3D--132d3fc024c19892296c201c435d4bf0abda0fe3
+  Parameters: {"action"=>"index", "controller"=>"notes"}
+  [4;35;1mNotes Load (0.002435)[0m   [0mSELECT * FROM notes [0m
+Rendering template within layouts/notes
+Rendering notes/index
+
+
+ActionView::TemplateError (undefined local variable or method `new_notes_path' for #<ActionView::Base:0x2537044>) on line #24 of notes/index.html.erb:
+21: 
+22: <br />
+23: 
+24: <%= link_to 'New notes', new_notes_path %>
+
+    app/views/notes/index.html.erb:24:in `_run_erb_47app47views47notes47index46html46erb'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_view/base.rb:637:in `send'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_view/base.rb:637:in `compile_and_render_template'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_view/base.rb:365:in `render_template'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_view/base.rb:316:in `render_file'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1100:in `render_for_file'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:858:in `render_with_no_layout'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:872:in `render_with_no_layout'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/layout.rb:262:in `render_without_benchmark'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:51:in `render'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:51:in `render'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/mime_responds.rb:131:in `send'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/mime_responds.rb:131:in `custom'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/mime_responds.rb:156:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/mime_responds.rb:156:in `respond'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/mime_responds.rb:150:in `each'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/mime_responds.rb:150:in `respond'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/mime_responds.rb:107:in `respond_to'
+    app/controllers/notes_controller.rb:7:in `index'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1158:in `send'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1158:in `perform_action_without_filters'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:697:in `call_filters'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:689:in `perform_action_without_benchmark'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/rescue.rb:199:in `perform_action_without_caching'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/caching.rb:678:in `perform_action'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.0.2/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.0.2/lib/active_record/query_cache.rb:8:in `cache'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/caching.rb:677:in `perform_action'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:524:in `send'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:524:in `process_without_filters'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:685:in `process_without_session_management_support'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/session_management.rb:123:in `process'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:388:in `process'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:171:in `handle_request'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/rails-2.0.2/lib/webrick_server.rb:112:in `handle_dispatch'
+    /Library/Ruby/Gems/1.8/gems/rails-2.0.2/lib/webrick_server.rb:78:in `service'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /Library/Ruby/Gems/1.8/gems/rails-2.0.2/lib/webrick_server.rb:62:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/rails-2.0.2/lib/commands/servers/webrick.rb:66
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /Library/Ruby/Gems/1.8/gems/rails-2.0.2/lib/commands/server.rb:39
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2008-04-17 19:03:05) [GET]
+  Session ID: BAh7CCIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7ADoMdXNlcl9pZGkGOgxjc3JmX2lkIiU0ZjFjNDI5%0ANDk0MDM2ODdhYTg4NTMxZjEyNWY3Y2EwMw%3D%3D--2f38fe25cb652415189bb5807f835affd39d47cf
+  Parameters: {}
+
+
+ActionController::RoutingError (No route matches "/note/" with {:method=>:get}):
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/routing.rb:1441:in `recognize_path'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/routing.rb:1424:in `recognize'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:170:in `handle_request'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/rails-2.0.2/lib/webrick_server.rb:112:in `handle_dispatch'
+    /Library/Ruby/Gems/1.8/gems/rails-2.0.2/lib/webrick_server.rb:78:in `service'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /Library/Ruby/Gems/1.8/gems/rails-2.0.2/lib/webrick_server.rb:62:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/rails-2.0.2/lib/commands/servers/webrick.rb:66
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /Library/Ruby/Gems/1.8/gems/rails-2.0.2/lib/commands/server.rb:39
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/templates/rescues/layout.erb (not_found)
+
+
+Processing ApplicantRequirementsController#index (for 127.0.0.1 at 2008-04-17 19:03:15) [GET]
+  Session ID: BAh7CDoMdXNlcl9pZGkGIgpmbGFzaElDOidBY3Rpb25Db250cm9sbGVyOjpG%0AbGFzaDo6Rmxhc2hIYXNoewAGOgpAdXNlZHsAOgxjc3JmX2lkIiU0ZjFjNDI5%0ANDk0MDM2ODdhYTg4NTMxZjEyNWY3Y2EwMw%3D%3D--132d3fc024c19892296c201c435d4bf0abda0fe3
+  Parameters: {"action"=>"index", "controller"=>"applicant_requirements"}
+  [4;36;1mApplicantRequirement Load (0.002379)[0m   [0;1mSELECT * FROM applicant_requirements [0m
+Rendering template within layouts/applicant_requirements
+Rendering applicant_requirements/index
+Completed in 0.13642 (7 reqs/sec) | Rendering: 0.05766 (42%) | DB: 0.00238 (1%) | 200 OK [http://localhost/applicant_requirements/]
+
+
+Processing ApplicationRequirementsController#index (for 127.0.0.1 at 2008-04-17 19:03:23) [GET]
+  Session ID: BAh7CCIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7ADoMdXNlcl9pZGkGOgxjc3JmX2lkIiU0ZjFjNDI5%0ANDk0MDM2ODdhYTg4NTMxZjEyNWY3Y2EwMw%3D%3D--2f38fe25cb652415189bb5807f835affd39d47cf
+  Parameters: {"action"=>"index", "controller"=>"application_requirements"}
+  [4;35;1mApplicationRequirement Load (0.002505)[0m   [0mSELECT * FROM application_requirements [0m
+Rendering template within layouts/application_requirements
+Rendering application_requirements/index
+Completed in 0.05431 (18 reqs/sec) | Rendering: 0.01933 (35%) | DB: 0.00251 (4%) | 200 OK [http://localhost/application_requirements/]
+
+
+Processing NotesController#index (for 127.0.0.1 at 2008-04-17 19:03:28) [GET]
+  Session ID: BAh7CDoMdXNlcl9pZGkGIgpmbGFzaElDOidBY3Rpb25Db250cm9sbGVyOjpG%0AbGFzaDo6Rmxhc2hIYXNoewAGOgpAdXNlZHsAOgxjc3JmX2lkIiU0ZjFjNDI5%0ANDk0MDM2ODdhYTg4NTMxZjEyNWY3Y2EwMw%3D%3D--132d3fc024c19892296c201c435d4bf0abda0fe3
+  Parameters: {"action"=>"index", "controller"=>"notes"}
+  [4;36;1mNotes Load (0.002667)[0m   [0;1mSELECT * FROM notes [0m
+Rendering template within layouts/notes
+Rendering notes/index
+
+
+ActionView::TemplateError (undefined local variable or method `new_notes_path' for #<ActionView::Base:0x22a117c>) on line #24 of notes/index.html.erb:
+21: 
+22: <br />
+23: 
+24: <%= link_to 'New notes', new_notes_path %>
+
+    app/views/notes/index.html.erb:24:in `_run_erb_47app47views47notes47index46html46erb'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_view/base.rb:637:in `send'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_view/base.rb:637:in `compile_and_render_template'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_view/base.rb:365:in `render_template'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_view/base.rb:316:in `render_file'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1100:in `render_for_file'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:858:in `render_with_no_layout'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:872:in `render_with_no_layout'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/layout.rb:262:in `render_without_benchmark'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:51:in `render'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:51:in `render'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/mime_responds.rb:131:in `send'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/mime_responds.rb:131:in `custom'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/mime_responds.rb:156:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/mime_responds.rb:156:in `respond'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/mime_responds.rb:150:in `each'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/mime_responds.rb:150:in `respond'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/mime_responds.rb:107:in `respond_to'
+    app/controllers/notes_controller.rb:7:in `index'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1158:in `send'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1158:in `perform_action_without_filters'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:697:in `call_filters'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:689:in `perform_action_without_benchmark'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/rescue.rb:199:in `perform_action_without_caching'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/caching.rb:678:in `perform_action'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.0.2/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.0.2/lib/active_record/query_cache.rb:8:in `cache'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/caching.rb:677:in `perform_action'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:524:in `send'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:524:in `process_without_filters'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:685:in `process_without_session_management_support'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/session_management.rb:123:in `process'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:388:in `process'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:171:in `handle_request'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/rails-2.0.2/lib/webrick_server.rb:112:in `handle_dispatch'
+    /Library/Ruby/Gems/1.8/gems/rails-2.0.2/lib/webrick_server.rb:78:in `service'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /Library/Ruby/Gems/1.8/gems/rails-2.0.2/lib/webrick_server.rb:62:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/rails-2.0.2/lib/commands/servers/webrick.rb:66
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /Library/Ruby/Gems/1.8/gems/rails-2.0.2/lib/commands/server.rb:39
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing NotesController#index (for 127.0.0.1 at 2008-04-17 19:04:24) [GET]
+  Session ID: BAh7CCIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7ADoMdXNlcl9pZGkGOgxjc3JmX2lkIiU0ZjFjNDI5%0ANDk0MDM2ODdhYTg4NTMxZjEyNWY3Y2EwMw%3D%3D--2f38fe25cb652415189bb5807f835affd39d47cf
+  Parameters: {"action"=>"index", "controller"=>"notes"}
+  [4;35;1mNotes Load (0.002421)[0m   [0mSELECT * FROM notes [0m
+Rendering template within layouts/notes
+Rendering notes/index
+
+
+ActionView::TemplateError (undefined local variable or method `new_notes_path' for #<ActionView::Base:0x235e358>) on line #24 of notes/index.html.erb:
+21: 
+22: <br />
+23: 
+24: <%= link_to 'New notes', new_notes_path %>
+
+    app/views/notes/index.html.erb:24:in `_run_erb_47app47views47notes47index46html46erb'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_view/base.rb:637:in `send'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_view/base.rb:637:in `compile_and_render_template'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_view/base.rb:365:in `render_template'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_view/base.rb:316:in `render_file'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1100:in `render_for_file'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:858:in `render_with_no_layout'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:872:in `render_with_no_layout'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/layout.rb:262:in `render_without_benchmark'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:51:in `render'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:51:in `render'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/mime_responds.rb:131:in `send'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/mime_responds.rb:131:in `custom'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/mime_responds.rb:156:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/mime_responds.rb:156:in `respond'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/mime_responds.rb:150:in `each'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/mime_responds.rb:150:in `respond'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/mime_responds.rb:107:in `respond_to'
+    app/controllers/notes_controller.rb:7:in `index'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1158:in `send'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1158:in `perform_action_without_filters'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:697:in `call_filters'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:689:in `perform_action_without_benchmark'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/rescue.rb:199:in `perform_action_without_caching'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/caching.rb:678:in `perform_action'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.0.2/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.0.2/lib/active_record/query_cache.rb:8:in `cache'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/caching.rb:677:in `perform_action'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:524:in `send'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:524:in `process_without_filters'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:685:in `process_without_session_management_support'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/session_management.rb:123:in `process'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:388:in `process'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:171:in `handle_request'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/rails-2.0.2/lib/webrick_server.rb:112:in `handle_dispatch'
+    /Library/Ruby/Gems/1.8/gems/rails-2.0.2/lib/webrick_server.rb:78:in `service'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /Library/Ruby/Gems/1.8/gems/rails-2.0.2/lib/webrick_server.rb:62:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/rails-2.0.2/lib/commands/servers/webrick.rb:66
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /Library/Ruby/Gems/1.8/gems/rails-2.0.2/lib/commands/server.rb:39
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering /Library/Ruby/Gems/1.8/gems/actionpack-2.0.2/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+  [4;36;1mSQL (0.001171)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.007278)[0m   [0mCREATE TABLE schema_info (version integer)[0m
+  [4;36;1mSQL (0.002662)[0m   [0;1mINSERT INTO schema_info (version) VALUES(0)[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;36;1mSQL (0.001455)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to CreateUsers (1)
+  [4;35;1mSQL (0.000000)[0m   [0mSQLite3::SQLException: no such table: users: DROP TABLE users[0m
+  [4;36;1mSQL (0.006155)[0m   [0;1mCREATE TABLE users ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "login" varchar(255) DEFAULT NULL, "email" varchar(255) DEFAULT NULL, "crypted_password" varchar(40) DEFAULT NULL, "salt" varchar(40) DEFAULT NULL, "first_name" varchar(255) DEFAULT NULL, "last_name" varchar(255) DEFAULT NULL, "created_at" datetime DEFAULT NULL, "updated_at" datetime DEFAULT NULL, "remember_token" varchar(255) DEFAULT NULL, "remember_token_expires_at" datetime DEFAULT NULL, "admin" boolean DEFAULT NULL, "graduate_coordinator" boolean DEFAULT NULL, "department_id" integer DEFAULT NULL) [0m
+  [4;35;1mSQL (0.002992)[0m   [0mUPDATE schema_info SET version = 1[0m
+  [4;36;1mSQL (0.001363)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to CreateDepartments (2)
+  [4;35;1mSQL (0.004253)[0m   [0mCREATE TABLE departments ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255) DEFAULT NULL, "short_name" varchar(255) DEFAULT NULL, "created_at" datetime DEFAULT NULL, "updated_at" datetime DEFAULT NULL) [0m
+  [4;36;1mSQL (0.003162)[0m   [0;1mUPDATE schema_info SET version = 2[0m
+  [4;35;1mSQL (0.001351)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to CreateGraduateApplicants (3)
+  [4;36;1mSQL (0.004426)[0m   [0;1mCREATE TABLE graduate_applicants ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "department_id" integer DEFAULT NULL, "first_name" varchar(255) DEFAULT NULL, "last_name" varchar(255) DEFAULT NULL, "address1" varchar(255) DEFAULT NULL, "address2" varchar(255) DEFAULT NULL, "city" varchar(255) DEFAULT NULL, "state" varchar(255) DEFAULT NULL, "zip" varchar(255) DEFAULT NULL, "phone" varchar(255) DEFAULT NULL, "email" varchar(255) DEFAULT NULL, "status" varchar(255) DEFAULT NULL, "gpa" decimal DEFAULT NULL, "studentID" varchar(255) DEFAULT NULL, "created_at" datetime DEFAULT NULL, "updated_at" datetime DEFAULT NULL) [0m
+  [4;35;1mSQL (0.003629)[0m   [0mUPDATE schema_info SET version = 3[0m
+  [4;36;1mSQL (0.003005)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to CreateApplicationRequirements (4)
+  [4;35;1mSQL (0.004801)[0m   [0mCREATE TABLE application_requirements ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "department_id" integer DEFAULT NULL, "description" varchar(255) DEFAULT NULL, "created_at" datetime DEFAULT NULL, "updated_at" datetime DEFAULT NULL) [0m
+  [4;36;1mSQL (0.003350)[0m   [0;1mUPDATE schema_info SET version = 4[0m
+  [4;35;1mSQL (0.003085)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to CreateApplicantRequirements (5)
+  [4;36;1mSQL (0.004898)[0m   [0;1mCREATE TABLE applicant_requirements ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "application_requirement_id" integer DEFAULT NULL, "graduate_applicant_id" integer DEFAULT NULL, "met" boolean DEFAULT NULL, "created_at" datetime DEFAULT NULL, "updated_at" datetime DEFAULT NULL) [0m
+  [4;35;1mSQL (0.003290)[0m   [0mUPDATE schema_info SET version = 5[0m
+  [4;36;1mSQL (0.003085)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to CreateNotes (6)
+  [4;35;1mSQL (0.004516)[0m   [0mCREATE TABLE notes ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "graduate_applicant_id" integer DEFAULT NULL, "text" varchar(255) DEFAULT NULL, "created_date_time" datetime DEFAULT NULL, "created_at" datetime DEFAULT NULL, "updated_at" datetime DEFAULT NULL) [0m
+  [4;36;1mSQL (0.003271)[0m   [0;1mUPDATE schema_info SET version = 6[0m
+  [4;35;1mSQL (0.001461)[0m   [0mSELECT * FROM schema_info[0m
+  [4;36;1mSQL (0.002517)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000463)[0m   [0mPRAGMA index_list(applicant_requirements)[0m
+  [4;36;1mSQL (0.000373)[0m   [0;1mPRAGMA index_list(application_requirements)[0m
+  [4;35;1mSQL (0.000433)[0m   [0mPRAGMA index_list(departments)[0m
+  [4;36;1mSQL (0.000421)[0m   [0;1mPRAGMA index_list(graduate_applicants)[0m
+  [4;35;1mSQL (0.000583)[0m   [0mPRAGMA index_list(notes)[0m
+  [4;36;1mSQL (0.000528)[0m   [0;1mPRAGMA index_list(users)[0m
+
+
+Processing NotesController#index (for 127.0.0.1 at 2008-04-17 19:11:36) [GET]
+  Session ID: BAh7CDoMdXNlcl9pZGkGIgpmbGFzaElDOidBY3Rpb25Db250cm9sbGVyOjpG%0AbGFzaDo6Rmxhc2hIYXNoewAGOgpAdXNlZHsAOgxjc3JmX2lkIiU0ZjFjNDI5%0ANDk0MDM2ODdhYTg4NTMxZjEyNWY3Y2EwMw%3D%3D--132d3fc024c19892296c201c435d4bf0abda0fe3
+  Parameters: {"action"=>"index", "controller"=>"notes"}
+  [4;36;1mNote Load (0.002854)[0m   [0;1mSELECT * FROM notes [0m
+Rendering template within layouts/notes
+Rendering notes/index
+Completed in 0.05654 (17 reqs/sec) | Rendering: 0.01670 (29%) | DB: 0.00285 (5%) | 200 OK [http://localhost/notes/]

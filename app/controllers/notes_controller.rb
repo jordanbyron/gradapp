@@ -2,7 +2,7 @@ class NotesController < ApplicationController
   # GET /notes
   # GET /notes.xml
   def index
-    @notes = Notes.find(:all)
+    @notes = Note.find(:all)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -13,43 +13,43 @@ class NotesController < ApplicationController
   # GET /notes/1
   # GET /notes/1.xml
   def show
-    @notes = Notes.find(params[:id])
+    @note = Note.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
-      format.xml  { render :xml => @notes }
+      format.xml  { render :xml => @note }
     end
   end
 
   # GET /notes/new
   # GET /notes/new.xml
   def new
-    @notes = Notes.new
+    @note = Note.new
 
     respond_to do |format|
       format.html # new.html.erb
-      format.xml  { render :xml => @notes }
+      format.xml  { render :xml => @note }
     end
   end
 
   # GET /notes/1/edit
   def edit
-    @notes = Notes.find(params[:id])
+    @note = Note.find(params[:id])
   end
 
   # POST /notes
   # POST /notes.xml
   def create
-    @notes = Notes.new(params[:notes])
+    @note = Note.new(params[:note])
 
     respond_to do |format|
-      if @notes.save
-        flash[:notice] = 'Notes was successfully created.'
-        format.html { redirect_to(@notes) }
-        format.xml  { render :xml => @notes, :status => :created, :location => @notes }
+      if @note.save
+        flash[:notice] = 'Note was successfully created.'
+        format.html { redirect_to(@note) }
+        format.xml  { render :xml => @note, :status => :created, :location => @note }
       else
         format.html { render :action => "new" }
-        format.xml  { render :xml => @notes.errors, :status => :unprocessable_entity }
+        format.xml  { render :xml => @note.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -57,16 +57,16 @@ class NotesController < ApplicationController
   # PUT /notes/1
   # PUT /notes/1.xml
   def update
-    @notes = Notes.find(params[:id])
+    @note = Note.find(params[:id])
 
     respond_to do |format|
-      if @notes.update_attributes(params[:notes])
-        flash[:notice] = 'Notes was successfully updated.'
-        format.html { redirect_to(@notes) }
+      if @note.update_attributes(params[:note])
+        flash[:notice] = 'Note was successfully updated.'
+        format.html { redirect_to(@note) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
-        format.xml  { render :xml => @notes.errors, :status => :unprocessable_entity }
+        format.xml  { render :xml => @note.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -74,8 +74,8 @@ class NotesController < ApplicationController
   # DELETE /notes/1
   # DELETE /notes/1.xml
   def destroy
-    @notes = Notes.find(params[:id])
-    @notes.destroy
+    @note = Note.find(params[:id])
+    @note.destroy
 
     respond_to do |format|
       format.html { redirect_to(notes_url) }

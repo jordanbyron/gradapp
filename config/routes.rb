@@ -1,12 +1,9 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :notes
-
-  map.resources :applicant_requirements
-
-  map.resources :application_requirements
-
 	map.home '', :controller =>'home', :action => 'index' # Set Root To The Home Controller
 
+  map.resources :notes
+  map.resources :applicant_requirements
+  map.resources :application_requirements
 	map.resources :graduate_applicants
 	map.resources :departments
   map.resources :setup
