@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  requirement_id: MyString
+  met: false
+  applicant: MyString
+
+two:
+  requirement_id: MyString
+  met: false
+  applicant: MyString
