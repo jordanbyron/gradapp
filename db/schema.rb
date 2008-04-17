@@ -9,7 +9,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 3) do
+ActiveRecord::Schema.define(:version => 4) do
+
+  create_table "applicant_requirements", :force => true do |t|
+    t.string   "requirement_id"
+    t.boolean  "met"
+    t.string   "applicant"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "departments", :force => true do |t|
     t.string   "name"
