@@ -9,15 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 4) do
-
-  create_table "applicant_requirements", :force => true do |t|
-    t.string   "requirement_id"
-    t.boolean  "met"
-    t.string   "applicant"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+ActiveRecord::Schema.define(:version => 3) do
 
   create_table "departments", :force => true do |t|
     t.string   "name"
@@ -29,16 +21,13 @@ ActiveRecord::Schema.define(:version => 4) do
   create_table "graduate_applicants", :force => true do |t|
     t.integer  "department_id"
     t.string   "first_name"
-    t.string   "middle_name"
     t.string   "last_name"
-    t.string   "suffix"
     t.string   "address1"
     t.string   "address2"
     t.string   "city"
     t.string   "state"
     t.string   "zip"
-    t.string   "phone_day"
-    t.string   "phone_night"
+    t.string   "phone"
     t.string   "email"
     t.string   "status"
     t.decimal  "gpa"
