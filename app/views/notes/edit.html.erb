@@ -1,0 +1,27 @@
+<h1>Editing notes</h1>
+
+<%= error_messages_for :notes %>
+
+<% form_for(@notes) do |f| %>
+  <p>
+    <b>Note text</b><br />
+    <%= f.text_field :note_text %>
+  </p>
+
+  <p>
+    <b>Note datetime</b><br />
+    <%= f.datetime_select :note_datetime %>
+  </p>
+
+  <p>
+    <b>Graduate applicant</b><br />
+    <%= f.text_field :graduate_applicant_id %>
+  </p>
+
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @notes %> |
+<%= link_to 'Back', notes_path %>
