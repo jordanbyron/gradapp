@@ -1,0 +1,26 @@
+<h1>Listing correspondences</h1>
+
+<table>
+  <tr>
+    <th>Sent date time</th>
+    <th>Graduate applicant</th>
+    <th>Text</th>
+    <th>Type</th>
+  </tr>
+
+<% for correspondence in @correspondences %>
+  <tr>
+    <td><%=h correspondence.sent_date_time %></td>
+    <td><%=h correspondence.graduate_applicant_id %></td>
+    <td><%=h correspondence.text %></td>
+    <td><%=h correspondence.type %></td>
+    <td><%= link_to 'Show', correspondence %></td>
+    <td><%= link_to 'Edit', edit_correspondence_path(correspondence) %></td>
+    <td><%= link_to 'Destroy', correspondence, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New correspondence', new_correspondence_path %>

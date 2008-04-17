@@ -1,0 +1,31 @@
+<h1>New correspondence</h1>
+
+<%= error_messages_for :correspondence %>
+
+<% form_for(@correspondence) do |f| %>
+  <p>
+    <b>Sent date time</b><br />
+    <%= f.datetime_select :sent_date_time %>
+  </p>
+
+  <p>
+    <b>Graduate applicant</b><br />
+    <%= f.text_field :graduate_applicant_id %>
+  </p>
+
+  <p>
+    <b>Text</b><br />
+    <%= f.text_field :text %>
+  </p>
+
+  <p>
+    <b>Type</b><br />
+    <%= f.text_field :type %>
+  </p>
+
+  <p>
+    <%= f.submit "Create" %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', correspondences_path %>

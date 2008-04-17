@@ -1,0 +1,23 @@
+<p>
+  <b>Sent date time:</b>
+  <%=h @correspondence.sent_date_time %>
+</p>
+
+<p>
+  <b>Graduate applicant:</b>
+  <%=h @correspondence.graduate_applicant_id %>
+</p>
+
+<p>
+  <b>Text:</b>
+  <%=h @correspondence.text %>
+</p>
+
+<p>
+  <b>Type:</b>
+  <%=h @correspondence.type %>
+</p>
+
+
+<%= link_to 'Edit', edit_correspondence_path(@correspondence) %> |
+<%= link_to 'Back', correspondences_path %>

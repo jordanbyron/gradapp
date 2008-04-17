@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  sent_date_time: 2008-04-17 19:17:47
+  graduate_applicant_id: 
+  text: MyString
+  type: MyString
+
+two:
+  sent_date_time: 2008-04-17 19:17:47
+  graduate_applicant_id: 
+  text: MyString
+  type: MyString
