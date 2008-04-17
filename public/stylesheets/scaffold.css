@@ -44,7 +44,7 @@ body, p, ol, ul, td {
 
 #contents2 table, tr, th, td{
   border-collapse: collapse;
-  border: 1px solid black;
+  border: 1px solid black; 
   font: normal 12px "Trebuchet MS", Arial, sans-serif;
 }
 
