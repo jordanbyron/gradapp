@@ -2,7 +2,7 @@ class CreateApplicationRequirements < ActiveRecord::Migration
   def self.up
     create_table :application_requirements do |t|
       t.string :text
-      t.string :department
+      t.id :department_id
 
       t.timestamps
     end
