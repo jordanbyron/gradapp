@@ -1,0 +1,18 @@
+<p>
+  <b>Application requirement:</b>
+  <%=h @applicant_requirement.application_requirement_id %>
+</p>
+
+<p>
+  <b>Graduate applicant:</b>
+  <%=h @applicant_requirement.graduate_applicant_id %>
+</p>
+
+<p>
+  <b>Met:</b>
+  <%=h @applicant_requirement.met %>
+</p>
+
+
+<%= link_to 'Edit', edit_applicant_requirement_path(@applicant_requirement) %> |
+<%= link_to 'Back', applicant_requirements_path %>

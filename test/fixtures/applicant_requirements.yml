@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  application_requirement_id: 1
+  graduate_applicant_id: 1
+  met: false
+
+two:
+  application_requirement_id: 1
+  graduate_applicant_id: 1
+  met: false

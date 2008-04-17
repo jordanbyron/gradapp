@@ -1,0 +1,27 @@
+<h1>Editing applicant_requirement</h1>
+
+<%= error_messages_for :applicant_requirement %>
+
+<% form_for(@applicant_requirement) do |f| %>
+  <p>
+    <b>Application requirement</b><br />
+    <%= f.text_field :application_requirement_id %>
+  </p>
+
+  <p>
+    <b>Graduate applicant</b><br />
+    <%= f.text_field :graduate_applicant_id %>
+  </p>
+
+  <p>
+    <b>Met</b><br />
+    <%= f.check_box :met %>
+  </p>
+
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @applicant_requirement %> |
+<%= link_to 'Back', applicant_requirements_path %>

@@ -1,0 +1,24 @@
+<h1>Listing applicant_requirements</h1>
+
+<table>
+  <tr>
+    <th>Application requirement</th>
+    <th>Graduate applicant</th>
+    <th>Met</th>
+  </tr>
+
+<% for applicant_requirement in @applicant_requirements %>
+  <tr>
+    <td><%=h applicant_requirement.application_requirement_id %></td>
+    <td><%=h applicant_requirement.graduate_applicant_id %></td>
+    <td><%=h applicant_requirement.met %></td>
+    <td><%= link_to 'Show', applicant_requirement %></td>
+    <td><%= link_to 'Edit', edit_applicant_requirement_path(applicant_requirement) %></td>
+    <td><%= link_to 'Destroy', applicant_requirement, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New applicant_requirement', new_applicant_requirement_path %>
