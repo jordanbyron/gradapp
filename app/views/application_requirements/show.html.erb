@@ -1,0 +1,13 @@
+<p>
+  <b>Department:</b>
+  <%=h @application_requirement.department_id %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @application_requirement.description %>
+</p>
+
+
+<%= link_to 'Edit', edit_application_requirement_path(@application_requirement) %> |
+<%= link_to 'Back', application_requirements_path %>

@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :application_requirements
+
 	map.home '', :controller =>'home', :action => 'index' # Set Root To The Home Controller
 
 	map.resources :graduate_applicants

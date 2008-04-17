@@ -1,0 +1,22 @@
+<h1>Listing application_requirements</h1>
+
+<table>
+  <tr>
+    <th>Department</th>
+    <th>Description</th>
+  </tr>
+
+<% for application_requirement in @application_requirements %>
+  <tr>
+    <td><%=h application_requirement.department_id %></td>
+    <td><%=h application_requirement.description %></td>
+    <td><%= link_to 'Show', application_requirement %></td>
+    <td><%= link_to 'Edit', edit_application_requirement_path(application_requirement) %></td>
+    <td><%= link_to 'Destroy', application_requirement, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New application_requirement', new_application_requirement_path %>
