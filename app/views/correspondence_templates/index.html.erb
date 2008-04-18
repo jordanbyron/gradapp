@@ -1,0 +1,24 @@
+<h1>Listing correspondence_templates</h1>
+
+<table>
+  <tr>
+    <th>Department</th>
+    <th>Title</th>
+    <th>Body</th>
+  </tr>
+
+<% for correspondence_template in @correspondence_templates %>
+  <tr>
+    <td><%=h correspondence_template.department_id %></td>
+    <td><%=h correspondence_template.title %></td>
+    <td><%=h correspondence_template.body %></td>
+    <td><%= link_to 'Show', correspondence_template %></td>
+    <td><%= link_to 'Edit', edit_correspondence_template_path(correspondence_template) %></td>
+    <td><%= link_to 'Destroy', correspondence_template, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New correspondence_template', new_correspondence_template_path %>

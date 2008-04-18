@@ -1,0 +1,18 @@
+<p>
+  <b>Department:</b>
+  <%=h @correspondence_template.department_id %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%=h @correspondence_template.title %>
+</p>
+
+<p>
+  <b>Body:</b>
+  <%=h @correspondence_template.body %>
+</p>
+
+
+<%= link_to 'Edit', edit_correspondence_template_path(@correspondence_template) %> |
+<%= link_to 'Back', correspondence_templates_path %>

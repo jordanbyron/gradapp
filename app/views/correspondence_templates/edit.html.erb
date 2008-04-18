@@ -1,0 +1,27 @@
+<h1>Editing correspondence_template</h1>
+
+<%= error_messages_for :correspondence_template %>
+
+<% form_for(@correspondence_template) do |f| %>
+  <p>
+    <b>Department</b><br />
+    <%= f.text_field :department_id %>
+  </p>
+
+  <p>
+    <b>Title</b><br />
+    <%= f.text_field :title %>
+  </p>
+
+  <p>
+    <b>Body</b><br />
+    <%= f.text_field :body %>
+  </p>
+
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @correspondence_template %> |
+<%= link_to 'Back', correspondence_templates_path %>
