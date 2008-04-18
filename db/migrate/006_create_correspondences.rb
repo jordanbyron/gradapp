@@ -2,7 +2,7 @@ class CreateCorrespondences < ActiveRecord::Migration
   def self.up
     create_table :correspondences do |t|
       t.datetime :sent_date_time
-      t.int :graduate_applicant_id
+      t.integer :graduate_applicant_id
       t.string :text
       t.string :type
 

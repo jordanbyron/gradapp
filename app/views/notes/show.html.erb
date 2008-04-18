@@ -1,0 +1,18 @@
+<p>
+  <b>Graduate applicant:</b>
+  <%=h @note.graduate_applicant_id %>
+</p>
+
+<p>
+  <b>Text:</b>
+  <%=h @note.text %>
+</p>
+
+<p>
+  <b>Created date time:</b>
+  <%=h @note.created_date_time %>
+</p>
+
+
+<%= link_to 'Edit', edit_note_path(@note) %> |
+<%= link_to 'Back', notes_path %>
