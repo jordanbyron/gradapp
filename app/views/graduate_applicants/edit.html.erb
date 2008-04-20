@@ -11,12 +11,19 @@
     <b>First name</b><br />
     <%= f.text_field :first_name %>
   </p>
-
+  <p>
+    <b>Middle initial</b><br />
+    <%= f.text_field :middle_name %>
+  </p>
+	
   <p>
     <b>Last name</b><br />
     <%= f.text_field :last_name %>
   </p>
-
+  <p>
+    <b>Suffix</b><br />
+    <%= f.text_field :suffix %>
+  </p>
   <p>
     <b>Address1</b><br />
     <%= f.text_field :address1 %>
@@ -43,8 +50,12 @@
   </p>
 
   <p>
-    <b>Phone</b><br />
-    <%= f.text_field :phone %>
+    <b>Phone (day)</b><br />
+    <%= f.text_field :phone_day %>
+  </p>
+  <p>
+    <b>Phone (night)</b><br />
+    <%= f.text_field :phone_night %>
   </p>
 
   <p>

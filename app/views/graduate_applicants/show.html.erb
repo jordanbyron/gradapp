@@ -6,12 +6,18 @@
   <b>First name:</b>
   <%=h @graduate_applicant.first_name %>
 </p>
-
+<p>
+	<b>Middle Initial:</b>
+	<%=h @graduate_applicant.middle_name %>
+</p>
 <p>
   <b>Last name:</b>
   <%=h @graduate_applicant.last_name %>
 </p>
-
+<p>
+	<b>Suffix:</b>
+	<%=h @graduate_applicant.suffix %>
+</p>
 <p>
   <b>Address1:</b>
   <%=h @graduate_applicant.address1 %>
@@ -38,8 +44,12 @@
 </p>
 
 <p>
-  <b>Phone:</b>
-  <%=h @graduate_applicant.phone %>
+  <b>Phone (day):</b>
+  <%=h @graduate_applicant.phone_day %>
+</p>
+<p>
+	<b>Phone (night):</b>
+	<%=h @graduate_applicant.phone_night %>
 </p>
 
 <p>

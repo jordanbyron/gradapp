@@ -7,13 +7,16 @@
 <table>
   <tr>
     <th>First</th>
+	<th>Middle</th>
     <th>Last</th>
+	<th>Suffix</th>
     <th>Address1</th>
     <th>Address2</th>
     <th>City</th>
     <th>State</th>
     <th>Zip</th>
-    <th>Phone</th>
+    <th>Phone (day)</th>
+	<th>Phone (night)</th>
     <th>E-mail</th>
     <th>Status</th>
     <th>GPA</th>
@@ -24,13 +27,16 @@
 <% for graduate_applicant in @graduate_applicants %>
   <tr>
     <td><%=h graduate_applicant.first_name %></td>
+	<td><%=h graduate_applicant.middle_name %></td>
     <td><%=h graduate_applicant.last_name %></td>
+	<td><%=h graduate_applicant.suffix %></td>
     <td><%=h graduate_applicant.address1 %></td>
     <td><%=h graduate_applicant.address2 %></td>
     <td><%=h graduate_applicant.city %></td>
     <td><%=h graduate_applicant.state %></td>
     <td><%=h graduate_applicant.zip %></td>
-    <td><%=h graduate_applicant.phone %></td>
+    <td><%=h graduate_applicant.phone_day %></td>
+	<td><%=h graduate_applicant.phone_night %></td>
     <td><%=h graduate_applicant.email %></td>
     <td><%=h graduate_applicant.status %></td>
     <td><%=h graduate_applicant.gpa %></td>
@@ -45,3 +51,13 @@
 <br />
 
 <%= link_to 'New graduate_applicant', new_graduate_applicant_path %>
+
+
+
+
+
+
+
+
+
+
