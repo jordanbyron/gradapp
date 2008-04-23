@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 6) do
+ActiveRecord::Schema.define(:version => 9) do
 
   create_table "applicant_requirements", :force => true do |t|
     t.integer  "application_requirement_id"
@@ -26,6 +26,30 @@ ActiveRecord::Schema.define(:version => 6) do
     t.datetime "updated_at"
   end
 
+  create_table "correspondence_templates", :force => true do |t|
+    t.integer  "department_id"
+    t.string   "title"
+    t.text     "body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "correspondences", :force => true do |t|
+    t.datetime "sent_date_time"
+    t.integer  "graduate_applicant_id"
+    t.string   "text"
+    t.string   "type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "degree_programs", :force => true do |t|
+    t.integer  "department_id"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "departments", :force => true do |t|
     t.string   "name"
     t.string   "short_name"
@@ -36,13 +60,16 @@ ActiveRecord::Schema.define(:version => 6) do
   create_table "graduate_applicants", :force => true do |t|
     t.integer  "department_id"
     t.string   "first_name"
+    t.string   "middle_name"
     t.string   "last_name"
+    t.string   "suffix"
     t.string   "address1"
     t.string   "address2"
     t.string   "city"
     t.string   "state"
     t.string   "zip"
-    t.string   "phone"
+    t.string   "phone_day"
+    t.string   "phone_night"
     t.string   "email"
     t.string   "status"
     t.decimal  "gpa"
@@ -53,8 +80,7 @@ ActiveRecord::Schema.define(:version => 6) do
 
   create_table "notes", :force => true do |t|
     t.integer  "graduate_applicant_id"
-    t.string   "text"
-    t.datetime "created_date_time"
+    t.text     "text"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

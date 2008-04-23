@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  graduate_applicant_id: 1
+  text: MyString
+  created_date_time: 2008-04-17 19:10:37
+
+two:
+  graduate_applicant_id: 1
+  text: MyString
+  created_date_time: 2008-04-17 19:10:37

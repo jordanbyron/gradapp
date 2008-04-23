@@ -25,12 +25,8 @@
 
 <label for="graduate_coordinator">Graduate Coordinator</label>
 <%= check_box("user", "graduate_coordinator") %></p>
-<%= observe_field(:user_graduate_coordinator,
-                        :on => :selected,
-                        :update => :department_div,
-                        :function => visual_effect(:toggle_appear, "department")) %>
 
-<div id="department" style="display:none;">
+<div id="department">
   <p><label for="department_id">Department</label>
   <%= select("user", "department_id", Department.find(:all).collect {|d| [d.name, d.id] }) %></p>
 </div>

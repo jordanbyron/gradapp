@@ -35,6 +35,11 @@ class UsersController < ApplicationController
   
   def edit
     @user = User.find(params[:id])
+    
+    respond_to do |format|
+      format.html # edit.html.erb
+      format.xml  { render :xml => @user }
+    end
   end
   
   def update

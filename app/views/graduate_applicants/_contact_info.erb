@@ -1,0 +1,78 @@
+<p>
+  <b>First name:</b>
+  <%=h @graduate_applicant.first_name %>
+</p>
+
+<p>
+  <b>Middle Initial:</b>
+	<%=h @graduate_applicant.middle_name %>
+</p>
+
+<p>
+  <b>Last name:</b>
+  <%=h @graduate_applicant.last_name %>
+</p>
+
+<p>
+	<b>Suffix:</b>
+	<%=h @graduate_applicant.suffix %>
+</p>
+
+<p>
+
+<p>
+  <b>Address1:</b>
+  <%=h @graduate_applicant.address1 %>
+</p>
+
+<p>
+  <b>Address2:</b>
+  <%=h @graduate_applicant.address2 %>
+</p>
+
+<p>
+  <b>City:</b>
+  <%=h @graduate_applicant.city %>
+</p>
+
+<p>
+  <b>State:</b>
+  <%=h @graduate_applicant.state %>
+</p>
+
+<p>
+  <b>Zip:</b>
+  <%=h @graduate_applicant.zip %>
+</p>
+
+<p>
+  <b>Phone (day):</b>
+  <%=h @graduate_applicant.phone_day %>
+</p>
+<p>
+	<b>Phone (night):</b>
+	<%=h @graduate_applicant.phone_night %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%=h @graduate_applicant.email %>
+</p>
+
+<p>
+  <b>Status:</b>
+  <%=h @graduate_applicant.status %>
+</p>
+
+<p>
+  <b>Gpa:</b>
+  <%=h @graduate_applicant.gpa %>
+</p>
+
+<p>
+  <b>Studentid:</b>
+  <%=h @graduate_applicant.studentID %>
+</p>
+
+<p><%= link_to 'Edit', edit_graduate_applicant_path(@graduate_applicant) %> | 
+<%= link_to 'Back', graduate_applicants_path %></p>

@@ -1,7 +1,51 @@
 class GraduateApplicantsController < ApplicationController
-
   before_filter :gc_required
 
+  def show_contact_info
+    @graduate_applicant = GraduateApplicant.find(params[:id])
+    
+    render  :partial => 'contact_info',
+            :locals  => {:graduate_applicant => @graduate_applicant}
+  end
+
+  def show_note_info
+    @graduate_applicant = GraduateApplicant.find(params[:id])
+    @note = Note.new
+    
+    render  :partial => 'note_info',
+            :locals  => {:notes => @graduate_applicant.notes, 
+                        :graduate_applicant => @graduate_applicant,
+                        :note => @note}
+  end
+  
+  def show_applicant_requirement_info
+    @graduate_applicant = GraduateApplicant.find(params[:id])
+    
+    render  :partial => 'applicant_requirement_info',
+            :locals  => {:graduate_applicant => @graduate_applicant}
+  end
+  
+  def show_correspondence_info
+    @graduate_applicant = GraduateApplicant.find(params[:id])
+    
+    render  :partial => 'correspondence_info',
+            :locals  => {:graduate_applicant => @graduate_applicant}
+  end
+  
+  def show_ppos_info
+    @graduate_applicant = GraduateApplicant.find(params[:id])
+    
+    render  :partial => 'ppos_info',
+            :locals  => {:graduate_applicant => @graduate_applicant}
+  end
+
+  def toggle_new_note
+    respond_to do |format|
+      format.html { redirect_to @graduate_applicant }
+      format.js # renders toggle_new_note.js.rjs
+    end
+  end
+  
   # GET /graduate_applicants
   # GET /graduate_applicants.xml
   def index
