@@ -1,0 +1,397 @@
+# Logfile created on Thu Apr 24 10:12:26 -0400 2008
+
+Processing HomeController#index (for 127.0.0.1 at 2008-04-24 10:24:28) [GET]
+  Session ID: 19639b2df8ce28c21fa027c2596cb1c3
+  Parameters: {"action"=>"index", "controller"=>"home"}
+  [4;36;1mSQL (0.000000)[0m   [0;1mSELECT count(*) AS count_all FROM users [0m
+Rendering template within layouts/application
+Rendering home/index
+Rendered widgets/_main_navigation (0.03200)
+Rendered widgets/_main_tabnav (0.00000)
+Completed in 0.20300 (4 reqs/sec) | Rendering: 0.07800 (38%) | DB: 0.00000 (0%) | 200 OK [http://localhost/]
+
+
+Processing SessionController#new (for 127.0.0.1 at 2008-04-24 10:24:43) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--2c912f44c616d7c8d261663959289cfff3a87506
+  Parameters: {"action"=>"new", "controller"=>"session"}
+Rendering template within layouts/session
+Rendering session/new
+Completed in 0.01600 (62 reqs/sec) | Rendering: 0.01600 (100%) | DB: 0.00000 (0%) | 200 OK [http://localhost/login]
+
+
+Processing SessionController#create (for 127.0.0.1 at 2008-04-24 10:24:53) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZDdkYmQ3NmY3YzMyMmUwNzE5NWFhODFmZWY2OTJj%0AZWMiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--9f24bbf4f30a4ba97ea607ea7535d0b173a5831f
+  Parameters: {"commit"=>"Log in", "authenticity_token"=>"3d5da8a72964e018d192700d4843d3f919fb80cd", "action"=>"create", "controller"=>"session", "password"=>"temp123", "login"=>"liam"}
+  [4;35;1mUser Load (0.000000)[0m   [0mSELECT * FROM users WHERE (users."login" = 'liam') LIMIT 1[0m
+Rendering template within layouts/session
+Rendering session/new
+Completed in 0.06200 (16 reqs/sec) | Rendering: 0.01600 (25%) | DB: 0.00000 (0%) | 200 OK [http://localhost/session]
+
+
+Processing SessionController#create (for 127.0.0.1 at 2008-04-24 10:25:04) [POST]
+  Session ID: BAh7CDoMY3NyZl9pZCIlZDdkYmQ3NmY3YzMyMmUwNzE5NWFhODFmZWY2OTJj%0AZWMiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7BjoKZXJyb3IiG0F1dGhlbnRpY2F0aW9uIEZhaWxlZC4GOgpAdXNlZHsG%0AOwdUOgx1c2VyX2lkMA%3D%3D--0b5e2b0f948c2426b63862355c723fc93e616fc5
+  Parameters: {"commit"=>"Log in", "authenticity_token"=>"3d5da8a72964e018d192700d4843d3f919fb80cd", "action"=>"create", "controller"=>"session", "password"=>"temp123", "login"=>"temp"}
+  [4;36;1mUser Load (0.000000)[0m   [0;1mSELECT * FROM users WHERE (users."login" = 'temp') LIMIT 1[0m
+Rendering template within layouts/session
+Rendering session/new
+Completed in 0.07800 (12 reqs/sec) | Rendering: 0.01600 (20%) | DB: 0.00000 (0%) | 200 OK [http://localhost/session]
+
+
+Processing SessionController#create (for 127.0.0.1 at 2008-04-24 10:25:12) [POST]
+  Session ID: BAh7CDoMY3NyZl9pZCIlZDdkYmQ3NmY3YzMyMmUwNzE5NWFhODFmZWY2OTJj%0AZWMiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7BjoKZXJyb3IiG0F1dGhlbnRpY2F0aW9uIEZhaWxlZC4GOgpAdXNlZHsG%0AOwdUOgx1c2VyX2lkMA%3D%3D--0b5e2b0f948c2426b63862355c723fc93e616fc5
+  Parameters: {"commit"=>"Log in", "authenticity_token"=>"3d5da8a72964e018d192700d4843d3f919fb80cd", "action"=>"create", "controller"=>"session", "password"=>"temp123", "login"=>"test"}
+  [4;35;1mUser Load (0.000000)[0m   [0mSELECT * FROM users WHERE (users."login" = 'test') LIMIT 1[0m
+Rendering template within layouts/session
+Rendering session/new
+Completed in 0.04700 (21 reqs/sec) | Rendering: 0.00000 (0%) | DB: 0.00000 (0%) | 200 OK [http://localhost/session]
+
+
+Processing SessionController#create (for 127.0.0.1 at 2008-04-24 10:25:19) [POST]
+  Session ID: BAh7CDoMY3NyZl9pZCIlZDdkYmQ3NmY3YzMyMmUwNzE5NWFhODFmZWY2OTJj%0AZWMiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7BjoKZXJyb3IiG0F1dGhlbnRpY2F0aW9uIEZhaWxlZC4GOgpAdXNlZHsG%0AOwdUOgx1c2VyX2lkMA%3D%3D--0b5e2b0f948c2426b63862355c723fc93e616fc5
+  Parameters: {"commit"=>"Log in", "authenticity_token"=>"3d5da8a72964e018d192700d4843d3f919fb80cd", "action"=>"create", "controller"=>"session", "password"=>"temp123", "login"=>"admin"}
+  [4;36;1mUser Load (0.000000)[0m   [0;1mSELECT * FROM users WHERE (users."login" = 'admin') LIMIT 1[0m
+Rendering template within layouts/session
+Rendering session/new
+Completed in 0.04600 (21 reqs/sec) | Rendering: 0.00000 (0%) | DB: 0.00000 (0%) | 200 OK [http://localhost/session]
+
+
+Processing SessionController#create (for 127.0.0.1 at 2008-04-24 10:25:27) [POST]
+  Session ID: BAh7CDoMY3NyZl9pZCIlZDdkYmQ3NmY3YzMyMmUwNzE5NWFhODFmZWY2OTJj%0AZWMiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7BjoKZXJyb3IiG0F1dGhlbnRpY2F0aW9uIEZhaWxlZC4GOgpAdXNlZHsG%0AOwdUOgx1c2VyX2lkMA%3D%3D--0b5e2b0f948c2426b63862355c723fc93e616fc5
+  Parameters: {"commit"=>"Log in", "authenticity_token"=>"3d5da8a72964e018d192700d4843d3f919fb80cd", "action"=>"create", "controller"=>"session", "password"=>"temp123", "login"=>"Liam"}
+  [4;35;1mUser Load (0.000000)[0m   [0mSELECT * FROM users WHERE (users."login" = 'Liam') LIMIT 1[0m
+Rendering template within layouts/session
+Rendering session/new
+Completed in 0.06200 (16 reqs/sec) | Rendering: 0.01600 (25%) | DB: 0.00000 (0%) | 200 OK [http://localhost/session]
+
+
+Processing SessionController#create (for 127.0.0.1 at 2008-04-24 10:25:48) [POST]
+  Session ID: BAh7CDoMY3NyZl9pZCIlZDdkYmQ3NmY3YzMyMmUwNzE5NWFhODFmZWY2OTJj%0AZWMiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7BjoKZXJyb3IiG0F1dGhlbnRpY2F0aW9uIEZhaWxlZC4GOgpAdXNlZHsG%0AOwdUOgx1c2VyX2lkMA%3D%3D--0b5e2b0f948c2426b63862355c723fc93e616fc5
+  Parameters: {"commit"=>"Log in", "authenticity_token"=>"3d5da8a72964e018d192700d4843d3f919fb80cd", "action"=>"create", "controller"=>"session", "password"=>"temp123", "login"=>"test"}
+  [4;36;1mUser Load (0.000000)[0m   [0;1mSELECT * FROM users WHERE (users."login" = 'test') LIMIT 1[0m
+Rendering template within layouts/session
+Rendering session/new
+Completed in 0.04700 (21 reqs/sec) | Rendering: 0.00000 (0%) | DB: 0.00000 (0%) | 200 OK [http://localhost/session]
+
+
+Processing SessionController#create (for 127.0.0.1 at 2008-04-24 10:30:44) [POST]
+  Session ID: BAh7CDoMY3NyZl9pZCIlZDdkYmQ3NmY3YzMyMmUwNzE5NWFhODFmZWY2OTJj%0AZWMiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7BjoKZXJyb3IiG0F1dGhlbnRpY2F0aW9uIEZhaWxlZC4GOgpAdXNlZHsG%0AOwdUOgx1c2VyX2lkMA%3D%3D--0b5e2b0f948c2426b63862355c723fc93e616fc5
+  Parameters: {"commit"=>"Log in", "authenticity_token"=>"3d5da8a72964e018d192700d4843d3f919fb80cd", "action"=>"create", "controller"=>"session", "password"=>"", "login"=>"test"}
+  [4;35;1mUser Load (0.000000)[0m   [0mSELECT * FROM users WHERE (users."login" = 'test') LIMIT 1[0m
+Rendering template within layouts/session
+Rendering session/new
+Completed in 0.04600 (21 reqs/sec) | Rendering: 0.00000 (0%) | DB: 0.00000 (0%) | 200 OK [http://localhost/session]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2008-04-24 10:33:16) [GET]
+  Session ID: BAh7CDoMY3NyZl9pZCIlZDdkYmQ3NmY3YzMyMmUwNzE5NWFhODFmZWY2OTJj%0AZWMiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7BjoKZXJyb3IiG0F1dGhlbnRpY2F0aW9uIEZhaWxlZC4GOgpAdXNlZHsG%0AOwdUOgx1c2VyX2lkMA%3D%3D--0b5e2b0f948c2426b63862355c723fc93e616fc5
+  Parameters: {"action"=>"index", "controller"=>"home"}
+  [4;36;1mSQL (0.000000)[0m   [0;1mSELECT count(*) AS count_all FROM users [0m
+Rendering template within layouts/application
+Rendering home/index
+Rendered widgets/_main_navigation (0.00000)
+Rendered widgets/_main_tabnav (0.04700)
+Completed in 0.15600 (6 reqs/sec) | Rendering: 0.07800 (49%) | DB: 0.00000 (0%) | 200 OK [http://localhost/]
+
+
+Processing SessionController#new (for 127.0.0.1 at 2008-04-24 10:33:21) [GET]
+  Session ID: BAh7CDoMY3NyZl9pZCIlZDdkYmQ3NmY3YzMyMmUwNzE5NWFhODFmZWY2OTJj%0AZWMiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA6DHVzZXJfaWQw--e0430c07872c377bdcd6abf76c1e17cbb880263b
+  Parameters: {"action"=>"new", "controller"=>"session"}
+Rendering template within layouts/session
+Rendering session/new
+Completed in 0.01500 (66 reqs/sec) | Rendering: 0.01500 (100%) | DB: 0.00000 (0%) | 200 OK [http://localhost/login]
+
+
+Processing SessionController#create (for 127.0.0.1 at 2008-04-24 10:33:29) [POST]
+  Session ID: BAh7CDoMY3NyZl9pZCIlZDdkYmQ3NmY3YzMyMmUwNzE5NWFhODFmZWY2OTJj%0AZWMiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA6DHVzZXJfaWQw--e0430c07872c377bdcd6abf76c1e17cbb880263b
+  Parameters: {"commit"=>"Log in", "authenticity_token"=>"3d5da8a72964e018d192700d4843d3f919fb80cd", "action"=>"create", "controller"=>"session", "password"=>"temp123", "login"=>"Liam"}
+  [4;35;1mUser Load (0.000000)[0m   [0mSELECT * FROM users WHERE (users."login" = 'Liam') LIMIT 1[0m
+Rendering template within layouts/session
+Rendering session/new
+Completed in 0.04700 (21 reqs/sec) | Rendering: 0.00000 (0%) | DB: 0.00000 (0%) | 200 OK [http://localhost/session]
+
+
+Processing SessionController#create (for 127.0.0.1 at 2008-04-24 10:33:37) [POST]
+  Session ID: BAh7CDoMY3NyZl9pZCIlZDdkYmQ3NmY3YzMyMmUwNzE5NWFhODFmZWY2OTJj%0AZWMiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7BjoKZXJyb3IiG0F1dGhlbnRpY2F0aW9uIEZhaWxlZC4GOgpAdXNlZHsG%0AOwdUOgx1c2VyX2lkMA%3D%3D--0b5e2b0f948c2426b63862355c723fc93e616fc5
+  Parameters: {"commit"=>"Log in", "authenticity_token"=>"3d5da8a72964e018d192700d4843d3f919fb80cd", "action"=>"create", "controller"=>"session", "password"=>"modemman", "login"=>"Liam"}
+  [4;36;1mUser Load (0.000000)[0m   [0;1mSELECT * FROM users WHERE (users."login" = 'Liam') LIMIT 1[0m
+Rendering template within layouts/session
+Rendering session/new
+Completed in 0.06200 (16 reqs/sec) | Rendering: 0.01500 (24%) | DB: 0.00000 (0%) | 200 OK [http://localhost/session]
+
+
+Processing SessionController#create (for 127.0.0.1 at 2008-04-24 10:33:43) [POST]
+  Session ID: BAh7CDoMY3NyZl9pZCIlZDdkYmQ3NmY3YzMyMmUwNzE5NWFhODFmZWY2OTJj%0AZWMiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7BjoKZXJyb3IiG0F1dGhlbnRpY2F0aW9uIEZhaWxlZC4GOgpAdXNlZHsG%0AOwdUOgx1c2VyX2lkMA%3D%3D--0b5e2b0f948c2426b63862355c723fc93e616fc5
+  Parameters: {"commit"=>"Log in", "authenticity_token"=>"3d5da8a72964e018d192700d4843d3f919fb80cd", "action"=>"create", "controller"=>"session", "password"=>"temp123", "login"=>"admin"}
+  [4;35;1mUser Load (0.000000)[0m   [0mSELECT * FROM users WHERE (users."login" = 'admin') LIMIT 1[0m
+Rendering template within layouts/session
+Rendering session/new
+Completed in 0.06300 (15 reqs/sec) | Rendering: 0.01600 (25%) | DB: 0.00000 (0%) | 200 OK [http://localhost/session]
+
+
+Processing SessionController#create (for 127.0.0.1 at 2008-04-24 10:33:51) [POST]
+  Session ID: BAh7CDoMY3NyZl9pZCIlZDdkYmQ3NmY3YzMyMmUwNzE5NWFhODFmZWY2OTJj%0AZWMiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7BjoKZXJyb3IiG0F1dGhlbnRpY2F0aW9uIEZhaWxlZC4GOgpAdXNlZHsG%0AOwdUOgx1c2VyX2lkMA%3D%3D--0b5e2b0f948c2426b63862355c723fc93e616fc5
+  Parameters: {"commit"=>"Log in", "authenticity_token"=>"3d5da8a72964e018d192700d4843d3f919fb80cd", "action"=>"create", "controller"=>"session", "password"=>"temp123", "login"=>"user"}
+  [4;36;1mUser Load (0.000000)[0m   [0;1mSELECT * FROM users WHERE (users."login" = 'user') LIMIT 1[0m
+Rendering template within layouts/session
+Rendering session/new
+Completed in 0.06300 (15 reqs/sec) | Rendering: 0.01600 (25%) | DB: 0.00000 (0%) | 200 OK [http://localhost/session]
+
+
+Processing SessionController#create (for 127.0.0.1 at 2008-04-24 10:34:02) [POST]
+  Session ID: BAh7CDoMY3NyZl9pZCIlZDdkYmQ3NmY3YzMyMmUwNzE5NWFhODFmZWY2OTJj%0AZWMiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7BjoKZXJyb3IiG0F1dGhlbnRpY2F0aW9uIEZhaWxlZC4GOgpAdXNlZHsG%0AOwdUOgx1c2VyX2lkMA%3D%3D--0b5e2b0f948c2426b63862355c723fc93e616fc5
+  Parameters: {"commit"=>"Log in", "authenticity_token"=>"3d5da8a72964e018d192700d4843d3f919fb80cd", "action"=>"create", "controller"=>"session", "password"=>"temp123", "login"=>"Admin"}
+  [4;35;1mUser Load (0.000000)[0m   [0mSELECT * FROM users WHERE (users."login" = 'Admin') LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed in 0.06200 (16 reqs/sec) | DB: 0.00000 (0%) | 302 Found [http://localhost/session]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2008-04-24 10:34:03) [GET]
+  Session ID: BAh7CToMY3NyZl9pZCIlZDdkYmQ3NmY3YzMyMmUwNzE5NWFhODFmZWY2OTJj%0AZWM6DnJldHVybl90bzAiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZs%0AYXNoOjpGbGFzaEhhc2h7BjoLbm90aWNlIhtMb2dnZWQgaW4gc3VjY2Vzc2Z1%0AbGx5BjoKQHVzZWR7BjsIVDoMdXNlcl9pZGkG--8a501a2b431c4523113342a3b281a8df5fc19192
+  Parameters: {"action"=>"index", "controller"=>"home"}
+  [4;36;1mSQL (0.000000)[0m   [0;1mSELECT count(*) AS count_all FROM users [0m
+Rendering template within layouts/application
+Rendering home/index
+  [4;35;1mUser Load (0.000000)[0m   [0mSELECT * FROM users WHERE (users."id" = 1) LIMIT 1[0m
+Rendered widgets/_main_navigation (0.01600)
+Rendered widgets/_main_tabnav (0.00000)
+Completed in 0.09400 (10 reqs/sec) | Rendering: 0.04700 (50%) | DB: 0.00000 (0%) | 200 OK [http://localhost/]
+
+
+Processing UsersController#index (for 127.0.0.1 at 2008-04-24 10:34:13) [GET]
+  Session ID: BAh7CToMY3NyZl9pZCIlZDdkYmQ3NmY3YzMyMmUwNzE5NWFhODFmZWY2OTJj%0AZWM6DnJldHVybl90bzAiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZs%0AYXNoOjpGbGFzaEhhc2h7AAY6CkB1c2VkewA6DHVzZXJfaWRpBg%3D%3D--4f226a90bb275c04efa96666cfcd5c30539a08b3
+  Parameters: {"action"=>"index", "controller"=>"users"}
+  [4;36;1mUser Load (0.000000)[0m   [0;1mSELECT * FROM users WHERE (users."id" = 1) LIMIT 1[0m
+  [4;35;1mUser Load (0.000000)[0m   [0mSELECT * FROM users [0m
+Rendering template within layouts/application
+Rendering users/index
+Rendered widgets/_main_navigation (0.01600)
+Rendered widgets/_main_tabnav (0.00000)
+Completed in 0.14000 (7 reqs/sec) | Rendering: 0.09400 (67%) | DB: 0.00000 (0%) | 200 OK [http://localhost/users]
+
+
+Processing UsersController#edit (for 127.0.0.1 at 2008-04-24 10:34:21) [GET]
+  Session ID: BAh7CToMY3NyZl9pZCIlZDdkYmQ3NmY3YzMyMmUwNzE5NWFhODFmZWY2OTJj%0AZWM6DnJldHVybl90bzAiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZs%0AYXNoOjpGbGFzaEhhc2h7AAY6CkB1c2VkewA6DHVzZXJfaWRpBg%3D%3D--4f226a90bb275c04efa96666cfcd5c30539a08b3
+  Parameters: {"action"=>"edit", "id"=>"3", "controller"=>"users"}
+  [4;36;1mUser Load (0.000000)[0m   [0;1mSELECT * FROM users WHERE (users."id" = 1) LIMIT 1[0m
+  [4;35;1mUser Load (0.000000)[0m   [0mSELECT * FROM users WHERE (users."id" = 3) [0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSELECT count(*) AS count_all FROM departments [0m
+Rendering template within layouts/application
+Rendering users/edit
+  [4;35;1mDepartment Load (0.000000)[0m   [0mSELECT * FROM departments [0m
+Rendered users/_graduate_coordinator (0.00000)
+Rendered widgets/_main_navigation (0.01600)
+Rendered widgets/_main_tabnav (0.00000)
+Completed in 0.14000 (7 reqs/sec) | Rendering: 0.06200 (44%) | DB: 0.00000 (0%) | 200 OK [http://localhost/users/3/edit]
+
+
+Processing UsersController#index (for 127.0.0.1 at 2008-04-24 10:34:30) [GET]
+  Session ID: BAh7CToMY3NyZl9pZCIlZDdkYmQ3NmY3YzMyMmUwNzE5NWFhODFmZWY2OTJj%0AZWM6DnJldHVybl90bzAiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZs%0AYXNoOjpGbGFzaEhhc2h7AAY6CkB1c2VkewA6DHVzZXJfaWRpBg%3D%3D--4f226a90bb275c04efa96666cfcd5c30539a08b3
+  Parameters: {"action"=>"index", "controller"=>"users"}
+  [4;36;1mUser Load (0.000000)[0m   [0;1mSELECT * FROM users WHERE (users."id" = 1) LIMIT 1[0m
+  [4;35;1mUser Load (0.000000)[0m   [0mSELECT * FROM users [0m
+Rendering template within layouts/application
+Rendering users/index
+Rendered widgets/_main_navigation (0.00000)
+Rendered widgets/_main_tabnav (0.01600)
+Completed in 0.09400 (10 reqs/sec) | Rendering: 0.03100 (32%) | DB: 0.00000 (0%) | 200 OK [http://localhost/users]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2008-04-24 10:35:44) [GET]
+  Session ID: BAh7CToMY3NyZl9pZCIlZDdkYmQ3NmY3YzMyMmUwNzE5NWFhODFmZWY2OTJj%0AZWM6DnJldHVybl90bzAiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZs%0AYXNoOjpGbGFzaEhhc2h7AAY6CkB1c2VkewA6DHVzZXJfaWRpBg%3D%3D--4f226a90bb275c04efa96666cfcd5c30539a08b3
+  Parameters: {"action"=>"new", "controller"=>"users"}
+  [4;36;1mUser Load (0.000000)[0m   [0;1mSELECT * FROM users WHERE (users."id" = 1) LIMIT 1[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSELECT count(*) AS count_all FROM departments [0m
+Rendering template within layouts/application
+Rendering users/new
+  [4;36;1mDepartment Load (0.000000)[0m   [0;1mSELECT * FROM departments [0m
+Rendered users/_graduate_coordinator (0.00000)
+Rendered widgets/_main_navigation (0.00000)
+Rendered widgets/_main_tabnav (0.00000)
+Completed in 0.26500 (3 reqs/sec) | Rendering: 0.06300 (23%) | DB: 0.00000 (0%) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2008-04-24 10:36:07) [POST]
+  Session ID: BAh7CToMY3NyZl9pZCIlZDdkYmQ3NmY3YzMyMmUwNzE5NWFhODFmZWY2OTJj%0AZWM6DnJldHVybl90bzAiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZs%0AYXNoOjpGbGFzaEhhc2h7AAY6CkB1c2VkewA6DHVzZXJfaWRpBg%3D%3D--4f226a90bb275c04efa96666cfcd5c30539a08b3
+  Parameters: {"user"=>{"password_confirmation"=>"temp123", "admin"=>"0", "graduate_coordinator"=>"1", "first_name"=>"Reggie", "department_id"=>"1", "login"=>"regdoogie", "last_name"=>"Hamilton", "password"=>"temp123", "email"=>"dsflakjdslkfdsak@lkaerlkdas"}, "commit"=>"Add", "authenticity_token"=>"3d5da8a72964e018d192700d4843d3f919fb80cd", "action"=>"create", "controller"=>"users"}
+  [4;35;1mUser Load (0.000000)[0m   [0mSELECT * FROM users WHERE (users."id" = 1) LIMIT 1[0m
+  [4;36;1mUser Load (0.000000)[0m   [0;1mSELECT * FROM users WHERE (LOWER(users.login) = 'regdoogie') LIMIT 1[0m
+  [4;35;1mUser Load (0.000000)[0m   [0mSELECT * FROM users WHERE (LOWER(users.email) = 'dsflakjdslkfdsak@lkaerlkdas') LIMIT 1[0m
+  [4;36;1mUser Create (0.000000)[0m   [0;1mINSERT INTO users ("salt", "updated_at", "crypted_password", "admin", "remember_token_expires_at", "graduate_coordinator", "remember_token", "department_id", "first_name", "last_name", "login", "created_at", "email") VALUES('994865fd5bcd045829c3cf1c8d5320d29d28ffe2', '2008-04-24 10:36:07', '5351baa54cb3f712f521458c52085811675a3f5e', 'f', NULL, 't', NULL, 1, 'Reggie', 'Hamilton', 'regdoogie', '2008-04-24 10:36:07', 'dsflakjdslkfdsak@lkaerlkdas')[0m
+  [4;35;1mSQL (0.015000)[0m   [0mSELECT count(*) AS count_all FROM users [0m
+Redirected to http://localhost:3000/users
+Completed in 0.21800 (4 reqs/sec) | DB: 0.01500 (6%) | 302 Found [http://localhost/users]
+
+
+Processing UsersController#index (for 127.0.0.1 at 2008-04-24 10:36:09) [GET]
+  Session ID: BAh7CToMY3NyZl9pZCIlZDdkYmQ3NmY3YzMyMmUwNzE5NWFhODFmZWY2OTJj%0AZWM6DnJldHVybl90bzAiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZs%0AYXNoOjpGbGFzaEhhc2h7BjoLbm90aWNlIhtVc2VyIHJlZ2Rvb2dpZSBDcmVh%0AdGVkBjoKQHVzZWR7BjsIVDoMdXNlcl9pZGkG--a254227aff8b19ca9b55e4206a772f5b4e433c41
+  Parameters: {"action"=>"index", "controller"=>"users"}
+  [4;36;1mUser Load (0.000000)[0m   [0;1mSELECT * FROM users WHERE (users."id" = 1) LIMIT 1[0m
+  [4;35;1mUser Load (0.000000)[0m   [0mSELECT * FROM users [0m
+Rendering template within layouts/application
+Rendering users/index
+Rendered widgets/_main_navigation (0.00000)
+Rendered widgets/_main_tabnav (0.00000)
+Completed in 0.07800 (12 reqs/sec) | Rendering: 0.03200 (41%) | DB: 0.00000 (0%) | 200 OK [http://localhost/users]
+
+
+Processing SessionController#destroy (for 127.0.0.1 at 2008-04-24 10:36:42) [GET]
+  Session ID: BAh7CToMY3NyZl9pZCIlZDdkYmQ3NmY3YzMyMmUwNzE5NWFhODFmZWY2OTJj%0AZWM6DnJldHVybl90bzAiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZs%0AYXNoOjpGbGFzaEhhc2h7AAY6CkB1c2VkewA6DHVzZXJfaWRpBg%3D%3D--4f226a90bb275c04efa96666cfcd5c30539a08b3
+  Parameters: {"action"=>"destroy", "controller"=>"session"}
+  [4;36;1mUser Load (0.000000)[0m   [0;1mSELECT * FROM users WHERE (users."id" = 1) LIMIT 1[0m
+  [4;35;1mUser Update (0.000000)[0m   [0mUPDATE users SET "created_at" = '2008-04-22 21:55:24', "email" = 'dsfasdfa', "remember_token" = NULL, "login" = 'Admin', "department_id" = NULL, "remember_token_expires_at" = NULL, "graduate_coordinator" = 'f', "crypted_password" = '7032c3679b2d578acf6c48b0da9542f113a3fed4', "last_name" = 'User', "updated_at" = '2008-04-24 10:36:42', "first_name" = 'Admin', "admin" = 't', "salt" = '204437c5ed04354d645f5c48116bc4bb02e7cd7a' WHERE "id" = 1[0m
+Cookie set: auth_token=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT
+Redirected to http://localhost:3000/
+Completed in 0.18700 (5 reqs/sec) | DB: 0.00000 (0%) | 302 Found [http://localhost/logout]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2008-04-24 10:36:43) [GET]
+  Session ID: BAh7BzoOcmV0dXJuX3RvMCIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6%0ARmxhc2g6OkZsYXNoSGFzaHsGOgtub3RpY2UiHllvdSBoYXZlIGJlZW4gbG9n%0AZ2VkIG91dC4GOgpAdXNlZHsGOwdU--f8181d820610d9832c790cff3e2e3b0bac083bfe
+  Parameters: {"action"=>"index", "controller"=>"home"}
+  [4;36;1mSQL (0.000000)[0m   [0;1mSELECT count(*) AS count_all FROM users [0m
+Rendering template within layouts/application
+Rendering home/index
+Rendered widgets/_main_navigation (0.00000)
+Rendered widgets/_main_tabnav (0.00000)
+Completed in 0.09300 (10 reqs/sec) | Rendering: 0.03100 (33%) | DB: 0.00000 (0%) | 200 OK [http://localhost/]
+
+
+Processing SessionController#new (for 127.0.0.1 at 2008-04-24 10:36:47) [GET]
+  Session ID: BAh7BzoOcmV0dXJuX3RvMCIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6%0ARmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7AA%3D%3D--38135ce9af6c84ac143b63e9f26ac0912d9e8d67
+  Parameters: {"action"=>"new", "controller"=>"session"}
+Rendering template within layouts/session
+Rendering session/new
+Completed in 0.01500 (66 reqs/sec) | Rendering: 0.00000 (0%) | DB: 0.00000 (0%) | 200 OK [http://localhost/login]
+
+
+Processing SessionController#create (for 127.0.0.1 at 2008-04-24 10:37:06) [POST]
+  Session ID: BAh7CDoMY3NyZl9pZCIlYjM3MjliZjc1Zjc4MmU1NjI0Y2MzNjc0MWUzMzg0%0ANmE6DnJldHVybl90bzAiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZs%0AYXNoOjpGbGFzaEhhc2h7AAY6CkB1c2VkewA%3D--a916afcd34899f23dfdb261541dcaba5fe9fbf27
+  Parameters: {"commit"=>"Log in", "authenticity_token"=>"c611837976bb1cb2a6c5980b0a2c3620b7404f19", "action"=>"create", "controller"=>"session", "password"=>"temp123", "login"=>"regdoogie"}
+  [4;35;1mUser Load (0.000000)[0m   [0mSELECT * FROM users WHERE (users."login" = 'regdoogie') LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed in 0.17100 (5 reqs/sec) | DB: 0.00000 (0%) | 302 Found [http://localhost/session]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2008-04-24 10:37:08) [GET]
+  Session ID: BAh7CToMY3NyZl9pZCIlYjM3MjliZjc1Zjc4MmU1NjI0Y2MzNjc0MWUzMzg0%0ANmE6DnJldHVybl90bzAiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZs%0AYXNoOjpGbGFzaEhhc2h7BjoLbm90aWNlIhtMb2dnZWQgaW4gc3VjY2Vzc2Z1%0AbGx5BjoKQHVzZWR7BjsIVDoMdXNlcl9pZGkJ--479ed2d980b670c1f0489a055654350f357c2524
+  Parameters: {"action"=>"index", "controller"=>"home"}
+  [4;36;1mSQL (0.000000)[0m   [0;1mSELECT count(*) AS count_all FROM users [0m
+Rendering template within layouts/application
+Rendering home/index
+  [4;35;1mUser Load (0.000000)[0m   [0mSELECT * FROM users WHERE (users."id" = 4) LIMIT 1[0m
+Rendered widgets/_main_navigation (0.00000)
+Rendered widgets/_main_tabnav (0.00000)
+Completed in 0.07800 (12 reqs/sec) | Rendering: 0.03100 (39%) | DB: 0.00000 (0%) | 200 OK [http://localhost/]
+
+
+Processing GraduateApplicantsController#index (for 127.0.0.1 at 2008-04-24 10:37:12) [GET]
+  Session ID: BAh7CToMY3NyZl9pZCIlYjM3MjliZjc1Zjc4MmU1NjI0Y2MzNjc0MWUzMzg0%0ANmE6DnJldHVybl90bzAiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZs%0AYXNoOjpGbGFzaEhhc2h7AAY6CkB1c2VkewA6DHVzZXJfaWRpCQ%3D%3D--cffe0605d01c76113f651cce15a53abdc1f06f02
+  Parameters: {"action"=>"index", "controller"=>"graduate_applicants"}
+  [4;36;1mUser Load (0.016000)[0m   [0;1mSELECT * FROM users WHERE (users."id" = 4) LIMIT 1[0m
+  [4;35;1mGraduateApplicant Load (0.000000)[0m   [0mSELECT * FROM graduate_applicants WHERE (graduate_applicants."department_id" = 1) [0m
+Rendering template within layouts/application
+Rendering graduate_applicants/index
+Rendered widgets/_main_navigation (0.00000)
+Rendered widgets/_main_tabnav (0.00000)
+Completed in 0.10900 (9 reqs/sec) | Rendering: 0.04700 (43%) | DB: 0.01600 (14%) | 200 OK [http://localhost/graduate_applicants]
+
+
+Processing TemplateController#index (for 127.0.0.1 at 2008-04-24 10:37:55) [GET]
+  Session ID: BAh7CToMY3NyZl9pZCIlYjM3MjliZjc1Zjc4MmU1NjI0Y2MzNjc0MWUzMzg0%0ANmE6DnJldHVybl90bzAiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZs%0AYXNoOjpGbGFzaEhhc2h7AAY6CkB1c2VkewA6DHVzZXJfaWRpCQ%3D%3D--cffe0605d01c76113f651cce15a53abdc1f06f02
+  Parameters: {"action"=>"index", "controller"=>"template"}
+  [4;36;1mUser Load (0.000000)[0m   [0;1mSELECT * FROM users WHERE (users."id" = 4) LIMIT 1[0m
+  [4;35;1mCorrespondenceTemplate Load (0.000000)[0m   [0mSELECT * FROM correspondence_templates WHERE (correspondence_templates."department_id" = 1) [0m
+Rendering template within layouts/application
+Rendering template/index
+Rendered template/_correspondence (0.01500)
+Rendered template/_ppos (0.00000)
+Rendered widgets/_main_navigation (0.00000)
+Rendered widgets/_main_tabnav (0.01600)
+Completed in 0.10900 (9 reqs/sec) | Rendering: 0.04700 (43%) | DB: 0.00000 (0%) | 200 OK [http://localhost/templates]
+
+
+Processing DepartmentsController#show (for 127.0.0.1 at 2008-04-24 10:38:03) [GET]
+  Session ID: BAh7CToMY3NyZl9pZCIlYjM3MjliZjc1Zjc4MmU1NjI0Y2MzNjc0MWUzMzg0%0ANmE6DnJldHVybl90bzAiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZs%0AYXNoOjpGbGFzaEhhc2h7AAY6CkB1c2VkewA6DHVzZXJfaWRpCQ%3D%3D--cffe0605d01c76113f651cce15a53abdc1f06f02
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"departments"}
+  [4;36;1mDepartment Load (0.000000)[0m   [0;1mSELECT * FROM departments WHERE (departments."id" = 1) [0m
+Rendering template within layouts/application
+Rendering departments/show
+  [4;35;1mUser Load (0.000000)[0m   [0mSELECT * FROM users WHERE (users."id" = 4) LIMIT 1[0m
+Rendered widgets/_main_navigation (0.04700)
+Rendered widgets/_main_tabnav (0.01500)
+Completed in 0.10900 (9 reqs/sec) | Rendering: 0.07800 (71%) | DB: 0.00000 (0%) | 200 OK [http://localhost/departments/1]
+
+
+Processing GraduateApplicantsController#index (for 127.0.0.1 at 2008-04-24 10:38:08) [GET]
+  Session ID: BAh7CToMY3NyZl9pZCIlYjM3MjliZjc1Zjc4MmU1NjI0Y2MzNjc0MWUzMzg0%0ANmE6DnJldHVybl90bzAiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZs%0AYXNoOjpGbGFzaEhhc2h7AAY6CkB1c2VkewA6DHVzZXJfaWRpCQ%3D%3D--cffe0605d01c76113f651cce15a53abdc1f06f02
+  Parameters: {"action"=>"index", "controller"=>"graduate_applicants"}
+  [4;36;1mUser Load (0.000000)[0m   [0;1mSELECT * FROM users WHERE (users."id" = 4) LIMIT 1[0m
+  [4;35;1mGraduateApplicant Load (0.000000)[0m   [0mSELECT * FROM graduate_applicants WHERE (graduate_applicants."department_id" = 1) [0m
+Rendering template within layouts/application
+Rendering graduate_applicants/index
+Rendered widgets/_main_navigation (0.01500)
+Rendered widgets/_main_tabnav (0.00000)
+Completed in 0.21800 (4 reqs/sec) | Rendering: 0.03100 (14%) | DB: 0.00000 (0%) | 200 OK [http://localhost/graduate_applicants]
+
+
+Processing GraduateApplicantsController#show (for 127.0.0.1 at 2008-04-24 10:38:17) [GET]
+  Session ID: BAh7CToMY3NyZl9pZCIlYjM3MjliZjc1Zjc4MmU1NjI0Y2MzNjc0MWUzMzg0%0ANmE6DnJldHVybl90bzAiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZs%0AYXNoOjpGbGFzaEhhc2h7AAY6CkB1c2VkewA6DHVzZXJfaWRpCQ%3D%3D--cffe0605d01c76113f651cce15a53abdc1f06f02
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"graduate_applicants"}
+  [4;36;1mUser Load (0.016000)[0m   [0;1mSELECT * FROM users WHERE (users."id" = 4) LIMIT 1[0m
+  [4;35;1mGraduateApplicant Load (0.000000)[0m   [0mSELECT * FROM graduate_applicants WHERE (graduate_applicants."id" = 1) [0m
+Rendering template within layouts/application
+Rendering graduate_applicants/show
+Rendered graduate_applicants/_contact_info (0.00000)
+Rendered widgets/_main_navigation (0.00000)
+Rendered widgets/_main_tabnav (0.00000)
+Completed in 0.12500 (8 reqs/sec) | Rendering: 0.04700 (37%) | DB: 0.01600 (12%) | 200 OK [http://localhost/graduate_applicants/1]
+
+
+Processing GraduateApplicantsController#show_applicant_requirement_info (for 127.0.0.1 at 2008-04-24 10:38:23) [POST]
+  Session ID: BAh7CToMY3NyZl9pZCIlYjM3MjliZjc1Zjc4MmU1NjI0Y2MzNjc0MWUzMzg0%0ANmE6DnJldHVybl90bzAiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZs%0AYXNoOjpGbGFzaEhhc2h7AAY6CkB1c2VkewA6DHVzZXJfaWRpCQ%3D%3D--cffe0605d01c76113f651cce15a53abdc1f06f02
+  Parameters: {"authenticity_token"=>"c611837976bb1cb2a6c5980b0a2c3620b7404f19", "action"=>"show_applicant_requirement_info", "id"=>"1", "controller"=>"graduate_applicants"}
+  [4;36;1mUser Load (0.000000)[0m   [0;1mSELECT * FROM users WHERE (users."id" = 4) LIMIT 1[0m
+  [4;35;1mGraduateApplicant Load (0.000000)[0m   [0mSELECT * FROM graduate_applicants WHERE (graduate_applicants."id" = 1) [0m
+Rendered graduate_applicants/_applicant_requirement_info (0.01600)
+Completed in 0.07800 (12 reqs/sec) | Rendering: 0.01600 (20%) | DB: 0.00000 (0%) | 200 OK [http://localhost/graduate_applicants/show_applicant_requirement_info/1]
+
+
+Processing GraduateApplicantsController#show_note_info (for 127.0.0.1 at 2008-04-24 10:38:25) [POST]
+  Session ID: BAh7CToMY3NyZl9pZCIlYjM3MjliZjc1Zjc4MmU1NjI0Y2MzNjc0MWUzMzg0%0ANmE6DnJldHVybl90bzAiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZs%0AYXNoOjpGbGFzaEhhc2h7AAY6CkB1c2VkewA6DHVzZXJfaWRpCQ%3D%3D--cffe0605d01c76113f651cce15a53abdc1f06f02
+  Parameters: {"authenticity_token"=>"c611837976bb1cb2a6c5980b0a2c3620b7404f19", "action"=>"show_note_info", "id"=>"1", "controller"=>"graduate_applicants"}
+  [4;36;1mUser Load (0.000000)[0m   [0;1mSELECT * FROM users WHERE (users."id" = 4) LIMIT 1[0m
+  [4;35;1mGraduateApplicant Load (0.000000)[0m   [0mSELECT * FROM graduate_applicants WHERE (graduate_applicants."id" = 1) [0m
+  [4;36;1mNote Load (0.000000)[0m   [0;1mSELECT * FROM notes WHERE (notes.graduate_applicant_id = 1) [0m
+Rendered graduate_applicants/_notes (0.01500)
+Rendered graduate_applicants/_note_info (0.01500)
+Completed in 0.10900 (9 reqs/sec) | Rendering: 0.01500 (13%) | DB: 0.00000 (0%) | 200 OK [http://localhost/graduate_applicants/show_note_info/1]
+
+
+Processing GraduateApplicantsController#show_correspondence_info (for 127.0.0.1 at 2008-04-24 10:38:37) [POST]
+  Session ID: BAh7CToMY3NyZl9pZCIlYjM3MjliZjc1Zjc4MmU1NjI0Y2MzNjc0MWUzMzg0%0ANmE6DnJldHVybl90bzAiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZs%0AYXNoOjpGbGFzaEhhc2h7AAY6CkB1c2VkewA6DHVzZXJfaWRpCQ%3D%3D--cffe0605d01c76113f651cce15a53abdc1f06f02
+  Parameters: {"authenticity_token"=>"c611837976bb1cb2a6c5980b0a2c3620b7404f19", "action"=>"show_correspondence_info", "id"=>"1", "controller"=>"graduate_applicants"}
+  [4;35;1mUser Load (0.000000)[0m   [0mSELECT * FROM users WHERE (users."id" = 4) LIMIT 1[0m
+  [4;36;1mGraduateApplicant Load (0.000000)[0m   [0;1mSELECT * FROM graduate_applicants WHERE (graduate_applicants."id" = 1) [0m
+  [4;35;1mCorrespondence Load (0.000000)[0m   [0mSELECT * FROM correspondences WHERE (correspondences.graduate_applicant_id = 1) [0m
+Rendered graduate_applicants/_correspondences (0.00000)
+Rendered graduate_applicants/_correspondence_info (0.03100)
+Completed in 0.10900 (9 reqs/sec) | Rendering: 0.03100 (28%) | DB: 0.00000 (0%) | 200 OK [http://localhost/graduate_applicants/show_correspondence_info/1]
+
+
+Processing GraduateApplicantsController#show_ppos_info (for 127.0.0.1 at 2008-04-24 10:38:43) [POST]
+  Session ID: BAh7CToMY3NyZl9pZCIlYjM3MjliZjc1Zjc4MmU1NjI0Y2MzNjc0MWUzMzg0%0ANmE6DnJldHVybl90bzAiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZs%0AYXNoOjpGbGFzaEhhc2h7AAY6CkB1c2VkewA6DHVzZXJfaWRpCQ%3D%3D--cffe0605d01c76113f651cce15a53abdc1f06f02
+  Parameters: {"authenticity_token"=>"c611837976bb1cb2a6c5980b0a2c3620b7404f19", "action"=>"show_ppos_info", "id"=>"1", "controller"=>"graduate_applicants"}
+  [4;36;1mUser Load (0.000000)[0m   [0;1mSELECT * FROM users WHERE (users."id" = 4) LIMIT 1[0m
+  [4;35;1mGraduateApplicant Load (0.000000)[0m   [0mSELECT * FROM graduate_applicants WHERE (graduate_applicants."id" = 1) [0m
+Rendered graduate_applicants/_ppos_info (0.00000)
+Completed in 0.07800 (12 reqs/sec) | Rendering: 0.00000 (0%) | DB: 0.00000 (0%) | 200 OK [http://localhost/graduate_applicants/show_ppos_info/1]
+
+
+Processing GraduateApplicantsController#show_correspondence_info (for 127.0.0.1 at 2008-04-24 10:38:59) [POST]
+  Session ID: BAh7CToMY3NyZl9pZCIlYjM3MjliZjc1Zjc4MmU1NjI0Y2MzNjc0MWUzMzg0%0ANmE6DnJldHVybl90bzAiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZs%0AYXNoOjpGbGFzaEhhc2h7AAY6CkB1c2VkewA6DHVzZXJfaWRpCQ%3D%3D--cffe0605d01c76113f651cce15a53abdc1f06f02
+  Parameters: {"authenticity_token"=>"c611837976bb1cb2a6c5980b0a2c3620b7404f19", "action"=>"show_correspondence_info", "id"=>"1", "controller"=>"graduate_applicants"}
+  [4;36;1mUser Load (0.000000)[0m   [0;1mSELECT * FROM users WHERE (users."id" = 4) LIMIT 1[0m
+  [4;35;1mGraduateApplicant Load (0.016000)[0m   [0mSELECT * FROM graduate_applicants WHERE (graduate_applicants."id" = 1) [0m
+  [4;36;1mCorrespondence Load (0.000000)[0m   [0;1mSELECT * FROM correspondences WHERE (correspondences.graduate_applicant_id = 1) [0m
+Rendered graduate_applicants/_correspondences (0.00000)
+Rendered graduate_applicants/_correspondence_info (0.00000)
+Completed in 0.10900 (9 reqs/sec) | Rendering: 0.01600 (14%) | DB: 0.01600 (14%) | 200 OK [http://localhost/graduate_applicants/show_correspondence_info/1]

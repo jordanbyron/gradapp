@@ -1,0 +1,20 @@
+<h1>Listing student_statuses</h1>
+
+<table>
+  <tr>
+    <th>Status</th>
+  </tr>
+
+<% for student_status in @student_statuses %>
+  <tr>
+    <td><%=h student_status.status %></td>
+    <td><%= link_to 'Show', student_status %></td>
+    <td><%= link_to 'Edit', edit_student_status_path(student_status) %></td>
+    <td><%= link_to 'Destroy', student_status, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New student_status', new_student_status_path %>

@@ -1,0 +1,16 @@
+<h1>New student_status</h1>
+
+<%= error_messages_for :student_status %>
+
+<% form_for(@student_status) do |f| %>
+  <p>
+    <b>Status</b><br />
+    <%= f.text_field :status %>
+  </p>
+
+  <p>
+    <%= f.submit "Create" %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', student_statuses_path %>
