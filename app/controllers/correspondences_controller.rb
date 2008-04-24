@@ -1,85 +1,37 @@
 class CorrespondencesController < ApplicationController
-  # GET /correspondences
-  # GET /correspondences.xml
-  def index
-    @correspondences = Correspondence.find(:all)
+  before_filter :gc_required
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @correspondences }
-    end
-  end
+def create
+  @graduate_applicant = GraduateApplicant.find(params[:graduate_applicant_id])
+  @correspondence = @graduate_applicant.correspondences.build(params[:correspondence])
 
-  # GET /correspondences/1
-  # GET /correspondences/1.xml
-  def show
-    @correspondence = Correspondence.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @correspondence }
-    end
-  end
-
-  # GET /correspondences/new
-  # GET /correspondences/new.xml
-  def new
-    @correspondence = Correspondence.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @correspondence }
-    end
-  end
-
-  # GET /correspondences/1/edit
-  def edit
-    @correspondence = Correspondence.find(params[:id])
-  end
-
-  # POST /correspondences
-  # POST /correspondences.xml
-  def create
-    @correspondence = Correspondence.new(params[:correspondence])
-
-    respond_to do |format|
-      if @correspondence.save
-        flash[:notice] = 'Correspondence was successfully created.'
-        format.html { redirect_to(@correspondence) }
-        format.xml  { render :xml => @correspondence, :status => :created, :location => @correspondence }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @correspondence.errors, :status => :unprocessable_entity }
+  respond_to do |format|
+    if @correspondence.save
+      #flash[:notice] = 'Correspondence was successfully created.'
+      format.html { redirect_to @graduate_applicant }
+      format.js # renders create.js.rjs
+    else
+      format.html { redirect_to @graduate_applicant }
+      format.js do
+        render :update do |page| 
+          page.redirect_to @graduate_applicant 
+        end
       end
     end
   end
+end
 
-  # PUT /correspondences/1
-  # PUT /correspondences/1.xml
-  def update
-    @correspondence = Correspondence.find(params[:id])
+def destroy
+  @graduate_applicant = GraduateApplicant.find(params[:graduate_applicant_id])
+  @correspondence = @graduate_applicant.correspondences.find(params[:id]) 
+  
+  @correspondence.destroy
 
-    respond_to do |format|
-      if @correspondence.update_attributes(params[:correspondence])
-        flash[:notice] = 'Correspondence was successfully updated.'
-        format.html { redirect_to(@correspondence) }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @correspondence.errors, :status => :unprocessable_entity }
-      end
-    end
+  respond_to do |format|
+    #flash[:notice] = 'Note was successfully deleted.'
+    format.html { redirect_to @graduate_applicant }
+    format.js # renders destroy.js.rjs
   end
-
-  # DELETE /correspondences/1
-  # DELETE /correspondences/1.xml
-  def destroy
-    @correspondence = Correspondence.find(params[:id])
-    @correspondence.destroy
-
-    respond_to do |format|
-      format.html { redirect_to(correspondences_url) }
-      format.xml  { head :ok }
-    end
-  end
+end
+  
 end

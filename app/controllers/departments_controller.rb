@@ -1,6 +1,6 @@
 class DepartmentsController < ApplicationController
 
-  before_filter :admin_required
+  before_filter :admin_required, :except => :show
 
   # GET /departments
   # GET /departments.xml

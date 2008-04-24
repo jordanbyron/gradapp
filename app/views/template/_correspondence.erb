@@ -1,0 +1,16 @@
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Date Created</th>
+  </tr>
+<% for correspondence_template in correspondence_templates -%>
+  <tr id="<%= dom_id(correspondence_template) %>">
+    <td align="left">
+      <%= correspondence_template.title %>
+    </td>
+    <td>
+      <%= correspondence_template.created_date %>
+    </td>
+  </tr>
+<% end -%>
+</table>

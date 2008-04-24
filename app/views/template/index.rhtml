@@ -1,0 +1,17 @@
+<h1>Templates</h1>
+
+<p>
+  <h2><%= link_to 'Correspondence', correspondence_templates_path %></h2>
+</p>
+
+<div id="correspondence">
+  <%= render :partial => 'correspondence', :locals => { :correspondence_templates => @correspondence_templates } %>
+</div>
+
+<p>
+  <h2>Planned Program of Study</h2>
+</p>
+
+<div id="ppos">
+  <%= render :partial => 'ppos' %>
+</div>

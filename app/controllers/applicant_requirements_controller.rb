@@ -1,4 +1,6 @@
 class ApplicantRequirementsController < ApplicationController
+    before_filter :gc_required
+  
   # GET /applicant_requirements
   # GET /applicant_requirements.xml
   def index

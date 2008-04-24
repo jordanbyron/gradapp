@@ -23,13 +23,10 @@
 <p><label for="admin">Administrator</label>
 <%= check_box("user", "admin") %>
 
-<label for="graduate_coordinator">Graduate Coordinator</label>
-<%= check_box("user", "graduate_coordinator") %></p>
-
-<div id="department">
-  <p><label for="department_id">Department</label>
-  <%= select("user", "department_id", Department.find(:all).collect {|d| [d.name, d.id] }) %></p>
-</div>
+<%= if @show_graduate_coordinator
+      render :partial => 'graduate_coordinator',
+              :locals  => {:user => @user}
+     end %>
 
 <p><%= submit_tag 'Update' %></p>
 <% end -%>

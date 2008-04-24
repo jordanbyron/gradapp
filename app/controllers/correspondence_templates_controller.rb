@@ -1,8 +1,10 @@
 class CorrespondenceTemplatesController < ApplicationController
+  before_filter :gc_required
+  
   # GET /correspondence_templates
   # GET /correspondence_templates.xml
   def index
-    @correspondence_templates = CorrespondenceTemplate.find(:all)
+    @correspondence_templates = CorrespondenceTemplate.find(:all, :conditions => { :department_id => current_user.department_id })
 
     respond_to do |format|
       format.html # index.html.erb
@@ -41,6 +43,8 @@ class CorrespondenceTemplatesController < ApplicationController
   # POST /correspondence_templates.xml
   def create
     @correspondence_template = CorrespondenceTemplate.new(params[:correspondence_template])
+
+    @correspondence_template.department_id = current_user.department_id
 
     respond_to do |format|
       if @correspondence_template.save

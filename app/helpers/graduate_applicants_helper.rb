@@ -1,2 +1,2 @@
-module GraduateApplicantsHelper
+module GraduateApplicantsHelper  
 end

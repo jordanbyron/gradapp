@@ -12,6 +12,18 @@ class UsersController < ApplicationController
   
   # render new.rhtml
   def new
+    @user = User.new
+    @show_graduate_coordinator = false
+    
+    # Show Grad Coor If Departments Exist
+    if Department.count() > 0
+        @show_graduate_coordinator = true
+    end
+    
+    respond_to do |format|
+      format.html # new.rhtml
+      format.xml  { render :xml => @user }
+    end
   end
 
   def create
@@ -35,6 +47,12 @@ class UsersController < ApplicationController
   
   def edit
     @user = User.find(params[:id])
+    @show_graduate_coordinator = false
+    
+    # Show Grad Coor If Departments Exist
+    if Department.count() > 0
+        @show_graduate_coordinator = true
+    end
     
     respond_to do |format|
       format.html # edit.html.erb

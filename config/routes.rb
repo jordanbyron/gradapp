@@ -8,9 +8,13 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :notes
   map.resources :applicant_requirements
   map.resources :application_requirements
-	map.resources :graduate_applicants, :has_many => :notes
+	map.resources :graduate_applicants
+  map.resources :graduate_applicants, :has_many => :correspondences
+  map.resources :graduate_applicants, :has_many => :notes
 	map.resources :departments
   map.resources :setup
+  
+  map.templates '/templates', :controller => 'template', :action => 'index'
   	
 	#User Autentication Routes	
 	map.resources :users, :controller => 'users'

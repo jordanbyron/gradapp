@@ -27,9 +27,12 @@ class GraduateApplicantsController < ApplicationController
   
   def show_correspondence_info
     @graduate_applicant = GraduateApplicant.find(params[:id])
+    @correspondence = Correspondence.new
     
     render  :partial => 'correspondence_info',
-            :locals  => {:graduate_applicant => @graduate_applicant}
+            :locals  => { :correspondences => @graduate_applicant.correspondences,
+                          :graduate_applicant => @graduate_applicant,
+                          :correspondence => @correspondence}
   end
   
   def show_ppos_info
@@ -38,7 +41,7 @@ class GraduateApplicantsController < ApplicationController
     render  :partial => 'ppos_info',
             :locals  => {:graduate_applicant => @graduate_applicant}
   end
-
+  
   def toggle_new_note
     respond_to do |format|
       format.html { redirect_to @graduate_applicant }

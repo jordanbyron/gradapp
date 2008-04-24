@@ -1,4 +1,6 @@
 class NotesController < ApplicationController
+  before_filter :gc_required
+
 def create
   @graduate_applicant = GraduateApplicant.find(params[:graduate_applicant_id])
   @note = @graduate_applicant.notes.build(params[:note])

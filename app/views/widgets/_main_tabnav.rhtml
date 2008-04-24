@@ -25,6 +25,16 @@ render_tabnav :main,
         t.named 'Graduate Tracking'
         t.links_to :controller => 'graduate_applicants'
       end
+      
+      add_tab do |t|
+        t.named 'Templates'
+        t.links_to :controller => 'templates'
+      end
+      
+      add_tab do |t|
+        t.named 'Department Setup'
+        t.links_to :controller => 'departments', :action => 'show', :id => current_user.department_id
+      end
     end
     
     if current_user.admin?
