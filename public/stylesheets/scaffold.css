@@ -236,3 +236,10 @@ div.progressBar div.background {
 .main_navigation a.active {
   font-weight: bold;
 }
+
+tr.even{
+	background-color:#CCC;
+}
+tr.odd{
+	background-color:#FFF;
+}

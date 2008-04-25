@@ -52,12 +52,17 @@ class GraduateApplicantsController < ApplicationController
   # GET /graduate_applicants
   # GET /graduate_applicants.xml
   def index
-    @graduate_applicants = GraduateApplicant.find(:all, :conditions => { :department_id => current_user.department_id })
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @graduate_applicants }
+   @graduate_applicants = GraduateApplicant.search(params[:search], params[:page])
+	
+	
+    if request.xml_http_request?
+      render :partial => "applicant_list", :layout => false
     end
+	
+    #respond_to do |format|
+    #  format.html # index.html.erb
+    #  format.xml  { render :xml => @graduate_applicants }
+    #end
   end
 
   # GET /graduate_applicants/1
@@ -142,4 +147,28 @@ class GraduateApplicantsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
+  
+  #def list
+
+    #items_per_page = 10
+
+    #sort = case params['sort']
+    #       when "name"  then "name"
+
+           #end
+
+    #conditions = ["name LIKE ?", "%#{params[:query]}%"] unless params[:query].nil?
+
+    #@total = graduate_applicants.count(:conditions => conditions)
+    #@items_pages, @items = paginate :graduate_applicant, :conditions => conditions, :per_page => items_per_page
+#:order => sort, 
+    #if request.xml_http_request?
+    #  render :partial => "applicant_list", :layout => false
+    #end
+
+  #end
+  
+  
+  
 end

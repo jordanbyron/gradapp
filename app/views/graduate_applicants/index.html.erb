@@ -4,60 +4,33 @@
 
 <p style="color: green"><%= flash[:notice] %></p>
 
-<table>
-  <tr>
-    <th>First</th>
-	<th>Middle</th>
-    <th>Last</th>
-	<th>Suffix</th>
-    <th>Address1</th>
-    <th>Address2</th>
-    <th>City</th>
-    <th>State</th>
-    <th>Zip</th>
-    <th>Phone (day)</th>
-	<th>Phone (night)</th>
-    <th>E-mail</th>
-    <th>Status</th>
-    <th>GPA</th>
-    <th>Student ID</th>
-    <th colspan=3>Controls</th>
-  </tr>
 
-<% for graduate_applicant in @graduate_applicants %>
-  <tr>
-    <td><%=h graduate_applicant.first_name %></td>
-	<td><%=h graduate_applicant.middle_name %></td>
-    <td><%=h graduate_applicant.last_name %></td>
-	<td><%=h graduate_applicant.suffix %></td>
-    <td><%=h graduate_applicant.address1 %></td>
-    <td><%=h graduate_applicant.address2 %></td>
-    <td><%=h graduate_applicant.city %></td>
-    <td><%=h graduate_applicant.state %></td>
-    <td><%=h graduate_applicant.zip %></td>
-    <td><%=h graduate_applicant.phone_day %></td>
-	<td><%=h graduate_applicant.phone_night %></td>
-    <td><%=h graduate_applicant.email %></td>
-    <td><%=h graduate_applicant.status %></td>
-    <td><%=h graduate_applicant.gpa %></td>
-    <td><%=h graduate_applicant.studentID %></td>
-    <td><%= link_to 'Show', graduate_applicant %></td>
-    <td><%= link_to 'Edit', edit_graduate_applicant_path(graduate_applicant) %></td>
-    <td><%= link_to 'Destroy', graduate_applicant, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+<% form_tag graduate_applicants_path, :method => 'get' do %>
+	<p>
+		<%= text_field_tag :search, params[:search] %>
+		<%= submit_tag "Search", :last_name => nil %>
+	</p>
+<% end %>
+
+<table>
+	<tr>
+		<th>Last</th><th>First</th>
+	</tr><tr class='odd'>
+		<% for applicants in @graduate_applicants %>
+		
+		<td>
+			<%= link_to h(applicants.last_name), :action => 'show', :id => applicants %>
+		</td>
+		<td>
+			<%= applicants.first_name %>
+		</td>
+	</tr>
 <% end %>
 </table>
+
+<%= will_paginate @graduate_applicants %>
+
 
 <br />
 
 <%= link_to 'New graduate_applicant', new_graduate_applicant_path %>
-
-
-
-
-
-
-
-
-
-
