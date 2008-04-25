@@ -1,6 +1,7 @@
 ActionController::Routing::Routes.draw do |map|
 	map.home '', :controller =>'home', :action => 'index' # Set Root To The Home Controller
 
+  map.resources :applicant_statuses, :has_many => :graduate_applicants
   map.resources :correspondences
   map.resources :correspondence_templates
   map.resources :degree_programs

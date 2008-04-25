@@ -1,0 +1,26 @@
+<h1>Editing Applicant Status</h1>
+
+<p>
+  <h2>Please note any changes will affect all applicants currently flagged with this status!</h2>
+</p>
+
+<%= error_messages_for :applicant_status %>
+
+<% form_for(@applicant_status) do |f| %>
+  <p>
+    <b>Status</b><br />
+    <%= f.text_field :status %>
+  </p>
+
+  <p>
+    <b>Short Status</b><br />
+    <%= f.text_field :short_status %>
+  </p>
+
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @applicant_status %> |
+<%= link_to 'Back', applicant_statuses_path %>

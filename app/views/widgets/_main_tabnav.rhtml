@@ -48,6 +48,11 @@ render_tabnav :main,
         t.named 'Departments'
         t.links_to :controller => 'departments'
       end
+
+      add_tab do |t|
+        t.named 'Applicant Statuses'
+        t.links_to :controller => 'applicant_statuses'
+      end
     end
   end
   

@@ -1,0 +1,12 @@
+<p>
+  <b>Status:</b>
+  <%=h @applicant_status.status %>
+</p>
+
+<p>
+  <b>Short Status:</b>
+  <%=h @applicant_status.short_status %>
+</p>
+
+<%= link_to 'Edit', edit_applicant_status_path(@applicant_status) %> |
+<%= link_to 'Back', applicant_statuses_path %>

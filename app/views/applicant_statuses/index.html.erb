@@ -1,0 +1,22 @@
+<h1>Listing Applicant Statuses</h1>
+
+<table>
+  <tr>
+    <th>Status</th>
+    <th>Short Status</th>
+  </tr>
+
+<% for applicant_status in @applicant_statuses %>
+  <tr>
+    <td><%=h applicant_status.status %></td>
+    <td><%=h applicant_status.short_status %></td>
+    <td><%= link_to 'Show', applicant_status %></td>
+    <td><%= link_to 'Edit', edit_applicant_status_path(applicant_status) %></td>
+    <td><%= link_to 'Destroy', applicant_status, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Create Applicant Status', new_applicant_status_path %>
