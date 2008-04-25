@@ -1,3 +1,7 @@
+html, body {
+  height:100%;
+}
+
 body {
   background-color: #eaeaff;
   color: #333;
@@ -13,19 +17,21 @@ body, p, ol, ul, td {
   margin: 0px;
   padding: 0px;
   min-width: 800px;
-  height:600px;
-  border: 2px solid black;
+  height:100%;
 }
 
 #header {
   background-color: #eee;
+  border: 2px solid black;
   padding: 10px 10px 8px 10px;
   height: 40px;
 }
 
 #primary {
   background-color: #9ab;
-  height: 488px;
+  border-left: 2px solid black;
+  border-right: 2px solid black;
+  height:100%;
 }
 
 #contents {
@@ -64,17 +70,6 @@ body, p, ol, ul, td {
   background-image: url("/images/sidebar.png");
   background-repeat: repeat-y;
   background-position: top left;
-}
-
-#footer {
-  text-align: right;
-  background-color: #69D;
-  background-image: url("/images/bottombar.png");
-  background-repeat: repeat-x;
-  background-position: center left;
-  color: #ddd;
-  padding: 3px 6px 3px 0;
-  border-top: 2px solid black;
 }
 
 pre {
@@ -199,8 +194,8 @@ div.progressBar div.background {
   background-position: center left;
   color: #ddd;
   padding: 3px 6px 3px 0;
-  border-top: 2px solid black;
-  border-bottom: 2px solid black;
+  border: 2px solid black;
+  border-top-style: none;
 }
 
 .main_navigation ul {
