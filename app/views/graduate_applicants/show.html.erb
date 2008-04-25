@@ -2,9 +2,10 @@
 
 <p style="color: green"><%= flash[:notice] %></p>
 
-<p>
+<div id="gradAppHeader">
   <h1><%=h @graduate_applicant.first_name %> <%=h @graduate_applicant.last_name %></h1>
-</p>
+  <%= select("graduate_applicant", "status_id", ApplicantStatus.find(:all).collect {|d| [d.status, d.id] }) %>
+</div>
 <p>
 
   <h3>

@@ -52,17 +52,16 @@ class GraduateApplicantsController < ApplicationController
   # GET /graduate_applicants
   # GET /graduate_applicants.xml
   def index
-   @graduate_applicants = GraduateApplicant.search(params[:search], params[:page])
-	
+    @graduate_applicants = GraduateApplicant.search(params[:search], params[:page],current_user.department_id)
 	
     if request.xml_http_request?
       render :partial => "applicant_list", :layout => false
+    else
+      respond_to do |format|
+        format.html # index.html.erb
+        format.xml  { render :xml => @graduate_applicants }
+      end
     end
-	
-    #respond_to do |format|
-    #  format.html # index.html.erb
-    #  format.xml  { render :xml => @graduate_applicants }
-    #end
   end
 
   # GET /graduate_applicants/1
