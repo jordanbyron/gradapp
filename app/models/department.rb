@@ -13,5 +13,6 @@ class Department < ActiveRecord::Base
   
   validates_presence_of :name
   validates_presence_of :short_name 
-  validates_length_of   :short_name,    :within => 3..3
+  validates_length_of   :name,        :maximum => 50
+  validates_length_of   :short_name,  :is => 3
 end
