@@ -1,4 +1,21 @@
-<h1>Listing correspondences</h1>
+<% title 'Graduate Applicant | ' + @graduate_applicant.full_name + ' | Correspondence' %>
+
+<p style="color: green"><%= flash[:notice] %></p>
+
+<div id="gradAppHeader">
+  <h1><%=h @graduate_applicant.full_name %></h1>
+  <%= select("graduate_applicant", "status_id", ApplicantStatus.find(:all).collect {|d| [d.status, d.id] }) %>
+</div>
+<p>
+
+  <h3>
+    <%= link_to 'Contact Info', graduate_applicant_path(@graduate_applicant) %> | 
+    <%= link_to 'Notes', graduate_applicant_notes_path(@graduate_applicant) %> | 
+    <%= link_to_remote "Application Requirements",:update => "tab_content", :url => {:action => "show_applicant_requirement_info", :id => @graduate_applicant.id} %> | 
+    Correspondence | 
+    <%= link_to_remote "Planned Program of Study",:update => "tab_content", :url => {:action => "show_ppos_info", :id => @graduate_applicant.id} %>
+  </h3>
+</p>
 
 <table>
   <tr>

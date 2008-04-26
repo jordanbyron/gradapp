@@ -1,23 +1,89 @@
-<% title 'Graduate Applicant' %>
+<% title 'Graduate Applicant | ' + @graduate_applicant.full_name %>
 
 <p style="color: green"><%= flash[:notice] %></p>
 
 <div id="gradAppHeader">
-  <h1><%=h @graduate_applicant.first_name %> <%=h @graduate_applicant.last_name %></h1>
+  <h1><%=h @graduate_applicant.full_name %></h1>
   <%= select("graduate_applicant", "status_id", ApplicantStatus.find(:all).collect {|d| [d.status, d.id] }) %>
 </div>
 <p>
 
   <h3>
-    <%= link_to_remote "Contact Info",:update => "tab_content", :url => {:action => "show_contact_info", :id => @graduate_applicant.id} %> | 
-    <%= link_to_remote "Notes",:update => "tab_content", :url => {:action => "show_note_info", :id => @graduate_applicant.id} %> | 
+    Contact Info | 
+    <%= link_to 'Notes', graduate_applicant_notes_path(@graduate_applicant) %> | 
     <%= link_to_remote "Application Requirements",:update => "tab_content", :url => {:action => "show_applicant_requirement_info", :id => @graduate_applicant.id} %> | 
-    <%= link_to_remote "Correspondence",:update => "tab_content", :url => {:action => "show_correspondence_info", :id => @graduate_applicant.id} %> | 
+    <%= link_to 'Correspondence', graduate_applicant_correspondences_path(@graduate_applicant) %> | 
     <%= link_to_remote "Planned Program of Study",:update => "tab_content", :url => {:action => "show_ppos_info", :id => @graduate_applicant.id} %>
   </h3>
 </p>
 
-<div id="tab_content">
-  <%= render :partial => 'contact_info',
-             :locals  => {:graduate_applicant => @graduate_applicant} %>
+<div id="contact_info">
+  <p>
+    <b>First name:</b>
+    <%=h @graduate_applicant.first_name %>
+  </p>
+
+  <p>
+    <b>Middle Initial:</b>
+    <%=h @graduate_applicant.middle_name %>
+  </p>
+
+  <p>
+    <b>Last name:</b>
+    <%=h @graduate_applicant.last_name %>
+  </p>
+
+  <p>
+    <b>Suffix:</b>
+    <%=h @graduate_applicant.suffix %>
+  </p>
+
+  <p>
+
+  <p>
+    <b>Address1:</b>
+    <%=h @graduate_applicant.address1 %>
+  </p>
+
+  <p>
+    <b>Address2:</b>
+    <%=h @graduate_applicant.address2 %>
+  </p>
+
+  <p>
+    <b>City:</b>
+    <%=h @graduate_applicant.city %>
+  </p>
+
+  <p>
+    <b>State:</b>
+    <%=h @graduate_applicant.state %>
+  </p>
+
+  <p>
+    <b>Zip:</b>
+    <%=h @graduate_applicant.zip %>
+  </p>
+
+  <p>
+    <b>Phone (day):</b>
+    <%=h @graduate_applicant.phone_day %>
+  </p>
+  <p>
+    <b>Phone (night):</b>
+    <%=h @graduate_applicant.phone_night %>
+  </p>
+
+  <p>
+    <b>Email:</b>
+    <%=h @graduate_applicant.email %>
+  </p>
+
+  <p>
+    <b>Studentid:</b>
+    <%=h @graduate_applicant.studentID %>
+  </p>
+
+  <p><%= link_to 'Edit', edit_graduate_applicant_path(@graduate_applicant) %> | 
+  <%= link_to 'Back to Graduate Applicants', graduate_applicants_path %></p>
 </div>

@@ -8,24 +8,29 @@
 <% form_tag graduate_applicants_path, :method => 'get' do %>
 	<p>
 		<%= text_field_tag :search, params[:search] %>
-		<%= submit_tag "Search", :last_name => nil %>
+		<%= submit_tag "Search" %>
 	</p>
 <% end %>
 
 <table>
 	<tr>
-		<th>Last</th><th>First</th>
-	</tr><tr class='odd'>
-		<% for applicants in @graduate_applicants %>
-		
-		<td>
-			<%= link_to h(applicants.last_name), :action => 'show', :id => applicants %>
-		</td>
-		<td>
-			<%= applicants.first_name %>
-		</td>
+		<th>First Name</th>
+    <th>Last Name</th>
+    <th>Phone (Day)</th>
 	</tr>
-<% end %>
+		<% for applicants in @graduate_applicants %>
+      <tr class="<%= cycle('even', 'odd') %>">
+        <td>
+          <%= link_to h(applicants.first_name), :action => 'show', :id => applicants %>
+        </td>
+        <td>
+          <%= link_to h(applicants.last_name), :action => 'show', :id => applicants %>
+        </td>
+        <td>
+          <%= link_to h(applicants.phone_day), :action => 'show', :id => applicants %>
+        </td>
+      </tr>
+  <% end %>
 </table>
 
 <%= will_paginate @graduate_applicants %>

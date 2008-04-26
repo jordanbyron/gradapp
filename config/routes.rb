@@ -15,7 +15,8 @@ ActionController::Routing::Routes.draw do |map|
 	map.resources :departments
   map.resources :setup
   
-  map.templates '/templates', :controller => 'template', :action => 'index'
+  #map.connect ':graduate_applicants/:graduate_applicant_id/:notes/', :controller => 'notes', :action => 'index'
+  map.connect '/templates', :controller => 'template', :action => 'index'
   	
 	#User Autentication Routes	
 	map.resources :users, :controller => 'users'

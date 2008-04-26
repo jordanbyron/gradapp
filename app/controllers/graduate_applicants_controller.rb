@@ -11,9 +11,10 @@ class GraduateApplicantsController < ApplicationController
   def show_note_info
     @graduate_applicant = GraduateApplicant.find(params[:id])
     @note = Note.new
-    
+    @notes = Note.search(params[:page],@graduate_applicant.id)
+
     render  :partial => 'note_info',
-            :locals  => {:notes => @graduate_applicant.notes, 
+            :locals  => {:notes => @notes, 
                         :graduate_applicant => @graduate_applicant,
                         :note => @note}
   end
@@ -42,25 +43,14 @@ class GraduateApplicantsController < ApplicationController
             :locals  => {:graduate_applicant => @graduate_applicant}
   end
   
-  def toggle_new_note
-    respond_to do |format|
-      format.html { redirect_to @graduate_applicant }
-      format.js # renders toggle_new_note.js.rjs
-    end
-  end
-  
   # GET /graduate_applicants
   # GET /graduate_applicants.xml
   def index
     @graduate_applicants = GraduateApplicant.search(params[:search], params[:page],current_user.department_id)
 	
-    if request.xml_http_request?
-      render :partial => "applicant_list", :layout => false
-    else
-      respond_to do |format|
-        format.html # index.html.erb
-        format.xml  { render :xml => @graduate_applicants }
-      end
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml  { render :xml => @graduate_applicants }
     end
   end
 
@@ -68,6 +58,7 @@ class GraduateApplicantsController < ApplicationController
   # GET /graduate_applicants/1.xml
   def show
     @graduate_applicant = GraduateApplicant.find(params[:id])
+    @notes = Note.search(params[:search_notes],params[:page],@graduate_applicant.id)
 
     if gc_authorized(@graduate_applicant.department_id)  # Verify Current GC Is Authorized
       respond_to do |format|

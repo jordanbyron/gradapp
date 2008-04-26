@@ -51,7 +51,7 @@ body, p, ol, ul, td {
 #contents2 table, tr, th, td{
   border-collapse: collapse;
   border: 1px solid black;
-  font: normal 12px "Trebuchet MS", Arial, sans-serif;
+  font: normal 16px "Trebuchet MS", Arial, sans-serif;
 }
 
 #contents2 td, th {
@@ -233,8 +233,8 @@ div.progressBar div.background {
 }
 
 tr.even{
-	background-color:#CCC;
+	background-color: #f3f3f3;
 }
 tr.odd{
-	background-color:#FFF;
+	background-color:#ddd;
 }
