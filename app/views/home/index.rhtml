@@ -6,8 +6,10 @@
   <p style="color: green"><%= flash[:notice] %></p>
 <% else %>
   <p style="color: green"><%= flash[:notice] %></p>
-  <p><strong>You are currently not logged in.</strong></p>
   <p>
-    <%= link_to 'Log in', login_path %>
+    <h1>Welcome to GradTrak!</h1>
+  </p>
+  <p>
+    <h3><%= link_to 'Please log in to continue', login_path %></h3>
   </p>
 <% end %>

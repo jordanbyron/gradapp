@@ -4,7 +4,7 @@
 
 <div id="gradAppHeader">
   <h1><%=h @graduate_applicant.full_name %></h1>
-  <%= select("graduate_applicant", "status_id", ApplicantStatus.find(:all).collect {|d| [d.status, d.id] }) %>
+  <%= select("graduate_applicant", "applicant_status_id", ApplicantStatus.find(:all).collect {|d| [d.status, d.id] }) %>
 </div>
 <p>
 
@@ -28,6 +28,7 @@
   <tr>
     <th>Note</th>
     <th>Date Created</th>
+    <th>Created By</th>
     <th>Actions</th>
   </tr>
 <% for note in @notes -%>
@@ -38,9 +39,12 @@
     <td>
       <%= note.created_date %>
     </td>
+    <td>
+      <%= note.created_by %>
+    </td>
     <td align="center">
-    <%= link_to_remote image_tag("remove.png", :border => 0), 
-      :url => graduate_applicant_note_url(@graduate_applicant, @note), 
+    <%= link_to image_tag("remove.png", :border => 0), 
+      note, 
       :confirm => 'Are you sure?', 
       :method => :delete %>
     </td>
@@ -51,10 +55,10 @@
 <%= will_paginate @notes %>
 
 <div id="new_note_div" style="display:none;">
-<% remote_form_for [@graduate_applicant, @note] do |f| -%>
+<% form_for [@graduate_applicant, @new_note] do |f| -%>
     <br>New Note:</br>
     <br><%= f.text_area(:text, :size => "100%x10") %></br>
-  <br><%= f.submit 'Add this note' %> | <%= link_to_remote "Done Adding Notes", :url => {:action => "toggle_new_note"} %></br>
+  <br><%= f.submit 'Add this note' %> | <%= link_to_remote "Cancel", :url => {:action => "toggle_new_note"} %></br>
 <% end -%>
 </div>
 

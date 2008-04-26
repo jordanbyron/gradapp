@@ -59,7 +59,20 @@ body, p, ol, ul, td {
 }
 
 #contents2 th {
-  font-weight: bold;
+  color: white;
+	background: #69D url("/images/topbar.png") repeat-x center center;
+}
+
+tr.even{
+	background-color: #f3f3f3;
+}
+
+tr.odd{
+	background-color:#ddd;
+}
+
+img.table_image{
+	display: block;    margin-left: auto;    margin-right: auto
 }
 
 #sidebar {
@@ -230,11 +243,4 @@ div.progressBar div.background {
 
 .main_navigation a.active {
   font-weight: bold;
-}
-
-tr.even{
-	background-color: #f3f3f3;
-}
-tr.odd{
-	background-color:#ddd;
 }

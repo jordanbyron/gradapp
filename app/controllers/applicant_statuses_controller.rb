@@ -2,7 +2,7 @@ class ApplicantStatusesController < ApplicationController
   # GET /applicant_statuses
   # GET /applicant_statuses.xml
   def index
-    @applicant_statuses = ApplicantStatus.find(:all)
+    @applicant_statuses = ApplicantStatus.search(params[:search], params[:page])
 
     respond_to do |format|
       format.html # index.html.erb

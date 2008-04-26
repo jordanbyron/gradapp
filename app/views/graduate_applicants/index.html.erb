@@ -17,6 +17,8 @@
 		<th>First Name</th>
     <th>Last Name</th>
     <th>Phone (Day)</th>
+    <th>Status</th>
+    <th colspan=3>Controls</th>
 	</tr>
 		<% for applicants in @graduate_applicants %>
       <tr class="<%= cycle('even', 'odd') %>">
@@ -29,6 +31,18 @@
         <td>
           <%= link_to h(applicants.phone_day), :action => 'show', :id => applicants %>
         </td>
+        <td>
+          <%= ApplicantStatus.find(applicants.applicant_status_id).status %>
+        </td>
+        <td>
+          <%= link_to image_tag("contact.png", :alt => "Contact Info", :class => "table_image", :border => 0), graduate_applicant_path(applicants) %>
+        </td>
+        <td>
+          <%= link_to image_tag("note.png", :alt => "Notes", :class => "table_image", :border => 0), graduate_applicant_notes_path(applicants) %>
+        </td>
+        <td>
+          <%= link_to image_tag("correspondence.png", :alt => "Correspondence", :class => "table_image", :border => 0), graduate_applicant_correspondences_path(applicants) %>
+        </td>
       </tr>
   <% end %>
 </table>
@@ -38,4 +52,4 @@
 
 <br />
 
-<%= link_to 'New graduate_applicant', new_graduate_applicant_path %>
+<%= link_to 'Create Graduate Applicant', new_graduate_applicant_path %>

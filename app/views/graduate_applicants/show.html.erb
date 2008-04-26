@@ -3,8 +3,11 @@
 <p style="color: green"><%= flash[:notice] %></p>
 
 <div id="gradAppHeader">
-  <h1><%=h @graduate_applicant.full_name %></h1>
-  <%= select("graduate_applicant", "status_id", ApplicantStatus.find(:all).collect {|d| [d.status, d.id] }) %>
+  <h1>
+    <%=h @graduate_applicant.full_name %>
+  </h1>
+
+  <%= select("graduate_applicant", "applicant_status_id", ApplicantStatus.find(:all).collect {|d| [d.status, d.id] }) %>
 </div>
 <p>
 
@@ -85,5 +88,6 @@
   </p>
 
   <p><%= link_to 'Edit', edit_graduate_applicant_path(@graduate_applicant) %> | 
+  <%= link_to 'Delete Applicant', @graduate_applicant, :confirm => 'Are you sure?', :method => :delete %> | 
   <%= link_to 'Back to Graduate Applicants', graduate_applicants_path %></p>
 </div>

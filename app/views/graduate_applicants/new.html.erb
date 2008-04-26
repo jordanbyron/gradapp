@@ -68,6 +68,8 @@
     <%= f.text_field :studentID %>
   </p>
 
+  <p><label for="applicant_status_id">Status</label>
+    <%= select("graduate_applicant", "applicant_status_id", ApplicantStatus.find(:all).collect {|d| [d.status, d.id] }) %></p>
   <p>
     <%= f.submit "Create" %>
   </p>

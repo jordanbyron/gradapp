@@ -5,6 +5,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :correspondences
   map.resources :correspondence_templates
   map.resources :degree_programs
+  map.resources :degree_programs, :has_many => :application_requirements
   map.resources :correspondences
   map.resources :notes
   map.resources :applicant_requirements
@@ -13,9 +14,10 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :graduate_applicants, :has_many => :correspondences
   map.resources :graduate_applicants, :has_many => :notes
 	map.resources :departments
+	map.resources :departments, :has_many => :application_requirements
+	map.resources :departments, :has_many => :degree_programs
   map.resources :setup
   
-  #map.connect ':graduate_applicants/:graduate_applicant_id/:notes/', :controller => 'notes', :action => 'index'
   map.connect '/templates', :controller => 'template', :action => 'index'
   	
 	#User Autentication Routes	

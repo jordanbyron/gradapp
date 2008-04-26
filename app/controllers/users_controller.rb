@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_filter :admin_required
   
   def index
-    @users = User.find(:all)
+    @users = User.search(params[:search], params[:page])
 
     respond_to do |format|
       format.html # index.html.erb

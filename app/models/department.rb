@@ -15,4 +15,10 @@ class Department < ActiveRecord::Base
   validates_presence_of :short_name 
   validates_length_of   :name,        :maximum => 50
   validates_length_of   :short_name,  :is => 3
+
+	def self.search(search,page)
+		paginate  :per_page => 10, :page => page,
+              :conditions => ['name like ? or short_name like ?', "%#{search}%", "%#{search}%"],
+              :order => 'name'
+	end
 end

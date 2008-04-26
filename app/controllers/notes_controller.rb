@@ -4,7 +4,7 @@ class NotesController < ApplicationController
   def index
     @graduate_applicant = GraduateApplicant.find(params[:graduate_applicant_id])
     @notes = Note.search(params[:search], params[:page],params[:graduate_applicant_id])
-    @note = Note.new 
+    @new_note = Note.new 
 
     respond_to do |format|
       format.html # index.html.erb
@@ -22,14 +22,15 @@ class NotesController < ApplicationController
   def create
     @graduate_applicant = GraduateApplicant.find(params[:graduate_applicant_id])
     @note = @graduate_applicant.notes.build(params[:note])
+    @note.created_by = current_user.full_name
 
     respond_to do |format|
       if @note.save
-        #flash[:notice] = 'Note was successfully created.'
-        format.html { redirect_to @graduate_applicant }
+        flash[:notice] = 'Note was successfully created.'
+        format.html { redirect_to graduate_applicant_notes_path(@graduate_applicant) }
         format.js # renders create.js.rjs
       else
-        format.html { redirect_to @graduate_applicant }
+        format.html { redirect_to graduate_applicant_notes_path(@graduate_applicant) }
         format.js do
           render :update do |page| 
             page.redirect_to @graduate_applicant 
@@ -40,14 +41,14 @@ class NotesController < ApplicationController
   end
 
   def destroy
-    @graduate_applicant = GraduateApplicant.find(params[:graduate_applicant_id])
-    @note = @graduate_applicant.notes.find(params[:id]) 
+    @note = Note.find(params[:id]) 
+    @graduate_applicant = GraduateApplicant.find(@note.graduate_applicant_id)
     
     @note.destroy
 
     respond_to do |format|
-      #flash[:notice] = 'Note was successfully deleted.'
-      format.html { redirect_to @graduate_applicant }
+      flash[:notice] = 'Note was successfully deleted.'
+      format.html { redirect_to graduate_applicant_notes_path(@graduate_applicant) }
       format.js # renders destroy.js.rjs
     end
   end

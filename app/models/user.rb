@@ -18,6 +18,16 @@ class User < ActiveRecord::Base
   # anything else you want your user to change should be added here.
   attr_accessible :login, :email, :password, :password_confirmation, :first_name, :last_name, :admin, :department_id, :graduate_coordinator
 
+	def self.search(search,page)
+		paginate  :per_page => 10, :page => page,
+              :conditions => ['first_name like ? or last_name like ? or login like ?', "%#{search}%", "%#{search}%","%#{search}%"],
+              :order => 'login'
+	end
+
+  def full_name
+    first_name + ' ' + last_name
+  end
+
   # Authenticates a user by their login name and unencrypted password.  Returns the user or nil.
   def self.authenticate(login, password)
     u = find_by_login(login) # need to get the salt

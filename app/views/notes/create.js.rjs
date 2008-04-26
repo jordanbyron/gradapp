@@ -1,5 +1,2 @@
-page[:notes].replace_html :partial => 'graduate_applicants/notes', 
-                             :locals  => {:notes => @graduate_applicant.notes,
-                                          :graduate_applicant    => @graduate_applicant}
 page[:note_text].clear
-page[@note].highlight
+page[:new_note_div].show

@@ -2,7 +2,9 @@
 
 <%= error_messages_for :correspondence %>
 
-<% form_for(@correspondence) do |f| %>
+<h1>This page is broken</h1>
+
+<% form_for(@correspondence) do |f| %> 
   <p>
     <b>Sent date time</b><br />
     <%= f.datetime_select :sent_date_time %>
@@ -15,7 +17,7 @@
 
   <p>
     <b>Text</b><br />
-    <%= f.text_field :text %>
+    <%= f.text_area :text %>
   </p>
 
   <p>
@@ -28,4 +30,4 @@
   </p>
 <% end %>
 
-<%= link_to 'Back', correspondences_path %>
+<%= link_to 'Cancel', graduate_applicant_correspondences_path(@graduate_applicant) %>

@@ -1,47 +1,5 @@
 class GraduateApplicantsController < ApplicationController
   before_filter :gc_required
-
-  def show_contact_info
-    @graduate_applicant = GraduateApplicant.find(params[:id])
-    
-    render  :partial => 'contact_info',
-            :locals  => {:graduate_applicant => @graduate_applicant}
-  end
-
-  def show_note_info
-    @graduate_applicant = GraduateApplicant.find(params[:id])
-    @note = Note.new
-    @notes = Note.search(params[:page],@graduate_applicant.id)
-
-    render  :partial => 'note_info',
-            :locals  => {:notes => @notes, 
-                        :graduate_applicant => @graduate_applicant,
-                        :note => @note}
-  end
-  
-  def show_applicant_requirement_info
-    @graduate_applicant = GraduateApplicant.find(params[:id])
-    
-    render  :partial => 'applicant_requirement_info',
-            :locals  => {:graduate_applicant => @graduate_applicant}
-  end
-  
-  def show_correspondence_info
-    @graduate_applicant = GraduateApplicant.find(params[:id])
-    @correspondence = Correspondence.new
-    
-    render  :partial => 'correspondence_info',
-            :locals  => { :correspondences => @graduate_applicant.correspondences,
-                          :graduate_applicant => @graduate_applicant,
-                          :correspondence => @correspondence}
-  end
-  
-  def show_ppos_info
-    @graduate_applicant = GraduateApplicant.find(params[:id])
-    
-    render  :partial => 'ppos_info',
-            :locals  => {:graduate_applicant => @graduate_applicant}
-  end
   
   # GET /graduate_applicants
   # GET /graduate_applicants.xml
@@ -58,7 +16,6 @@ class GraduateApplicantsController < ApplicationController
   # GET /graduate_applicants/1.xml
   def show
     @graduate_applicant = GraduateApplicant.find(params[:id])
-    @notes = Note.search(params[:search_notes],params[:page],@graduate_applicant.id)
 
     if gc_authorized(@graduate_applicant.department_id)  # Verify Current GC Is Authorized
       respond_to do |format|
@@ -133,6 +90,7 @@ class GraduateApplicantsController < ApplicationController
     @graduate_applicant.destroy
 
     respond_to do |format|
+      flash[:notice] = 'Graduate Applicant was successfully deleted.'
       format.html { redirect_to(graduate_applicants_url) }
       format.xml  { head :ok }
     end

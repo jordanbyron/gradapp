@@ -4,7 +4,7 @@
 
 <div id="gradAppHeader">
   <h1><%=h @graduate_applicant.full_name %></h1>
-  <%= select("graduate_applicant", "status_id", ApplicantStatus.find(:all).collect {|d| [d.status, d.id] }) %>
+  <%= select("graduate_applicant", "applicant_status_id", ApplicantStatus.find(:all).collect {|d| [d.status, d.id] }) %>
 </div>
 <p>
 
@@ -23,21 +23,25 @@
     <th>Graduate applicant</th>
     <th>Text</th>
     <th>Type</th>
+    <th>Show</th>
+    <th>Remove</th>
   </tr>
 
 <% for correspondence in @correspondences %>
-  <tr>
+  <tr id="<%= dom_id(correspondence) %>" class="<%= cycle('even', 'odd') %>">
     <td><%=h correspondence.sent_date_time %></td>
     <td><%=h correspondence.graduate_applicant_id %></td>
     <td><%=h correspondence.text %></td>
     <td><%=h correspondence.type %></td>
     <td><%= link_to 'Show', correspondence %></td>
-    <td><%= link_to 'Edit', edit_correspondence_path(correspondence) %></td>
-    <td><%= link_to 'Destroy', correspondence, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to image_tag("remove.png", :border => 0), correspondence, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New correspondence', new_correspondence_path %>
+<p>
+  <%= link_to 'Send Correspondence', new_graduate_applicant_correspondence_path(@graduate_applicant) %> | 
+  <%= link_to 'Back to Graduate Applicants', graduate_applicants_path %>
+</p>

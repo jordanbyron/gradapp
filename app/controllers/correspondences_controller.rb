@@ -11,13 +11,25 @@ class CorrespondencesController < ApplicationController
     end
   end
 
+  # GET /graduate_applicants/:graduate_applicant_id/correspondences/new
+  # GET /graduate_applicants/:graduate_applicant_id/correspondences/new.xml
+  def new
+    @graduate_applicant = GraduateApplicant.find(params[:graduate_applicant_id])
+    @correspondence = Correspondence.new
+
+    respond_to do |format|
+      format.html # new.html.erb
+      format.xml  { render :xml => @corresponndence }
+    end
+  end
+
   def create
     @graduate_applicant = GraduateApplicant.find(params[:graduate_applicant_id])
     @correspondence = @graduate_applicant.correspondences.build(params[:correspondence])
 
     respond_to do |format|
       if @correspondence.save
-        #flash[:notice] = 'Correspondence was successfully created.'
+        flash[:notice] = 'Correspondence was successfully created.'
         format.html { redirect_to @graduate_applicant }
         format.js # renders create.js.rjs
       else
