@@ -4,7 +4,10 @@
 
 <div id="gradAppHeader">
   <h1><%=h @graduate_applicant.full_name %></h1>
-  <%= select("graduate_applicant", "applicant_status_id", ApplicantStatus.find(:all).collect {|d| [d.status, d.id] }) %>
+  <% form_for(@graduate_applicant) do |f| %>
+    <%= select("graduate_applicant", "applicant_status_id", ApplicantStatus.find(:all).collect {|d| [d.status, d.id] }) %>
+    <%= f.submit "Update" %>
+  <% end %>
 </div>
 <p>
 
