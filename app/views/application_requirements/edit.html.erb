@@ -1,15 +1,12 @@
-<h1>Editing application_requirement</h1>
+<% title [@department.name,'Department'].join(' ') + ' | Application Requirements | Edit' %>
+
+<h1>Editing Application Requirement</h1>
 
 <%= error_messages_for :application_requirement %>
 
 <% form_for(@application_requirement) do |f| %>
   <p>
-    <b>Department</b><br />
-    <%= f.text_field :department_id %>
-  </p>
-
-  <p>
-    <b>Description</b><br />
+    <b>Requirement Description</b><br />
     <%= f.text_field :description %>
   </p>
 
@@ -18,5 +15,4 @@
   </p>
 <% end %>
 
-<%= link_to 'Show', @application_requirement %> |
-<%= link_to 'Back', application_requirements_path %>
+<%= link_to 'Back to Application Requirements', department_application_requirements_path(@department) %>

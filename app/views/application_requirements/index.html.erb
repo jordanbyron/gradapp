@@ -1,22 +1,54 @@
-<h1>Listing application_requirements</h1>
+<% title [@department.name,'Department'].join(' ') + ' | Application Requirements' %>
+
+<p style="color: green"><%= flash[:notice] %></p>
+
+<h1><%= [@department.name,'Department'].join(' ') %></h1>
+
+<p>
+  <h3>
+    <%= link_to 'Department Information', department_path(@department) %> | 
+    Application Requirements | 
+    <%= link_to 'Degree Programs', department_degree_programs_path(@department) %>
+  </h3>
+</p>
+
+<% form_tag department_application_requirements_path(@department), :method => 'get' do %>
+	<p>
+		<%= text_field_tag :search, params[:search] %>
+		<%= submit_tag "Search" %>
+	</p>
+<% end %>
 
 <table>
   <tr>
-    <th>Department</th>
     <th>Description</th>
+    <th colspan=2>Controls</th>
   </tr>
 
 <% for application_requirement in @application_requirements %>
-  <tr>
-    <td><%=h application_requirement.department_id %></td>
+  <tr class="<%= cycle('even', 'odd') %>">
     <td><%=h application_requirement.description %></td>
-    <td><%= link_to 'Show', application_requirement %></td>
-    <td><%= link_to 'Edit', edit_application_requirement_path(application_requirement) %></td>
+    <td><%= link_to 'Edit', edit_department_application_requirement_path(@department,application_requirement) %></td>
     <td><%= link_to 'Destroy', application_requirement, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
 
-<br />
+<%= will_paginate @application_requirements %>
 
-<%= link_to 'New application_requirement', new_application_requirement_path %>
+<% if flash[:new_req_div] %>
+  <div id="new_req_div">
+<% else %>
+ <div id="new_req_div" style="display:none;">
+<% end %>
+
+<% form_for [@department, @new_requirement] do |f| -%>
+    <br>New Requirement:</br>
+    <br><%= f.text_field(:description) %></br>
+  <br><%= f.submit 'Add this Application Requirement' %> | <%= link_to_remote "Cancel", :url => {:action => "toggle_new_requirement"} %></br>
+<% end -%>
+</div>
+
+<p>
+  <%= link_to_remote "Create Application Requirement", :url => {:action => "toggle_new_requirement"} %>
+</p>

@@ -20,7 +20,6 @@
 <table>
   <tr>
     <th>Sent date time</th>
-    <th>Graduate applicant</th>
     <th>Text</th>
     <th>Type</th>
     <th>Show</th>
@@ -30,7 +29,6 @@
 <% for correspondence in @correspondences %>
   <tr id="<%= dom_id(correspondence) %>" class="<%= cycle('even', 'odd') %>">
     <td><%=h correspondence.sent_date_time %></td>
-    <td><%=h correspondence.graduate_applicant_id %></td>
     <td><%=h correspondence.text %></td>
     <td><%=h correspondence.type %></td>
     <td><%= link_to 'Show', correspondence %></td>

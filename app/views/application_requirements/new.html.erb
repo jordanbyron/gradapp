@@ -3,13 +3,9 @@
 <%= error_messages_for :application_requirement %>
 
 <% form_for(@application_requirement) do |f| %>
-  <p>
-    <b>Department</b><br />
-    <%= f.text_field :department_id %>
-  </p>
 
   <p>
-    <b>Description</b><br />
+    <b>Requirement Description</b><br />
     <%= f.text_field :description %>
   </p>
 

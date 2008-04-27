@@ -1,3 +1,0 @@
-page[:notes].replace_html :partial => 'graduate_applicants/notes', 
-                             :locals  => {:notes => @graduate_applicant.notes,
-                                          :graduate_applicant    => @graduate_applicant}

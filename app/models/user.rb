@@ -25,7 +25,7 @@ class User < ActiveRecord::Base
 	end
 
   def full_name
-    first_name + ' ' + last_name
+    [first_name, last_name].join(' ')
   end
 
   # Authenticates a user by their login name and unencrypted password.  Returns the user or nil.

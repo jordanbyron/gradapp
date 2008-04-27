@@ -8,7 +8,7 @@ class GraduateApplicant < ActiveRecord::Base
   validates_length_of   :middle_name,  :within => 0..1
 
   def full_name
-    first_name + " " + last_name
+    [first_name, last_name].join(' ')
   end
 
 	def self.search(search,page,department_id)

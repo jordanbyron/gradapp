@@ -5,7 +5,6 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :correspondences
   map.resources :correspondence_templates
   map.resources :degree_programs
-  map.resources :degree_programs, :has_many => :application_requirements
   map.resources :correspondences
   map.resources :notes
   map.resources :applicant_requirements

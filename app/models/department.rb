@@ -7,7 +7,7 @@ class Department < ActiveRecord::Base
   has_many :correspondences, :through => :graduate_applicants
   
   has_many :degree_programs
-  has_many :application_requirements, :through => :degree_programs
+  has_many :applicantion_requirements
   
   has_many :correspondence_templates
   

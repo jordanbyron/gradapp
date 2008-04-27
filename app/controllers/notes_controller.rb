@@ -27,15 +27,10 @@ class NotesController < ApplicationController
     respond_to do |format|
       if @note.save
         flash[:notice] = 'Note was successfully created.'
+        flash[:new_note_div] = true
         format.html { redirect_to graduate_applicant_notes_path(@graduate_applicant) }
-        format.js # renders create.js.rjs
       else
         format.html { redirect_to graduate_applicant_notes_path(@graduate_applicant) }
-        format.js do
-          render :update do |page| 
-            page.redirect_to @graduate_applicant 
-          end
-        end
       end
     end
   end
@@ -49,7 +44,6 @@ class NotesController < ApplicationController
     respond_to do |format|
       flash[:notice] = 'Note was successfully deleted.'
       format.html { redirect_to graduate_applicant_notes_path(@graduate_applicant) }
-      format.js # renders destroy.js.rjs
     end
   end
 end

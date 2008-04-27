@@ -1,2 +1,0 @@
-page[:note_text].clear
-page[:new_note_div].show
