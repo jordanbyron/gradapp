@@ -1,6 +1,12 @@
+<% title [@department.name,'Department'].join(' ') + ' | Degree Programs | ' + @degree_program.name %>
+
+<h1><%= @degree_program.name %></h1>
+
 <p>
-  <b>Department:</b>
-  <%=h @degree_program.department_id %>
+  <h3>
+    Degree Information | 
+    <%= link_to 'Degree Requirements', :controller => 'degree_requirements', :action => 'index', :department_id => @department.id, :degree_program_id => @degree_program.id %> 
+  </h3>
 </p>
 
 <p>
@@ -8,6 +14,7 @@
   <%=h @degree_program.name %>
 </p>
 
-
-<%= link_to 'Edit', edit_degree_program_path(@degree_program) %> |
-<%= link_to 'Back', degree_programs_path %>
+<p>
+  <%= link_to 'Edit', edit_department_degree_program_path(@department, @degree_program) %> |  
+  <%= link_to 'Back', department_degree_programs_path(@department) %>
+</p>

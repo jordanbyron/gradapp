@@ -1,22 +1,43 @@
-<h1>Listing degree_programs</h1>
+<% title [@department.name,'Department'].join(' ') + ' | Degree Programs' %>
+
+<p style="color: green"><%= flash[:notice] %></p>
+
+<h1><%= [@department.name,'Department'].join(' ') %></h1>
+
+<p>
+  <h3>
+    <%= link_to 'Department Information', department_path(@department) %> | 
+    <%= link_to 'Application Requirements', department_application_requirements_path(@department) %> | 
+    Degree Programs
+  </h3>
+</p>
+
+<% form_tag department_degree_programs_path(@department), :method => 'get' do %>
+	<p>
+		<%= text_field_tag :search, params[:search] %>
+		<%= submit_tag "Search" %>
+	</p>
+<% end %>
 
 <table>
   <tr>
-    <th>Department</th>
-    <th>Name</th>
+    <th>Degree</th>
+    <th colspan=4>Controls</th>
   </tr>
 
 <% for degree_program in @degree_programs %>
-  <tr>
-    <td><%=h degree_program.department_id %></td>
+  <tr class="<%= cycle('even', 'odd') %>">
     <td><%=h degree_program.name %></td>
-    <td><%= link_to 'Show', degree_program %></td>
-    <td><%= link_to 'Edit', edit_degree_program_path(degree_program) %></td>
+    <td><%= link_to 'Degree Requirements', :controller => 'degree_requirements', :action => 'index', :department_id => @department.id, :degree_program_id => degree_program.id %></td>
+    <td><%= link_to 'Show', department_degree_program_path(@department,degree_program) %></td>
+    <td><%= link_to 'Edit', edit_department_degree_program_path(@department,degree_program) %></td>
     <td><%= link_to 'Destroy', degree_program, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
 
-<br />
+<%= will_paginate @degree_programs %>
 
-<%= link_to 'New degree_program', new_degree_program_path %>
+<p>
+<%= link_to 'Create Degree Program', new_department_degree_program_path(@department) %>
+</p>

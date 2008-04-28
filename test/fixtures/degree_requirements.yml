@@ -1,0 +1,9 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  degree_program_id: 1
+  description: MyString
+
+two:
+  degree_program_id: 1
+  description: MyString

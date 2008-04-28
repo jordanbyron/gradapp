@@ -1,0 +1,13 @@
+<p>
+  <b>Degree program:</b>
+  <%=h @degree_requirement.degree_program_id %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @degree_requirement.description %>
+</p>
+
+
+<%= link_to 'Edit', edit_degree_requirement_path(@degree_requirement) %> |
+<%= link_to 'Back', degree_requirements_path %>

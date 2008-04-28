@@ -1,0 +1,21 @@
+<h1>New degree_requirement</h1>
+
+<%= error_messages_for :degree_requirement %>
+
+<% form_for(@degree_requirement) do |f| %>
+  <p>
+    <b>Degree program</b><br />
+    <%= f.text_field :degree_program_id %>
+  </p>
+
+  <p>
+    <b>Description</b><br />
+    <%= f.text_field :description %>
+  </p>
+
+  <p>
+    <%= f.submit "Create" %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', degree_requirements_path %>

@@ -1,15 +1,12 @@
-<h1>Editing degree_program</h1>
+<% title [@department.name,'Department'].join(' ') + ' | Degree Programs | Edit' %>
+
+<h1>Editing Degree Program</h1>
 
 <%= error_messages_for :degree_program %>
 
 <% form_for(@degree_program) do |f| %>
   <p>
-    <b>Department</b><br />
-    <%= f.text_field :department_id %>
-  </p>
-
-  <p>
-    <b>Name</b><br />
+    <b>Degree</b><br />
     <%= f.text_field :name %>
   </p>
 
@@ -18,5 +15,5 @@
   </p>
 <% end %>
 
-<%= link_to 'Show', @degree_program %> |
-<%= link_to 'Back', degree_programs_path %>
+<%= link_to 'Show', department_degree_program_path(@department,@degree_program) %> |
+<%= link_to 'Cancel', department_degree_programs_path(@department) %>
