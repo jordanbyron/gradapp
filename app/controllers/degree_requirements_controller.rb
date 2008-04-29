@@ -15,6 +15,8 @@ class DegreeRequirementsController < ApplicationController
   # GET /degree_requirements/1
   # GET /degree_requirements/1.xml
   def show
+    @degree_program = DegreeProgram.find(params[:degree_program_id])
+    @department = Department.find(params[:department_id])
     @degree_requirement = DegreeRequirement.find(params[:id])
 
     respond_to do |format|
@@ -26,7 +28,11 @@ class DegreeRequirementsController < ApplicationController
   # GET /degree_requirements/new
   # GET /degree_requirements/new.xml
   def new
+    @degree_program = DegreeProgram.find(params[:degree_program_id])
+    @department = Department.find(params[:department_id])
     @degree_requirement = DegreeRequirement.new
+    
+    flash[:degree_program_id] = @degree_program.id
 
     respond_to do |format|
       format.html # new.html.erb
@@ -36,6 +42,8 @@ class DegreeRequirementsController < ApplicationController
 
   # GET /degree_requirements/1/edit
   def edit
+    @degree_program = DegreeProgram.find(params[:degree_program_id])
+    @department = Department.find(params[:department_id])
     @degree_requirement = DegreeRequirement.find(params[:id])
   end
 
@@ -43,11 +51,14 @@ class DegreeRequirementsController < ApplicationController
   # POST /degree_requirements.xml
   def create
     @degree_requirement = DegreeRequirement.new(params[:degree_requirement])
-
+    @degree_program = DegreeProgram.find(flash[:degree_program_id])
+    
+    @degree_requirement.degree_program_id = @degree_program.id
+    
     respond_to do |format|
       if @degree_requirement.save
-        flash[:notice] = 'DegreeRequirement was successfully created.'
-        format.html { redirect_to(@degree_requirement) }
+        flash[:notice] = 'Degree Requirement was successfully created.'
+        format.html { redirect_to degree_requirements_path(@degree_program.department_id, @degree_program.id) }
         format.xml  { render :xml => @degree_requirement, :status => :created, :location => @degree_requirement }
       else
         format.html { render :action => "new" }
@@ -59,12 +70,14 @@ class DegreeRequirementsController < ApplicationController
   # PUT /degree_requirements/1
   # PUT /degree_requirements/1.xml
   def update
+    @degree_program = DegreeProgram.find(params[:degree_program_id])
+    @department = Department.find(params[:department_id])
     @degree_requirement = DegreeRequirement.find(params[:id])
 
     respond_to do |format|
       if @degree_requirement.update_attributes(params[:degree_requirement])
-        flash[:notice] = 'DegreeRequirement was successfully updated.'
-        format.html { redirect_to(@degree_requirement) }
+        flash[:notice] = 'Degree Requirement was successfully updated.'
+        format.html { redirect_to degree_requirements_path(@degree_program.department_id, @degree_program.id)  }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

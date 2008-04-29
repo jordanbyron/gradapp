@@ -1,13 +1,10 @@
-<h1>Editing degree_requirement</h1>
+<% title [@department.name,'Department'].join(' ') + ' | Degree Programs | ' + @degree_program.name + ' | Degree Requirements | Edit' %>
+
+<h1>Editing Degree Requirement</h1>
 
 <%= error_messages_for :degree_requirement %>
 
-<% form_for(@degree_requirement) do |f| %>
-  <p>
-    <b>Degree program</b><br />
-    <%= f.text_field :degree_program_id %>
-  </p>
-
+<% form_for :degree_requirement, @degree_requirement, :url => degree_requirement_path(@department, @degree_program, @degree_requirement), :html => { :method => :put} do |f| %>
   <p>
     <b>Description</b><br />
     <%= f.text_field :description %>
@@ -18,5 +15,6 @@
   </p>
 <% end %>
 
-<%= link_to 'Show', @degree_requirement %> |
-<%= link_to 'Back', degree_requirements_path %>
+<p>
+  <%= link_to 'Cancel', degree_requirements_path(@degree_program.department_id, @degree_program.id)  %>
+</p>

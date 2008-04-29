@@ -9,7 +9,7 @@
   </h3>
 </p>
 
-<% form_tag ['/departments/',@department.id,'/degree_programs/', @degree_program.id,'/degree_requirements'].join(), :method => 'get' do %>
+<% form_tag degree_requirements_path(@department,@degree_program), :method => 'get' do %>
 	<p>
 		<%= text_field_tag :search, params[:search] %>
 		<%= submit_tag "Search" %>
@@ -19,14 +19,14 @@
 <table>
   <tr>
     <th>Requirement Description</th>
+    <th colspan=2>Controls</th>
   </tr>
 
 <% for degree_requirement in @degree_requirements %>
   <tr class="<%= cycle('even', 'odd') %>">
     <td><%=h degree_requirement.description %></td>
-    <td><%= link_to 'Show', degree_requirement %></td>
-    <td><%= link_to 'Edit', edit_degree_requirement_path(degree_requirement) %></td>
-    <td><%= link_to 'Destroy', degree_requirement, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Edit', edit_degree_requirement_path(@department.id, @degree_program.id, degree_requirement) %></td>
+    <td><%= link_to 'Destroy', degree_requirement_path(@department.id, @degree_program.id, degree_requirement.id), :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
@@ -34,5 +34,6 @@
 <%= will_paginate @degree_requirements %>
 
 <p>
-<%= link_to 'Create Degree Requirement', new_degree_requirement_path %>
+  <%= link_to 'Back to Degree Programs', department_degree_programs_path(@department) %> | 
+  <%= link_to 'Create Degree Requirement', new_degree_requirement_path %>
 </p>
