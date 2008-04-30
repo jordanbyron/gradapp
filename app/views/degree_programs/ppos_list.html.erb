@@ -10,3 +10,15 @@
     Planned Program of Study
   </h3>
 </p>
+
+<table>
+  <tr>
+    <th>Degree</th>
+  </tr>
+
+<% for degree_program in @degree_programs %>
+  <tr class="<%= cycle('even', 'odd') %>">
+    <td><%= link_to degree_program.name, ppos_templates_path(@department.id, degree_program.id) %></td>
+  </tr>
+<% end %>
+</table>

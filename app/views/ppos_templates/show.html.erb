@@ -10,13 +10,25 @@
   </h3>
 </p>
 
-<div id="ppos">
-  <%= render :partial => 'header_template',
-             :locals  => {:header_templates => @ppos_template.header_templates,
-                          :ppos_template    => @ppos_template,
-                          :degree_program   => @degree_program,
-                          :department       => @department} %>
-</div>
+<p>
+  <div id="prerequisites">
+    <%= render :partial => 'prerequisite_template',
+               :locals  => {:prerequisite_templates => @ppos_template.prerequisite_templates,
+                            :ppos_template    => @ppos_template,
+                            :degree_program   => @degree_program,
+                            :department       => @department} %>
+  </div>
+</p>
+
+<p>
+  <div id="ppos_body">
+    <%= render :partial => 'header_template',
+               :locals  => {:header_templates => @ppos_template.header_templates,
+                            :ppos_template    => @ppos_template,
+                            :degree_program   => @degree_program,
+                            :department       => @department} %>
+  </div>
+</p>
 
 <p>
   <%= link_to 'Back to Degree Programs', department_degree_programs_path(@department) %>

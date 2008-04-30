@@ -1,0 +1,26 @@
+<table>
+<% for prerequisite_template in prerequisite_templates -%>
+  <tr id="<%= dom_id(prerequisite_template) %>">
+    <th>
+      <%= prerequisite_template.prerequisite %>
+    </th>
+    <th>
+      <%= image_tag("up.png", :alt => "Move Up", :class => "table_image", :border => 0) %>
+    </th>
+    <th>
+      <%= image_tag("down.png", :alt => "Move Down", :class => "table_image", :border => 0) %>
+    </th>
+    <th>
+      <%= image_tag("edit.png",  :class => "table_image",:border => 0) %>
+    </th>
+    <th>
+      <%= image_tag("remove.png",  :class => "table_image",:border => 0) %>
+    </th>
+  </tr>
+<% end -%>
+  <tr id="new_prerequisite">
+    <th align="center" colspan=5>
+      Add New Prerequisite
+    </th>
+  </tr>
+</table>
