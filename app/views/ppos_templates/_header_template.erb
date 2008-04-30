@@ -8,19 +8,31 @@
       Credits
     </th>
     <th>
-      <%= link_to 'UP', :action => "move_header_up", :header_template_id => header_template.id, :ppos_template_id => @ppos_template.id %>
+      <%= link_to image_tag("up.png", :alt => "Move Up", :class => "table_image", :border => 0), :action => "move_header_up", :header_template_id => header_template.id, :ppos_template_id => @ppos_template.id %>
     </th>
     <th>
-      <%= link_to 'DOWN', :action => "move_header_down", :header_template_id => header_template.id, :ppos_template_id => @ppos_template.id %>
+      <%= link_to image_tag("down.png", :alt => "Move Down", :class => "table_image", :border => 0), :action => "move_header_down", :header_template_id => header_template.id, :ppos_template_id => @ppos_template.id %>
+    </th>
+    <th>
+      <%= link_to image_tag("edit.png",  :class => "table_image",:border => 0),
+      edit_header_template_path(@department.id,@degree_program.id,@ppos_template.id,header_template.id) %>
+    </th>
+    <th>
+      <%= link_to image_tag("remove.png",  :class => "table_image",:border => 0), 
+      header_template_path(@department.id,@degree_program.id,@ppos_template.id,header_template.id), 
+      :confirm => 'Are you sure?', 
+      :method => :delete %>
     </th>
   </tr>
 	<%= render :partial => 'course_template',
              :locals  => {:course_templates => header_template.course_templates,
                           :ppos_template    => @ppos_template,
-                          :header_template  => header_template} %>
+                          :header_template  => header_template,
+                          :degree_program   => @degree_program,
+                          :department       => @department} %>
 <% end -%>
   <tr id="new_header">
-    <th align="center" colspan=6>
+    <th align="center" colspan=8>
       <%= link_to 'Add New Header', new_header_template_path(@department.id,@degree_program.id,@ppos_template.id) %>
     </th>
   </tr>

@@ -23,6 +23,15 @@ class CorrespondencesController < ApplicationController
     end
   end
 
+  def show
+    @correspondence = Correspondence.find(params[:id])
+
+    respond_to do |format|
+      format.html # show.html.erb
+      format.xml  { render :xml => @correspondence }
+    end
+  end
+
   def create
     @graduate_applicant = GraduateApplicant.find(params[:graduate_applicant_id])
     @correspondence = @graduate_applicant.correspondences.build(params[:correspondence])
@@ -50,9 +59,8 @@ class CorrespondencesController < ApplicationController
     @correspondence.destroy
 
     respond_to do |format|
-      #flash[:notice] = 'Note was successfully deleted.'
-      format.html { redirect_to @graduate_applicant }
-      format.js # renders destroy.js.rjs
+      flash[:notice] = 'Correspondence was removed.'
+      format.html { redirect_to  }
     end
   end
   

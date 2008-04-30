@@ -41,6 +41,9 @@ class HeaderTemplatesController < ApplicationController
 
   # GET /header_templates/1/edit
   def edit
+    @degree_program = DegreeProgram.find(params[:degree_program_id])
+    @department = Department.find(params[:department_id])
+    @ppos_template = PposTemplate.find(params[:ppos_template_id])
     @header_template = HeaderTemplate.find(params[:id])
   end
 
@@ -69,8 +72,8 @@ class HeaderTemplatesController < ApplicationController
 
     respond_to do |format|
       if @header_template.update_attributes(params[:header_template])
-        flash[:notice] = 'HeaderTemplate was successfully updated.'
-        format.html { redirect_to(@header_template) }
+        flash[:notice] = 'Header was successfully updated.'
+        format.html { redirect_to ppos_template_path(params[:department_id], params[:degree_program_id], params[:ppos_template_id]) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -86,7 +89,7 @@ class HeaderTemplatesController < ApplicationController
     @header_template.destroy
 
     respond_to do |format|
-      format.html { redirect_to(header_templates_url) }
+      format.html { redirect_to ppos_template_path(params[:department_id], params[:degree_program_id], params[:ppos_template_id]) }
       format.xml  { head :ok }
     end
   end
