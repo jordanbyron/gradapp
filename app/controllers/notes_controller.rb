@@ -12,6 +12,26 @@ class NotesController < ApplicationController
     end
   end
 
+  def edit
+    @note = Note.find(params[:id])
+    @graduate_applicant = GraduateApplicant.find(@note.graduate_applicant_id)
+  end
+
+  def update
+    @note = Note.find(params[:id])
+
+    respond_to do |format|
+      if @note.update_attributes(params[:note])
+        flash[:notice] = 'Note was successfully updated.'
+        format.html { redirect_to graduate_applicant_notes_path(@note.graduate_applicant_id) }
+        format.xml  { head :ok }
+      else
+        format.html { render :action => "edit" }
+        format.xml  { render :xml => @header_template.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
+
   def toggle_new_note
     respond_to do |format|
       format.html { redirect_to @graduate_applicant }

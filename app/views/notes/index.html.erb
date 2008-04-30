@@ -32,7 +32,7 @@
     <th>Note</th>
     <th>Date Created</th>
     <th>Created By</th>
-    <th>Actions</th>
+    <th colspan=2>Actions</th>
   </tr>
 <% for note in @notes -%>
   <tr id="<%= dom_id(note) %>" class="<%= cycle('even', 'odd') %>">
@@ -44,6 +44,10 @@
     </td>
     <td>
       <%= note.created_by %>
+    </td>
+    <td>
+      <%= link_to image_tag("edit.png",  :class => "table_image",:border => 0),
+      edit_graduate_applicant_note_path(@graduate_applicant.id,note) %>
     </td>
     <td align="center">
     <%= link_to image_tag("remove.png", :border => 0), 
