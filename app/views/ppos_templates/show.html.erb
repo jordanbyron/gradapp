@@ -10,6 +10,18 @@
   </h3>
 </p>
 
+<% form_for(@ppos_template) do |f| %>
+  <p>
+    <b>Number of Concentrations / Plans For This Degree</b><br />
+    <%= f.text_field :concentrations %>
+  </p>
+
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+
 <p>
   <div id="prerequisites">
     <%= render :partial => 'prerequisite_template',
