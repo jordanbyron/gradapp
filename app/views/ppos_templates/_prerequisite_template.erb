@@ -1,26 +1,35 @@
 <table>
+  <tr>
+    <th colspan=5>
+      Prerequisites
+    </th>
+  </tr>
 <% for prerequisite_template in prerequisite_templates -%>
   <tr id="<%= dom_id(prerequisite_template) %>">
-    <th>
+    <td>
       <%= prerequisite_template.prerequisite %>
-    </th>
-    <th>
-      <%= image_tag("up.png", :alt => "Move Up", :class => "table_image", :border => 0) %>
-    </th>
-    <th>
-      <%= image_tag("down.png", :alt => "Move Down", :class => "table_image", :border => 0) %>
-    </th>
-    <th>
-      <%= image_tag("edit.png",  :class => "table_image",:border => 0) %>
-    </th>
-    <th>
-      <%= image_tag("remove.png",  :class => "table_image",:border => 0) %>
-    </th>
+    </td>
+    <td>
+      <%= link_to image_tag("up.png", :alt => "Move Up", :class => "table_image", :border => 0), :action => "move_prerequisite_up", :prerequisite_template_id => prerequisite_template.id, :ppos_template_id => @ppos_template.id %>
+    </td>
+    <td>
+      <%= link_to image_tag("down.png", :alt => "Move Down", :class => "table_image", :border => 0), :action => "move_prerequisite_down", :prerequisite_template_id => prerequisite_template.id, :ppos_template_id => @ppos_template.id %>
+    </td>
+    <td>
+      <%= link_to image_tag("edit.png",  :class => "table_image",:border => 0),
+      edit_prerequisite_template_path(@department.id,@degree_program.id,@ppos_template.id,prerequisite_template.id) %>
+    </td>
+    <td>
+      <%= link_to image_tag("remove.png",  :class => "table_image",:border => 0), 
+      prerequisite_template_path(@department.id,@degree_program.id,@ppos_template.id,prerequisite_template.id), 
+      :confirm => 'Are you sure?', 
+      :method => :delete %>
+    </td>
   </tr>
 <% end -%>
   <tr id="new_prerequisite">
-    <th align="center" colspan=5>
-      Add New Prerequisite
-    </th>
+    <td align="center" colspan=5>
+      <%= link_to 'Add New Prerequisite', new_prerequisite_template_path(@department.id,@degree_program.id,@ppos_template.id) %>
+    </td>
   </tr>
 </table>

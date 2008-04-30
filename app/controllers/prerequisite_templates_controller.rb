@@ -24,7 +24,15 @@ class PrerequisiteTemplatesController < ApplicationController
   # GET /prerequisite_templates/new
   # GET /prerequisite_templates/new.xml
   def new
+    @degree_program = DegreeProgram.find(params[:degree_program_id])
+    @department = Department.find(params[:department_id])
+    @ppos_template = PposTemplate.find(params[:ppos_template_id])
     @prerequisite_template = PrerequisiteTemplate.new
+    
+    flash[:degree_program_id] = @degree_program.id
+    flash[:department_id] = @department.id
+    flash[:ppos_template_id] = @ppos_template.id
+
 
     respond_to do |format|
       format.html # new.html.erb
@@ -34,6 +42,9 @@ class PrerequisiteTemplatesController < ApplicationController
 
   # GET /prerequisite_templates/1/edit
   def edit
+    @degree_program = DegreeProgram.find(params[:degree_program_id])
+    @department = Department.find(params[:department_id])
+    @ppos_template = PposTemplate.find(params[:ppos_template_id])
     @prerequisite_template = PrerequisiteTemplate.find(params[:id])
   end
 
@@ -41,11 +52,12 @@ class PrerequisiteTemplatesController < ApplicationController
   # POST /prerequisite_templates.xml
   def create
     @prerequisite_template = PrerequisiteTemplate.new(params[:prerequisite_template])
+    @prerequisite_template.ppos_template_id = flash[:ppos_template_id]
 
     respond_to do |format|
       if @prerequisite_template.save
-        flash[:notice] = 'PrerequisiteTemplate was successfully created.'
-        format.html { redirect_to(@prerequisite_template) }
+        #flash[:notice] = 'PrerequisiteTemplate was successfully created.'
+        format.html { redirect_to ppos_template_path(flash[:department_id], flash[:degree_program_id], flash[:ppos_template_id]) }
         format.xml  { render :xml => @prerequisite_template, :status => :created, :location => @prerequisite_template }
       else
         format.html { render :action => "new" }
@@ -61,8 +73,8 @@ class PrerequisiteTemplatesController < ApplicationController
 
     respond_to do |format|
       if @prerequisite_template.update_attributes(params[:prerequisite_template])
-        flash[:notice] = 'PrerequisiteTemplate was successfully updated.'
-        format.html { redirect_to(@prerequisite_template) }
+        #flash[:notice] = 'PrerequisiteTemplate was successfully updated.'
+        format.html { redirect_to ppos_template_path(params[:department_id], params[:degree_program_id], params[:ppos_template_id]) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -78,7 +90,7 @@ class PrerequisiteTemplatesController < ApplicationController
     @prerequisite_template.destroy
 
     respond_to do |format|
-      format.html { redirect_to(prerequisite_templates_url) }
+      format.html { redirect_to ppos_template_path(params[:department_id], params[:degree_program_id], params[:ppos_template_id]) }
       format.xml  { head :ok }
     end
   end

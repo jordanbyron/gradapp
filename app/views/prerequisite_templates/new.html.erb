@@ -1,13 +1,8 @@
-<h1>New prerequisite_template</h1>
+<h1>New Prerequisite</h1>
 
 <%= error_messages_for :prerequisite_template %>
 
 <% form_for(@prerequisite_template) do |f| %>
-  <p>
-    <b>Ppos template</b><br />
-    <%= f.text_field :ppos_template_id %>
-  </p>
-
   <p>
     <b>Prerequisite</b><br />
     <%= f.text_field :prerequisite %>
@@ -18,4 +13,4 @@
   </p>
 <% end %>
 
-<%= link_to 'Back', prerequisite_templates_path %>
+<%= link_to 'Cancel', ppos_template_path(@department.id, @degree_program.id,@ppos_template.id) %>

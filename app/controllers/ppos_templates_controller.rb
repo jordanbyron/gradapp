@@ -100,6 +100,32 @@ class PposTemplatesController < ApplicationController
   
   # PPoS Screen Stuff
   
+  def move_prerequisite_up
+    @prerequisite_template = PrerequisiteTemplate.find(params[:prerequisite_template_id])
+    @prerequisite_template.move_higher
+    
+    @ppos_template = PposTemplate.find(params[:ppos_template_id])
+    @degree_program = DegreeProgram.find(@ppos_template.degree_program_id)
+    @department = Department.find(@degree_program.department_id)
+    
+    respond_to do |format|
+      format.html { redirect_to ppos_template_path(@department.id, @degree_program.id,@ppos_template.id) }
+    end
+  end
+  
+  def move_prerequisite_down
+    @prerequisite_template = PrerequisiteTemplate.find(params[:prerequisite_template_id])
+    @prerequisite_template.move_lower
+    
+    @ppos_template = PposTemplate.find(params[:ppos_template_id])
+    @degree_program = DegreeProgram.find(@ppos_template.degree_program_id)
+    @department = Department.find(@degree_program.department_id)
+    
+    respond_to do |format|
+      format.html { redirect_to ppos_template_path(@department.id, @degree_program.id,@ppos_template.id) }
+    end
+  end
+  
   def move_header_up
     @header_template = HeaderTemplate.find(params[:header_template_id])
     @header_template.move_higher
