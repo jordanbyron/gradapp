@@ -10,7 +10,7 @@
   </h3>
 </p>
 
-<% form_for(@ppos_template) do |f| %>
+<% form_for :ppos_template, @ppos_template, :url => ppos_template_path(@department, @degree_program), :html => { :method => :put} do |f| %>
   <p>
     <b>Number of Concentrations / Plans For This Degree</b><br />
     <%= f.text_field :concentrations %>
