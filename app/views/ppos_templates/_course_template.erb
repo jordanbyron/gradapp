@@ -12,5 +12,16 @@
     <td>
       <%= course_template.credits %>
     </td>
+    <td>
+      <%= link_to 'UP', :action => "move_course_up", :course_template_id => course_template.id, :ppos_template_id => @ppos_template.id %>
+    </td>
+    <td>
+      <%= link_to 'DOWN', :action => "move_course_down", :course_template_id => course_template.id, :ppos_template_id => @ppos_template.id %>
+    </td>
   </tr>
 <% end -%>
+  <tr id="new_course">
+    <td align="center" colspan=6>
+      Add New Course To <%= header_template.header %>
+    </th>
+  </td>

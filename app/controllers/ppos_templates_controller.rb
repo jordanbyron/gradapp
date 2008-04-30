@@ -15,6 +15,8 @@ class PposTemplatesController < ApplicationController
   # GET /ppos_templates/1
   # GET /ppos_templates/1.xml
   def show
+    @degree_program = DegreeProgram.find(params[:degree_program_id])
+    @department = Department.find(params[:department_id])
     @ppos_template = PposTemplate.find(params[:id])
 
     respond_to do |format|
@@ -90,4 +92,59 @@ class PposTemplatesController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
+  # PPoS Screen Stuff
+  
+  def move_header_up
+    @header_template = HeaderTemplate.find(params[:header_template_id])
+    @header_template.move_higher
+    
+    @ppos_template = PposTemplate.find(params[:ppos_template_id])
+    @degree_program = DegreeProgram.find(@ppos_template.degree_program_id)
+    @department = Department.find(@degree_program.department_id)
+    
+    respond_to do |format|
+      format.html { redirect_to ppos_template_path(@department.id, @degree_program.id,@ppos_template.id) }
+    end
+  end
+  
+  def move_header_down
+    @header_template = HeaderTemplate.find(params[:header_template_id])
+    @header_template.move_lower
+    
+    @ppos_template = PposTemplate.find(params[:ppos_template_id])
+    @degree_program = DegreeProgram.find(@ppos_template.degree_program_id)
+    @department = Department.find(@degree_program.department_id)
+    
+    respond_to do |format|
+      format.html { redirect_to ppos_template_path(@department.id, @degree_program.id,@ppos_template.id) }
+    end
+  end
+  
+  def move_course_up
+    @course_template = CourseTemplate.find(params[:course_template_id])
+    @course_template.move_higher
+    
+    @ppos_template = PposTemplate.find(params[:ppos_template_id])
+    @degree_program = DegreeProgram.find(@ppos_template.degree_program_id)
+    @department = Department.find(@degree_program.department_id)
+    
+    respond_to do |format|
+      format.html { redirect_to ppos_template_path(@department.id, @degree_program.id,@ppos_template.id) }
+    end
+  end
+  
+  def move_course_down
+    @course_template = CourseTemplate.find(params[:course_template_id])
+    @course_template.move_lower
+    
+    @ppos_template = PposTemplate.find(params[:ppos_template_id])
+    @degree_program = DegreeProgram.find(@ppos_template.degree_program_id)
+    @department = Department.find(@degree_program.department_id)
+    
+    respond_to do |format|
+      format.html { redirect_to ppos_template_path(@department.id, @degree_program.id,@ppos_template.id) }
+    end
+  end
+  
 end

@@ -1,15 +1,27 @@
 <table>
 <% for header_template in header_templates -%>
   <tr id="<%= dom_id(header_template) %>">
-    <td colspan=3>
-      <b><%= header_template.header %></b>
-    </td>
-    <td>
-      <b>Credits</b>
-    </td>
+    <th colspan=3>
+      <%= header_template.header %>
+    </th>
+    <th>
+      Credits
+    </th>
+    <th>
+      <%= link_to 'UP', :action => "move_header_up", :header_template_id => header_template.id, :ppos_template_id => @ppos_template.id %>
+    </th>
+    <th>
+      <%= link_to 'DOWN', :action => "move_header_down", :header_template_id => header_template.id, :ppos_template_id => @ppos_template.id %>
+    </th>
   </tr>
 	<%= render :partial => 'course_template',
              :locals  => {:course_templates => header_template.course_templates,
-                          :ppos_template    => @ppos_template} %>
+                          :ppos_template    => @ppos_template,
+                          :header_template  => header_template} %>
 <% end -%>
+  <tr id="new_header">
+    <th align="center" colspan=6>
+      <%= link_to 'Add New Header', new_header_template_path(@department.id,@degree_program.id,@ppos_template.id) %>
+    </th>
+  </tr>
 </table>

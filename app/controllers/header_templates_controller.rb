@@ -24,7 +24,14 @@ class HeaderTemplatesController < ApplicationController
   # GET /header_templates/new
   # GET /header_templates/new.xml
   def new
+    @degree_program = DegreeProgram.find(params[:degree_program_id])
+    @department = Department.find(params[:department_id])
+    @ppos_template = PposTemplate.find(params[:ppos_template_id])
     @header_template = HeaderTemplate.new
+    
+    flash[:degree_program_id] = @degree_program.id
+    flash[:department_id] = @department.id
+    flash[:ppos_template_id] = @ppos_template.id
 
     respond_to do |format|
       format.html # new.html.erb
@@ -41,11 +48,12 @@ class HeaderTemplatesController < ApplicationController
   # POST /header_templates.xml
   def create
     @header_template = HeaderTemplate.new(params[:header_template])
-
+    @header_template.ppos_template_id = flash[:ppos_template_id]
+    
     respond_to do |format|
       if @header_template.save
-        flash[:notice] = 'HeaderTemplate was successfully created.'
-        format.html { redirect_to(@header_template) }
+        #flash[:notice] = 'HeaderTemplate was successfully created.'
+        format.html { redirect_to ppos_template_path(flash[:department_id], flash[:degree_program_id], flash[:ppos_template_id]) }
         format.xml  { render :xml => @header_template, :status => :created, :location => @header_template }
       else
         format.html { render :action => "new" }

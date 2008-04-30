@@ -2,7 +2,7 @@ ActionController::Routing::Routes.draw do |map|
   map.home '', :controller =>'home', :action => 'index' # Set Root To The Home Controller
 
   map.resources :course_templates
-  map.resources :header_templates
+  map.resources :header_templates, :path_prefix => '/departments/:department_id/degree_programs/:degree_program_id/ppos_templates/:ppos_template_id'
   map.resources :prerequisite_templates
   map.resources :consentrations_templates
   map.resources :ppos_templates, :path_prefix => '/departments/:department_id/degree_programs/:degree_program_id'

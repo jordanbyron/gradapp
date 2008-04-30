@@ -1,21 +1,11 @@
-<h1>New header_template</h1>
+<h1>New Header</h1>
 
 <%= error_messages_for :header_template %>
 
 <% form_for(@header_template) do |f| %>
   <p>
-    <b>Ppos template</b><br />
-    <%= f.text_field :ppos_template_id %>
-  </p>
-
-  <p>
     <b>Header</b><br />
     <%= f.text_field :header %>
-  </p>
-
-  <p>
-    <b>Position</b><br />
-    <%= f.text_field :position %>
   </p>
 
   <p>
@@ -23,4 +13,4 @@
   </p>
 <% end %>
 
-<%= link_to 'Back', header_templates_path %>
+<%= link_to 'Cancel', ppos_template_path(@department.id, @degree_program.id,@ppos_template.id) %>

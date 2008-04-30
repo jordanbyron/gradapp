@@ -1,7 +1,12 @@
-<div id="headers">
+<h1><%= @degree_program.name %></h1>
+<h3>Planned Program of Study<h3>
+
+<p>
+<div id="ppos">
   <%= render :partial => 'header_template',
              :locals  => {:header_templates => @ppos_template.header_templates,
-                          :ppos_template    => @ppos_template} %>
+                          :ppos_template    => @ppos_template,
+                          :degree_program   => @degree_program,
+                          :department       => @department} %>
 </div>
-
-
+</p>
