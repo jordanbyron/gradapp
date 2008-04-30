@@ -1,0 +1,22 @@
+<h1>Listing prerequisite_templates</h1>
+
+<table>
+  <tr>
+    <th>Ppos template</th>
+    <th>Prerequisite</th>
+  </tr>
+
+<% for prerequisite_template in @prerequisite_templates %>
+  <tr>
+    <td><%=h prerequisite_template.ppos_template_id %></td>
+    <td><%=h prerequisite_template.prerequisite %></td>
+    <td><%= link_to 'Show', prerequisite_template %></td>
+    <td><%= link_to 'Edit', edit_prerequisite_template_path(prerequisite_template) %></td>
+    <td><%= link_to 'Destroy', prerequisite_template, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New prerequisite_template', new_prerequisite_template_path %>

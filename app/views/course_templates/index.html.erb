@@ -1,0 +1,30 @@
+<h1>Listing course_templates</h1>
+
+<table>
+  <tr>
+    <th>Header template</th>
+    <th>Short dept name</th>
+    <th>Course number</th>
+    <th>Course name</th>
+    <th>Credits</th>
+    <th>Position</th>
+  </tr>
+
+<% for course_template in @course_templates %>
+  <tr>
+    <td><%=h course_template.header_template_id %></td>
+    <td><%=h course_template.short_dept_name %></td>
+    <td><%=h course_template.course_number %></td>
+    <td><%=h course_template.course_name %></td>
+    <td><%=h course_template.credits %></td>
+    <td><%=h course_template.position %></td>
+    <td><%= link_to 'Show', course_template %></td>
+    <td><%= link_to 'Edit', edit_course_template_path(course_template) %></td>
+    <td><%= link_to 'Destroy', course_template, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New course_template', new_course_template_path %>

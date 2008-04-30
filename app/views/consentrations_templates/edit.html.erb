@@ -1,0 +1,22 @@
+<h1>Editing consentrations_template</h1>
+
+<%= error_messages_for :consentrations_template %>
+
+<% form_for(@consentrations_template) do |f| %>
+  <p>
+    <b>Ppos template</b><br />
+    <%= f.text_field :ppos_template_id %>
+  </p>
+
+  <p>
+    <b>Total</b><br />
+    <%= f.text_field :total %>
+  </p>
+
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @consentrations_template %> |
+<%= link_to 'Back', consentrations_templates_path %>

@@ -1,0 +1,16 @@
+<% for course_template in course_templates -%>
+  <tr>
+    <td>
+      <%= course_template.short_dept_name %>
+    </td>
+    <td>
+      <%= course_template.course_number %>
+    </td>
+    <td>
+      <%= course_template.course_name %>
+    </td>
+    <td>
+      <%= course_template.credits %>
+    </td>
+  </tr>
+<% end -%>

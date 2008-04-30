@@ -4,8 +4,9 @@
 
 <p>
   <h3>
-    Degree Information | 
-    <%= link_to 'Degree Requirements', degree_requirements_path(@department.id, @degree_program.id)  %> 
+    Degree Information |
+    <%= link_to 'Degree Requirements', degree_requirements_path(@department.id, @degree_program.id)  %> |
+    <%= link_to 'Planned Program of Study', ppos_templates_path(@department.id, @degree_program.id)  %>
   </h3>
 </p>
 
@@ -15,6 +16,6 @@
 </p>
 
 <p>
-  <%= link_to 'Back to Degree Programs', department_degree_programs_path(@department) %> | 
+  <%= link_to 'Back to Degree Programs', department_degree_programs_path(@department) %> |
   <%= link_to 'Edit', edit_department_degree_program_path(@department, @degree_program) %>
 </p>

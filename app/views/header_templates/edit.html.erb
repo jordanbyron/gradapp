@@ -1,0 +1,27 @@
+<h1>Editing header_template</h1>
+
+<%= error_messages_for :header_template %>
+
+<% form_for(@header_template) do |f| %>
+  <p>
+    <b>Ppos template</b><br />
+    <%= f.text_field :ppos_template_id %>
+  </p>
+
+  <p>
+    <b>Header</b><br />
+    <%= f.text_field :header %>
+  </p>
+
+  <p>
+    <b>Position</b><br />
+    <%= f.text_field :position %>
+  </p>
+
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @header_template %> |
+<%= link_to 'Back', header_templates_path %>

@@ -1,0 +1,22 @@
+<h1>Editing prerequisite_template</h1>
+
+<%= error_messages_for :prerequisite_template %>
+
+<% form_for(@prerequisite_template) do |f| %>
+  <p>
+    <b>Ppos template</b><br />
+    <%= f.text_field :ppos_template_id %>
+  </p>
+
+  <p>
+    <b>Prerequisite</b><br />
+    <%= f.text_field :prerequisite %>
+  </p>
+
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @prerequisite_template %> |
+<%= link_to 'Back', prerequisite_templates_path %>

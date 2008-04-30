@@ -1,0 +1,33 @@
+<p>
+  <b>Header template:</b>
+  <%=h @course_template.header_template_id %>
+</p>
+
+<p>
+  <b>Short dept name:</b>
+  <%=h @course_template.short_dept_name %>
+</p>
+
+<p>
+  <b>Course number:</b>
+  <%=h @course_template.course_number %>
+</p>
+
+<p>
+  <b>Course name:</b>
+  <%=h @course_template.course_name %>
+</p>
+
+<p>
+  <b>Credits:</b>
+  <%=h @course_template.credits %>
+</p>
+
+<p>
+  <b>Position:</b>
+  <%=h @course_template.position %>
+</p>
+
+
+<%= link_to 'Edit', edit_course_template_path(@course_template) %> |
+<%= link_to 'Back', course_templates_path %>

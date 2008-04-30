@@ -1,0 +1,42 @@
+<h1>Editing course_template</h1>
+
+<%= error_messages_for :course_template %>
+
+<% form_for(@course_template) do |f| %>
+  <p>
+    <b>Header template</b><br />
+    <%= f.text_field :header_template_id %>
+  </p>
+
+  <p>
+    <b>Short dept name</b><br />
+    <%= f.text_field :short_dept_name %>
+  </p>
+
+  <p>
+    <b>Course number</b><br />
+    <%= f.text_field :course_number %>
+  </p>
+
+  <p>
+    <b>Course name</b><br />
+    <%= f.text_field :course_name %>
+  </p>
+
+  <p>
+    <b>Credits</b><br />
+    <%= f.text_field :credits %>
+  </p>
+
+  <p>
+    <b>Position</b><br />
+    <%= f.text_field :position %>
+  </p>
+
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @course_template %> |
+<%= link_to 'Back', course_templates_path %>

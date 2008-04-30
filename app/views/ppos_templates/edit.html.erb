@@ -1,0 +1,17 @@
+<h1>Editing ppos_template</h1>
+
+<%= error_messages_for :ppos_template %>
+
+<% form_for(@ppos_template) do |f| %>
+  <p>
+    <b>Degree program</b><br />
+    <%= f.text_field :degree_program_id %>
+  </p>
+
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @ppos_template %> |
+<%= link_to 'Back', ppos_templates_path %>

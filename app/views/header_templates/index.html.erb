@@ -1,0 +1,24 @@
+<h1>Listing header_templates</h1>
+
+<table>
+  <tr>
+    <th>Ppos template</th>
+    <th>Header</th>
+    <th>Position</th>
+  </tr>
+
+<% for header_template in @header_templates %>
+  <tr>
+    <td><%=h header_template.ppos_template_id %></td>
+    <td><%=h header_template.header %></td>
+    <td><%=h header_template.position %></td>
+    <td><%= link_to 'Show', header_template %></td>
+    <td><%= link_to 'Edit', edit_header_template_path(header_template) %></td>
+    <td><%= link_to 'Destroy', header_template, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New header_template', new_header_template_path %>

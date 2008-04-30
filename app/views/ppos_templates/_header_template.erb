@@ -1,0 +1,15 @@
+<table>
+<% for header_template in header_templates -%>
+  <tr id="<%= dom_id(header_template) %>">
+    <td colspan=3>
+      <b><%= header_template.header %></b>
+    </td>
+    <td>
+      <b>Credits</b>
+    </td>
+  </tr>
+	<%= render :partial => 'course_template',
+             :locals  => {:course_templates => header_template.course_templates,
+                          :ppos_template    => @ppos_template} %>
+<% end -%>
+</table>
