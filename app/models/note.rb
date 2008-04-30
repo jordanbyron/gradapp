@@ -14,4 +14,9 @@ class Note < ActiveRecord::Base
               :conditions => ['text like ? and graduate_applicant_id = ?', "%#{search}%", graduate_applicant_id],
               :order => 'id'
 	end
+	
+	def note_html
+		r = RedCloth.new text
+		r.to_html
+	end
 end

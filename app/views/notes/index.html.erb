@@ -37,7 +37,7 @@
 <% for note in @notes -%>
   <tr id="<%= dom_id(note) %>" class="<%= cycle('even', 'odd') %>">
     <td align="left">
-      <%= note.text %>
+      <%= note.note_html %>
     </td>
     <td>
       <%= note.created_date %>
