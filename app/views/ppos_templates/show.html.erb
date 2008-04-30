@@ -1,7 +1,15 @@
+<% title [@department.name,'Department'].join(' ') + ' | Degree Programs | ' + @degree_program.name + ' | Planned Program of Study Template' %>
+
 <h1><%= @degree_program.name %></h1>
-<h3>Planned Program of Study<h3>
 
 <p>
+  <h3>
+    <%= link_to 'Degree Information', department_degree_program_path(@department,@degree_program) %> | 
+    <%= link_to 'Degree Requirements', degree_requirements_path(@department.id, @degree_program.id)  %> |
+    Planned Program of Study Template
+  </h3>
+</p>
+
 <div id="ppos">
   <%= render :partial => 'header_template',
              :locals  => {:header_templates => @ppos_template.header_templates,
@@ -9,4 +17,7 @@
                           :degree_program   => @degree_program,
                           :department       => @department} %>
 </div>
+
+<p>
+  <%= link_to 'Back to Degree Programs', department_degree_programs_path(@department) %>
 </p>

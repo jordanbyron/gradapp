@@ -5,7 +5,8 @@
 <p>
   <h3>
     <%= link_to 'Degree Information', department_degree_program_path(@department,@degree_program) %> | 
-    Degree Requirements
+    Degree Requirements |
+    <%= link_to 'Planned Program of Study Template', ppos_templates_path(@department.id, @degree_program.id)  %>
   </h3>
 </p>
 

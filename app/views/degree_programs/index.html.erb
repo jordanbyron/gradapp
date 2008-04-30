@@ -27,9 +27,9 @@
 
 <% for degree_program in @degree_programs %>
   <tr class="<%= cycle('even', 'odd') %>">
-    <td><%=h degree_program.name %></td>
+    <td><%= link_to degree_program.name, department_degree_program_path(@department,degree_program) %></td>
     <td><%= link_to 'Degree Requirements', degree_requirements_path(@department.id, degree_program.id) %></td>
-    <td><%= link_to 'Show', department_degree_program_path(@department,degree_program) %></td>
+    <td><%= link_to 'PPoS Template', ppos_templates_path(@department.id, degree_program.id)  %></td>
     <td><%= link_to 'Edit', edit_department_degree_program_path(@department,degree_program) %></td>
     <td><%= link_to 'Destroy', degree_program, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>

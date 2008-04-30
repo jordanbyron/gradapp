@@ -1,4 +1,15 @@
-<h1>Correspondence Templates</h1>
+<% title 'Templates | Correspondence' %>
+
+<p style="color: green"><%= flash[:notice] %></p>
+
+<h1>Templates</h1>
+
+<p>
+  <h3>
+    Correspondence | 
+    <%= link_to 'Planned Program of Study', ppos_template_list_path(current_user.department_id) %>
+  </h3>
+</p>
 
 <table>
   <tr>

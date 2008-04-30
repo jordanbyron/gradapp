@@ -12,6 +12,18 @@ class DegreeProgramsController < ApplicationController
       format.xml  { render :xml => @degree_programs }
     end
   end
+  
+  # GET /degree_programs
+  # GET /degree_programs.xml
+  def ppos_list
+    @department = Department.find(params[:department_id])
+    @degree_programs = DegreeProgram.search(params[:search], params[:page],params[:department_id])
+
+    respond_to do |format|
+      format.html # ppos_list.html.erb
+      format.xml  { render :xml => @degree_programs }
+    end
+  end
 
   # GET /degree_programs/1
   # GET /degree_programs/1.xml
@@ -53,9 +65,15 @@ class DegreeProgramsController < ApplicationController
     @department = Department.find(flash[:department_id])
     @degree_program = DegreeProgram.new(params[:degree_program])
     @degree_program.department_id = @department.id
-
+    
     respond_to do |format|
       if @degree_program.save
+      
+        # Create PPoS
+        @ppos_template = PposTemplate.new
+        @ppos_template.degree_program_id = @degree_program.id
+        @ppos_template.save
+      
         flash[:notice] = 'Degree Program was successfully created.'
         format.html { redirect_to department_degree_programs_path(@department) }
         format.xml  { render :xml => @degree_program, :status => :created, :location => @degree_program }

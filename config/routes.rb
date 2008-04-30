@@ -23,6 +23,8 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :departments, :has_many => :degree_programs
   map.resources :setup
 
+  map.ppos_template_list 'departments/:department_id/degree_programs_ppos/', :controller => 'degree_programs', :action => 'ppos_list'
+
 	#User Autentication Routes
 	map.resources :users, :controller => 'users'
 	map.resource :session, :controller => 'session'

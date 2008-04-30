@@ -4,11 +4,16 @@ class PposTemplatesController < ApplicationController
   def index
     @degree_program = DegreeProgram.find(params[:degree_program_id])
     @department = Department.find(params[:department_id])
-    @ppos_templates = PposTemplate.find(:all, :conditions => { :degree_program_id => @degree_program.id })
+    @ppos_template = PposTemplate.find(:first, :conditions => { :degree_program_id => @degree_program.id })
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @ppos_templates }
+    if @ppos_template != nil
+      respond_to do |format|
+        format.html { redirect_to ppos_template_path(@department.id, @degree_program.id,@ppos_template.id) }
+      end
+    else
+      respond_to do |format|
+        format.html { redirect_to new_ppos_template_path(@department.id, @degree_program.id) }
+      end
     end
   end
 
@@ -54,8 +59,8 @@ class PposTemplatesController < ApplicationController
 
     respond_to do |format|
       if @ppos_template.save
-        flash[:notice] = 'PposTemplate was successfully created.'
-        format.html { redirect_to ppos_templates_path(flash[:department_id], flash[:degree_program_id]) }
+        #flash[:notice] = 'PposTemplate was successfully created.'
+        format.html { redirect_to ppos_template_path(flash[:department_id], flash[:degree_program_id],@ppos_template.id) }
         format.xml  { render :xml => @ppos_template, :status => :created, :location => @ppos_template }
       else
         format.html { render :action => "new" }
