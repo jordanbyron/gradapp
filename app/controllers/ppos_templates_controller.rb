@@ -76,8 +76,8 @@ class PposTemplatesController < ApplicationController
 
     respond_to do |format|
       if @ppos_template.update_attributes(params[:ppos_template])
-        flash[:notice] = 'PposTemplate was successfully updated.'
-        format.html { redirect_to(@ppos_template) }
+        #flash[:notice] = 'PposTemplate was successfully updated.'
+        format.html { redirect_to ppos_template_path(params[:department_id], params[:degree_program_id],@ppos_template.id) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
