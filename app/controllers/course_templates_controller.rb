@@ -28,7 +28,7 @@ class CourseTemplatesController < ApplicationController
     @department = Department.find(params[:department_id])
     @ppos_template = PposTemplate.find(params[:ppos_template_id])
     @course_template = CourseTemplate.new
-    
+
     flash[:degree_program_id] = @degree_program.id
     flash[:department_id] = @department.id
     flash[:ppos_template_id] = @ppos_template.id
@@ -66,6 +66,16 @@ class CourseTemplatesController < ApplicationController
         format.html { redirect_to ppos_template_path(flash[:department_id], flash[:degree_program_id], flash[:ppos_template_id]) }
         format.xml  { render :xml => @course_template, :status => :created, :location => @course_template }
       else
+
+        @degree_program = DegreeProgram.find(flash[:degree_program_id])
+        @department = Department.find(flash[:department_id])
+        @ppos_template = PposTemplate.find(flash[:ppos_template_id])
+
+        flash[:degree_program_id] = @degree_program.id
+        flash[:department_id] = @department.id
+        flash[:ppos_template_id] = @ppos_template.id
+        flash[:header_template_id] = params[:header_template_id]
+
         format.html { render :action => "new" }
         format.xml  { render :xml => @course_template.errors, :status => :unprocessable_entity }
       end

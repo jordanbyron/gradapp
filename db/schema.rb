@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 9) do
+ActiveRecord::Schema.define(:version => 23) do
 
   create_table "applicant_requirements", :force => true do |t|
     t.integer  "application_requirement_id"
@@ -19,9 +19,23 @@ ActiveRecord::Schema.define(:version => 9) do
     t.datetime "updated_at"
   end
 
+  create_table "applicant_statuses", :force => true do |t|
+    t.string   "status"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "short_status"
+  end
+
   create_table "application_requirements", :force => true do |t|
     t.integer  "department_id"
     t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "consentrations_templates", :force => true do |t|
+    t.integer  "ppos_template_id"
+    t.integer  "total"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -43,9 +57,27 @@ ActiveRecord::Schema.define(:version => 9) do
     t.datetime "updated_at"
   end
 
+  create_table "course_templates", :force => true do |t|
+    t.integer  "header_template_id"
+    t.string   "short_dept_name"
+    t.integer  "course_number"
+    t.string   "course_name"
+    t.integer  "credits"
+    t.integer  "position"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "degree_programs", :force => true do |t|
     t.integer  "department_id"
     t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "degree_requirements", :force => true do |t|
+    t.integer  "degree_program_id"
+    t.string   "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -71,9 +103,17 @@ ActiveRecord::Schema.define(:version => 9) do
     t.string   "phone_day"
     t.string   "phone_night"
     t.string   "email"
-    t.string   "status"
     t.decimal  "gpa"
     t.string   "studentID"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "applicant_status_id"
+  end
+
+  create_table "header_templates", :force => true do |t|
+    t.integer  "ppos_template_id"
+    t.string   "header"
+    t.integer  "position"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -81,6 +121,21 @@ ActiveRecord::Schema.define(:version => 9) do
   create_table "notes", :force => true do |t|
     t.integer  "graduate_applicant_id"
     t.text     "text"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "created_by"
+  end
+
+  create_table "ppos_templates", :force => true do |t|
+    t.integer  "degree_program_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "concentrations"
+  end
+
+  create_table "prerequisite_templates", :force => true do |t|
+    t.integer  "ppos_template_id"
+    t.string   "prerequisite"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

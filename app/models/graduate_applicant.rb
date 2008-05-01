@@ -5,10 +5,10 @@ class GraduateApplicant < ActiveRecord::Base
   has_many :applicant_requirements
   has_many :correspondences
   has_many :ppos
-  
-  validates_presence_of       :email, :first_name, :last_name
-  validates_email_veracity_of :email
 
+  validates_presence_of       :email, :first_name, :last_name, :address1, :city, :state, :zip, :phone_day, :studentID
+  validates_email_veracity_of :email
+  validates_numericality_of :zip, :studentID
   validates_length_of   :middle_name,  :within => 0..1
 
   def full_name
