@@ -116,7 +116,6 @@ class GraduateApplicantsController < ApplicationController
     #end
 
   #end
-  
-  
+ 
   
 end
