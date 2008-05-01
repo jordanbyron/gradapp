@@ -1,0 +1,23 @@
+<p>
+  <b>Ppos:</b>
+  <%=h @ppos_prerequisite.ppos_id %>
+</p>
+
+<p>
+  <b>Prerequisite:</b>
+  <%=h @ppos_prerequisite.prerequisite %>
+</p>
+
+<p>
+  <b>Met:</b>
+  <%=h @ppos_prerequisite.met %>
+</p>
+
+<p>
+  <b>Position:</b>
+  <%=h @ppos_prerequisite.position %>
+</p>
+
+
+<%= link_to 'Edit', edit_ppos_prerequisite_path(@ppos_prerequisite) %> |
+<%= link_to 'Back', ppos_prerequisites_path %>

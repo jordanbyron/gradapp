@@ -1,0 +1,42 @@
+<h1>Editing ppos</h1>
+
+<%= error_messages_for :ppos %>
+
+<% form_for(@ppos) do |f| %>
+  <p>
+    <b>Graduate applicant</b><br />
+    <%= f.text_field :graduate_applicant_id %>
+  </p>
+
+  <p>
+    <b>Created by</b><br />
+    <%= f.text_field :created_by %>
+  </p>
+
+  <p>
+    <b>Expires on</b><br />
+    <%= f.datetime_select :expires_on %>
+  </p>
+
+  <p>
+    <b>Concentration</b><br />
+    <%= f.text_field :concentration %>
+  </p>
+
+  <p>
+    <b>Total concentrations</b><br />
+    <%= f.text_field :total_concentrations %>
+  </p>
+
+  <p>
+    <b>Degree program</b><br />
+    <%= f.text_field :degree_program_id %>
+  </p>
+
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @ppos %> |
+<%= link_to 'Back', ppos_path %>

@@ -1,0 +1,19 @@
+<div id="gradAppHeader">
+  <h1><%=h @graduate_applicant.full_name %></h1>
+  <% form_for(@graduate_applicant) do |f| %>
+    <%= select("graduate_applicant", "applicant_status_id", ApplicantStatus.find(:all).collect {|d| [d.status, d.id] }) %> <%= select("graduate_applicant", "degree_program_id", DegreeProgram.find(:all, :conditions => { :department_id => @graduate_applicant.department_id }).collect {|d| [d.name, d.id] }) %>
+    <%= f.submit "Update" %>
+  <% end %>
+</div>
+
+<p>
+  <div id="graduate_applicant_navigation"><p>
+    <h3>
+      <% if page == 'Contact Info' %>Contact Info<% else %><%=link_to 'Contact Info', graduate_applicant_path(@graduate_applicant) %><% end %> | 
+      <% if page == 'Notes' %>Notes<% else %><%= link_to 'Notes', graduate_applicant_notes_path(@graduate_applicant) %><% end %> | 
+      <%= link_to_remote "Application Requirements",:update => "tab_content", :url => {:action => "show_applicant_requirement_info", :id => @graduate_applicant.id} %> | 
+      <% if page == 'Correspondence' %>Correspondence<% else %><%= link_to 'Correspondence', graduate_applicant_correspondences_path(@graduate_applicant) %><% end %> | 
+      <% if page == 'PPoS' %>Planned Program of Study<% else %><%= link_to 'Planned Program of Study', ppos_path(@graduate_applicant) %><% end %>
+    </h3>
+  </div>
+</p>

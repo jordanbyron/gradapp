@@ -1,0 +1,31 @@
+<h1>New ppos_prerequisite</h1>
+
+<%= error_messages_for :ppos_prerequisite %>
+
+<% form_for(@ppos_prerequisite) do |f| %>
+  <p>
+    <b>Ppos</b><br />
+    <%= f.text_field :ppos_id %>
+  </p>
+
+  <p>
+    <b>Prerequisite</b><br />
+    <%= f.text_field :prerequisite %>
+  </p>
+
+  <p>
+    <b>Met</b><br />
+    <%= f.check_box :met %>
+  </p>
+
+  <p>
+    <b>Position</b><br />
+    <%= f.text_field :position %>
+  </p>
+
+  <p>
+    <%= f.submit "Create" %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', ppos_prerequisites_path %>

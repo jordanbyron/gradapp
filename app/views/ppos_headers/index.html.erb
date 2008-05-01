@@ -1,0 +1,24 @@
+<h1>Listing ppos_headers</h1>
+
+<table>
+  <tr>
+    <th>Ppos</th>
+    <th>Header</th>
+    <th>Position</th>
+  </tr>
+
+<% for ppos_header in @ppos_headers %>
+  <tr>
+    <td><%=h ppos_header.ppos_id %></td>
+    <td><%=h ppos_header.header %></td>
+    <td><%=h ppos_header.position %></td>
+    <td><%= link_to 'Show', ppos_header %></td>
+    <td><%= link_to 'Edit', edit_ppos_header_path(ppos_header) %></td>
+    <td><%= link_to 'Destroy', ppos_header, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New ppos_header', new_ppos_header_path %>

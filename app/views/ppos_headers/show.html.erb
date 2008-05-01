@@ -1,0 +1,18 @@
+<p>
+  <b>Ppos:</b>
+  <%=h @ppos_header.ppos_id %>
+</p>
+
+<p>
+  <b>Header:</b>
+  <%=h @ppos_header.header %>
+</p>
+
+<p>
+  <b>Position:</b>
+  <%=h @ppos_header.position %>
+</p>
+
+
+<%= link_to 'Edit', edit_ppos_header_path(@ppos_header) %> |
+<%= link_to 'Back', ppos_headers_path %>

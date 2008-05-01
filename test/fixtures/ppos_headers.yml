@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  ppos_id: 1
+  header: MyString
+  position: 1
+
+two:
+  ppos_id: 1
+  header: MyString
+  position: 1

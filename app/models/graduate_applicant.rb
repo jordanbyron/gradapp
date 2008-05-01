@@ -4,6 +4,7 @@ class GraduateApplicant < ActiveRecord::Base
   has_many :notes
   has_many :applicant_requirements
   has_many :correspondences
+  has_many :ppos
   
   validates_presence_of       :email, :first_name, :last_name
   validates_email_veracity_of :email

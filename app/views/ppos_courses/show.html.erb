@@ -1,0 +1,38 @@
+<p>
+  <b>Ppos header:</b>
+  <%=h @ppos_course.ppos_header_id %>
+</p>
+
+<p>
+  <b>Short dept name:</b>
+  <%=h @ppos_course.short_dept_name %>
+</p>
+
+<p>
+  <b>Course number:</b>
+  <%=h @ppos_course.course_number %>
+</p>
+
+<p>
+  <b>Course name:</b>
+  <%=h @ppos_course.course_name %>
+</p>
+
+<p>
+  <b>Credits:</b>
+  <%=h @ppos_course.credits %>
+</p>
+
+<p>
+  <b>Position:</b>
+  <%=h @ppos_course.position %>
+</p>
+
+<p>
+  <b>Taken:</b>
+  <%=h @ppos_course.taken %>
+</p>
+
+
+<%= link_to 'Edit', edit_ppos_course_path(@ppos_course) %> |
+<%= link_to 'Back', ppos_courses_path %>

@@ -2,30 +2,9 @@
 
 <p style="color: green"><%= flash[:notice] %></p>
 
-<div id="gradAppHeader">
-  <h1><%=h @graduate_applicant.full_name %></h1>
-  <% form_for(@graduate_applicant) do |f| %>
-    <%= select("graduate_applicant", "applicant_status_id", ApplicantStatus.find(:all).collect {|d| [d.status, d.id] }) %>
-    <%= f.submit "Update" %>
-  <% end %>
-</div>
-<p>
-
-  <h3>
-    <%= link_to 'Contact Info', graduate_applicant_path(@graduate_applicant) %> | 
-    Notes | 
-    <%= link_to_remote "Application Requirements",:update => "tab_content", :url => {:action => "show_applicant_requirement_info", :id => @graduate_applicant.id} %> | 
-    <%= link_to 'Correspondence', graduate_applicant_correspondences_path(@graduate_applicant) %> | 
-    <%= link_to_remote "Planned Program of Study",:update => "tab_content", :url => {:action => "show_ppos_info", :id => @graduate_applicant.id} %>
-  </h3>
-</p>
-
-<% form_tag graduate_applicant_notes_path, :method => 'get' do %>
-	<p>
-		<%= text_field_tag :search, params[:search] %>
-		<%= submit_tag "Search Notes" %>
-	</p>
-<% end %>
+<%= render :partial => 'graduate_applicants/navigation',
+           :locals  => {:page               => 'Notes',
+                        :graduate_applicant => @graduate_applicant } %>
 
 <table>
   <tr>

@@ -1,0 +1,27 @@
+<h1>Editing ppos_header</h1>
+
+<%= error_messages_for :ppos_header %>
+
+<% form_for(@ppos_header) do |f| %>
+  <p>
+    <b>Ppos</b><br />
+    <%= f.text_field :ppos_id %>
+  </p>
+
+  <p>
+    <b>Header</b><br />
+    <%= f.text_field :header %>
+  </p>
+
+  <p>
+    <b>Position</b><br />
+    <%= f.text_field :position %>
+  </p>
+
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @ppos_header %> |
+<%= link_to 'Back', ppos_headers_path %>

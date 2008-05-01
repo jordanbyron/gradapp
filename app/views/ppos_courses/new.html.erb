@@ -1,0 +1,46 @@
+<h1>New ppos_course</h1>
+
+<%= error_messages_for :ppos_course %>
+
+<% form_for(@ppos_course) do |f| %>
+  <p>
+    <b>Ppos header</b><br />
+    <%= f.text_field :ppos_header_id %>
+  </p>
+
+  <p>
+    <b>Short dept name</b><br />
+    <%= f.text_field :short_dept_name %>
+  </p>
+
+  <p>
+    <b>Course number</b><br />
+    <%= f.text_field :course_number %>
+  </p>
+
+  <p>
+    <b>Course name</b><br />
+    <%= f.text_field :course_name %>
+  </p>
+
+  <p>
+    <b>Credits</b><br />
+    <%= f.text_field :credits %>
+  </p>
+
+  <p>
+    <b>Position</b><br />
+    <%= f.text_field :position %>
+  </p>
+
+  <p>
+    <b>Taken</b><br />
+    <%= f.check_box :taken %>
+  </p>
+
+  <p>
+    <%= f.submit "Create" %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', ppos_courses_path %>

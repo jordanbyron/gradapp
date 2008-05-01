@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  graduate_applicant_id: 1
+  created_by: MyString
+  expires_on: 2008-04-30 20:58:16
+  concentration: 1
+  total_concentrations: 1
+  degree_program_id: 1
+
+two:
+  graduate_applicant_id: 1
+  created_by: MyString
+  expires_on: 2008-04-30 20:58:16
+  concentration: 1
+  total_concentrations: 1
+  degree_program_id: 1

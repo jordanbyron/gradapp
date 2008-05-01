@@ -1,0 +1,82 @@
+<h1>New Planned Program of Study</h1>
+<h2><%= DegreeProgram.find(@ppos.degree_program_id).name %></h2>
+
+<%= error_messages_for :ppos %>
+
+<% form_for(@ppos) do |f| %>
+  <p>
+    <b>Expires on</b><br />
+    <%= f.datetime_select :expires_on %>
+  </p>
+
+<% if @ppos.total_concentrations > 0 %>
+  Concentration <%= select("ppos", "concentration",1..@ppos.total_concentrations) %>
+<% end %>
+
+
+<p>
+  <table>
+    <tr>
+      <th>
+        Prerequisites
+      </th>
+      <th>
+        Met
+      </th>
+    </tr>
+    <% for ppos_prerequisite in @ppos.ppos_prerequisites -%>
+      <tr id="<%= dom_id(ppos_prerequisite) %>">
+        <td>
+          <%= ppos_prerequisite.prerequisite %>
+        </td>
+        <td align=center>
+          <%= check_box('ppos_prerequisite','met') %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+</p>
+
+<p>
+  <table>
+    <% for ppos_header in @ppos.ppos_headers -%>
+      <tr id="<%= dom_id(ppos_header) %>">
+        <th colspan=3>
+          <%= ppos_header.header %>
+        </th>
+        <th>
+          Credits
+        </th>
+        <th>
+          Taking
+        </th>
+      </tr>
+      <% for ppos_course in ppos_header.ppos_courses -%>
+        <tr>
+          <td>
+            <%= ppos_course.short_dept_name %>
+          </td>
+          <td>
+            <%= ppos_course.course_number %>
+          </td>
+          <td>
+            <%= ppos_course.course_name %>
+          </td>
+          <td>
+            <%= ppos_course.credits %>
+          </td>
+          <td align=center>
+            <%= check_box('ppos_course','taken') %>
+          </td>
+        </tr>
+      <% end -%>
+    <% end -%>
+  </table>
+</p>
+
+  <p>
+    <%= f.submit "Create" %>
+  </p>
+<% end %>
+
+<%= link_to 'Cancel', ppos_path(@graduate_applicant) %>

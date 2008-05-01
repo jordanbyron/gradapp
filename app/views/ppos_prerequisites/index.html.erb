@@ -1,0 +1,26 @@
+<h1>Listing ppos_prerequisites</h1>
+
+<table>
+  <tr>
+    <th>Ppos</th>
+    <th>Prerequisite</th>
+    <th>Met</th>
+    <th>Position</th>
+  </tr>
+
+<% for ppos_prerequisite in @ppos_prerequisites %>
+  <tr>
+    <td><%=h ppos_prerequisite.ppos_id %></td>
+    <td><%=h ppos_prerequisite.prerequisite %></td>
+    <td><%=h ppos_prerequisite.met %></td>
+    <td><%=h ppos_prerequisite.position %></td>
+    <td><%= link_to 'Show', ppos_prerequisite %></td>
+    <td><%= link_to 'Edit', edit_ppos_prerequisite_path(ppos_prerequisite) %></td>
+    <td><%= link_to 'Destroy', ppos_prerequisite, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New ppos_prerequisite', new_ppos_prerequisite_path %>

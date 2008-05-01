@@ -1,0 +1,32 @@
+<h1>Listing ppos_courses</h1>
+
+<table>
+  <tr>
+    <th>Ppos header</th>
+    <th>Short dept name</th>
+    <th>Course number</th>
+    <th>Course name</th>
+    <th>Credits</th>
+    <th>Position</th>
+    <th>Taken</th>
+  </tr>
+
+<% for ppos_course in @ppos_courses %>
+  <tr>
+    <td><%=h ppos_course.ppos_header_id %></td>
+    <td><%=h ppos_course.short_dept_name %></td>
+    <td><%=h ppos_course.course_number %></td>
+    <td><%=h ppos_course.course_name %></td>
+    <td><%=h ppos_course.credits %></td>
+    <td><%=h ppos_course.position %></td>
+    <td><%=h ppos_course.taken %></td>
+    <td><%= link_to 'Show', ppos_course %></td>
+    <td><%= link_to 'Edit', edit_ppos_course_path(ppos_course) %></td>
+    <td><%= link_to 'Destroy', ppos_course, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New ppos_course', new_ppos_course_path %>

@@ -1,0 +1,19 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  ppos_header_id: 1
+  short_dept_name: MyString
+  course_number: 1
+  course_name: MyString
+  credits: 1
+  position: 1
+  taken: false
+
+two:
+  ppos_header_id: 1
+  short_dept_name: MyString
+  course_number: 1
+  course_name: MyString
+  credits: 1
+  position: 1
+  taken: false

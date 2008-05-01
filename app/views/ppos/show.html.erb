@@ -1,0 +1,33 @@
+<p>
+  <b>Graduate applicant:</b>
+  <%=h @ppos.graduate_applicant_id %>
+</p>
+
+<p>
+  <b>Created by:</b>
+  <%=h @ppos.created_by %>
+</p>
+
+<p>
+  <b>Expires on:</b>
+  <%=h @ppos.expires_on %>
+</p>
+
+<p>
+  <b>Concentration:</b>
+  <%=h @ppos.concentration %>
+</p>
+
+<p>
+  <b>Total concentrations:</b>
+  <%=h @ppos.total_concentrations %>
+</p>
+
+<p>
+  <b>Degree program:</b>
+  <%=h @ppos.degree_program_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_ppos_path(@ppos) %> |
+<%= link_to 'Back', ppos_path %>
