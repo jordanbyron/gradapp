@@ -17,6 +17,11 @@ class CorrespondencesController < ApplicationController
     @graduate_applicant = GraduateApplicant.find(params[:graduate_applicant_id])
     @correspondence = Correspondence.new
 
+    if params[:correspondence_template_id] != nil
+      @correspondence_template = CorrespondenceTemplate
+        @correspondence.body = @correspondence_template.generate
+    end
+
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @corresponndence }
@@ -44,8 +49,8 @@ class CorrespondencesController < ApplicationController
       else
         format.html { redirect_to @graduate_applicant }
         format.js do
-          render :update do |page| 
-            page.redirect_to @graduate_applicant 
+          render :update do |page|
+            page.redirect_to @graduate_applicant
           end
         end
       end
@@ -54,8 +59,8 @@ class CorrespondencesController < ApplicationController
 
   def destroy
     @graduate_applicant = GraduateApplicant.find(params[:graduate_applicant_id])
-    @correspondence = @graduate_applicant.correspondences.find(params[:id]) 
-    
+    @correspondence = @graduate_applicant.correspondences.find(params[:id])
+
     @correspondence.destroy
 
     respond_to do |format|
@@ -63,5 +68,5 @@ class CorrespondencesController < ApplicationController
       format.html { redirect_to  }
     end
   end
-  
+
 end
