@@ -18,13 +18,13 @@ class CorrespondencesController < ApplicationController
     @correspondence = Correspondence.new
 
     if params[:correspondence_template_id] != nil
-      @correspondence_template = CorrespondenceTemplate
+      @correspondence_template = CorrespondenceTemplate.find(params[:correspondence_template_id])
         @correspondence.body = @correspondence_template.generate
     end
 
     respond_to do |format|
       format.html # new.html.erb
-      format.xml  { render :xml => @corresponndence }
+      format.xml  { render :xml => @correspondence }
     end
   end
 
