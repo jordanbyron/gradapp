@@ -34,6 +34,14 @@ class UsersController < ApplicationController
     # reset_session
     @user = User.new(params[:user])
     @user.save
+
+    @show_graduate_coordinator = false
+    
+    # Show Grad Coor If Departments Exist
+    if Department.count() > 0
+        @show_graduate_coordinator = true
+    end
+
     if @user.errors.empty?
       if User.count() == 1 #//Set newly created user as current user
         self.current_user = @user 
@@ -62,6 +70,13 @@ class UsersController < ApplicationController
   
   def update
     @user = User.find(params[:id])
+
+    @show_graduate_coordinator = false
+    
+    # Show Grad Coor If Departments Exist
+    if Department.count() > 0
+        @show_graduate_coordinator = true
+    end
 
     respond_to do |format|
       if @user.update_attributes(params[:user])

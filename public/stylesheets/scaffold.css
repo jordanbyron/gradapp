@@ -134,6 +134,7 @@ a:hover { color: #e90; }
 #errorExplanation ul li {
   font-size: 12px;
   list-style: square;
+	color: #000;
 }
 
 div.uploadStatus {
