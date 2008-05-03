@@ -4,13 +4,17 @@
 <%= error_messages_for :ppos %>
 
 <% form_for(@ppos) do |f| %>
-  <p>
-    <b>Expires on</b><br />
-    <%= f.datetime_select :expires_on %>
-  </p>
+
+<%= f.hidden_field :graduate_applicant_id %>
+<%= f.hidden_field :degree_program_id %>
+<%= f.hidden_field :created_by, :value => current_user.login %>
+<%= f.hidden_field :total_concentrations %>
+<%= f.hidden_field :expires_on %>
 
 <% if @ppos.total_concentrations > 0 %>
   Concentration <%= select("ppos", "concentration",1..@ppos.total_concentrations) %>
+<% else %>
+  <%= f.hidden_field :concentration, :value => 0 %>
 <% end %>
 
 
@@ -25,14 +29,18 @@
       </th>
     </tr>
     <% for ppos_prerequisite in @ppos.ppos_prerequisites -%>
-      <tr id="<%= dom_id(ppos_prerequisite) %>">
-        <td>
-          <%= ppos_prerequisite.prerequisite %>
-        </td>
-        <td align=center>
-          <%= check_box('ppos_prerequisite','met') %>
-        </td>
-      </tr>
+      <% fields_for "ppos[prerequisite_attributes][]", ppos_prerequisite do |prerequisite_form| %>
+        <tr id="<%= dom_id(ppos_prerequisite) %>">
+          <td>
+            <%= ppos_prerequisite.prerequisite %>
+            <%= prerequisite_form.hidden_field :prerequisite, :value => ppos_prerequisite.prerequisite %>
+            <%= prerequisite_form.hidden_field :position, :value => ppos_prerequisite.position %>
+          </td>
+          <td align=center>
+            <input id="ppos_prerequisite_attributes__met" name="ppos[prerequisite_attributes][][met]" type="checkbox" value="1" />
+          </td>
+        </tr>
+      <% end %>
     <% end %>
   </table>
 </p>
@@ -41,35 +49,47 @@
   <table>
     <% for ppos_header in @ppos.ppos_headers -%>
       <tr id="<%= dom_id(ppos_header) %>">
-        <th colspan=3>
-          <%= ppos_header.header %>
-        </th>
-        <th>
-          Credits
-        </th>
-        <th>
-          Taking
-        </th>
-      </tr>
-      <% for ppos_course in ppos_header.ppos_courses -%>
-        <tr>
-          <td>
-            <%= ppos_course.short_dept_name %>
-          </td>
-          <td>
-            <%= ppos_course.course_number %>
-          </td>
-          <td>
-            <%= ppos_course.course_name %>
-          </td>
-          <td>
-            <%= ppos_course.credits %>
-          </td>
-          <td align=center>
-            <%= check_box('ppos_course','taken') %>
-          </td>
+        <% fields_for "ppos[header_attributes][]", ppos_header do |header_form| %>
+          <th colspan=3>
+            <%= ppos_header.header %>
+            <%= header_form.hidden_field :header, :value => ppos_header.header %>
+            <%= header_form.hidden_field :position, :value => ppos_header.position %>
+          </th>
+          <th>
+            Credits
+          </th>
+          <th>
+            Taking
+          </th>
         </tr>
-      <% end -%>
+        <% for ppos_course in ppos_header.ppos_courses -%>
+          <% fields_for "ppos[course_attributes][]", ppos_course do |course_form| %>
+            <tr>
+              <td>
+                <%= ppos_course.short_dept_name %>
+                <%= course_form.hidden_field :header_position, :value => ppos_header.position %>
+                <%= course_form.hidden_field :short_dept_name, :value => ppos_course.short_dept_name %>
+                <%= course_form.hidden_field :position, :value => ppos_course.position %>
+              </td>
+              <td>
+                <%= ppos_course.course_number %>
+                <%= course_form.hidden_field :course_number, :value => ppos_course.course_number %>
+              </td>
+              <td>
+                <%= ppos_course.course_name %>
+                <%= course_form.hidden_field :course_name, :value => ppos_course.course_name %>
+              </td>
+              <td>
+                <%= ppos_course.credits %>
+                <%= course_form.hidden_field :credits, :value => ppos_course.credits %>
+              </td>
+              <td align=center>
+                <input id="ppos_course_attributes__taken" name="ppos[course_attributes][][taken]" type="checkbox" value="1" />
+              </td>
+            </tr>
+          <% end %>
+        <% end -%>
+      <% end %>
     <% end -%>
   </table>
 </p>

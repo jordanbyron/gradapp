@@ -1,15 +1,15 @@
 class GraduateApplicant < ActiveRecord::Base
-  belongs_to :department
+  belongs_to :degree_program
   belongs_to :applicant_status
   has_many :notes
   has_many :applicant_requirements
   has_many :correspondences
   has_many :ppos
 
-  validates_presence_of       :email, :first_name, :last_name, :address1, :city, :state, :zip, :phone_day, :studentID
+  validates_presence_of       :email, :first_name, :last_name, :address1, :city, :state, :zip, :phone_day
   validates_email_veracity_of :email
-  validates_numericality_of :zip, :studentID
-  validates_length_of   :middle_name,  :within => 0..1
+  validates_numericality_of   :zip
+  validates_length_of         :middle_name,  :within => 0..1
 
   def full_name
     [first_name, last_name].join(' ')

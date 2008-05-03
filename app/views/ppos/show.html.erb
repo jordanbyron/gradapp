@@ -1,6 +1,8 @@
+<h1>Planned Program of Study</h1>
+
 <p>
-  <b>Graduate applicant:</b>
-  <%=h @ppos.graduate_applicant_id %>
+  <b>Created on:</b>
+  <%=h @ppos.created_date %>
 </p>
 
 <p>
@@ -19,15 +21,78 @@
 </p>
 
 <p>
-  <b>Total concentrations:</b>
-  <%=h @ppos.total_concentrations %>
+  <b>Degree program:</b>
+  <%=h DegreeProgram.find(@ppos.degree_program_id).name %>
 </p>
 
 <p>
-  <b>Degree program:</b>
-  <%=h @ppos.degree_program_id %>
+  <table>
+    <tr>
+      <th>
+        Prerequisites
+      </th>
+      <th>
+        Met
+      </th>
+    </tr>
+    <% for ppos_prerequisite in @ppos.ppos_prerequisites -%>
+      <tr id="<%= dom_id(ppos_prerequisite) %>">
+        <td>
+          <%= ppos_prerequisite.prerequisite %>
+        </td>
+        <td>
+          <% if ppos_prerequisite.met %>
+            <%= image_tag("true.png", :class => "table_image") %>
+          <% else %>
+            <%= image_tag("false.png", :class => "table_image") %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
 </p>
 
+<p>
+  <table>
+    <% for ppos_header in @ppos.ppos_headers -%>
+      <tr id="<%= dom_id(ppos_header) %>">
+        <th colspan=3>
+          <%= ppos_header.header %>
+        </th>
+        <th>
+          Credits
+        </th>
+        <th>
+          Taking
+        </th>
+      </tr>
+      <% for ppos_course in ppos_header.ppos_courses -%>
+        <tr>
+          <td>
+            <%= ppos_course.short_dept_name %>
+          </td>
+          <td>
+            <%= ppos_course.course_number %>
+          </td>
+          <td>
+            <%= ppos_course.course_name %>
+          </td>
+          <td>
+            <%= ppos_course.credits %>
+          </td>
+          <td>
+            <% if ppos_course.taken %>
+              <%= image_tag("true.png", :class => "table_image") %>
+            <% else %>
+              <%= image_tag("false.png", :class => "table_image") %>
+            <% end %>
+          </td>
+        </tr>
+      <% end -%>
+    <% end -%>
+  </table>
+</p>
 
-<%= link_to 'Edit', edit_ppos_path(@ppos) %> |
-<%= link_to 'Back', ppos_path %>
+<p>
+  <%= link_to 'Back', ppos_path(@graduate_applicant.id) %>
+</p>

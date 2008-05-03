@@ -3,7 +3,7 @@ class PposController < ApplicationController
   # GET /ppos.xml
   def index
     @graduate_applicant = GraduateApplicant.find(params[:graduate_applicant_id])
-    @ppos = Ppos.find(:all)
+    @ppos = Ppos.find(:all, :conditions => {:graduate_applicant_id => params[:graduate_applicant_id]})
 
     respond_to do |format|
       format.html # index.html.erb
@@ -15,6 +15,7 @@ class PposController < ApplicationController
   # GET /ppos/1.xml
   def show
     @ppos = Ppos.find(params[:id])
+    @graduate_applicant = @ppos.graduate_applicant
 
     respond_to do |format|
       format.html # show.html.erb
@@ -27,26 +28,16 @@ class PposController < ApplicationController
   def new
     @ppos = Ppos.new
     @graduate_applicant = GraduateApplicant.find(params[:graduate_applicant_id])
-
-    # Get PPoS template
-    @ppos_template = PposTemplate.find(DegreeProgram.find(@graduate_applicant.degree_program_id).ppos_template)
+ 
+    @ppos_template = @graduate_applicant.degree_program.ppos_template
     @ppos.total_concentrations = @ppos_template.concentrations
+                                                                      
+    load_ppos_template_body
 
-    # Load PPoS Template Body
-    for header_template in @ppos_template.header_templates
-      ppos_header = @ppos.ppos_headers.build({:header => header_template.header, :position => header_template.position})
-      for course_template in header_template.course_templates
-        ppos_header.ppos_courses.build({:short_dept_name => course_template.short_dept_name, :course_number => course_template.course_number, :course_name => course_template.course_name, :credits => course_template.credits, :position => course_template.position})
-      end
-    end
-    
-    # Load PPoS Prerequisite Templates
-    for prerequisite_template in @ppos_template.prerequisite_templates
-      @ppos.ppos_prerequisites.build({:prerequisite => prerequisite_template.prerequisite, :position => prerequisite_template.position})
-    end
+    load_ppos_prereq_templates
 
     @ppos.graduate_applicant_id = @graduate_applicant.id
-    @ppos.degree_program_id = @graduate_applicant.degree_program_id
+    @ppos.degree_program_id = @graduate_applicant.degree_program.id
 
     respond_to do |format|
       format.html # new.html.erb
@@ -66,13 +57,22 @@ class PposController < ApplicationController
 
     respond_to do |format|
       if @ppos.save
+        params[:ppos][:course_attributes].each do |attributes|
+          header = @ppos.ppos_headers.find(:first, :conditions => {:position => attributes[:header_position]})
+          if attributes[:taken] == nil
+            attributes[:taken] = 0
+          end
+          course = header.ppos_courses.build(attributes)
+          course.save
+        end
+      
         flash[:notice] = 'Ppos was successfully created.'
-        format.html { redirect_to(@ppos) }
+        format.html { redirect_to ppos_path(@ppos.graduate_applicant_id) }
         format.xml  { render :xml => @ppos, :status => :created, :location => @ppos }
       else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @ppos.errors, :status => :unprocessable_entity }
-      end
+       format.html { render :action => "new" }
+       format.xml  { render :xml => @ppos.errors, :status => :unprocessable_entity }
+     end
     end
   end
 
@@ -104,4 +104,28 @@ class PposController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
+  protected
+  
+  def load_ppos_template_body
+    @ppos_template.header_templates.each do |h|
+      ppos_header = @ppos.ppos_headers.build(:header   => h.header, 
+                                             :position => h.position)
+      h.course_templates.each do |c|
+        ppos_header.ppos_courses.build(:short_dept_name => c.short_dept_name, 
+                                       :course_number   => c.course_number, 
+                                       :course_name     => c.course_name, 
+                                       :credits         => c.credits, 
+                                       :position        => c.position)
+      end
+    end                      
+  end                        
+  
+  def load_ppos_prereq_templates
+    @ppos_template.prerequisite_templates.each do |t|
+      @ppos.ppos_prerequisites.build( :prerequisite => t.prerequisite, 
+                                      :position     => t.position)
+    end  
+  end
+  
 end

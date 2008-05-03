@@ -1,13 +1,9 @@
 class Department < ActiveRecord::Base
   has_many :users
   
-  has_many :graduate_applicants
-  has_many :notes, :through => :graduate_applicants
-  has_many :applicant_requirements, :through => :graduate_applicants
-  has_many :correspondences, :through => :graduate_applicants
-  
   has_many :degree_programs
   has_many :degree_requirements, :through => :degree_programs
+  has_many :graduate_applicants, :through => :degree_programs
   has_many :applicantion_requirements
   
   has_many :correspondence_templates

@@ -1,5 +1,6 @@
 class DegreeProgram < ActiveRecord::Base
   belongs_to :department
+  has_many :graduate_applicants
   has_many :degree_requirements
   has_one :ppos_template
 
