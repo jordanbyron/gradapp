@@ -1,4 +1,6 @@
 class PposPrerequisitesController < ApplicationController
+  before_filter :gc_required
+  
   # GET /ppos_prerequisites
   # GET /ppos_prerequisites.xml
   def index

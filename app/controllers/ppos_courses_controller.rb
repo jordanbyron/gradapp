@@ -1,4 +1,6 @@
 class PposCoursesController < ApplicationController
+  before_filter :gc_required
+  
   # GET /ppos_courses
   # GET /ppos_courses.xml
   def index

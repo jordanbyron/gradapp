@@ -1,4 +1,6 @@
 class ApplicantStatusesController < ApplicationController
+  before_filter :admin_required
+
   # GET /applicant_statuses
   # GET /applicant_statuses.xml
   def index

@@ -1,4 +1,6 @@
 class CourseTemplatesController < ApplicationController
+  before_filter :gc_required
+
   # GET /course_templates
   # GET /course_templates.xml
   def index

@@ -1,4 +1,5 @@
 class PposController < ApplicationController
+  before_filter :gc_required
   
   # GET /ppos
   # GET /ppos.xml

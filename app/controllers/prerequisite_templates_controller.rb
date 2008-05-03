@@ -1,4 +1,6 @@
 class PrerequisiteTemplatesController < ApplicationController
+  before_filter :gc_required
+  
   # GET /prerequisite_templates
   # GET /prerequisite_templates.xml
   def index

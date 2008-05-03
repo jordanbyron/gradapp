@@ -1,4 +1,6 @@
 class DegreeRequirementsController < ApplicationController
+  before_filter :gc_required
+  
   # GET /degree_requirements
   # GET /degree_requirements.xml
   def index

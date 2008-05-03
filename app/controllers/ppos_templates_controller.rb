@@ -1,4 +1,6 @@
 class PposTemplatesController < ApplicationController
+  before_filter :gc_required
+  
   # GET /ppos_templates
   # GET /ppos_templates.xml
   def index

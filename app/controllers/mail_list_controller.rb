@@ -1,5 +1,6 @@
 class MailListController < ApplicationController
-
+  before_filter :gc_required
+  
 	def index
 	
 			

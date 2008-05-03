@@ -1,4 +1,6 @@
 class PposHeadersController < ApplicationController
+  before_filter :gc_required
+  
   # GET /ppos_headers
   # GET /ppos_headers.xml
   def index

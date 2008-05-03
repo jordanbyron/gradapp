@@ -5,7 +5,7 @@
 <h1>This page is less broken</h1>
 
 <% form_tag new_graduate_applicant_correspondence_path(@graduate_applicant), :method => 'get' do %>
-  <p>
+   <p>
     <b>Template</b><br />
     <%= select( :correspondence_template_id, params[:id], CorrespondenceTemplate.find(:all, :conditions => {:department_id => @graduate_applicant.department_id}).collect {|d| [d.title, d.id] }) %>
     <%= submit_tag "Use Template" %>
@@ -13,6 +13,7 @@
 <% end %>
 
 <% form_for(@correspondence) do |f| %>
+ <%= f.hidden_field :graduate_applicant_id %>
   <p>
     <b>Sent date time</b><br />
     <%= f.datetime_select :sent_date_time %>

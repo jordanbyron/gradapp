@@ -38,21 +38,16 @@ class CorrespondencesController < ApplicationController
   end
 
   def create
-    @graduate_applicant = GraduateApplicant.find(params[:graduate_applicant_id])
+    @graduate_applicant = GraduateApplicant.find(params[:correspondence][:graduate_applicant_id])
     @correspondence = @graduate_applicant.correspondences.build(params[:correspondence])
 
     respond_to do |format|
       if @correspondence.save
         flash[:notice] = 'Correspondence was successfully created.'
-        format.html { redirect_to @graduate_applicant }
+        format.html { redirect_to graduate_applicant_correspondences_path(@graduate_applicant) }
         format.js # renders create.js.rjs
       else
-        format.html { redirect_to @graduate_applicant }
-        format.js do
-          render :update do |page|
-            page.redirect_to @graduate_applicant
-          end
-        end
+        format.html { render :action => "new" }
       end
     end
   end

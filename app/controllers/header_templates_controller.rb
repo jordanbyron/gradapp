@@ -1,4 +1,6 @@
 class HeaderTemplatesController < ApplicationController
+  before_filter :gc_required
+  
   # GET /header_templates
   # GET /header_templates.xml
   def index
