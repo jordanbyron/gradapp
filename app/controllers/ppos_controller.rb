@@ -1,4 +1,5 @@
 class PposController < ApplicationController
+  
   # GET /ppos
   # GET /ppos.xml
   def index
@@ -16,11 +17,26 @@ class PposController < ApplicationController
   def show
     @ppos = Ppos.find(params[:id])
     @graduate_applicant = @ppos.graduate_applicant
-
+    
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @ppos }
     end
+  end
+
+
+  # GET /ppos/1
+  # GET /ppos/1.xml
+  def print
+    @ppos = Ppos.find(params[:ppos_id])
+    @graduate_applicant = @ppos.graduate_applicant
+
+    render :action => "print", :layout => "print"
+  
+    #respond_to do |format|
+    #  format.html # show.html.erb
+    #  format.xml  { render :xml => @ppos }
+    #end
   end
 
   # GET /ppos/new

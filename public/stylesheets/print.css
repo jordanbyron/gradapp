@@ -1,0 +1,169 @@
+html, body {
+  height:100%;
+}
+
+body {
+  margin: 0px;
+  padding: 0px;
+  background-color: white;
+  color: #fff;
+  cursor: default;
+}
+
+body, p, ol, ul, td {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size:   13px;
+  line-height: 18px;
+	color: #000;
+}
+
+h1 { font-family: "Trebuchet MS", Arial, sans-serif; font-size: 28px; font-style: italic;}
+h2 { font-family: "Trebuchet MS", Arial, sans-serif; font-size: 24px; font-style: italic;}
+h3 { font-family: "Trebuchet MS", Arial, sans-serif; font-size: 18px; font-style: italic;}
+
+#container {
+  padding: 0px;
+  min-width: 800px;
+  height:100%;
+}
+
+#header {
+	visibility: hidden;
+}
+
+#logo {
+  visibility: hidden;
+}
+
+#subcontainer {
+  
+}
+
+#sidebar {
+  visibility: hidden;
+}
+
+#contents {
+  height: auto;
+  overflow: auto;
+}
+
+#contents2 {
+  padding: 10px;
+  margin: 20px;
+  width: auto;
+  height: auto;
+}
+
+#contents2 table, tr, th, td{
+  border-collapse: collapse;
+  border: 1px solid #666;
+  font: normal 16px "Trebuchet MS", Arial, sans-serif;
+}
+
+#contents2 td, th {
+  padding: 0 6px 0 6px;
+}
+
+#contents2 th {
+  font-weight: bold;
+}
+
+tr.even{
+	background-color: #444;
+}
+
+tr.odd{
+	background-color:#333;
+}
+
+img.table_image{
+	display: block;    margin-left: auto;    margin-right: auto
+}
+
+pre {
+  background-color: #eee;
+  font-size: 11px;
+}
+
+a { color: #fff; }
+a:visited { color: #fff; }
+a:hover { color: #e90; }
+
+.fieldWithErrors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+
+#errorExplanation {
+  width: 400px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+
+#errorExplanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px;
+  background-color: #c00;
+  color: #fff;
+}
+
+#errorExplanation p {
+  color: #333;
+  margin-bottom: 0;
+  padding: 5px;
+}
+
+#errorExplanation ul li {
+  font-size: 12px;
+  list-style: square;
+}
+
+div.uploadStatus {
+  margin: 5px;
+}
+
+div.progressBar {
+  margin: 5px;
+}
+
+div.progressBar div.border {
+  background-color: #fff;
+  border: 1px solid gray;
+  width: 100%;
+}
+
+div.progressBar div.background {
+  background-color: #333;
+  height: 18px;
+  width: 0%;
+}
+
+.linkbox_nav a{
+  width: 150px;
+  height: 25px;
+  padding-top: 5px;
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  background: url("/images/gloss_black.png") no-repeat bottom;
+  color: #eee;
+  font-size: 11px;
+
+  border: 5px solid transparent;
+}
+
+.linkbox_nav a:hover{
+  background: url("/images/gloss_orange.png") no-repeat bottom;
+}
+
+.linkbox_nav a:hover, a:active {
+  color: #fff;
+}

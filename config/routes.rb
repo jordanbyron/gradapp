@@ -27,6 +27,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :ppos_courses
   map.resources :ppos_headers
   map.resources :ppos, :path_prefix => '/graduate_applicants/:graduate_applicant_id'
+  map.connect '/graduate_applicants/:graduate_applicant_id/ppos/:ppos_id/print', :controller => 'ppos', :action => 'print'
 
   map.ppos_template_list 'departments/:department_id/degree_programs_ppos/', :controller => 'degree_programs', :action => 'ppos_list'
 

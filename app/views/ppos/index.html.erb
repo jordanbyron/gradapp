@@ -11,7 +11,7 @@
     <th>Created on</th>
     <th>Created by</th>
     <th>Expires on</th>
-    <th colspan=2>Controls</th>
+    <th colspan=3>Controls</th>
   </tr>
 
 <% for ppos in @ppos %>
@@ -20,6 +20,7 @@
     <td><%=h ppos.created_by %></td>
     <td><%=h ppos.expires_date %></td>
     <td><%= link_to 'Show', ppo_path(@graduate_applicant.id,ppos) %></td>
+    <td><%= link_to "Print", { :action => "print", :graduate_applicant_id => @graduate_applicant.id, :ppos_id => ppos.id }, :popup => true %></td>
     <td><%= link_to 'Destroy', ppo_path(@graduate_applicant.id,ppos), :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>

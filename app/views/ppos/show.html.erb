@@ -94,5 +94,6 @@
 </p>
 
 <p>
+  <%= link_to "Print", { :action => "print", :graduate_applicant_id => @graduate_applicant.id, :ppos_id => @ppos.id }, :popup => true %> | 
   <%= link_to 'Back', ppos_path(@graduate_applicant.id) %>
 </p>
