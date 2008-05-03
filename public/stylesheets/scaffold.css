@@ -3,8 +3,10 @@ html, body {
 }
 
 body {
-  background-color: #eaeaff;
-  color: #333;
+  margin: 0px;
+  padding: 0px;
+  background-color: #fff;
+  color: #000;
 }
 
 body, p, ol, ul, td {
@@ -12,6 +14,15 @@ body, p, ol, ul, td {
   font-size:   13px;
   line-height: 18px;
 }
+
+h {
+  font-family: "Trebuchet MS", Arial, sans-serif;
+}
+
+h1 { font-size: 24px; }
+h2 { font-size: 20px; }
+h3 { font-size: 16px; }
+
 
 #container {
   margin: 0px;
@@ -21,31 +32,47 @@ body, p, ol, ul, td {
 }
 
 #header {
-  background-color: #eee;
-  border: 2px solid black;
-  padding: 10px 10px 8px 10px;
-  height: 40px;
+  background-color: #fc6;
+  height: 60px;
+  border-bottom: 2px solid black;
 }
 
-#primary {
-  background-color: #9ab;
-  border-left: 2px solid black;
-  border-right: 2px solid black;
-  height:100%;
+.foldy_tab {
+  z-index: 2;
+  position: relative;
+  bottom: -22px;
+  left: 10px;
+}
+
+#spacer {
+  height: 10px;
+  border-bottom: 2px solid black;
+}
+
+#subcontainer {
+  background-color: #feb;
+  min-height: 320px;
+  border-bottom: 2px solid black;
+}
+
+#sidebar {
+  width: 180px;
+  padding: 20px 0 20px 20px;
+  float: left;
 }
 
 #contents {
-  height: 100%;
-  border-left: 2px solid black;
+  height: auto;
   overflow: auto;
 }
 
 #contents2 {
   padding: 10px;
   margin: 10px;
+  background-color: #fffbf7;
   border: 2px solid black;
-  background-color: #ddd;
   width: auto;
+  height: auto;
 }
 
 #contents2 table, tr, th, td{
@@ -59,30 +86,23 @@ body, p, ol, ul, td {
 }
 
 #contents2 th {
-  color: white;
-	background: #69D url("/images/topbar.png") repeat-x center center;
+  color: #000;
+  font-weight: bold;
+  background: #eb6 url("/images/gradient.png") repeat-x top left;
 }
 
 tr.even{
-	background-color: #f3f3f3;
+	background-color: #fffcef;
+	text-decoration: none;
 }
 
 tr.odd{
-	background-color:#ddd;
+	background-color:#f6e6cf;
+	text-decoration: none;
 }
 
 img.table_image{
 	display: block;    margin-left: auto;    margin-right: auto
-}
-
-#sidebar {
-  height: 100%;
-  width: 150px;
-  float: left;
-  background-color: #9ac;
-  background-image: url("/images/sidebar.png");
-  background-repeat: repeat-y;
-  background-position: top left;
 }
 
 pre {
@@ -92,7 +112,7 @@ pre {
 
 a { color: #000; }
 a:visited { color: #000; }
-a:hover { color: #666; }
+a:hover { color: #e90; }
 
 .fieldWithErrors {
   padding: 2px;
@@ -150,97 +170,24 @@ div.progressBar div.background {
   width: 0%;
 }
 
-.main_tabnav {
-    color: #ddd;
-    padding: 0px;
-}
-
-.main_tabnav ul {
-	margin: 0px;
-	padding: 0px;
-}
-
-.main_tabnav li {
-	display: block;
-	overflow: hidden;
-	list-style-type: none;
-	text-align: center;
-    padding: 14px 0 14px 0;
-	border-bottom: 2px solid black;
-}
-
-.main_tabnav a, a.active {
-	color: #ddd;
-	font: bold 1em "Trebuchet MS", Arial, sans-serif;
-	margin: 0;
-	padding: 5px 10px 5px 10px;
-	text-decoration: none;
-}
-
-.main_tabnav a.active {
-    color: #ddd;
-}
-
-.main_tabnav a:hover {
-	color: #fff;
-}
-
-.main_tabnav a:visited {
-	color: #ddd;
-}
-
-.main_tabnav a.active:hover {
-	color: #ddd;
-}
-
-.main_tabnav_content {
-    font: 0.9em/1.3em "bitstream vera sans", verdana, sans-serif;
-	text-align: justify;
-	background: #9af;
-	border-top: none;
-}
-
-.main_navigation {
-  background-color: #69D;
-  background-image: url("/images/topbar.png");
-  background-repeat: repeat-x;
-  background-position: center left;
-  color: #ddd;
-  padding: 3px 6px 3px 0;
-  border: 2px solid black;
-  border-top-style: none;
-}
-
-.main_navigation ul {
-  padding: 0;
-  margin: 0;
-  text-align: right;
-}
-
-.main_navigation li {
-  display:inline;
-  padding: 0;
-  margin: 0;
-}
-
-.main_navigation li span.disabled {
-  color: #888888;
-}
-
-.main_navigation a, .main_navigation a:visited{
-  border: none;
-  padding:0;
-  margin:0;
-  font-weight: bold;
-  color: #DDD;
+.linkbox_nav a{
+  width: 150px;
+  height: 25px;
+  padding-top: 5px;
+  display: block;
+  text-align: center;
   text-decoration: none;
+  background: url("/images/nav_button.png") no-repeat bottom;
+  color: #000;
+  font-size: 11px;
+  font-weight: bold;
+  border: 5px solid transparent;
 }
 
-.main_navigation a:hover {
-  font-weight: bold;
-  color: #FFF;
+.linkbox_nav a:hover{
+  background: url("/images/nav_highlight.png") no-repeat bottom;
 }
 
-.main_navigation a.active {
-  font-weight: bold;
+.linkbox_nav a:hover, a:active {
+  color: #e90;
 }

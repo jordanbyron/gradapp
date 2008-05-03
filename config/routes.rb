@@ -18,6 +18,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :graduate_applicants, :has_many => :correspondences
   map.resources :graduate_applicants, :has_many => :notes
   map.resources :mail_list
+  map.resources :linkbox
   map.resources :departments
   map.resources :departments, :has_many => :application_requirements
   map.resources :departments, :has_many => :degree_programs

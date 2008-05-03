@@ -1,0 +1,22 @@
+<%= stylesheet_link_tag 'scaffold' %>
+<div class="linkbox_nav">
+
+<% if logged_in? %>
+	<% if current_user.graduate_coordinator? %>
+		<%= link_to 'Graduate Tracking', :controller => 'graduate_applicants' %>
+		<%= link_to 'Templates', :controller => 'correspondence_templates' %>
+		<%= link_to 'Department Setup', :controller => 'departments', :action => 'show', :id => current_user.department_id %>
+	<% end %>
+
+	<% if current_user.admin? %>
+		<%= link_to 'Users', :controller => 'users' %>
+		<%= link_to 'Departments', :controller => 'departments' %>
+		<%= link_to 'Applicant Statuses', :controller => 'applicant_statuses' %>
+	<% end %>
+
+	<%= link_to 'Log Out', logout_path %>
+<% else %>
+	<%= link_to 'Log In', login_path %>
+<% end %>
+
+</div>

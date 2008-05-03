@@ -17,7 +17,7 @@
 
   <p>
     <b>Template</b><br />
-    <%= select("correspondence_template", "title", CorrespondenceTemplate.find(:all, :conditions => {:department_id => @graduate_applicant.department_id}).collect {|d| [d.title, d.id] }) %>
+    <%= select( "correspondence_template", "title", CorrespondenceTemplate.find(:all, :conditions => {:department_id => @graduate_applicant.department_id}).collect {|d| [d.title, d.id] }) %>
     <%= f.submit "Use Template" %>
   <p>
 
