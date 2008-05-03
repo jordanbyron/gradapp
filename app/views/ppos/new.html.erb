@@ -11,6 +11,10 @@
 <%= f.hidden_field :total_concentrations %>
 <%= f.hidden_field :expires_on %>
 
+<p>
+  Expires: <%= f.date_select :expires_on, :order => [:month, :year], :default => 6.years.from_now %>
+</p>
+
 <% if @ppos.total_concentrations > 0 %>
   Concentration <%= select("ppos", "concentration",1..@ppos.total_concentrations) %>
 <% else %>

@@ -7,6 +7,10 @@ class Ppos < ActiveRecord::Base
     created_at.strftime("%m/%d/%Y")
   end
 
+  def expires_date
+    expires_on.strftime("%m/%Y")
+  end
+
   def prerequisite_attributes=(prerequisite_attributes)
     prerequisite_attributes.each do |attributes|
       if attributes[:met] == nil

@@ -18,7 +18,7 @@
   <tr>
     <td><%=h ppos.created_date %></td>
     <td><%=h ppos.created_by %></td>
-    <td><%=h ppos.expires_on %></td>
+    <td><%=h ppos.expires_date %></td>
     <td><%= link_to 'Show', ppo_path(@graduate_applicant.id,ppos) %></td>
     <td><%= link_to 'Destroy', ppo_path(@graduate_applicant.id,ppos), :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
