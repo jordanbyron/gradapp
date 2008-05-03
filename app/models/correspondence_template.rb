@@ -8,4 +8,8 @@ class CorrespondenceTemplate < ActiveRecord::Base
   def created_date
     created_at.strftime("%m/%d/%Y")
   end
+
+  def generate(graduate_applicant)
+    body.gsub("^ApplicantFullName^", graduate_applicant.full_name)
+  end
 end

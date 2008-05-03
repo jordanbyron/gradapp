@@ -15,11 +15,11 @@ class CorrespondencesController < ApplicationController
   # GET /graduate_applicants/:graduate_applicant_id/correspondences/new.xml
   def new
     @graduate_applicant = GraduateApplicant.find(params[:graduate_applicant_id])
-    @correspondence = Correspondence.new
+    @correspondence = @graduate_applicant.correspondences.build
 
     if params[:correspondence_template_id] != nil
-      @correspondence_template = CorrespondenceTemplate.find(params[:correspondence_template_id])
-        @correspondence.body = @correspondence_template.generate
+      @correspondence_template = CorrespondenceTemplate.find(params[:correspondence_template_id][0])
+      @correspondence.text = @correspondence_template.generate(@graduate_applicant)
     end
 
     respond_to do |format|
