@@ -5,11 +5,7 @@
   <p>You are logged in as <strong><%=h current_user.login %></strong></p>
   <p style="color: green"><%= flash[:notice] %></p>
 <% else %>
+  <h1>Welcome to GradTrak!</h1>
   <p style="color: green"><%= flash[:notice] %></p>
-  <p>
-    <h1>Welcome to GradTrak!</h1>
-  </p>
-  <p>
-    <h3><%= link_to 'Please log in to continue', login_path %></h3>
-  </p>
+  <h3><%= link_to 'Please log in to continue', login_path %></h3>
 <% end %>

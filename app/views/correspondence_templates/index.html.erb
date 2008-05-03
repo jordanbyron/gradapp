@@ -6,7 +6,7 @@
 
 <p>
   <h3>
-    Correspondence | 
+    Correspondence |
     <%= link_to 'Planned Program of Study', ppos_template_list_path(current_user.department_id) %>
   </h3>
 </p>
@@ -18,7 +18,7 @@
   </tr>
 
 <% for correspondence_template in @correspondence_templates %>
-  <tr>
+  <tr class="<%= cycle('even', 'odd') %>">
     <td><%=h correspondence_template.title %></td>
     <td><%= link_to 'Show', correspondence_template %></td>
     <td><%= link_to 'Edit', edit_correspondence_template_path(correspondence_template) %></td>
