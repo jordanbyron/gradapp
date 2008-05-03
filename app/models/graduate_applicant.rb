@@ -2,7 +2,7 @@ class GraduateApplicant < ActiveRecord::Base
   belongs_to :degree_program
   belongs_to :applicant_status
   has_many :notes
-  has_many :applicant_requirements
+  has_many :applicant_requirements, :order => "requirement"
   has_many :correspondences
   has_many :ppos
 

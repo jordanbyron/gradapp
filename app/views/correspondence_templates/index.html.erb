@@ -14,13 +14,12 @@
 <table>
   <tr>
     <th>Title</th>
-    <th>Body</th>
+    <th colspan=3>Controls</th>
   </tr>
 
 <% for correspondence_template in @correspondence_templates %>
   <tr>
     <td><%=h correspondence_template.title %></td>
-    <td><%=h correspondence_template.body %></td>
     <td><%= link_to 'Show', correspondence_template %></td>
     <td><%= link_to 'Edit', edit_correspondence_template_path(correspondence_template) %></td>
     <td><%= link_to 'Destroy', correspondence_template, :confirm => 'Are you sure?', :method => :delete %></td>

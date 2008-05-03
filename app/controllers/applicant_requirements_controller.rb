@@ -4,7 +4,8 @@ class ApplicantRequirementsController < ApplicationController
   # GET /applicant_requirements
   # GET /applicant_requirements.xml
   def index
-    @applicant_requirements = ApplicantRequirement.find(:all)
+    @graduate_applicant = GraduateApplicant.find(params[:graduate_applicant_id])
+    @applicant_requirements = @graduate_applicant.applicant_requirements #ApplicantRequirement.find(:all)
 
     respond_to do |format|
       format.html # index.html.erb

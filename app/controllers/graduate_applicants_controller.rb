@@ -51,6 +51,10 @@ class GraduateApplicantsController < ApplicationController
     # Set Graduate Applicant Department To The Current User's Department
     @graduate_applicant.department_id = current_user.department_id
 
+    add_application_requirements
+
+    add_degree_requirements
+
     respond_to do |format|
       if @graduate_applicant.save
         flash[:notice] = 'Graduate Applicant was successfully created.'
@@ -97,25 +101,21 @@ class GraduateApplicantsController < ApplicationController
   end
   
   
-  #def list
+ protected
+  
+  def add_application_requirements
+    @graduate_applicant.degree_program.department.application_requirements.each do |r|
+      @graduate_applicant.applicant_requirements.build(:requirement => r.description, 
+                                                       :met => false)
+    end                      
+  end         
 
-    #items_per_page = 10
-
-    #sort = case params['sort']
-    #       when "name"  then "name"
-
-           #end
-
-    #conditions = ["name LIKE ?", "%#{params[:query]}%"] unless params[:query].nil?
-
-    #@total = graduate_applicants.count(:conditions => conditions)
-    #@items_pages, @items = paginate :graduate_applicant, :conditions => conditions, :per_page => items_per_page
-#:order => sort, 
-    #if request.xml_http_request?
-    #  render :partial => "applicant_list", :layout => false
-    #end
-
-  #end
+  def add_degree_requirements
+    @graduate_applicant.degree_program.degree_requirements.each do |r|
+      @graduate_applicant.applicant_requirements.build(:requirement => r.description, 
+                                                       :met => false)
+    end                      
+  end   
  
   
 end

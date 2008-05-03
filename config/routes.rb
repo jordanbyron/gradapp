@@ -12,7 +12,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :degree_programs
   map.resources :correspondences
   map.resources :notes
-  map.resources :applicant_requirements
+  map.resources :applicant_requirements, :path_prefix => '/graduate_applicants/:graduate_applicant_id'
   map.resources :application_requirements
   map.resources :graduate_applicants
   map.resources :graduate_applicants, :has_many => :correspondences
