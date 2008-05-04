@@ -3,7 +3,7 @@ class CorrespondencesController < ApplicationController
 
   def index
     @graduate_applicant = GraduateApplicant.find(params[:graduate_applicant_id])
-    @correspondences = @graduate_applicant.correspondences.collect
+    @correspondences = Correspondence.search(params[:search], params[:page],params[:graduate_applicant_id])
 
     respond_to do |format|
       format.html # index.html.erb
