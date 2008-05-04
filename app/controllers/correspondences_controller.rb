@@ -16,7 +16,7 @@ class CorrespondencesController < ApplicationController
   def new
     @graduate_applicant = GraduateApplicant.find(params[:graduate_applicant_id])
     @correspondence = @graduate_applicant.correspondences.build
-
+    
     if params[:correspondence_template_id] != nil
       @correspondence_template = CorrespondenceTemplate.find(params[:correspondence_template_id][0])
       @correspondence.text = @correspondence_template.generate(@graduate_applicant)
@@ -37,15 +37,30 @@ class CorrespondencesController < ApplicationController
     end
   end
 
+  def print
+    @correspondence = Correspondence.find(params[:correspondence_id])
+    @graduate_applicant = @correspondence.graduate_applicant
+
+    render :action => "print", :layout => "print"
+  
+    #respond_to do |format|
+    #  format.html # show.html.erb
+    #  format.xml  { render :xml => @ppos }
+    #end
+  end
+
   def create
     @graduate_applicant = GraduateApplicant.find(params[:correspondence][:graduate_applicant_id])
     @correspondence = @graduate_applicant.correspondences.build(params[:correspondence])
-
+    @correspondence.correspondence_type = params[:commit]
+    
     respond_to do |format|
       if @correspondence.save
-        flash[:notice] = 'Correspondence was successfully created.'
-        format.html { redirect_to graduate_applicant_correspondences_path(@graduate_applicant) }
-        format.js # renders create.js.rjs
+        if @correspondence.correspondence_type == "Email"
+
+        else
+          format.html { redirect_to :action => "print", :graduate_applicant_id => @graduate_applicant.id, :correspondence_id => @correspondence.id }
+        end
       else
         format.html { render :action => "new" }
       end

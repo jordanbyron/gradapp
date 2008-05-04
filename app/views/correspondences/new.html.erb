@@ -2,8 +2,6 @@
 
 <%= error_messages_for :correspondence %>
 
-<h1>This page is less broken</h1>
-
 <% form_tag new_graduate_applicant_correspondence_path(@graduate_applicant), :method => 'get' do %>
    <p>
     <b>Template</b><br />
@@ -13,24 +11,16 @@
 <% end %>
 
 <% form_for(@correspondence) do |f| %>
- <%= f.hidden_field :graduate_applicant_id %>
-  <p>
-    <b>Sent date time</b><br />
-    <%= f.datetime_select :sent_date_time %>
-  </p>
-
+  <%= f.hidden_field :graduate_applicant_id %>
+  <%= f.hidden_field :sent_date_time %>
+  
   <p>
     <b>Body</b><br />
-    <%= f.text_area :text %>
+    <%= f.text_area :text, :size => "100%x20" %>
   </p>
 
   <p>
-    <b>Type</b><br />
-    <%= f.text_field :type %>
-  </p>
-
-  <p>
-    <%= f.submit "Create" %>
+    <%= f.submit "Print" %> <%= f.submit "Email" %>
   </p>
 <% end %>
 

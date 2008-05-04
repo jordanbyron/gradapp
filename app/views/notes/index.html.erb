@@ -46,10 +46,12 @@
   <div id="new_note_div" style="display:none;">
 <% end %>
 
+<%= render :partial => 'formatting_guide' %>
+
 <% form_for [@graduate_applicant, @new_note] do |f| -%>
     <br>New Note:</br>
     <br><%= f.text_area(:text, :size => "100%x10") %></br>
-  <br><%= f.submit 'Add this note' %> | <%= link_to_remote "Cancel", :url => {:action => "toggle_new_note"} %></br>
+  <br><%= f.submit 'Add this note' %> | <a href="#" onClick="new Effect.toggle('formatting_guide', 'slide');">Formatting guide</a> | <%= link_to_remote "Cancel", :url => {:action => "toggle_new_note"} %></br>
 <% end -%>
 </div>
 

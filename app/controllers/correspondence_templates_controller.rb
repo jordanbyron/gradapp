@@ -48,7 +48,7 @@ class CorrespondenceTemplatesController < ApplicationController
 
     respond_to do |format|
       if @correspondence_template.save
-        flash[:notice] = 'CorrespondenceTemplate was successfully created.'
+        flash[:notice] = 'Correspondence Template was successfully created.'
         format.html { redirect_to(@correspondence_template) }
         format.xml  { render :xml => @correspondence_template, :status => :created, :location => @correspondence_template }
       else
@@ -65,7 +65,7 @@ class CorrespondenceTemplatesController < ApplicationController
 
     respond_to do |format|
       if @correspondence_template.update_attributes(params[:correspondence_template])
-        flash[:notice] = 'CorrespondenceTemplate was successfully updated.'
+        flash[:notice] = 'Correspondence Template was successfully updated.'
         format.html { redirect_to(@correspondence_template) }
         format.xml  { head :ok }
       else

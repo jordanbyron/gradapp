@@ -2,6 +2,8 @@
 
 <%= error_messages_for :header_template %>
 
+<%= render :partial => 'formatting_guide' %>
+
 <% form_for :note, @note, :url => graduate_applicant_note_path(@graduate_applicant), :html => { :method => :put} do |f| %>
   <p>
     <b>Note Text</b><br />
@@ -13,4 +15,7 @@
   </p>
 <% end %>
 
-<%= link_to 'Cancel', graduate_applicant_notes_path(@graduate_applicant) %>
+<p>
+  <%= link_to 'Cancel', graduate_applicant_notes_path(@graduate_applicant) %> | 
+  <a href="#" onClick="new Effect.toggle('formatting_guide', 'slide');">Formatting guide</a>
+</p>
