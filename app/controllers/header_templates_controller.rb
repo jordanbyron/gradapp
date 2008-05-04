@@ -58,8 +58,14 @@ class HeaderTemplatesController < ApplicationController
     respond_to do |format|
       if @header_template.save
         #flash[:notice] = 'HeaderTemplate was successfully created.'
-        format.html { redirect_to ppos_template_path(flash[:department_id], flash[:degree_program_id], flash[:ppos_template_id]) }
-        format.xml  { render :xml => @header_template, :status => :created, :location => @header_template }
+        
+        if params[:commit] == "Create and Add Courses to Header"
+          flash[:notice] = 'Header was successfully created.'
+          format.html { redirect_to new_course_template_path(flash[:department_id], flash[:degree_program_id], flash[:ppos_template_id],  @header_template.id) } 
+        else
+          format.html { redirect_to ppos_template_path(flash[:department_id], flash[:degree_program_id], flash[:ppos_template_id]) }
+          format.xml  { render :xml => @header_template, :status => :created, :location => @header_template }
+        end
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @header_template.errors, :status => :unprocessable_entity }

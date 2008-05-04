@@ -1,11 +1,10 @@
 <p>
   <b>Sent date time:</b>
-  <%=h @correspondence.sent_date_time %>
+  <%=h @correspondence.created_at %>
 </p>
 
 <p>
-  <b>Text:</b>
-  <%=h @correspondence.text %>
+  <%= @correspondence.body_html %>
 </p>
 
 <p>
@@ -13,6 +12,8 @@
   <%=h @correspondence.correspondence_type %>
 </p>
 
-
-<%= link_to 'Edit', edit_correspondence_path(@correspondence) %> |
-<%= link_to 'Back', correspondences_path %>
+<p>
+  <%= link_to 'Print', { :action => "print", :graduate_applicant_id => @correspondence.graduate_applicant.id, :correspondence_id => @correspondence.id }, :popup => true %> |
+  <%= mail_to @correspondence.graduate_applicant.email, 'Email', :body => @correspondence.text %> | 
+  <%= link_to 'Back', graduate_applicant_correspondences_path(@correspondence.graduate_applicant) %>
+</p>

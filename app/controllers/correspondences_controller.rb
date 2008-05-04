@@ -56,11 +56,7 @@ class CorrespondencesController < ApplicationController
     
     respond_to do |format|
       if @correspondence.save
-        if @correspondence.correspondence_type == "Email"
-
-        else
-          format.html { redirect_to :action => "print", :graduate_applicant_id => @graduate_applicant.id, :correspondence_id => @correspondence.id }
-        end
+          format.html { redirect_to @correspondence }
       else
         format.html { render :action => "new" }
       end
@@ -68,14 +64,14 @@ class CorrespondencesController < ApplicationController
   end
 
   def destroy
-    @graduate_applicant = GraduateApplicant.find(params[:graduate_applicant_id])
-    @correspondence = @graduate_applicant.correspondences.find(params[:id])
+    @correspondence = Correspondence.find(params[:id])
+    @graduate_applicant =  @correspondence.graduate_applicant
 
     @correspondence.destroy
 
     respond_to do |format|
       flash[:notice] = 'Correspondence was removed.'
-      format.html { redirect_to  }
+      format.html { redirect_to graduate_applicant_correspondences_path(@graduate_applicant) }
     end
   end
 

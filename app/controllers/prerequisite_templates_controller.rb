@@ -58,9 +58,13 @@ class PrerequisiteTemplatesController < ApplicationController
 
     respond_to do |format|
       if @prerequisite_template.save
-        #flash[:notice] = 'PrerequisiteTemplate was successfully created.'
-        format.html { redirect_to ppos_template_path(flash[:department_id], flash[:degree_program_id], flash[:ppos_template_id]) }
-        format.xml  { render :xml => @prerequisite_template, :status => :created, :location => @prerequisite_template }
+        if params[:commit] == "Create and Add Another Prerequisite"
+          flash[:notice] = 'Prerequisite Template was successfully created.'
+          format.html { redirect_to new_prerequisite_template_path(flash[:department_id], flash[:degree_program_id], flash[:ppos_template_id]) }
+        else
+          format.html { redirect_to ppos_template_path(flash[:department_id], flash[:degree_program_id], flash[:ppos_template_id]) }
+          format.xml  { render :xml => @prerequisite_template, :status => :created, :location => @prerequisite_template }
+        end
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @prerequisite_template.errors, :status => :unprocessable_entity }

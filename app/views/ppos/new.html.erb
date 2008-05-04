@@ -54,17 +54,25 @@
     <% for ppos_header in @ppos.ppos_headers -%>
       <tr id="<%= dom_id(ppos_header) %>">
         <% fields_for "ppos[header_attributes][]", ppos_header do |header_form| %>
-          <th colspan=3>
-            <%= ppos_header.header %>
-            <%= header_form.hidden_field :header, :value => ppos_header.header %>
-            <%= header_form.hidden_field :position, :value => ppos_header.position %>
-          </th>
-          <th>
-            Credits
-          </th>
-          <th>
-            Taking
-          </th>
+          <% if ppos_header.position == 1 %>
+            <th colspan=3>
+              <%= ppos_header.header %>
+              <%= header_form.hidden_field :header, :value => ppos_header.header %>
+              <%= header_form.hidden_field :position, :value => ppos_header.position %>
+            </th>
+            <th>
+              Credits
+            </th>
+            <th>
+              Taking
+            </th>
+          <% else %>
+            <th colspan=5>
+              <%= ppos_header.header %>
+              <%= header_form.hidden_field :header, :value => ppos_header.header %>
+              <%= header_form.hidden_field :position, :value => ppos_header.position %>
+            </th>
+          <% end %>
         </tr>
         <% for ppos_course in ppos_header.ppos_courses -%>
           <% fields_for "ppos[course_attributes][]", ppos_course do |course_form| %>

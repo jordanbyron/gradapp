@@ -30,6 +30,7 @@ class CourseTemplatesController < ApplicationController
     @department = Department.find(params[:department_id])
     @ppos_template = PposTemplate.find(params[:ppos_template_id])
     @course_template = CourseTemplate.new
+    @course_template.short_dept_name = @department.short_name
 
     flash[:degree_program_id] = @degree_program.id
     flash[:department_id] = @department.id
@@ -64,9 +65,13 @@ class CourseTemplatesController < ApplicationController
 
     respond_to do |format|
       if @course_template.save
-        #flash[:notice] = 'CourseTemplate was successfully created.'
-        format.html { redirect_to ppos_template_path(flash[:department_id], flash[:degree_program_id], flash[:ppos_template_id]) }
-        format.xml  { render :xml => @course_template, :status => :created, :location => @course_template }
+        if params[:commit] == "Create and Add Another Course"
+          flash[:notice] = ['Course was successfully added to', @course_template.header_template.header].join(' ')
+          format.html { redirect_to new_course_template_path(flash[:department_id], flash[:degree_program_id], flash[:ppos_template_id], params[:header_template_id]) } 
+        else
+          format.html { redirect_to ppos_template_path(flash[:department_id], flash[:degree_program_id], flash[:ppos_template_id]) }
+          format.xml  { render :xml => @course_template, :status => :created, :location => @course_template }
+        end
       else
 
         @degree_program = DegreeProgram.find(flash[:degree_program_id])

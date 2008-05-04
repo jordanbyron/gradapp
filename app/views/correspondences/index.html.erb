@@ -8,7 +8,7 @@
 
 <table>
   <tr>
-    <th>Sent date time</th>
+    <th>Sent date</th>
     <th>Text</th>
     <th>Type</th>
     <th>Show</th>
@@ -17,8 +17,8 @@
 
 <% for correspondence in @correspondences %>
   <tr id="<%= dom_id(correspondence) %>" class="<%= cycle('even', 'odd') %>">
-    <td><%=h correspondence.sent_date_time %></td>
-    <td><%=h correspondence.text %></td>
+    <td><%=h correspondence.sent_on %></td>
+    <td><%=h correspondence.body_short %></td>
     <td><%=h correspondence.correspondence_type %></td>
     <td><%= link_to 'Show', correspondence %></td>
     <td><%= link_to image_tag("remove.png", :border => 0), correspondence, :confirm => 'Are you sure?', :method => :delete %></td>
