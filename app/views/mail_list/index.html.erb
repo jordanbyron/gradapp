@@ -1,4 +1,5 @@
 <% form_tag :controller => 'mail_list', :action => 'generate_list' do %>
   <%= select("graduate_applicant","applicant_status_id", ApplicantStatus.find(:all).collect {|d| [d.status, d.id] }) %>
   <%= submit_tag "Generate" %>
+
 <%end%>
