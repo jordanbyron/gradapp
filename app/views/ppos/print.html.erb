@@ -124,14 +124,13 @@
   	  	  	  	Credits
   	  	  	  </th>
   	  	  	<% end %>
-  	  	    <% row_count += 1 %>
   	  	  </tr>
   	  	<% end %>
   	  	<% if row_count == 21 %>
   	  	  </table></td>
   	  	  <td><table cols="5">
   	  	  <% table_split = 1 %>
-  	  	<$ end $>
+  	  	<% end %>
   	  	<% if row_count >= 21 && row_count <= 40 %>
   	  	  <tr>
   	  	  	<th colspan="4">
@@ -142,7 +141,6 @@
   	  	  	  	Credits
   	  	  	  </th>
   	  	  	<% end %>
-  	  	    <% row_count += 1 %>
   	  	  </tr>
   	  	<% end %>
   	  	<% for ppos_course in ppos_header.ppos_courses -%>
@@ -166,7 +164,6 @@
   	  	  	  	  <% subtotal += ppos_course.credits %>
   	  	  	  	<% end %>
   	  	  	  </td>
-  	  	  	  <% row_count += 1 %>
   	  	  	</tr>
   	  	  <% end %>
   	  	  <% if row_count == 21 && table_split == 0 %>
@@ -177,7 +174,6 @@
   	  	  	  	<th>
   	  	  	  	  Credits
   	  	  	  	</th>
-  	  	  	  	<% row_count += 1 %>
   	  	  	  </tr>
   	  	  	<% table_split = 1 %>
   	  	  <% end %>
@@ -204,7 +200,9 @@
   	  	  	  <% row_count += 1 %>
   	  	  	</tr>
   	  	  <% end %>
+  	  	  <% row_count += 1 %>
   	  	<% end -%>
+  	  	<% if !ppos_header.ppos_courses.empty? %>
   	  	<% if row_count <= 20 %>
   	  	  <tr>
   	  	  	<td colspan="4">
@@ -214,7 +212,6 @@
   	  	  	  <%= subtotal %>
   	  	  	  <% cred_total += subtotal %>
   	  	  	</td>
-  	  	  	<% row_count += 1 %>
   	  	  </tr>
   	  	<% end %>
   	  	<% if row_count == 21 && table_split == 0 %>
@@ -225,7 +222,6 @@
   	  	  	  	<th>
   	  	  	  	  Credits
   	  	  	  	</th>
-  	  	  	  	<% row_count += 1 %>
   	  	  	  </tr>
   	  	  	<% table_split = 1 %>
   	  	<% end %>
@@ -238,9 +234,10 @@
   	  	  	  <%= subtotal %>
   	  	  	  <% cred_total += subtotal %>
   	  	  	</td>
-  	  	  	<% row_count += 1 %>
   	  	  </tr>
   	  	<% end %>
+  	  	<% end %>
+  	  	<% row_count += 1 %>
   	  <% end -%>
   	  <% if row_count <= 40 %>
   	  	<tr>
