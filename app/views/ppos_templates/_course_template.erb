@@ -13,20 +13,63 @@
       <%= course_template.credits %>
     </td>
     <td>
-      <%= link_to image_tag("up.png", :alt => "Move Up", :class => "table_image", :border => 0), :action => "move_course_up", :course_template_id => course_template.id, :ppos_template_id => @ppos_template.id %>
+      <%= link_to_remote image_tag("up.png", 
+                          :alt => "Move Up", 
+                          :class => "table_image", 
+                          :id => ['up_course_',course_template.id].join(), 
+                          :border => 0), 
+                        :update => "ppos_body", 
+                        :url => { :controller => 'ppos_templates',
+                                  :action => "move_course_up", 
+                                  :course_template_id => course_template.id, 
+                                  :ppos_template_id => @ppos_template.id }, 
+                        :before => "Element.show('" + ['spinner_up_course_',course_template.id].join() + 
+                                      "'); Element.hide('" + ['up_course_',course_template.id].join() + "')" %>
+      <%= image_tag("spinner.gif",
+              :align => "absmiddle",
+              :border => 0,
+              :id => ['spinner_up_course_',course_template.id].join(),
+              :style =>"display: none;" ) %>
     </td>
     <td>
-      <%= link_to image_tag("down.png", :alt => "Move Down", :class => "table_image", :border => 0), :action => "move_course_down", :course_template_id => course_template.id, :ppos_template_id => @ppos_template.id %>
+      <%= link_to_remote image_tag("down.png", 
+                          :alt => "Move Down", 
+                          :class => "table_image", 
+                          :id => ['down_course_',course_template.id].join(), 
+                          :border => 0), 
+                        :update => "ppos_body", 
+                        :url => { :controller => 'ppos_templates',
+                                  :action => "move_course_down", 
+                                  :course_template_id => course_template.id, 
+                                  :ppos_template_id => @ppos_template.id },
+                        :before => "Element.show('" + ['spinner_down_course_',course_template.id].join() + 
+                                      "'); Element.hide('" + ['down_course_',course_template.id].join() + "')" %>
+      <%= image_tag("spinner.gif",
+              :align => "absmiddle",
+              :border => 0,
+              :id => ['spinner_down_course_',course_template.id].join(),
+              :style =>"display: none;" ) %>
     </td>
     <td>
       <%= link_to image_tag("edit.png",  :class => "table_image",:border => 0),
       edit_course_template_path(@department.id,@degree_program.id,@ppos_template.id,header_template.id,course_template.id) %>
     </td>
     <td>
-      <%= link_to image_tag("remove.png",  :class => "table_image",:border => 0), 
-      course_template_path(@department.id,@degree_program.id,@ppos_template.id,header_template.id,course_template.id), 
-      :confirm => 'Are you sure?', 
-      :method => :delete %>
+      <%= link_to_remote image_tag("remove.png", 
+                          :class => "table_image",
+                          :id => ['delete_course_',course_template.id].join(),
+                          :border => 0),
+                        :update => "ppos_body",
+                        :url => course_template_path(@department.id,@degree_program.id,@ppos_template.id,header_template.id,course_template.id), 
+                        :confirm => 'Are you sure?', 
+                        :method => :delete,
+                        :before => "Element.show('" + ['spinner_delete_course_',course_template.id].join() + 
+                              "'); Element.hide('" + ['delete_course_',course_template.id].join() + "')" %>
+      <%= image_tag("spinner.gif",
+              :align => "absmiddle",
+              :border => 0,
+              :id => ['spinner_delete_course_',course_template.id].join(),
+              :style =>"display: none;" ) %>
     </td>
   </tr>
 <% end -%>

@@ -93,12 +93,23 @@ class HeaderTemplatesController < ApplicationController
   # DELETE /header_templates/1
   # DELETE /header_templates/1.xml
   def destroy
+    @degree_program = DegreeProgram.find(params[:degree_program_id])
+    @department = Department.find(params[:department_id])
+    @ppos_template = PposTemplate.find(params[:ppos_template_id])
     @header_template = HeaderTemplate.find(params[:id])
     @header_template.destroy
-
-    respond_to do |format|
-      format.html { redirect_to ppos_template_path(params[:department_id], params[:degree_program_id], params[:ppos_template_id]) }
-      format.xml  { head :ok }
+    
+    if (request.xhr?)
+      render :partial => 'ppos_templates/header_template',
+              :locals  => {:header_templates => @ppos_template.header_templates,
+                      :ppos_template    => @ppos_template,
+                      :degree_program   => @degree_program,
+                      :department       => @department }
+    else
+      respond_to do |format|
+        format.html { redirect_to ppos_template_path(params[:department_id], params[:degree_program_id], params[:ppos_template_id]) }
+        format.xml  { head :ok }
+      end
     end
   end
 end

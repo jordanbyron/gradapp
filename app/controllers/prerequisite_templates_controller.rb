@@ -93,11 +93,22 @@ class PrerequisiteTemplatesController < ApplicationController
   # DELETE /prerequisite_templates/1.xml
   def destroy
     @prerequisite_template = PrerequisiteTemplate.find(params[:id])
+    @ppos_template = PposTemplate.find(params[:ppos_template_id])
+    @degree_program = DegreeProgram.find(params[:degree_program_id])
+    @department = Department.find(params[:department_id])
     @prerequisite_template.destroy
 
-    respond_to do |format|
-      format.html { redirect_to ppos_template_path(params[:department_id], params[:degree_program_id], params[:ppos_template_id]) }
-      format.xml  { head :ok }
+    if (request.xhr?)
+      render :partial => 'ppos_templates/prerequisite_template',
+               :locals  => {:prerequisite_templates => @ppos_template.prerequisite_templates,
+                            :ppos_template    => @ppos_template,
+                            :degree_program   => @degree_program,
+                            :department       => @department}
+    else
+      respond_to do |format|
+        format.html { redirect_to ppos_template_path(params[:department_id], params[:degree_program_id], params[:ppos_template_id]) }
+        format.xml  { head :ok }
+      end
     end
   end
 end

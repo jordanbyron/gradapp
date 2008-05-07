@@ -10,20 +10,63 @@
       <%= prerequisite_template.prerequisite %>
     </td>
     <td>
-      <%= link_to image_tag("up.png", :alt => "Move Up", :class => "table_image", :border => 0), :action => "move_prerequisite_up", :prerequisite_template_id => prerequisite_template.id, :ppos_template_id => @ppos_template.id %>
+      <%= link_to_remote image_tag("up.png", 
+                          :alt => "Move Up", 
+                          :class => "table_image", 
+                          :border => 0, 
+                          :id => ['up_prerequisite_',prerequisite_template.id].join()), 
+                          :update => "prerequisites", 
+                          :url => { :controller => 'ppos_templates',
+                                    :action => "move_prerequisite_up", 
+                                    :prerequisite_template_id => prerequisite_template.id, 
+                                    :ppos_template_id => @ppos_template.id },
+                          :before => "Element.show('" + ['spinner_up_prerequisite_',prerequisite_template.id].join() + 
+                                      "'); Element.hide('" + ['up_prerequisite_',prerequisite_template.id].join() + "')" %>
+      <%= image_tag("spinner.gif",
+              :align => "absmiddle",
+              :border => 0,
+              :id => ['spinner_up_prerequisite_',prerequisite_template.id].join(),
+              :style =>"display: none;" ) %>
     </td>
     <td>
-      <%= link_to image_tag("down.png", :alt => "Move Down", :class => "table_image", :border => 0), :action => "move_prerequisite_down", :prerequisite_template_id => prerequisite_template.id, :ppos_template_id => @ppos_template.id %>
+      <%= link_to_remote image_tag("down.png", 
+                          :alt => "Move Down", 
+                          :class => "table_image", 
+                          :id =>  ['down_prerequisite_',prerequisite_template.id].join(),
+                          :border => 0),
+                        :update => "prerequisites", 
+                        :url => { :controller => 'ppos_templates',
+                                  :action => "move_prerequisite_down", 
+                                  :prerequisite_template_id => prerequisite_template.id, 
+                                  :ppos_template_id => @ppos_template.id },
+                        :before => "Element.show('" + ['spinner_down_prerequisite_',prerequisite_template.id].join() + 
+                                   "'); Element.hide('" + ['down_prerequisite_',prerequisite_template.id].join() + "')" %>
+      <%= image_tag("spinner.gif",
+        :align => "absmiddle",
+        :border => 0,
+        :id => ['spinner_down_prerequisite_',prerequisite_template.id].join(),
+        :style =>"display: none;" ) %>
     </td>
     <td>
       <%= link_to image_tag("edit.png",  :class => "table_image",:border => 0),
       edit_prerequisite_template_path(@department.id,@degree_program.id,@ppos_template.id,prerequisite_template.id) %>
     </td>
     <td>
-      <%= link_to image_tag("remove.png",  :class => "table_image",:border => 0), 
-      prerequisite_template_path(@department.id,@degree_program.id,@ppos_template.id,prerequisite_template.id), 
-      :confirm => 'Are you sure?', 
-      :method => :delete %>
+      <%= link_to_remote image_tag("remove.png",  
+                          :class => "table_image",
+                          :id => ['delete_prerequisite_',prerequisite_template.id].join(),
+                          :border => 0), 
+                        :update => "prerequisites",
+                        :url => prerequisite_template_path(@department.id,@degree_program.id,@ppos_template.id,prerequisite_template.id),
+                        :method => :delete, 
+                        :confirm => 'Are you sure?',
+                        :before => "Element.show('" + ['spinner_delete_prerequisite_',prerequisite_template.id].join() + 
+                                   "'); Element.hide('" + ['delete_prerequisite_',prerequisite_template.id].join() + "')" %>
+      <%= image_tag("spinner.gif",
+        :align => "absmiddle",
+        :border => 0,
+        :id => ['spinner_delete_prerequisite_',prerequisite_template.id].join(),
+        :style =>"display: none;" ) %>
     </td>
   </tr>
 <% end -%>

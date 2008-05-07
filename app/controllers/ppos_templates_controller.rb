@@ -111,7 +111,11 @@ class PposTemplatesController < ApplicationController
     @department = Department.find(@degree_program.department_id)
     
     respond_to do |format|
-      format.html { redirect_to ppos_template_path(@department.id, @degree_program.id,@ppos_template.id) }
+      format.html { render :partial => 'prerequisite_template',
+               :locals  => {:prerequisite_templates => @ppos_template.prerequisite_templates,
+                            :ppos_template    => @ppos_template,
+                            :degree_program   => @degree_program,
+                            :department       => @department} }
     end
   end
   
@@ -124,7 +128,11 @@ class PposTemplatesController < ApplicationController
     @department = Department.find(@degree_program.department_id)
     
     respond_to do |format|
-      format.html { redirect_to ppos_template_path(@department.id, @degree_program.id,@ppos_template.id) }
+      format.html { render :partial => 'prerequisite_template',
+               :locals  => {:prerequisite_templates => @ppos_template.prerequisite_templates,
+                            :ppos_template    => @ppos_template,
+                            :degree_program   => @degree_program,
+                            :department       => @department} }
     end
   end
   
@@ -137,7 +145,11 @@ class PposTemplatesController < ApplicationController
     @department = Department.find(@degree_program.department_id)
     
     respond_to do |format|
-      format.html { redirect_to ppos_template_path(@department.id, @degree_program.id,@ppos_template.id) }
+      format.html { render :partial => 'header_template',
+                    :locals  => {:header_templates => @ppos_template.header_templates,
+                            :ppos_template    => @ppos_template,
+                            :degree_program   => @degree_program,
+                            :department       => @department } }
     end
   end
   
@@ -150,7 +162,11 @@ class PposTemplatesController < ApplicationController
     @department = Department.find(@degree_program.department_id)
     
     respond_to do |format|
-      format.html { redirect_to ppos_template_path(@department.id, @degree_program.id,@ppos_template.id) }
+      format.html { render :partial => 'header_template',
+                    :locals  => {:header_templates => @ppos_template.header_templates,
+                            :ppos_template    => @ppos_template,
+                            :degree_program   => @degree_program,
+                            :department       => @department } }
     end
   end
   
@@ -163,7 +179,11 @@ class PposTemplatesController < ApplicationController
     @department = Department.find(@degree_program.department_id)
     
     respond_to do |format|
-      format.html { redirect_to ppos_template_path(@department.id, @degree_program.id,@ppos_template.id) }
+      format.html { render :partial => 'header_template',
+                    :locals  => {:header_templates => @ppos_template.header_templates,
+                            :ppos_template    => @ppos_template,
+                            :degree_program   => @degree_program,
+                            :department       => @department } }
     end
   end
   
@@ -174,9 +194,14 @@ class PposTemplatesController < ApplicationController
     @ppos_template = PposTemplate.find(params[:ppos_template_id])
     @degree_program = DegreeProgram.find(@ppos_template.degree_program_id)
     @department = Department.find(@degree_program.department_id)
+    header_template = @course_template.header_template
     
     respond_to do |format|
-      format.html { redirect_to ppos_template_path(@department.id, @degree_program.id,@ppos_template.id) }
+      format.html { render :partial => 'header_template',
+                    :locals  => {:header_templates => @ppos_template.header_templates,
+                            :ppos_template    => @ppos_template,
+                            :degree_program   => @degree_program,
+                            :department       => @department } }
     end
   end
   

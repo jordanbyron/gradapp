@@ -8,23 +8,67 @@
       Credits
     </th>
     <th>
-      <%= link_to image_tag("up.png", :alt => "Move Up", :class => "table_image", :border => 0), :action => "move_header_up", :header_template_id => header_template.id, :ppos_template_id => @ppos_template.id %>
+      <%= link_to_remote image_tag("up.png", 
+                          :alt => "Move Up", 
+                          :class => "table_image", 
+                          :id => ['up_header_',header_template.id].join(), 
+                          :border => 0),
+                        :update => "ppos_body",
+                        :url => { :controller => 'ppos_templates',
+                                  :action => "move_header_up", 
+                                  :header_template_id => header_template.id, 
+                                  :ppos_template_id => @ppos_template.id },
+                        :before => "Element.show('" + ['spinner_up_header_',header_template.id].join() + 
+                                      "'); Element.hide('" + ['up_header_',header_template.id].join() + "')" %>
+      <%= image_tag("spinner.gif",
+              :align => "absmiddle",
+              :border => 0,
+              :id => ['spinner_up_header_',header_template.id].join(),
+              :style =>"display: none;" ) %>
+
     </th>
     <th>
-      <%= link_to image_tag("down.png", :alt => "Move Down", :class => "table_image", :border => 0), :action => "move_header_down", :header_template_id => header_template.id, :ppos_template_id => @ppos_template.id %>
+      <%= link_to_remote image_tag("down.png", 
+                          :alt => "Move Down", 
+                          :class => "table_image", 
+                          :id => ['down_header_',header_template.id].join(), 
+                          :border => 0), 
+                        :update => "ppos_body", 
+                        :url => { :controller => 'ppos_templates',
+                                  :action => "move_header_down", 
+                                  :header_template_id => header_template.id, 
+                                  :ppos_template_id => @ppos_template.id },
+                        :before => "Element.show('" + ['spinner_down_header_',header_template.id].join() + 
+                                      "'); Element.hide('" + ['down_header_',header_template.id].join() + "')" %>
+      <%= image_tag("spinner.gif",
+              :align => "absmiddle",
+              :border => 0,
+              :id => ['spinner_down_header_',header_template.id].join(),
+              :style =>"display: none;" ) %>
     </th>
     <th>
       <%= link_to image_tag("edit.png",  :class => "table_image",:border => 0),
       edit_header_template_path(@department.id,@degree_program.id,@ppos_template.id,header_template.id) %>
     </th>
     <th>
-      <%= link_to image_tag("remove.png",  :class => "table_image",:border => 0), 
-      header_template_path(@department.id,@degree_program.id,@ppos_template.id,header_template.id), 
-      :confirm => 'Are you sure?', 
-      :method => :delete %>
+      <%= link_to_remote image_tag("remove.png",  
+                    :class => "table_image",
+                    :id => ['delete_header_',header_template.id].join(),
+                    :border => 0), 
+                  :update => "ppos_body",
+                  :url => header_template_path(@department.id,@degree_program.id,@ppos_template.id,header_template.id),
+                  :method => :delete, 
+                  :confirm => 'Are you sure?', 
+                  :before => "Element.show('" + ['spinner_delete_header_',header_template.id].join() + 
+                              "'); Element.hide('" + ['delete_header_',header_template.id].join() + "')" %>
+      <%= image_tag("spinner.gif",
+              :align => "absmiddle",
+              :border => 0,
+              :id => ['spinner_delete_header_',header_template.id].join(),
+              :style =>"display: none;" ) %>
     </th>
   </tr>
-	<%= render :partial => 'course_template',
+	<%= render :partial => 'ppos_templates/course_template',
              :locals  => {:course_templates => header_template.course_templates,
                           :ppos_template    => @ppos_template,
                           :header_template  => header_template,
