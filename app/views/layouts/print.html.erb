@@ -3,7 +3,27 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
-    <%= stylesheet_link_tag "print" %>
+    <style>
+    	body {height: 8.5in; width: 11in; size: landscape; margin: 0px;}
+		h1 {font-size: 20px}
+		h2 {font-size: 16px}
+		h3 {font-size: 14px}
+
+		.topsection {
+			font-size: 11px;
+			text-align: center;
+		}
+
+		.middlesection table{
+    		font-size: 12px;
+    		border-collapse: collapse;
+    		table-layout: auto;
+		}
+
+		.middlesection th {
+			text-align: left;
+		}
+    </style>
     <title>Print: <%= yield(:title) || "GradTrak" %></title>
   </head>
   <body>

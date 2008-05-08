@@ -1,48 +1,70 @@
 <% title 'Planned Program of Study' %>
 
-<table class="topsection" cols="3" width="95%">
+<table class="topsection" cols="3" width="90%" align="center">
   <tr>
-  	<td width="30%"></td>
+  	<td width="30%" style="text-align: left">
+  	  <img src="/images/scsu.jpg">
+  	</td>
 	<td width="40%">
-	  <h2>Southern Connecticut State University<br />
-	  Planned Program of Graduate Study</h2>
+	  <h1>Southern Connecticut State University<br />
+	  <span style="font-size: 16px">Planned Program of Graduate Study</span></h1>
 	</td>
 	<td width="30%">
-	  <b>Banner I.D.</b>
-	  <%=h @graduate_applicant.studentID %>
+	  <b>Banner I.D.:</b> <%=h @graduate_applicant.studentID %>
 	</td>
   </tr>
+</table>
+<table class="topsection" cols="3" width="90%" align="center">
   <tr>
-    <td>
-  	  <table>
-    	<tr>
-      	  <th style="text-align: left">
-        	Prerequisites
-      	  </th>
-      	  <th style="text-align: center">
-            Met
-      	  </th>
-    	</tr>
-    	<% for ppos_prerequisite in @ppos.ppos_prerequisites -%>
-        <tr id="<%= dom_id(ppos_prerequisite) %>">
-          <td style="text-align: left">
-            <%= ppos_prerequisite.prerequisite %>
-          </td>
-          <td style="text-align: center">
-            <% if ppos_prerequisite.met %>
-              <%= image_tag("true.png", :class => "table_image") %>
-            <% else %>
-              <%= image_tag("false.png", :class => "table_image") %>
-            <% end %>
-          </td>
-        </tr>
-    	<% end -%>
-  	  </table>
+    <td width="35%">
+  	  <table width="100%" align="left" style="border: 1px solid black;">
+  	  	<td valign="top" width="50%">
+    	<table cols="2" width="100%">
+    	  <tr>
+      	  	<th width="95%" style="text-align: left">
+        	  Prerequisites
+      	  	</th>
+      	  	<th width="5%" style="text-align: center">
+           	  Met
+      	  	</th>
+    	  </tr>
+    	  <% prereq_count = 2 %>
+    	  <% for ppos_prerequisite in @ppos.ppos_prerequisites -%>
+    	  	<% if prereq_count <= 12 %>
+      	  	  <% if prereq_count == 7 %>
+      	  	  	</td></table>
+      	  	  	<td width="100%" valign="top"><table cols="2" width="100%">
+    	  	  	<tr>
+      	  		  <th width="95%" style="text-align: left">
+        		  	Prerequisites
+      	  		  </th>
+      	  		  <th width="5%" style="text-align: center">
+           		  	Met
+      	  		  </th>
+    		  	</tr>
+    		  	<% prereq_count += 1 %>
+    	  	  <% end %>
+        	  <tr id="<%= dom_id(ppos_prerequisite) %>">
+          		<td width="95%" style="text-align: left">
+              	  <%= ppos_prerequisite.prerequisite %>
+          		</td>
+          		<td width="5%" style="text-align: center">
+            	  <% if ppos_prerequisite.met %>
+              		Y
+            	  <% else %>
+              		N
+            	  <% end %>
+          		</td>
+        	  </tr>
+        	  <% prereq_count += 1 %>
+        	<% end %>
+    	  <% end -%>
+  	  </td></table></table>
 	</td>
-	<td>
+	<td width="30%">
 	  <p>
-	  	<h3><%=h DegreeProgram.find(@ppos.degree_program_id).name %></h3>
-	  	<h3><%=h @ppos.graduate_applicant.degree_program.department.name %></h3>
+	  	<h2><%=h DegreeProgram.find(@ppos.degree_program_id).name %><br />
+	  	<%=h @ppos.graduate_applicant.degree_program.department.name %></h2>
 	  </p>
 	  <p>
 	  	<% if @ppos.concentration != '0' %>
@@ -50,8 +72,8 @@
 	    <% end %>
 	  </p>
 	</td>
-	<td>
-	  <table>
+	<td width="35%" style="text-align: left">
+	  <table width="100%" align="right">
     	<tr>
       	  <td>
         	<b>Name:</b>
@@ -67,15 +89,13 @@
       	  <td>
         	<%=h @graduate_applicant.address1 %>
       	  </td>
-    	<% if @graduate_applicant.address2 != '' %>
     	  <tr>
       	    <td>
       		</td>
       		<td>
-        	  <%=h @graduate_applicant.address2 %>
+        	  <%=h @graduate_applicant.city %>, <%=h @graduate_applicant.state %> <%=h@graduate_applicant.zip %>
       		</td>
     	  </tr>
-    	<% end %>
     	<tr>
       	  <td>
         	<b>Day Phone:</b>
@@ -105,160 +125,144 @@
   </tr>
 </table>
 
-<p>
-  <table cols="2" width="95%" id="middlesection">
-  <tr><td>
+  <table cols="2" class="middlesection" width="90%" align="center">
+  <tr><td valign="top" width="50%">
   	<% cred_total = 0 %>
   	<% row_count = 1 %>
   	<% table_split = 0 %>
-  	<table cols="5">
+  	<table cols="5" border="1" width="100%">
   	  <% for ppos_header in @ppos.ppos_headers -%>
   	  	<% subtotal = 0 %>
+  	  	<% if row_count > 21 && row_count <= 40 %>
+  	  	  <tr>
+  	  	  	<th colspan="4">
+  			  <%= ppos_header.header %>
+  	  	  	</th>
+  	  	  </tr>
+  	  	  <% row_count += 1 %>
+  	  	<% end %>
+  	  	<% if row_count == 21 %>
+  	  	  </table></td>
+  	  	  <td valign="top" width="50%"><table cols="5" border="1" width="100%">
+  	  	    <tr>
+  	  	      <th colspan="4">
+  	  	  	  	<%= ppos_header.header %>
+  	  	  	  </th>
+  	  	  	  <th width="10%" style="text-align: center">
+  	  	  	  	Credits
+  	  	  	  </th>
+  	  	  	</tr>
+  	  	  <% table_split = 1 %>
+  	  	  <% row_count += 1 %>
+  	  	<% end %>
   	  	<% if row_count <= 20 %>
   	  	  <tr>
   	  	  	<th colspan="4">
   			  <%= ppos_header.header %>
   	  	  	</th>
   	  	  	<% if row_count == 1 %>
-  	  	  	  <th>
+  	  	  	  <th width="10%" style="text-align: center">
   	  	  	  	Credits
   	  	  	  </th>
   	  	  	<% end %>
   	  	  </tr>
-  	  	<% end %>
-  	  	<% if row_count == 21 %>
-  	  	  </table></td>
-  	  	  <td><table cols="5">
-  	  	  <% table_split = 1 %>
-  	  	<% end %>
-  	  	<% if row_count >= 21 && row_count <= 40 %>
-  	  	  <tr>
-  	  	  	<th colspan="4">
-  			  <%= ppos_header.header %>
-  	  	  	</th>
-  	  	  	<% if row_count == 21 %>
-  	  	  	  <th>
-  	  	  	  	Credits
-  	  	  	  </th>
-  	  	  	<% end %>
-  	  	  </tr>
+ 	  	  <% row_count += 1 %>
   	  	<% end %>
   	  	<% for ppos_course in ppos_header.ppos_courses -%>
-  	  	  <% if row_count <= 20 %>
-  	  	  	<tr>
-  	  	  	  <td>
-  	  	  	  	<%= ppos_course.short_dept_name %>
-  	  	  	  </td>
-  	  	  	  <td>
-  	  	  	    <%= ppos_course.course_number %>
-  	  	  	  </td>
-  	  	  	  <td>
-  	  	  	  	<%= ppos_course.course_name %>
-  	  	  	  </td>
-  	  	  	  <td>
-  	  	  	  	<%= ppos_course.credits %>
-  	  	  	  </td>
-  	  	  	  <td>
-  	  	  	  	<% if ppos_course.taken %>
-  	  	  	  	  <%= ppos_course.credits %>
-  	  	  	  	  <% subtotal += ppos_course.credits %>
-  	  	  	  	<% end %>
-  	  	  	  </td>
-  	  	  	</tr>
-  	  	  <% end %>
   	  	  <% if row_count == 21 && table_split == 0 %>
   	  	  	</table></td>
-  	  	  	<td><table cols="5">
+  	  	  	<td valign="top" width="50%"><table cols="5" border="1" width="100%">
   	  	  	  <tr>
   	  	  	  	<th colspan="4"></th>
-  	  	  	  	<th>
+  	  	  	  	<th width="10%" style="text-align: center">
   	  	  	  	  Credits
   	  	  	  	</th>
   	  	  	  </tr>
+  	  	  	  <% row_count += 1 %>
   	  	  	<% table_split = 1 %>
   	  	  <% end %>
-  	  	  <% if row_count >= 21 && row_count <= 40 %>
+  	  	  <% if row_count <= 40 %>
   	  	  	<tr>
-  	  	  	  <td>
+  	  	  	  <td style="text-align: center" width="6%">
   	  	  	  	<%= ppos_course.short_dept_name %>
   	  	  	  </td>
-  	  	  	  <td>
+  	  	  	  <td style="text-align: center" width="4%">
   	  	  	    <%= ppos_course.course_number %>
   	  	  	  </td>
-  	  	  	  <td>
+  	  	  	  <td style="text-align: left" width="78%">
   	  	  	  	<%= ppos_course.course_name %>
   	  	  	  </td>
-  	  	  	  <td>
+  	  	  	  <td style="text-align: center" width="2%">
   	  	  	  	<%= ppos_course.credits %>
   	  	  	  </td>
-  	  	  	  <td>
+  	  	  	  <td style="text-align: center" width="10%">
   	  	  	  	<% if ppos_course.taken %>
-  	  	  	  	  <% ppos_course.credits %>
+  	  	  	  	  <%= ppos_course.credits %>
   	  	  	  	  <% subtotal += ppos_course.credits %>
   	  	  	  	<% end %>
   	  	  	  </td>
   	  	  	  <% row_count += 1 %>
   	  	  	</tr>
   	  	  <% end %>
-  	  	  <% row_count += 1 %>
   	  	<% end -%>
   	  	<% if !ppos_header.ppos_courses.empty? %>
   	  	<% if row_count <= 20 %>
   	  	  <tr>
-  	  	  	<td colspan="4">
+  	  	  	<td colspan="4" style="text-align: right">
   	  	  	  SUBTOTAL
   	  	  	</td>
-  	  	  	<td>
+  	  	  	<td style="text-align: center">
   	  	  	  <%= subtotal %>
   	  	  	  <% cred_total += subtotal %>
   	  	  	</td>
   	  	  </tr>
+  	  	  <% row_count += 1 %>
   	  	<% end %>
   	  	<% if row_count == 21 && table_split == 0 %>
   	  		</table></td>
-  	  		<td><table cols="5">
+  	  		<td valign="top" width="50%"><table cols="5" border="1" width="100%">
   	  		  <tr>
   	  	  	  	<th colspan="4"></th>
-  	  	  	  	<th>
+  	  	  	  	<th width="10%" style="text-align: center">
   	  	  	  	  Credits
   	  	  	  	</th>
   	  	  	  </tr>
   	  	  	<% table_split = 1 %>
+  	  	  	<% row_count += 1 %>
   	  	<% end %>
   	  	<% if row_count >= 21 && row_count <= 40 %>
   	  	  <tr>
-  	  	  	<td colspan="4">
+  	  	  	<td colspan="4" style="text-align: right">
   	  	  	  SUBTOTAL
   	  	  	</td>
-  	  	  	<td>
+  	  	  	<td style="text-align: center">
   	  	  	  <%= subtotal %>
   	  	  	  <% cred_total += subtotal %>
   	  	  	</td>
   	  	  </tr>
+  	  	  <% row_count += 1 %>
   	  	<% end %>
   	  	<% end %>
-  	  	<% row_count += 1 %>
   	  <% end -%>
   	  <% if row_count <= 40 %>
   	  	<tr>
-  	  	  <td colspan="4">
+  	  	  <td colspan="4" style="text-align: right">
   	  	  	TOTAL CREDITS IN PROGRAM
   	  	  </td>
-  	  	  <td>
+  	  	  <td style="text-align: center">
   	  	  	<%= cred_total %>
   	  	  </td>
   	  	  <% row_count += 1 %>
   	  	</tr>
 	  <% end %>
 	  <% if row_count <= 40 %>
-	  	<%(row_count...40).each do |r| %>
-	  	<tr><td colspan="5">&nbsp;</td></tr>
+	  	<%(row_count...41).each do |r| %>
+	  		<tr><td colspan="5">&nbsp;</td></tr>
 	  	<% end %>
 	  <% end %>
 	</table>
   	</td></tr>
   </table>
-</p>
 
 <table cols="2" id="bottomsection">
 
