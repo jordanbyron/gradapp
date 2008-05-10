@@ -18,7 +18,7 @@
     <th>Sent date</th>
     <th>Text</th>
     <th>Type</th>
-    <th colspan=4>Controls</th>
+    <th colspan=2>Controls</th>
   </tr>
 
 <% for correspondence in @correspondences %>
@@ -27,8 +27,6 @@
     <td><%=h correspondence.body_short %></td>
     <td><%=h correspondence.correspondence_type %></td>
     <td><%= link_to 'Show', correspondence %></td>
-    <td><%= link_to 'Print', { :action => "print", :graduate_applicant_id => correspondence.graduate_applicant.id, :correspondence_id => correspondence.id }, :popup => true %></td>
-    <td><%= mail_to correspondence.graduate_applicant.email, 'Email', :body => correspondence.text %></td>
     <td><%= link_to image_tag("remove.png", :border => 0), correspondence, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>

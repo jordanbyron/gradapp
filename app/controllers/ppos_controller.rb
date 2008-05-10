@@ -93,7 +93,7 @@ class PposController < ApplicationController
     respond_to do |format|
       if @ppos.update_attributes(params[:ppos])
         flash[:notice] = 'Ppos was successfully updated.'
-        format.html { redirect_to(@ppos) }
+        format.html { redirect_to ppo_path(@ppos.graduate_applicant_id,@ppos) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

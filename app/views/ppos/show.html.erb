@@ -1,3 +1,5 @@
+<p style="color: green"><%= flash[:notice] %></p>
+
 <h1>Planned Program of Study</h1>
 
 <p>
@@ -11,8 +13,10 @@
 </p>
 
 <p>
-  <b>Expires on:</b>
-  <%=h @ppos.expires_date %>
+  <% form_for :ppos, @ppos, :url => ppo_path(@graduate_applicant, @ppos), :html => { :method => :put} do |p| %>
+    <b>Expires on:</b>
+    <%= p.date_select :expires_on, :order => [:month, :year], :discard_day => true %> <%= p.submit 'Save' %>
+  <% end %>
 </p>
 
 <p>
@@ -54,17 +58,22 @@
 
 <p>
   <table>
+    <% total = 0 %>
     <% for ppos_header in @ppos.ppos_headers -%>
+      <% subtotal = 0 %>
       <tr id="<%= dom_id(ppos_header) %>">
-        <th colspan=3>
+        <% if ppos_header.position == 1 %>
+        <th colspan=4>
           <%= ppos_header.header %>
         </th>
         <th>
           Credits
         </th>
-        <th>
-          Taking
+        <% else %>
+        <th colspan=5>
+          <%= ppos_header.header %>
         </th>
+        <% end %>
       </tr>
       <% for ppos_course in ppos_header.ppos_courses -%>
         <tr>
@@ -80,16 +89,34 @@
           <td>
             <%= ppos_course.credits %>
           </td>
-          <td>
+          <td align=center>
             <% if ppos_course.taken %>
-              <%= image_tag("true.png", :class => "table_image") %>
-            <% else %>
-              <%= image_tag("false.png", :class => "table_image") %>
+              <%= ppos_course.credits %>
+              <% subtotal += ppos_course.credits %>
             <% end %>
           </td>
         </tr>
       <% end -%>
+      <% if subtotal > 0 %>
+        <tr>
+          <td colspan=4>
+            Subtotal
+          </td>
+          <td align=center>
+            <%= subtotal %>
+          </td>
+        </tr>
+        <% total += subtotal %>
+      <% end %>
     <% end -%>
+    <tr>
+      <td colspan=4>
+        Total Credits in Program
+      </td>
+      <td align=center>
+        <%= total %>
+      </td>
+    </tr>
   </table>
 </p>
 

@@ -45,7 +45,20 @@ class CorrespondenceTemplate < ActiveRecord::Base
       newBody = newBody.gsub("^RequirementsNotMet^",requirements)
     end
 
+    if body.include? "^MailingAddress^"
+      address = graduate_applicant.address1
+      if graduate_applicant.address2.length > 0
+        address = [address,"\r\n",graduate_applicant.address2].join()
+      end
+      
+      address = [address,"\r\n",graduate_applicant.city,", ",graduate_applicant.state," ",graduate_applicant.zip].join()
+      
+      newBody = newBody.gsub("^MailingAddress^",address)
+    end
+
     newBody = newBody.gsub("^DegreeProgram^", graduate_applicant.degree_program.name)
     newBody = newBody.gsub("^ApplicantStatus^",graduate_applicant.applicant_status.status)
+    newBody = newBody.gsub("^StudentID^",graduate_applicant.studentID)
+    newBody = newBody.gsub("^GPA^",graduate_applicant.gpa.to_s)
   end
 end

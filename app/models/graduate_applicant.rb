@@ -17,7 +17,7 @@ class GraduateApplicant < ActiveRecord::Base
 
 	def self.search(search,page,department_id)
 		paginate  :per_page => 10, :page => page,
-              :conditions => ['(first_name like ? or last_name like ?) and department_id= ?', "%#{search}%","%#{search}%", department_id],
-              :order => 'first_name'
+              :conditions => ['(first_name like ? or last_name like ? or studentID like ?) and department_id= ?', "%#{search}%","%#{search}%","%#{search}%", department_id],
+              :order => 'last_name'
 	end
 end
