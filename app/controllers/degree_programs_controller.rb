@@ -62,9 +62,7 @@ class DegreeProgramsController < ApplicationController
   # POST /degree_programs
   # POST /degree_programs.xml
   def create
-    @department = Department.find(flash[:department_id])
     @degree_program = DegreeProgram.new(params[:degree_program])
-    @degree_program.department_id = @department.id
     
     respond_to do |format|
       if @degree_program.save
@@ -75,9 +73,11 @@ class DegreeProgramsController < ApplicationController
         @ppos_template.save
       
         flash[:notice] = 'Degree Program was successfully created.'
-        format.html { redirect_to department_degree_programs_path(@department) }
+        format.html { redirect_to department_degree_programs_path(@degree_program.department_id) }
         format.xml  { render :xml => @degree_program, :status => :created, :location => @degree_program }
       else
+        @department = Department.find(params[:department_id])
+        
         format.html { render :action => "new" }
         format.xml  { render :xml => @degree_program.errors, :status => :unprocessable_entity }
       end

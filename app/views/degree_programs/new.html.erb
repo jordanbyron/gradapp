@@ -4,7 +4,8 @@
 
 <%= error_messages_for :degree_program %>
 
-<% form_for(@degree_program) do |f| %>
+<% form_for [@department, @degree_program] do |f| %>
+  <%= f.hidden_field :department_id, :value => @department.id %>
   <p>
     <b>Name</b><br />
     <%= f.text_field :name %>
