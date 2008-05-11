@@ -70,6 +70,7 @@ class DegreeProgramsController < ApplicationController
         # Create PPoS
         @ppos_template = PposTemplate.new
         @ppos_template.degree_program_id = @degree_program.id
+        @ppos_template.concentrations = 0
         @ppos_template.save
       
         flash[:notice] = 'Degree Program was successfully created.'

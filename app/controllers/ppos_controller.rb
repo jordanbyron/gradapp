@@ -113,6 +113,24 @@ class PposController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
+  def update_subtotal
+    @header_position = params[:header_position]
+    @new_count = params[:new_count].to_i
+    @curr_subtotal = params[:curr_subtotal].to_i
+    @curr_total = params[:curr_total].to_i
+    
+    if params[:checked_state] != "1"
+      @new_count = 0 - @new_count
+    end
+
+    @new_subtotal = @curr_subtotal + @new_count
+    @new_total = @curr_total + @new_count
+
+    respond_to do |format|
+      format.js
+    end
+  end
   
   protected
   

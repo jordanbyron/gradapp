@@ -1,3 +1,4 @@
+<% title 'Graduate Applicant | ' + @graduate_applicant.full_name + ' | Planned Program of Study | New' %>
 <h1>New Planned Program of Study</h1>
 <h2><%= DegreeProgram.find(@ppos.degree_program_id).name %></h2>
 
@@ -97,12 +98,35 @@
               </td>
               <td align=center>
                 <input id="ppos_course_attributes__taken" name="ppos[course_attributes][][taken]" type="checkbox" value="1" />
+                 <%= observe_field  :ppos_course_attributes__taken, 
+                                    :url => { :action => :update_subtotal,
+                                              :new_count => ppos_course.credits,
+                                              :header_position => ppos_header.position }, 
+                                    :on => :selected,
+                                    :with => "'checked_state=' + value + '&curr_total=' + document.getElementById('total').childNodes[0].nodeValue + '&curr_subtotal=' + document.getElementById('" + ['subtotal_',ppos_header.position].join() + "').childNodes[0].nodeValue" %>
               </td>
             </tr>
           <% end %>
         <% end -%>
       <% end %>
+      <% if ppos_header.ppos_courses.length > 0 %>
+      <tr>
+        <td colspan = 4>
+          Subtotal
+        </td>
+        <td align=center>
+          <div id='<%= ['subtotal_',ppos_header.position].join() %>' >0</div>
+        </td>
+      </tr>
+      <% end %>
     <% end -%>
+    <tr>
+      <td colspan = 4 %>
+        Total Credits in Program
+      </td>
+      <td align=center>
+        <div id='total'>0</div>
+      </td>
   </table>
 </p>
 

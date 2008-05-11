@@ -1,0 +1,3 @@
+#page.visual_effect :highlight, ['subtotal_',@header_position].join()
+page.replace_html ['subtotal_',@header_position].join(), @new_subtotal
+page.replace_html 'total' , @new_total
