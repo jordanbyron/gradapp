@@ -73,6 +73,11 @@
     <%=h @graduate_applicant.studentID %>
   </p>
 
+  <p>
+    <b>GPA:</b>
+    <%=h @graduate_applicant.gpa %>
+  </p>
+
   <p><%= link_to 'Edit', edit_graduate_applicant_path(@graduate_applicant) %> | 
   <%= link_to 'Delete Applicant', @graduate_applicant, :confirm => 'Are you sure?', :method => :delete %> | 
   <%= link_to 'Back to Graduate Applicants', graduate_applicants_path %></p>
