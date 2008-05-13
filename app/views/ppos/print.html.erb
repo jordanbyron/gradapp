@@ -2,21 +2,21 @@
 
 <table class="topsection" cols="3" width="90%" align="center">
   <tr>
-  	<td width="30%" style="text-align: left">
+  	<td width="29%" style="text-align: left">
   	  <img src="/images/scsu.jpg">
   	</td>
-	<td width="40%">
-	  <h1>Southern Connecticut State University<br />
-	  <span style="font-size: 16px">Planned Program of Graduate Study</span></h1>
+	<td width="42%">
+	  <h1 style="font-variant: small-caps;">Southern Connecticut State University<br />
+	  <span style="font-size: 14px">Planned Program of Graduate Study</span></h1>
 	</td>
-	<td width="30%">
+	<td width="29%">
 	  <b>Banner I.D.:</b> <%=h @graduate_applicant.studentID %>
 	</td>
   </tr>
 </table>
 <table class="topsection" cols="3" width="90%" align="center">
   <tr>
-    <td width="35%">
+    <td width="32%">
   	  <table width="100%" align="left" style="border: 1px solid black;">
   	  	<td valign="top" width="50%">
     	<table cols="2" width="100%">
@@ -61,18 +61,18 @@
     	  <% end -%>
   	  </td></table></table>
 	</td>
-	<td width="30%">
+	<td width="36%">
 	  <p>
-	  	<h2><%=h DegreeProgram.find(@ppos.degree_program_id).name %><br />
+	  	<h2 style="font-variant: small-caps;"><%=h DegreeProgram.find(@ppos.degree_program_id).name %><br />
 	  	<%=h @ppos.graduate_applicant.degree_program.department.name %></h2>
 	  </p>
 	  <p>
 	  	<% if @ppos.concentration != '0' %>
-	    	<b>Concentration:</b> <%=h @ppos.concentration %>
+	    	<span style="font-weight: bold;">Concentration:</span> &nbsp;<%= @ppos.concentration %>
 	    <% end %>
 	  </p>
 	</td>
-	<td width="35%" style="text-align: left">
+	<td width="32%" style="text-align: left">
 	  <table width="100%" align="right">
     	<tr>
       	  <td>
@@ -114,7 +114,7 @@
     	</tr>
     	<tr>
       	  <td>
-        	<b>Email:</b>
+        	<b>E-mail:</b>
       	  </td>
       	  <td>
         	<%=h @graduate_applicant.email %>
@@ -133,7 +133,7 @@
   	<table cols="5" border="1" width="100%">
   	  <% for ppos_header in @ppos.ppos_headers -%>
   	  	<% subtotal = 0 %>
-  	  	<% if row_count > 21 && row_count <= 40 %>
+  	  	<% if row_count > 26 && row_count <= 50 %>
   	  	  <tr>
   	  	  	<th colspan="4">
   			  <%= ppos_header.header %>
@@ -141,7 +141,7 @@
   	  	  </tr>
   	  	  <% row_count += 1 %>
   	  	<% end %>
-  	  	<% if row_count == 21 %>
+  	  	<% if row_count == 26 %>
   	  	  </table></td>
   	  	  <td valign="top" width="50%"><table cols="5" border="1" width="100%">
   	  	    <tr>
@@ -155,7 +155,7 @@
   	  	  <% table_split = 1 %>
   	  	  <% row_count += 1 %>
   	  	<% end %>
-  	  	<% if row_count <= 20 %>
+  	  	<% if row_count <= 25 %>
   	  	  <tr>
   	  	  	<th colspan="4">
   			  <%= ppos_header.header %>
@@ -169,7 +169,7 @@
  	  	  <% row_count += 1 %>
   	  	<% end %>
   	  	<% for ppos_course in ppos_header.ppos_courses -%>
-  	  	  <% if row_count == 21 && table_split == 0 %>
+  	  	  <% if row_count == 26 && table_split == 0 %>
   	  	  	</table></td>
   	  	  	<td valign="top" width="50%"><table cols="5" border="1" width="100%">
   	  	  	  <tr>
@@ -181,7 +181,7 @@
   	  	  	  <% row_count += 1 %>
   	  	  	<% table_split = 1 %>
   	  	  <% end %>
-  	  	  <% if row_count <= 40 %>
+  	  	  <% if row_count <= 50 %>
   	  	  	<tr>
   	  	  	  <td style="text-align: center" width="6%">
   	  	  	  	<%= ppos_course.short_dept_name %>
@@ -206,10 +206,10 @@
   	  	  <% end %>
   	  	<% end -%>
   	  	<% if !ppos_header.ppos_courses.empty? %>
-  	  	<% if row_count <= 20 %>
+  	  	<% if row_count <= 25 %>
   	  	  <tr>
   	  	  	<td colspan="4" style="text-align: right">
-  	  	  	  SUBTOTAL
+  	  	  	  SUBTOTAL&nbsp;
   	  	  	</td>
   	  	  	<td style="text-align: center">
   	  	  	  <%= subtotal %>
@@ -218,7 +218,7 @@
   	  	  </tr>
   	  	  <% row_count += 1 %>
   	  	<% end %>
-  	  	<% if row_count == 21 && table_split == 0 %>
+  	  	<% if row_count == 26 && table_split == 0 %>
   	  		</table></td>
   	  		<td valign="top" width="50%"><table cols="5" border="1" width="100%">
   	  		  <tr>
@@ -230,10 +230,10 @@
   	  	  	<% table_split = 1 %>
   	  	  	<% row_count += 1 %>
   	  	<% end %>
-  	  	<% if row_count >= 21 && row_count <= 40 %>
+  	  	<% if row_count >= 26 && row_count <= 50 %>
   	  	  <tr>
   	  	  	<td colspan="4" style="text-align: right">
-  	  	  	  SUBTOTAL
+  	  	  	  SUBTOTAL&nbsp;
   	  	  	</td>
   	  	  	<td style="text-align: center">
   	  	  	  <%= subtotal %>
@@ -244,10 +244,10 @@
   	  	<% end %>
   	  	<% end %>
   	  <% end -%>
-  	  <% if row_count <= 40 %>
+  	  <% if row_count <= 50 %>
   	  	<tr>
   	  	  <td colspan="4" style="text-align: right">
-  	  	  	TOTAL CREDITS IN PROGRAM
+  	  	  	TOTAL CREDITS IN PROGRAM&nbsp;
   	  	  </td>
   	  	  <td style="text-align: center">
   	  	  	<%= cred_total %>
@@ -255,8 +255,8 @@
   	  	  <% row_count += 1 %>
   	  	</tr>
 	  <% end %>
-	  <% if row_count <= 40 %>
-	  	<%(row_count...41).each do |r| %>
+	  <% if row_count <= 50 %>
+	  	<%(row_count...51).each do |r| %>
 	  		<tr><td colspan="5">&nbsp;</td></tr>
 	  	<% end %>
 	  <% end %>
@@ -264,6 +264,45 @@
   	</td></tr>
   </table>
 
-<table cols="2" id="bottomsection">
-
+<table cols="2" width="90%" class="bottomsection" align="center">
+  <tr>
+    <td width="45%">
+      <table width="90%" align="left" cellpadding="5">
+        <tr>
+          <td style="border: 2px solid black;">
+            Graduate Office Use Only<br />Master's degree requirements must be completed by:
+          </td>
+        </tr>
+      </table>
+    </td>
+    <td width="55%">
+      <table width="95%" cols="2" cellpadding="7">
+        <tr>
+          <td width="75%">
+            Student:______________________________________________________
+          </td>
+          <td width="25%">
+            Date:__________
+          </td>
+        </tr>
+        <tr>
+          <td width="75%">
+            Advisor:______________________________________________________
+          </td>
+          <td width="25%">
+            Date:__________
+          </td>
+        </tr>
+        <tr>
+          <td width="75%">
+            Associate Dean or<br />
+            Dean of Graduate Studies:_______________________________________
+          </td>
+          <td width="25%" valign="bottom">
+            Date:__________
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
 </table>

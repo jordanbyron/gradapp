@@ -9,8 +9,8 @@
 <table>
   <tr>
     <th>Note</th>
-    <th>Date Created</th>
-    <th>Created By</th>
+    <th>Created</th>
+    <th>Author</th>
     <th colspan=2>Actions</th>
   </tr>
 <% for note in @notes -%>
@@ -28,10 +28,10 @@
       <%= link_to image_tag("edit.png",  :class => "table_image",:border => 0),
       edit_graduate_applicant_note_path(@graduate_applicant.id,note) %>
     </td>
-    <td align="center">
-    <%= link_to image_tag("remove.png", :border => 0), 
-      note, 
-      :confirm => 'Are you sure?', 
+    <td>
+    <%= link_to image_tag("remove.png", :class => "table_image",:border => 0),
+      note,
+      :confirm => 'Are you sure?',
       :method => :delete %>
     </td>
   </tr>
@@ -56,6 +56,6 @@
 </div>
 
 <p>
-  <%= link_to_remote "Add Note", :url => {:action => "toggle_new_note"} %> | 
+  <%= link_to_remote "Add Note", :url => {:action => "toggle_new_note"} %> |
   <%= link_to 'Back to Graduate Applicants', graduate_applicants_path %>
 </p>

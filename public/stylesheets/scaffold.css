@@ -18,7 +18,14 @@ body, p, ol, ul, td {
 
 h1 { font-family: "Trebuchet MS", Arial, sans-serif; font-size: 28px; font-style: italic;}
 h2 { font-family: "Trebuchet MS", Arial, sans-serif; font-size: 24px; font-style: italic;}
-h3 { font-family: "Trebuchet MS", Arial, sans-serif; font-size: 18px; font-style: italic;}
+h3 { font-family: "Trebuchet MS", Arial, sans-serif; font-size: 18px;}
+
+#top_links {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  color: #fff;
+  font-weight: bold;
+}
 
 #container {
   padding: 0px;
@@ -74,6 +81,12 @@ h3 { font-family: "Trebuchet MS", Arial, sans-serif; font-size: 18px; font-style
 }
 
 #contents2 th {
+  color: #fff;
+  font-weight: bold;
+  background: #000 url("/images/gradient.png") repeat-x top left;
+}
+
+.tablehead {
   color: #fff;
   font-weight: bold;
   background: #000 url("/images/gradient.png") repeat-x top left;

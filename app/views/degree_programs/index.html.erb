@@ -6,18 +6,11 @@
 
 <p>
   <h3>
-    <%= link_to 'Department Information', department_path(@department) %> | 
-    <%= link_to 'Application Requirements', department_application_requirements_path(@department) %> | 
+    <%= link_to 'Department Information', department_path(@department) %> |
+    <%= link_to 'Application Requirements', department_application_requirements_path(@department) %> |
     Degree Programs
   </h3>
 </p>
-
-<% form_tag department_degree_programs_path(@department), :method => 'get' do %>
-	<p>
-		<%= text_field_tag :search, params[:search] %>
-		<%= submit_tag "Search" %>
-	</p>
-<% end %>
 
 <table>
   <tr>
@@ -27,11 +20,11 @@
 
 <% for degree_program in @degree_programs %>
   <tr class="<%= cycle('even', 'odd') %>">
-    <td><%= link_to degree_program.name, department_degree_program_path(@department,degree_program) %></td>
+    <td><%= degree_program.name %></td>
     <td><%= link_to 'Degree Requirements', degree_requirements_path(@department.id, degree_program.id) %></td>
     <td><%= link_to 'PPoS Template', ppos_templates_path(@department.id, degree_program.id)  %></td>
-    <td><%= link_to 'Edit', edit_department_degree_program_path(@department,degree_program) %></td>
-    <td><%= link_to 'Destroy', degree_program, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to image_tag("edit.png",  :class => "table_image",:border => 0), edit_department_degree_program_path(@department,degree_program) %></td>
+    <td><%= link_to image_tag("remove.png", :class => "table_image",:border => 0), degree_program, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>

@@ -46,7 +46,7 @@ class ApplicantStatusesController < ApplicationController
 
     respond_to do |format|
       if @applicant_status.save
-        flash[:notice] = 'ApplicantStatus was successfully created.'
+        flash[:notice] = 'Applicant Status was successfully created.'
         format.html { redirect_to(@applicant_status) }
         format.xml  { render :xml => @applicant_status, :status => :created, :location => @applicant_status }
       else

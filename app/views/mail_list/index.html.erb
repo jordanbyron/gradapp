@@ -1,5 +1,16 @@
+<% title 'Generate Mailing List' %>
+
+<h1>Generate Mailing List</h1>
+
+<p style="font-style: italic">
+	Select from the list of statuses below and click 'Generate' to receive a full list of e-mail addresses for every graduate applicant with that status. This list can then be copied and pasted into your e-mail client to send a message to all students with that status.
+</p>
+
 <% form_tag :controller => 'mail_list', :action => 'generate_list' do %>
   <%= select("graduate_applicant","applicant_status_id", ApplicantStatus.find(:all).collect {|d| [d.status, d.id] }) %>
   <%= submit_tag "Generate" %>
-
 <%end%>
+
+<p>
+	<%= link_to 'Back to Graduate Applicants', graduate_applicants_path %>
+</p>

@@ -4,7 +4,6 @@
 
 <p style="color: green"><%= flash[:notice] %></p>
 
-
 <% form_tag graduate_applicants_path, :method => 'get' do %>
 	<p>
 		<%= text_field_tag :search, params[:search] %>
@@ -15,10 +14,10 @@
 <table>
 	<tr>
 		<th>First Name</th>
-    <th>Last Name</th>
-    <th>Phone (Day)</th>
-    <th>Status</th>
-    <th colspan=3>Controls</th>
+    	<th>Last Name</th>
+    	<th>Banner ID</th>
+    	<th>Status</th>
+    	<th colspan=3>Controls</th>
 	</tr>
 		<% for applicants in @graduate_applicants %>
       <tr class="<%= cycle('even', 'odd') %>">
@@ -29,7 +28,7 @@
           <%= link_to h(applicants.last_name), :action => 'show', :id => applicants %>
         </td>
         <td>
-          <%= link_to h(applicants.phone_day), :action => 'show', :id => applicants %>
+          <%= applicants.studentID %>
         </td>
         <td>
           <%= ApplicantStatus.find(applicants.applicant_status_id).status %>
@@ -50,6 +49,6 @@
 <%= will_paginate @graduate_applicants %>
 
 <p>
-  <%= link_to 'Mailing List', :controller => 'mail_list' %> | 
-  <%= link_to 'Create Graduate Applicant', new_graduate_applicant_path %>
+  <%= link_to 'New Graduate Applicant', new_graduate_applicant_path %> |
+  <%= link_to 'Generate Mailing List', :controller => 'mail_list' %>
 </p>

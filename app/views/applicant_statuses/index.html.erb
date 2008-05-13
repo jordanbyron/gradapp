@@ -1,12 +1,5 @@
 <h1>Applicant Statuses</h1>
 
-<% form_tag applicant_statuses_path, :method => 'get' do %>
-	<p>
-		<%= text_field_tag :search, params[:search] %>
-		<%= submit_tag "Search" %>
-	</p>
-<% end %>
-
 <table>
   <tr>
     <th>Status</th>
@@ -18,9 +11,8 @@
   <tr class="<%= cycle('even', 'odd') %>">
     <td><%=h applicant_status.status %></td>
     <td><%=h applicant_status.short_status %></td>
-    <td><%= link_to 'Show', applicant_status %></td>
-    <td><%= link_to 'Edit', edit_applicant_status_path(applicant_status) %></td>
-    <td><%= link_to 'Destroy', applicant_status, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to image_tag("edit.png",  :class => "table_image",:border => 0), edit_applicant_status_path(applicant_status) %></td>
+    <td><%= link_to image_tag("remove.png", :class => "table_image",:border => 0), applicant_status, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>

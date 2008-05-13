@@ -7,70 +7,127 @@
 <%= error_messages_for :graduate_applicant %>
 
 <% form_for(@graduate_applicant) do |f| %>
+<table>
+	<tr>
+		<td class="tablehead">
+			First Name:
+		</td>
+		<td>
+			<%= f.text_field :first_name %>
+    	</td>
+    </tr>
+    <tr>
+		<td class="tablehead">
+			M.I.:
+		</td>
+		<td>
+			<%= f.text_field :middle_name %>
+    	</td>
+    </tr>
+	<tr>
+		<td class="tablehead">
+			Last Name:
+		</td>
+		<td>
+			<%= f.text_field :last_name %>
+    	</td>
+    </tr>
+    <tr>
+		<td class="tablehead">
+			Suffix:
+		</td>
+		<td>
+			<%= f.text_field :suffix %>
+    	</td>
+    </tr>
+	<tr>
+		<td class="tablehead">
+			Address 1:
+		</td>
+		<td>
+			<%= f.text_field :address1 %>
+    	</td>
+    </tr>
+    <tr>
+		<td class="tablehead">
+			Address 2:
+		</td>
+		<td>
+			<%= f.text_field :address2 %>
+    	</td>
+    </tr>
+    <tr>
+		<td class="tablehead">
+			City:
+		</td>
+		<td>
+			<%= f.text_field :city %>
+    	</td>
+    </tr>
+    <tr>
+		<td class="tablehead">
+			State:
+		</td>
+		<td>
+			<%= f.text_field :state %>
+    	</td>
+    </tr>
+    <tr>
+		<td class="tablehead">
+			Zip:
+		</td>
+		<td>
+			<%= f.text_field :zip %>
+    	</td>
+    </tr>
+    <tr>
+		<td class="tablehead">
+			Phone (day):
+		</td>
+		<td>
+			<%= f.text_field :phone_day %>
+    	</td>
+    </tr>
+    <tr>
+		<td class="tablehead">
+			Phone (night):
+		</td>
+		<td>
+			<%= f.text_field :phone_night %>
+    	</td>
+    </tr>
+    <tr>
+		<td class="tablehead">
+			E-mail:
+		</td>
+		<td>
+			<%= f.text_field :email %>
+    	</td>
+    </tr>
+    <tr>
+		<td class="tablehead">
+			Student ID:
+		</td>
+		<td>
+			<%= f.text_field :studentID %>
+    	</td>
+    </tr>
+    <tr>
+		<td class="tablehead">
+			GPA:
+		</td>
+		<td>
+			<%= f.text_field :gpa %>
+    	</td>
+    </tr>
+</table>
+  <p><label for="applicant_status_id"><b>Status:</b></label>
+    <%= select("graduate_applicant", "applicant_status_id", ApplicantStatus.find(:all).collect {|d| [d.status, d.id] }) %></p>
   <p>
-    <b>First name</b><br />
-    <%= f.text_field :first_name %>
-  </p>
-  <p>
-    <b>Middle initial</b><br />
-    <%= f.text_field :middle_name %>
-  </p>
-	
-  <p>
-    <b>Last name</b><br />
-    <%= f.text_field :last_name %>
-  </p>
-  <p>
-    <b>Suffix</b><br />
-    <%= f.text_field :suffix %>
-  </p>
-  <p>
-    <b>Address1</b><br />
-    <%= f.text_field :address1 %>
-  </p>
 
   <p>
-    <b>Address2</b><br />
-    <%= f.text_field :address2 %>
-  </p>
-
-  <p>
-    <b>City</b><br />
-    <%= f.text_field :city %>
-  </p>
-
-  <p>
-    <b>State</b><br />
-    <%= f.text_field :state %>
-  </p>
-
-  <p>
-    <b>Zip</b><br />
-    <%= f.text_field :zip %>
-  </p>
-
-  <p>
-    <b>Phone (day)</b><br />
-    <%= f.text_field :phone_day %>
-  </p>
-  <p>
-    <b>Phone (night)</b><br />
-    <%= f.text_field :phone_night %>
-  </p>
-
-  <p>
-    <b>Email</b><br />
-    <%= f.text_field :email %>
-  </p>
-
-  <p>
-    <b>Student ID</b><br />
-    <%= f.text_field :studentID %>
-  </p>
-
-  <p>
-    <b>GPA</b><br />
-    <%= f.text_field :gpa %>
+    <b>Degree Program:</b>
+    <%= select("graduate_applicant", "degree_program_id", DegreeProgram.find(:all, :conditions => { :department_id => current_user.department_id }).collect {|d| [d.name, d.id] }) %>
   </p>
 
   <p>

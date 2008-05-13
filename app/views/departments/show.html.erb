@@ -7,8 +7,8 @@
 <% if current_user.graduate_coordinator? %>
   <p>
     <h3>
-      Department Information | 
-      <%= link_to 'Application Requirements', department_application_requirements_path(@department) %> | 
+      Department Information |
+      <%= link_to 'Application Requirements', department_application_requirements_path(@department) %> |
       <%= link_to 'Degree Programs', department_degree_programs_path(@department) %>
     </h3>
   </p>
@@ -20,6 +20,5 @@
 </p>
 
 <% if current_user.admin? %>
-  <%= link_to 'Edit', edit_department_path(@department) %> |
-  <%= link_to 'Back', departments_path %>
+  <%= link_to 'Edit', edit_department_path(@department) %>
 <% end %>

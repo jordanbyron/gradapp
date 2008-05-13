@@ -4,18 +4,11 @@
 
 <p>
   <h3>
-    <%= link_to 'Degree Information', department_degree_program_path(@department,@degree_program) %> | 
+    <%= link_to 'Degree Information', department_degree_program_path(@department,@degree_program) %> |
     Degree Requirements |
     <%= link_to 'Planned Program of Study Template', ppos_templates_path(@department.id, @degree_program.id)  %>
   </h3>
 </p>
-
-<% form_tag degree_requirements_path(@department,@degree_program), :method => 'get' do %>
-	<p>
-		<%= text_field_tag :search, params[:search] %>
-		<%= submit_tag "Search" %>
-	</p>
-<% end %>
 
 <table>
   <tr>
@@ -26,8 +19,8 @@
 <% for degree_requirement in @degree_requirements %>
   <tr class="<%= cycle('even', 'odd') %>">
     <td><%=h degree_requirement.description %></td>
-    <td><%= link_to 'Edit', edit_degree_requirement_path(@department.id, @degree_program.id, degree_requirement) %></td>
-    <td><%= link_to 'Destroy', degree_requirement_path(@department.id, @degree_program.id, degree_requirement.id), :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to image_tag("edit.png",  :class => "table_image",:border => 0), edit_degree_requirement_path(@department.id, @degree_program.id, degree_requirement) %></td>
+    <td><%= link_to image_tag("remove.png", :class => "table_image",:border => 0), degree_requirement_path(@department.id, @degree_program.id, degree_requirement.id), :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
@@ -35,6 +28,6 @@
 <%= will_paginate @degree_requirements %>
 
 <p>
-  <%= link_to 'Back to Degree Programs', department_degree_programs_path(@department) %> | 
-  <%= link_to 'Create Degree Requirement', new_degree_requirement_path %>
+  <%= link_to 'Create Degree Requirement', new_degree_requirement_path %> |
+  <%= link_to 'Back to Degree Programs', department_degree_programs_path(@department) %>
 </p>

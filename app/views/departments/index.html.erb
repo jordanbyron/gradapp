@@ -22,8 +22,8 @@
   <tr class="<%= cycle('even', 'odd') %>">
     <td><%=h department.name %></td>
     <td><%=h department.short_name %></td>
-    <td><%= link_to 'Edit', edit_department_path(department) %></td>
-    <td><%= link_to 'Destroy', department, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to image_tag("edit.png",  :class => "table_image",:border => 0), edit_department_path(department) %></td>
+    <td><%= link_to image_tag("remove.png", :class => "table_image",:border => 0), department, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>

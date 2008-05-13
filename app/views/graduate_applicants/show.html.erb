@@ -1,84 +1,93 @@
 <% title 'Graduate Applicant | ' + @graduate_applicant.full_name + ' | Contact Info' %>
 
-<p style="color: green"><%= flash[:notice] %></p>
-
 <%= render :partial => 'navigation',
            :locals  => {:page               => 'Contact Info',
                         :graduate_applicant => @graduate_applicant } %>
 
 <div id="contact_info">
-  <p>
-    <b>First name:</b>
-    <%=h @graduate_applicant.first_name %>
-  </p>
-
-  <p>
-    <b>Middle Initial:</b>
-    <%=h @graduate_applicant.middle_name %>
-  </p>
-
-  <p>
-    <b>Last name:</b>
-    <%=h @graduate_applicant.last_name %>
-  </p>
-
-  <p>
-    <b>Suffix:</b>
-    <%=h @graduate_applicant.suffix %>
-  </p>
-
-  <p>
-
-  <p>
-    <b>Address1:</b>
-    <%=h @graduate_applicant.address1 %>
-  </p>
-
-  <p>
-    <b>Address2:</b>
-    <%=h @graduate_applicant.address2 %>
-  </p>
-
-  <p>
-    <b>City:</b>
-    <%=h @graduate_applicant.city %>
-  </p>
-
-  <p>
-    <b>State:</b>
-    <%=h @graduate_applicant.state %>
-  </p>
-
-  <p>
-    <b>Zip:</b>
-    <%=h @graduate_applicant.zip %>
-  </p>
-
-  <p>
-    <b>Phone (day):</b>
-    <%=h @graduate_applicant.phone_day %>
-  </p>
-  <p>
-    <b>Phone (night):</b>
-    <%=h @graduate_applicant.phone_night %>
-  </p>
-
-  <p>
-    <b>Email:</b>
-    <%=h @graduate_applicant.email %>
-  </p>
-
-  <p>
-    <b>Studentid:</b>
-    <%=h @graduate_applicant.studentID %>
-  </p>
-
-  <p>
-    <b>GPA:</b>
-    <%=h @graduate_applicant.gpa %>
-  </p>
-
-  <p><%= link_to 'Edit', edit_graduate_applicant_path(@graduate_applicant) %> | 
-  <%= link_to 'Delete Applicant', @graduate_applicant, :confirm => 'Are you sure?', :method => :delete %> | 
-  <%= link_to 'Back to Graduate Applicants', graduate_applicants_path %></p>
+<table>
+	<tr class="even">
+		<td class="tablehead">
+			Name:
+		</td>
+		<td>
+			<%=h @graduate_applicant.first_name %>
+    		<%=h @graduate_applicant.middle_name %>.
+    		<%=h @graduate_applicant.last_name %>
+    		<%=h @graduate_applicant.suffix %>
+    	</td>
+    </tr>
+    <tr class="odd">
+		<td class="tablehead">
+			Address:
+		</td>
+		<td>
+			<%=h @graduate_applicant.address1 %>
+    		<%=h @graduate_applicant.address2 %>&nbsp;
+    		<%=h @graduate_applicant.city %>,
+    		<%=h @graduate_applicant.state %>
+    		<%=h @graduate_applicant.zip %>
+    	</td>
+    </tr>
+	<tr class="even">
+		<td class="tablehead">
+			Phone (day):
+		</td>
+		<td>
+			<%=h @graduate_applicant.phone_day %>
+    	</td>
+    </tr>
+    <tr class="odd">
+		<td class="tablehead">
+			Phone (night):
+		</td>
+		<td>
+			<%=h @graduate_applicant.phone_night %>
+    	</td>
+    </tr>
+	<tr class="even">
+		<td class="tablehead">
+			E-mail:
+		</td>
+		<td>
+			<%=h @graduate_applicant.email %>
+    	</td>
+    </tr>
+    <tr class="odd">
+		<td class="tablehead">
+			Student ID:
+		</td>
+		<td>
+			<%=h @graduate_applicant.studentID %>
+    	</td>
+    </tr>
+    <tr class="even">
+		<td class="tablehead">
+			GPA:
+		</td>
+		<td>
+			<%=h @graduate_applicant.gpa %>
+    	</td>
+    </tr>
+    <tr class="odd">
+		<td class="tablehead">
+			Status:
+		</td>
+		<td>
+			<%=h ApplicantStatus.find(@graduate_applicant.applicant_status_id).status %>
+    	</td>
+    </tr>
+    <tr class="even">
+		<td class="tablehead">
+			Degree:
+		</td>
+		<td>
+			<%=h DegreeProgram.find(@graduate_applicant.degree_program_id).name %>
+    	</td>
+    </tr>
+</table>
 </div>
+
+  <p><%= link_to 'Edit', edit_graduate_applicant_path(@graduate_applicant) %> |
+  <%= link_to 'Delete Applicant', @graduate_applicant, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to 'Back to Graduate Applicants', graduate_applicants_path %></p>

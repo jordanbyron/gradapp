@@ -1,23 +1,16 @@
 <% title [@department.name,'Department'].join(' ') + ' | Application Requirements' %>
 
-<p style="color: green"><%= flash[:notice] %></p>
-
 <h1><%= [@department.name,'Department'].join(' ') %></h1>
+
+<p style="color: #fff; font-style: italic"><%= flash[:notice] %></p>
 
 <p>
   <h3>
-    <%= link_to 'Department Information', department_path(@department) %> | 
-    Application Requirements | 
+    <%= link_to 'Department Information', department_path(@department) %> |
+    Application Requirements |
     <%= link_to 'Degree Programs', department_degree_programs_path(@department) %>
   </h3>
 </p>
-
-<% form_tag department_application_requirements_path(@department), :method => 'get' do %>
-	<p>
-		<%= text_field_tag :search, params[:search] %>
-		<%= submit_tag "Search" %>
-	</p>
-<% end %>
 
 <table>
   <tr>
@@ -28,24 +21,22 @@
 <% for application_requirement in @application_requirements %>
   <tr class="<%= cycle('even', 'odd') %>">
     <td><%=h application_requirement.description %></td>
-    <td><%= link_to 'Edit', edit_department_application_requirement_path(@department,application_requirement) %></td>
-    <td><%= link_to 'Destroy', application_requirement, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to image_tag("edit.png",  :class => "table_image",:border => 0), edit_department_application_requirement_path(@department,application_requirement) %></td>
+    <td><%= link_to image_tag("remove.png", :class => "table_image",:border => 0), application_requirement, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
 
-<%= will_paginate @application_requirements %>
-
 <% if flash[:new_req_div] %>
-  <div id="new_req_div">
+	<div id="new_req_div">
 <% else %>
- <div id="new_req_div" style="display:none;">
+	<div id="new_req_div" style="display:none;">
 <% end %>
 
 <% form_for [@department, @new_requirement] do |f| -%>
-    <br>New Requirement:</br>
-    <br><%= f.text_field(:description) %></br>
-  <br><%= f.submit 'Add this Application Requirement' %> | <%= link_to_remote "Cancel", :url => {:action => "toggle_new_requirement"} %></br>
+    <p>New Requirement:</p>
+    <p><%= f.text_field(:description) %></p>
+    <%= f.submit 'Add this Application Requirement' %> | <%= link_to_remote "Close", :url => {:action => "toggle_new_requirement"} %>
 <% end -%>
 </div>
 

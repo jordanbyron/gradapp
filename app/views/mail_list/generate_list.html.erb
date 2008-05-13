@@ -1,9 +1,15 @@
-<h1>
-      Generated Mail List
-</h1>
-<p>
-Listing all <%= @text_status %> applicant email addresses
+<% title 'Generate Mailing List' %>
+
+<h1>Generate Mailing List</h1>
+
+<p style="font-style: italic;">
+Listing all <%= @text_status %> applicant e-mail addresses.
 </p>
-<textarea rows='15' cols='40' readonly='readonly'><% for graduate_applicant in @graduate_applicants -%><%= graduate_applicant.email -%>;
+
+<textarea rows="15" cols="60" readonly="readonly"><% for graduate_applicant in @graduate_applicants -%><%= graduate_applicant.email -%>;
 <% end %>
 </textarea>
+
+<p>
+	<%= link_to 'Back to Graduate Applicants', graduate_applicants_path %>
+</p>

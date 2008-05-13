@@ -1,7 +1,7 @@
 <h1>Editing Applicant Status</h1>
 
 <p>
-  <h2>Please note any changes will affect all applicants currently flagged with this status!</h2>
+  <i>Please Note: Changes made will be reflected in all applicants with this status.</i>
 </p>
 
 <%= error_messages_for :applicant_status %>
@@ -22,5 +22,4 @@
   </p>
 <% end %>
 
-<%= link_to 'Show', @applicant_status %> |
-<%= link_to 'Back', applicant_statuses_path %>
+<%= link_to 'Cancel', applicant_statuses_path %>
