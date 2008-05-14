@@ -17,7 +17,7 @@
 <% for ppos in @ppos %>
   <tr>
     <td><%=h ppos.created_date %></td>
-    <td><%=h ppos.created_by %></td>
+    <td><%=h ppos.created_by_full_name %></td>
     <td><%=h ppos.expires_date %></td>
     <td><%= link_to 'Show', ppo_path(@graduate_applicant.id,ppos) %></td>
     <td><%= link_to "Print", { :action => "print", :graduate_applicant_id => @graduate_applicant.id, :ppos_id => ppos.id }, :popup => true %></td>

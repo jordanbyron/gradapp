@@ -7,11 +7,10 @@
                         :graduate_applicant => @graduate_applicant } %>
 
 <% form_tag graduate_applicant_correspondences_path(@graduate_applicant), :method => 'get' do %>
-	<p>
 		<%= text_field_tag :search, params[:search] %>
 		<%= submit_tag "Search" %>
-	</p>
 <% end %>
+<br />
 
 <table>
   <tr>

@@ -36,10 +36,10 @@
 <% form_for [@department, @new_requirement] do |f| -%>
     <p>New Requirement:</p>
     <p><%= f.text_field(:description) %></p>
-    <%= f.submit 'Add this Application Requirement' %> | <%= link_to_remote "Close", :url => {:action => "toggle_new_requirement"} %>
+    <%= f.submit 'Add this Application Requirement' %> | <a href="#" onClick="new Effect.toggle('new_req_div', 'slide');">Close</a>
 <% end -%>
 </div>
 
 <p>
-  <%= link_to_remote "Create Application Requirement", :url => {:action => "toggle_new_requirement"} %>
+  <a href="#" onClick="new Effect.toggle('new_req_div', 'slide');">Create Application Requirement</a>
 </p>

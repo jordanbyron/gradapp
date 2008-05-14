@@ -11,6 +11,10 @@ class Ppos < ActiveRecord::Base
     expires_on.strftime("%m/%Y")
   end
 
+  def created_by_full_name
+    User.find(:first, :conditions => { :login => created_by }).full_name
+  end
+
   def prerequisite_attributes=(prerequisite_attributes)
     prerequisite_attributes.each do |attributes|
       if attributes[:met] == nil
