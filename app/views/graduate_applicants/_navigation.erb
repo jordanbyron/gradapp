@@ -5,12 +5,14 @@
 <p style="color: #fff; font-style: italic"><%= flash[:notice] %></p>
 
 <p>
-  <div id="top_links">
+  <div>
+    <h3>
 	<% if page == 'Contact Info' %>Contact Info<% else %><%=link_to 'Contact Info', graduate_applicant_path(@graduate_applicant) %><% end %> |
     <% if page == 'Notes' %>Notes<% else %><%= link_to 'Notes', graduate_applicant_notes_path(@graduate_applicant) %><% end %> |
     <% if page == 'Requirements' %>Application Requirements<% else %><%= link_to 'Application Requirements', applicant_requirements_path(@graduate_applicant) %><% end %> |
     <% if page == 'Correspondence' %>Correspondence<% else %><%= link_to 'Correspondence', graduate_applicant_correspondences_path(@graduate_applicant) %><% end %> |
     <% if page == 'PPoS' %>Planned Program of Study<% else %><%= link_to 'Planned Program of Study', ppos_path(@graduate_applicant) %><% end %>
+    </h3>
   </div>
 </p>
 <br />
