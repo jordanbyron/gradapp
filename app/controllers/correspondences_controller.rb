@@ -30,6 +30,7 @@ class CorrespondencesController < ApplicationController
 
   def show
     @correspondence = Correspondence.find(params[:id])
+    @graduate_applicant = GraduateApplicant.find(params[:graduate_applicant_id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -56,7 +57,7 @@ class CorrespondencesController < ApplicationController
     
     respond_to do |format|
       if @correspondence.save
-          format.html { redirect_to @correspondence }
+          format.html { redirect_to graduate_applicant_correspondence_path(@graduate_applicant, @correspondence) }
       else
         format.html { render :action => "new" }
       end
