@@ -50,6 +50,10 @@ class GraduateApplicantsController < ApplicationController
 
     # Set Graduate Applicant Department To The Current User's Department
     @graduate_applicant.department_id = current_user.department_id
+    
+    #Capitalize First and Last Names
+    @graduate_applicant.first_name = @graduate_applicant.first_name.capitalize
+    @graduate_applicant.last_name = @graduate_applicant.last_name.capitalize
 
     add_application_requirements
 
