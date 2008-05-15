@@ -71,19 +71,19 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
 
-    @show_graduate_coordinator = false
-    
-    # Show Grad Coor If Departments Exist
-    if Department.count() > 0
-        @show_graduate_coordinator = true
-    end
-
     respond_to do |format|
       if @user.update_attributes(params[:user])
         flash[:notice] = 'User was successfully updated.'
         format.html { redirect_to(users_path) }
         format.xml  { head :ok }
       else
+        @show_graduate_coordinator = false
+    
+        # Show Grad Coor If Departments Exist
+        if Department.count() > 0
+            @show_graduate_coordinator = true
+        end
+      
         format.html { render :action => "edit" }
         format.xml  { render :xml => @user.errors, :status => :unprocessable_entity }
       end

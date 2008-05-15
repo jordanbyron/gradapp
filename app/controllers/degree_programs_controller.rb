@@ -78,6 +78,7 @@ class DegreeProgramsController < ApplicationController
         format.xml  { render :xml => @degree_program, :status => :created, :location => @degree_program }
       else
         @department = Department.find(params[:department_id])
+        flash[:department_id] = @department.id
         
         format.html { render :action => "new" }
         format.xml  { render :xml => @degree_program.errors, :status => :unprocessable_entity }
@@ -97,6 +98,8 @@ class DegreeProgramsController < ApplicationController
         format.html { redirect_to department_degree_program_path(@department,@degee_program) }
         format.xml  { head :ok }
       else
+        flash[:department_id] = @department.id
+      
         format.html { render :action => "edit" }
         format.xml  { render :xml => @degree_program.errors, :status => :unprocessable_entity }
       end

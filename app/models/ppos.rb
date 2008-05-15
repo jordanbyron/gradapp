@@ -12,7 +12,13 @@ class Ppos < ActiveRecord::Base
   end
 
   def created_by_full_name
-    User.find(:first, :conditions => { :login => created_by }).full_name
+    @created_user = User.find(:first, :conditions => { :login => created_by })
+    
+    if @created_user != nil
+      @created_user.full_name
+    else
+      created_by
+    end
   end
 
   def prerequisite_attributes=(prerequisite_attributes)

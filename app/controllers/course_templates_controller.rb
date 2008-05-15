@@ -100,6 +100,15 @@ class CourseTemplatesController < ApplicationController
         format.html { redirect_to ppos_template_path(params[:department_id], params[:degree_program_id], params[:ppos_template_id]) }
         format.xml  { head :ok }
       else
+        @degree_program = DegreeProgram.find(params[:degree_program_id])
+        @department = Department.find(params[:department_id])
+        @ppos_template = PposTemplate.find(params[:ppos_template_id])
+        @header_template = HeaderTemplate.find(params[:header_template_id])
+
+        flash[:degree_program_id] = @degree_program.id
+        flash[:department_id] = @department.id
+        flash[:ppos_template_id] = @ppos_template.id
+      
         format.html { render :action => "edit" }
         format.xml  { render :xml => @course_template.errors, :status => :unprocessable_entity }
       end
