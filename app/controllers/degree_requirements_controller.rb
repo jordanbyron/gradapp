@@ -7,6 +7,8 @@ class DegreeRequirementsController < ApplicationController
     @degree_program = DegreeProgram.find(params[:degree_program_id])
     @department = Department.find(params[:department_id])
     @degree_requirements = DegreeRequirement.search(params[:search], params[:page],params[:degree_program_id])
+    @new_requirement = DegreeRequirement.new
+    @new_requirement.degree_program_id = @degree_program.id
 
     respond_to do |format|
       format.html # index.html.erb
@@ -53,14 +55,12 @@ class DegreeRequirementsController < ApplicationController
   # POST /degree_requirements.xml
   def create
     @degree_requirement = DegreeRequirement.new(params[:degree_requirement])
-    @degree_program = DegreeProgram.find(flash[:degree_program_id])
-    
-    @degree_requirement.degree_program_id = @degree_program.id
     
     respond_to do |format|
       if @degree_requirement.save
         flash[:notice] = 'Degree Requirement was successfully created.'
-        format.html { redirect_to degree_requirements_path(@degree_program.department_id, @degree_program.id) }
+        flash[:new_req_div] = true
+        format.html { redirect_to degree_requirements_path(@degree_requirement.degree_program.department_id, @degree_requirement.degree_program.id) }
         format.xml  { render :xml => @degree_requirement, :status => :created, :location => @degree_requirement }
       else
         format.html { render :action => "new" }

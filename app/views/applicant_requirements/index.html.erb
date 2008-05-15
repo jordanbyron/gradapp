@@ -8,6 +8,7 @@
   <tr>
     <th>Application Requirement</th>
     <th>Met</th>
+    <th>Save</th>
   </tr>
 
   <% for applicant_requirement in @applicant_requirements %>
@@ -16,9 +17,9 @@
       <td><%=h applicant_requirement.requirement %></td>
       <td align=center>
         <%= f.check_box :met %>
-        <%= observe_field(:applicant_requirement_met,
-                          :on => :selected,
-                          :url => { :action => :update, :applicant_requirement => applicant_requirement }) %>
+      </td>
+      <td>
+        <%= f.submit 'Save' %>
       </td>
     </tr>
   <% end %>

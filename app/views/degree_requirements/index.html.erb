@@ -27,7 +27,21 @@
 
 <%= will_paginate @degree_requirements %>
 
+<% if flash[:new_req_div] %>
+	<div id="new_req_div">
+<% else %>
+	<div id="new_req_div" style="display:none;">
+<% end %>
+
+<% form_for @new_requirement do |f| -%>
+    <p>New Requirement:</p>
+    <p><%= f.text_field(:description) %></p>
+    <%= f.hidden_field :degree_program_id %>
+    <%= f.submit 'Add this Degree Requirement' %> | <a href="#" onClick="new Effect.toggle('new_req_div', 'slide');">Close</a>
+<% end -%>
+</div>
+
 <p>
-  <%= link_to 'Create Degree Requirement', new_degree_requirement_path %> |
+  <a href="#" onClick="new Effect.toggle('new_req_div', 'slide');">Create Degree Requirement</a> |
   <%= link_to 'Back to Degree Programs', department_degree_programs_path(@department) %>
 </p>

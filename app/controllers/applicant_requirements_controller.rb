@@ -60,28 +60,17 @@ class ApplicantRequirementsController < ApplicationController
   # PUT /applicant_requirements/1
   # PUT /applicant_requirements/1.xml
   def update
-    if (request.xhr?)
-      @applicant_requirement = ApplicantRequirement.find(params[:applicant_requirement])
-
-      if @applicant_requirement.met
-        @applicant_requirement.met = false
+    @applicant_requirement = ApplicantRequirement.find(params[:id])
+  
+    respond_to do |format|
+      if @applicant_requirement.update_attributes(params[:applicant_requirement])
+        flash[:notice] = 'Applicant Requirement was successfully updated.'
+        format.html { redirect_to applicant_requirements_path(@applicant_requirement.graduate_applicant_id) }
+        format.xml  { head :ok }
       else
-        @applicant_requirement.met = true
+        format.html { render :action => "edit" }
+        format.xml  { render :xml => @applicant_requirement.errors, :status => :unprocessable_entity }
       end
-         
-      if @applicant_requirement.save
-        render :text => "Success!"
-      end
-    #respond_to do |format|
-      #if @applicant_requirement.update_attributes(params[:applicant_requirement])
-        #flash[:notice] = 'ApplicantRequirement was successfully updated.'
-        #format.html { redirect_to(@applicant_requirement) }
-        #format.xml  { head :ok }
-      #else
-        #format.html { render :action => "edit" }
-        #format.xml  { render :xml => @applicant_requirement.errors, :status => :unprocessable_entity }
-      #end
-    #end
     end
   end
 
