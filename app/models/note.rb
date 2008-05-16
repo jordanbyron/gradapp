@@ -17,7 +17,7 @@ class Note < ActiveRecord::Base
 	end
 
 	def note_html
-		r = RedCloth.new text
+		r = RedCloth.new(text, [:hard_breaks])
 		r.to_html
 	end
 end

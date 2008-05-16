@@ -13,7 +13,7 @@ class Correspondence < ActiveRecord::Base
   end
   
   def body_html
-		r = RedCloth.new text
+		r = RedCloth.new(text, [:hard_breaks])
 		r.to_html
 	end
   

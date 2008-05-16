@@ -10,7 +10,7 @@ class CorrespondenceTemplate < ActiveRecord::Base
   end
   
   def body_html
-		r = RedCloth.new body
+		r = RedCloth.new(body, [:hard_breaks])
 		r.to_html
 	end
 

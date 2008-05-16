@@ -11,7 +11,7 @@ class Announcement < ActiveRecord::Base
   end
 
   def message_html
-    r = RedCloth.new message
+    r = RedCloth.new(message, [:hard_breaks])
 		r.to_html
   end
 

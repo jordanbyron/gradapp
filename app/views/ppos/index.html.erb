@@ -1,7 +1,5 @@
 <% title 'Graduate Applicant | ' + @graduate_applicant.full_name + ' | Planned Program of Study' %>
 
-<p style="color: green"><%= flash[:notice] %></p>
-
 <%= render :partial => 'graduate_applicants/navigation',
            :locals  => {:page               => 'PPoS',
                         :graduate_applicant => @graduate_applicant } %>
