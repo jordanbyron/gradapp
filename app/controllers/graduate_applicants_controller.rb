@@ -4,7 +4,13 @@ class GraduateApplicantsController < ApplicationController
   # GET /graduate_applicants
   # GET /graduate_applicants.xml
   def index
-    @graduate_applicants = GraduateApplicant.search(params[:search], params[:page],current_user.department_id)
+    if params[:commit] == "Clear"
+      params[:search] = ""
+      params[:status] = ""
+      params[:degree_program] = ""
+    end
+    
+    @graduate_applicants = GraduateApplicant.search(params[:search],params[:status],params[:degree_program], params[:page],current_user.department_id)
 	
     respond_to do |format|
       format.html # index.html.erb
