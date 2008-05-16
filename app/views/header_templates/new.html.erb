@@ -3,6 +3,8 @@
 <%= error_messages_for :header_template %>
 
 <% form_for(@header_template) do |f| %>
+  <%= f.hidden_field :ppos_template_id %>
+  
   <p>
     <b>Header</b><br />
     <%= f.text_field :header %>
@@ -13,4 +15,4 @@
   </p>
 <% end %>
 
-<%= link_to 'Cancel', ppos_template_path(@department.id, @degree_program.id,@ppos_template.id) %>
+<%= link_to 'Cancel', ppos_template_path(@header_template.ppos_template.degree_program.department, @header_template.ppos_template.degree_program, @header_template.ppos_template) %>

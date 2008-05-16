@@ -2,7 +2,7 @@
 
 <%= error_messages_for :prerequisite_template %>
 
-<% form_for :prerequisite_template, @prerequisite_template, :url => prerequisite_template_path(@department, @degree_program, @ppos_template), :html => { :method => :put} do |f| %>
+<% form_for :prerequisite_template, @prerequisite_template, :url => prerequisite_template_path(@prerequisite_template.ppos_template.degree_program.department, @prerequisite_template.ppos_template.degree_program, @prerequisite_template.ppos_template), :html => { :method => :put} do |f| %>
   <p>
     <b>Prerequisite</b><br />
     <%= f.text_field :prerequisite %>
@@ -14,5 +14,5 @@
 <% end %>
 
 <p>
-  <%= link_to 'Cancel', ppos_template_path(@department.id, @degree_program.id,@ppos_template.id) %>
+  <%= link_to 'Cancel', ppos_template_path(@prerequisite_template.ppos_template.degree_program.department, @prerequisite_template.ppos_template.degree_program, @prerequisite_template.ppos_template) %>
 </p>

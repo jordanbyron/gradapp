@@ -26,16 +26,9 @@ class CourseTemplatesController < ApplicationController
   # GET /course_templates/new
   # GET /course_templates/new.xml
   def new
-    @degree_program = DegreeProgram.find(params[:degree_program_id])
-    @department = Department.find(params[:department_id])
-    @ppos_template = PposTemplate.find(params[:ppos_template_id])
-    @course_template = CourseTemplate.new
-    @course_template.short_dept_name = @department.short_name
-
-    flash[:degree_program_id] = @degree_program.id
-    flash[:department_id] = @department.id
-    flash[:ppos_template_id] = @ppos_template.id
-    flash[:header_template_id] = params[:header_template_id]
+    @header_template = HeaderTemplate.find(params[:header_template_id])
+    @course_template = @header_template.course_templates.build()
+    @course_template.short_dept_name = @header_template.ppos_template.degree_program.department.short_name
 
     respond_to do |format|
       format.html # new.html.erb
@@ -45,44 +38,24 @@ class CourseTemplatesController < ApplicationController
 
   # GET /course_templates/1/edit
   def edit
-    @degree_program = DegreeProgram.find(params[:degree_program_id])
-    @department = Department.find(params[:department_id])
-    @ppos_template = PposTemplate.find(params[:ppos_template_id])
-    @header_template = HeaderTemplate.find(params[:header_template_id])
-
     @course_template = CourseTemplate.find(params[:id])
-
-    flash[:degree_program_id] = @degree_program.id
-    flash[:department_id] = @department.id
-    flash[:ppos_template_id] = @ppos_template.id
   end
 
   # POST /course_templates
   # POST /course_templates.xml
   def create
     @course_template = CourseTemplate.new(params[:course_template])
-    @course_template.header_template_id =  flash[:header_template_id]
 
     respond_to do |format|
       if @course_template.save
         if params[:commit] == "Create and Add Another Course"
           flash[:notice] = ['Course was successfully added to', @course_template.header_template.header].join(' ')
-          format.html { redirect_to new_course_template_path(flash[:department_id], flash[:degree_program_id], flash[:ppos_template_id], params[:header_template_id]) } 
+          format.html { redirect_to new_course_template_path(@course_template.header_template.ppos_template.degree_program.department, @course_template.header_template.ppos_template.degree_program, @course_template.header_template.ppos_template,@course_template.header_template) } 
         else
-          format.html { redirect_to ppos_template_path(flash[:department_id], flash[:degree_program_id], flash[:ppos_template_id]) }
+          format.html { redirect_to ppos_template_path(@course_template.header_template.ppos_template.degree_program.department, @course_template.header_template.ppos_template.degree_program, @course_template.header_template.ppos_template) }
           format.xml  { render :xml => @course_template, :status => :created, :location => @course_template }
         end
       else
-
-        @degree_program = DegreeProgram.find(flash[:degree_program_id])
-        @department = Department.find(flash[:department_id])
-        @ppos_template = PposTemplate.find(flash[:ppos_template_id])
-
-        flash[:degree_program_id] = @degree_program.id
-        flash[:department_id] = @department.id
-        flash[:ppos_template_id] = @ppos_template.id
-        flash[:header_template_id] = params[:header_template_id]
-
         format.html { render :action => "new" }
         format.xml  { render :xml => @course_template.errors, :status => :unprocessable_entity }
       end
@@ -97,18 +70,9 @@ class CourseTemplatesController < ApplicationController
     respond_to do |format|
       if @course_template.update_attributes(params[:course_template])
         flash[:notice] = 'Course was successfully updated.'
-        format.html { redirect_to ppos_template_path(params[:department_id], params[:degree_program_id], params[:ppos_template_id]) }
+        format.html { redirect_to ppos_template_path(@course_template.header_template.ppos_template.degree_program.department, @course_template.header_template.ppos_template.degree_program, @course_template.header_template.ppos_template) }
         format.xml  { head :ok }
       else
-        @degree_program = DegreeProgram.find(params[:degree_program_id])
-        @department = Department.find(params[:department_id])
-        @ppos_template = PposTemplate.find(params[:ppos_template_id])
-        @header_template = HeaderTemplate.find(params[:header_template_id])
-
-        flash[:degree_program_id] = @degree_program.id
-        flash[:department_id] = @department.id
-        flash[:ppos_template_id] = @ppos_template.id
-      
         format.html { render :action => "edit" }
         format.xml  { render :xml => @course_template.errors, :status => :unprocessable_entity }
       end

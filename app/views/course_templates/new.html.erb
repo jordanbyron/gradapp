@@ -4,6 +4,7 @@
 <%= error_messages_for :course_template %>
 
 <% form_for(@course_template) do |f| %>
+  <%= f.hidden_field :header_template_id %>
   <p>
     <b>Short dept name</b><br />
     <%= f.text_field :short_dept_name %>
@@ -29,4 +30,4 @@
   </p>
 <% end %>
 
-<%= link_to 'Cancel', ppos_template_path(@department.id, @degree_program.id,@ppos_template.id) %>
+<%= link_to 'Cancel', ppos_template_path(@course_template.header_template.ppos_template.degree_program.department, @course_template.header_template.ppos_template.degree_program,@course_template.header_template.ppos_template) %>
