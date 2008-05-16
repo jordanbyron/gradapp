@@ -10,6 +10,7 @@
 
 	<% if current_user.admin? %>
 		<%= link_to 'Users', :controller => 'users' %>
+    <%= link_to 'Announcements', :controller => :announcements %>
 		<%= link_to 'Departments', :controller => 'departments' %>
 		<%= link_to 'Applicant Statuses', :controller => 'applicant_statuses' %>
 	<% end %>

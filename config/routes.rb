@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :announcements
+
   map.home '', :controller =>'home', :action => 'index' # Set Root To The Home Controller
   map.about '/about', :controller => 'home', :action => 'about' # Set about path
   
@@ -42,5 +44,6 @@ ActionController::Routing::Routes.draw do |map|
 
   # Install the default routes as the lowest priority.
   map.connect ':controller/:action/:id'
+  map.connect ':controller/:action.:format'
   map.connect ':controller/:action/:id.:format'
 end

@@ -22,6 +22,16 @@
       </div>
 
       <div id="contents">
+        <% unless current_announcements.empty? %>
+        <% if  logged_in? %>
+        <div id="announcement">
+          <% for announcement in current_announcements %>
+            <p><%= announcement.message_html %></p>
+          <% end %>
+          <p><%= link_to_remote "Hide this message", :url => "/javascripts/hide_announcement.js" %></p>
+        </div>
+        <% end %>
+        <% end %>
         <div id="contents2">
           <%= yield  %>
         </div>

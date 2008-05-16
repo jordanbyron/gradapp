@@ -1,0 +1,27 @@
+<h1>Editing announcement</h1>
+
+<%= error_messages_for :announcement %>
+
+<% form_for(@announcement) do |f| %>
+  <p>
+    <b>Message</b><br />
+    <%= f.text_area :message %>
+  </p>
+
+  <p>
+    <b>Starts at</b><br />
+    <%= f.datetime_select :starts_at %>
+  </p>
+
+  <p>
+    <b>Ends at</b><br />
+    <%= f.datetime_select :ends_at %>
+  </p>
+
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @announcement %> |
+<%= link_to 'Back', announcements_path %>
