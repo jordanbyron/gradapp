@@ -3,7 +3,7 @@ class NotesController < ApplicationController
 
   def index
     @graduate_applicant = GraduateApplicant.find(params[:graduate_applicant_id])
-    @notes = Note.search(params[:search], params[:page],params[:graduate_applicant_id])
+    @notes = Note.search(params[:search], params[:page],current_user.pagination_pref,params[:graduate_applicant_id])
     @new_note = Note.new 
 
     respond_to do |format|

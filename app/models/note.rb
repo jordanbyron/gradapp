@@ -10,8 +10,8 @@ class Note < ActiveRecord::Base
     updated_at.strftime("%m/%d/%Y")
   end
 
-	def self.search(search,page,graduate_applicant_id)
-		paginate  :per_page => 5, :page => page,
+	def self.search(search,page,pagination_pref,graduate_applicant_id)
+		paginate  :per_page => pagination_pref, :page => page,
               :conditions => ['text like ? and graduate_applicant_id = ?', "%#{search}%", graduate_applicant_id],
               :order => 'id'
 	end

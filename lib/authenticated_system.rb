@@ -3,7 +3,7 @@ module AuthenticatedSystem
     # Returns true or false if the user is logged in.
     # Preloads @current_user with the user model if they're logged in.
     def logged_in?
-      !!current_user
+        !!current_user
     end
 
     # Accesses the current user from the session. 
@@ -56,8 +56,12 @@ module AuthenticatedSystem
     
     # Filter method to enforce Graduate Coordinator access rights
     def gc_required
-      if logged_in?
-        !!current_user.graduate_coordinator || access_denied
+      if logged_in? && current_user.graduate_coordinator
+        if current_user.department.license_expired 
+          access_denied_license
+        else
+          true
+        end
       else
         access_denied
       end
@@ -104,6 +108,19 @@ module AuthenticatedSystem
           store_location
           redirect_to new_session_path
           flash[:error] = "Access Denied."
+        end
+        format.any do
+          request_http_basic_authentication 'Web Password'
+        end
+      end
+    end
+
+    def access_denied_license
+      respond_to do |format|
+        format.html do
+          store_location
+          redirect_to home_path
+          flash[:error] = "Your Department License Has Expired!"
         end
         format.any do
           request_http_basic_authentication 'Web Password'

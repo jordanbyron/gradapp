@@ -15,8 +15,8 @@ class GraduateApplicant < ActiveRecord::Base
     [first_name, last_name].join(' ')
   end
 
-	def self.search(search,status,degree_program,page,department_id)
-		paginate  :per_page => 10, :page => page,
+	def self.search(search,status,degree_program,page,pagination_pref,department_id)
+		paginate  :per_page => pagination_pref, :page => page,
               :conditions => ['(first_name like ? or last_name like ? or studentID like ?) and department_id= ? and applicant_status_id like ? and degree_program_id like ?', "%#{search}%","%#{search}%","%#{search}%", department_id,"%#{status}%","%#{degree_program}%"],
               :order => 'last_name'
 	end

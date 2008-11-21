@@ -34,6 +34,8 @@
 <p><label for="password_confirmation">Confirm Password</label><br/>
 <%= f.password_field :password_confirmation %></p>
 
+<%= f.hidden_field :pagination_pref, :value =>10 %>
+
 <p><%= submit_tag 'Add' %></p>
 <% end -%>
 

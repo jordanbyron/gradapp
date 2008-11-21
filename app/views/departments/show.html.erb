@@ -15,9 +15,21 @@
   </p>
 <% end %>
 
+<hr>
+
 <p>
   <b>Short Name:</b>
   <%= @department.short_name %>
+</p>
+
+<p>
+  <b>License:</b>
+  <%= @department.license %>
+</p>
+
+<p>
+  <b>License Expires on:</b>
+  <%= @department.license_expires_on %>
 </p>
 
 <% if current_user.admin? %>

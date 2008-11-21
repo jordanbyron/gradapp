@@ -1,9 +1,17 @@
 <% title 'Home' %>
 
+<% if logged_in? && current_user.graduate_coordinator && current_user.department.license_expired %>
+  <div id='errorExplanation'>
+    <h2>WARNING - Your department license has expired!</h2>
+    <p>Please contact <%= link_to "Duck Soup Software", "http://www.ducksoupsoftware.com", :popup => true%> to renew.
+  </div>
+<% end %>
+
 <h1>Welcome to GradApp!</h1>
 <% if logged_in? %>
   <p>You are logged in as <strong><%=h current_user.login %></strong></p>
   <p style="color: green"><%= flash[:notice] %></p>
+  
 <% else %>
   <p style="color: green"><%= flash[:notice] %></p>
   <h3><%= link_to 'Please log in to continue', login_path %></h3>

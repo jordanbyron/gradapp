@@ -94,6 +94,7 @@ img.navimage {
 	font-size: 10px;
 	width: 400px;
 }
+
 #announcement {
   padding: 10px;
   margin: 20px;
@@ -126,6 +127,10 @@ img.navimage {
   color: #fff;
   font-weight: bold;
   background: #000 url("/images/gradient.png") repeat-x top left;
+}
+
+#warning h1{
+	color: red;
 }
 
 .tablehead {
@@ -186,6 +191,10 @@ a:hover { color: #e90; }
   color: #333;
   margin-bottom: 0;
   padding: 5px;
+}
+
+#errorExplanation a{
+	color: #333;
 }
 
 #errorExplanation ul li {

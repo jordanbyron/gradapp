@@ -10,7 +10,7 @@ class GraduateApplicantsController < ApplicationController
       params[:degree_program] = ""
     end
     
-    @graduate_applicants = GraduateApplicant.search(params[:search],params[:status],params[:degree_program], params[:page],current_user.department_id)
+    @graduate_applicants = GraduateApplicant.search(params[:search],params[:status],params[:degree_program], params[:page],current_user.pagination_pref,current_user.department_id)
 	
     respond_to do |format|
       format.html # index.html.erb

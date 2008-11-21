@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <style>
+    	body {
+   background: white;
+   font-size: 12pt;
+   font: small/1.3 "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+   }
+#wrapper, #content {
+   width: auto;
+   margin: 0 5%;
+   padding: 0;
+   border: 0;
+   float: none !important;
+   color: black;
+   background: transparent none;
+   }
+div#content {
+   margin-left: 10%;
+   padding-top: 1em;
+   border-top: 2px solid #335387;
+   }
+    </style>
+    <title>Print: <%= yield(:title) || "GradApp" %></title>
+  </head>
+  <body>
+    <div id='content'>
+    <%= yield  %>
+    </div>
+  </body>
+</html>
