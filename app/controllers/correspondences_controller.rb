@@ -42,7 +42,7 @@ class CorrespondencesController < ApplicationController
     @correspondence = Correspondence.find(params[:correspondence_id])
     @graduate_applicant = @correspondence.graduate_applicant
 
-    render :action => "print", :layout => "print"
+    render :action => "print", :layout => "printLetter"
   
     #respond_to do |format|
     #  format.html # show.html.erb

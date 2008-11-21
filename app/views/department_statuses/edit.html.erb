@@ -1,0 +1,17 @@
+<h1>Editing department_status</h1>
+
+<%= error_messages_for :department_status %>
+
+<% form_for(@department_status) do |f| %>
+   <p>
+    <b>Status</b><br />
+    <%= f.text_field :status %>
+  </p>
+
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @department_status %> |
+<%= link_to 'Back', department_statuses_path %>

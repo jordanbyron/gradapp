@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
-  <title>[GradApp]: <%= yield(:title) || "Simply Powerful Graduate Tracking" %></title>
+  <title>GradApp | <%= yield(:title) || "Simply Powerful Graduate Tracking" %></title>
   <%= stylesheet_link_tag('scaffold', :media => :screen) %>
   <%= javascript_include_tag :defaults %>
 </head>
@@ -12,7 +12,10 @@
   <div id="container">
 
     <div id="header">
-    	<img src="/images/GradAppLogo.png" id="logo">
+      <% if logged_in? %> 
+      <div id="navigation"><%= link_to current_user.full_name, edit_user_path(current_user) %> | <%= image_tag("/images/buttons/feedback.png", :class => "navimage") %>  <%= image_tag("/images/buttons/bug.png", :class => "navimage") %> | <%= link_to 'Log Out', logout_path %></div>
+      <% end %>
+    	<div id="logo"><img src="/images/GradAppLogo.png"></div>
     </div>
 
     <div id="subcontainer">
@@ -38,8 +41,12 @@
 	  </div>
 
 	</div>
-
-
+<div id="footer">
+ Copyright &copy; 2008 <%= link_to "Duck Soup Software", "http://www.ducksoupsoftware.com", :popup => true%><br />(Work in progress.)
+ </div>
+ <div id="copyright-temp">
+ THIS IS AN UNPUBLISHED WORK CONTAINING DUCK SOUP SOFTWARE CONFIDENTIAL AND PROPRIETARY INFORMATION. DISCLOSURE, USE, OR REPRODUCTION WITHOUT AUTHORIZATION OF DUCK SOUP SOFTWARE IS PROHIBITED.
+ </div>
   </div>
 </body>
 </html>

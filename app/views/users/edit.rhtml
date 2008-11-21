@@ -1,6 +1,16 @@
+<% if @user == current_user %>
+
+<% title 'Personal Information' %>
+
+<h2>Edit your personal information</h2>
+
+<% else %>
+
 <% title 'Edit User' %>
 
 <h1>Edit User</h1>
+
+<% end %>
 
 <p style="color: green"><%= flash[:notice] %></p>
 
@@ -8,8 +18,7 @@
 
 <% form_for(@user) do |f| %>
 
-<p><label for="login">Login</label><br/>
-<%= f.text_field :login %></p>
+<%= f.hidden_field :login %>
 
 <p><label for="first_name">First Name</label><br/>
 <%= f.text_field :first_name %></p>
@@ -20,6 +29,16 @@
 <p><label for="email">Email</label><br/>
 <%= f.text_field :email %></p>
 
+<% if @user == current_user %>
+
+<p><label for="password">Change Password</label><br/>
+<%= f.password_field :password %></p>
+
+<p><label for="password_confirmation">Confirm Change Password</label><br/>
+<%= f.password_field :password_confirmation %></p>
+
+<% else %>
+
 <p><label for="admin">Administrator</label>
 <%= check_box("user", "admin") %>
 
@@ -28,7 +47,11 @@
               :locals  => {:user => @user}
      end %>
 
+<% end %>
+
 <p><%= f.submit 'Update' %></p>
 <% end -%>
 
+<% if current_user.admin? %>
 <%= link_to 'Back', users_path %>
+<% end %>

@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_filter :admin_required
+  before_filter :admin_required, :only => [:index, :new, :create, :destroy]
   
   def index
     @users = User.search(params[:search], params[:page])
@@ -74,7 +74,7 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user.update_attributes(params[:user])
         flash[:notice] = 'User was successfully updated.'
-        format.html { redirect_to(users_path) }
+        format.html { redirect_to(edit_user_path(@user)) }
         format.xml  { head :ok }
       else
         @show_graduate_coordinator = false

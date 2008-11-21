@@ -1,0 +1,35 @@
+<% title [@department.name,'Department'].join(' ') + ' | Department Applicant Statuses' %>
+
+<p style="color: green"><%= flash[:notice] %></p>
+
+<h1><%= [@department.name,'Department'].join(' ') %></h1>
+
+<p>
+  <h3>
+    <%= link_to 'Department Information', department_path(@department) %> |
+    <%= link_to 'Application Requirements', department_application_requirements_path(@department) %> |
+    Department Applicant Statuses | 
+    <%= link_to 'Degree Programs', department_degree_programs_path(@department) %>
+  </h3>
+</p>
+
+
+
+<table>
+  <tr>
+    <th>Status</th>
+    <th colspan=2>Controls</th>
+  </tr>
+
+<% for department_status in @department_statuses %>
+  <tr class="<%= cycle('even', 'odd') %>">
+    <td><%=h department_status.status %></td>
+    <td><%= link_to image_tag("edit.png",  :class => "table_image",:border => 0), edit_department_status_path(@department,department_status) %></td>
+    <td><%= link_to image_tag("remove.png", :class => "table_image",:border => 0), department_status_path(@department,department_status), :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New department_status', new_department_status_path %>
