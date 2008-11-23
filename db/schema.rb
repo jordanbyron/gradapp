@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 35) do
+ActiveRecord::Schema.define(:version => 36) do
 
   create_table "announcements", :force => true do |t|
     t.text     "message"
@@ -208,6 +208,17 @@ ActiveRecord::Schema.define(:version => 35) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "position"
+  end
+
+  create_table "support_requests", :force => true do |t|
+    t.string   "support_request_type"
+    t.string   "summary"
+    t.text     "explination"
+    t.string   "created_by"
+    t.string   "status"
+    t.datetime "closed_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", :force => true do |t|

@@ -1,6 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
   map.resources :announcements
-
+  map.resources :support_requests
   map.home '', :controller =>'home', :action => 'index' # Set Root To The Home Controller
   map.about '/about', :controller => 'home', :action => 'about' # Set about path
   
@@ -35,6 +35,9 @@ ActionController::Routing::Routes.draw do |map|
   map.connect '/graduate_applicants/:graduate_applicant_id/correspondences/:correspondence_id/print', :controller => 'correspondences', :action => 'print'
 
   map.ppos_template_list 'departments/:department_id/degree_programs_ppos/', :controller => 'degree_programs', :action => 'ppos_list'
+
+  #Support Path
+  map.support '/support', :controller => 'support_requests', :action => 'new'
 
 	#User Autentication Routes
 	map.resources :users, :controller => 'users'

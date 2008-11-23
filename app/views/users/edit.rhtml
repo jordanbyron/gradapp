@@ -57,4 +57,6 @@
 
 <% if current_user.admin? %>
 <%= link_to 'Back', users_path %>
+<% else %>
+<%= link_to 'Cancel', home_path %>
 <% end %>

@@ -1,0 +1,30 @@
+<h1>Listing support_requests</h1>
+
+<table>
+  <tr>
+    <th>Type</th>
+    <th>Summary</th>
+    <th>Explination</th>
+    <th>Created by</th>
+    <th>Status</th>
+    <th>Closed at</th>
+  </tr>
+
+<% for support_request in @support_requests %>
+  <tr>
+    <td><%=h support_request.support_request_type %></td>
+    <td><%=h support_request.summary %></td>
+    <td><%=h support_request.explination %></td>
+    <td><%=h support_request.created_by %></td>
+    <td><%=h support_request.status %></td>
+    <td><%=h support_request.closed_at %></td>
+    <td><%= link_to 'Show', support_request %></td>
+    <td><%= link_to 'Edit', edit_support_request_path(support_request) %></td>
+    <td><%= link_to 'Destroy', support_request, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New support_request', new_support_request_path %>

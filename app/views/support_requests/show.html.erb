@@ -1,0 +1,33 @@
+<p>
+  <b>Type:</b>
+  <%=h @support_request.support_request_type %>
+</p>
+
+<p>
+  <b>Summary:</b>
+  <%=h @support_request.summary %>
+</p>
+
+<p>
+  <b>Explination:</b>
+  <%=h @support_request.explination %>
+</p>
+
+<p>
+  <b>Created by:</b>
+  <%=h @support_request.created_by %>
+</p>
+
+<p>
+  <b>Status:</b>
+  <%=h @support_request.status %>
+</p>
+
+<p>
+  <b>Closed at:</b>
+  <%=h @support_request.closed_at %>
+</p>
+
+
+<%= link_to 'Edit', edit_support_request_path(@support_request) %> |
+<%= link_to 'Back', support_requests_path %>

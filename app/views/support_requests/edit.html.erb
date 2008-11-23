@@ -1,0 +1,42 @@
+<h1>Editing support_request</h1>
+
+<%= error_messages_for :support_request %>
+
+<% form_for(@support_request) do |f| %>
+  <p>
+    <b>Type</b><br />
+    <%= f.text_field :support_request_type %>
+  </p>
+
+  <p>
+    <b>Summary</b><br />
+    <%= f.text_field :summary %>
+  </p>
+
+  <p>
+    <b>Explination</b><br />
+    <%= f.text_area :explination %>
+  </p>
+
+  <p>
+    <b>Created by</b><br />
+    <%= f.text_field :created_by %>
+  </p>
+
+  <p>
+    <b>Status</b><br />
+    <%= f.text_field :status %>
+  </p>
+
+  <p>
+    <b>Closed at</b><br />
+    <%= f.datetime_select :closed_at %>
+  </p>
+
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @support_request %> |
+<%= link_to 'Back', support_requests_path %>

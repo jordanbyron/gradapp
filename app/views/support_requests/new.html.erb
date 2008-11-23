@@ -1,0 +1,40 @@
+<% title 'Submit a support request' %>
+
+<h1>Submit a support request</h1>
+
+<hr>
+
+<%= error_messages_for :support_request %>
+
+<div id='support'>
+
+<% form_for(@support_request) do |f| %>
+  <p>
+    <b>What type of issue are you writing about?</b>
+    <h2>This helps us make sure you get the right answer as fast as possible.</h2>
+    <%= select("support_request", "support_request_type", ["Please select one ...","I want to request a feature","I'm confused about how something works","I think something is broken"], :default => "Please select one ...") %>
+  </p>
+
+  <p>
+    <b>Summarize the problem/question in one sentence. </b>
+    <h2>"I can't figure out how to..." or "Does GradApp allow me to..." or "I tried to do this but it didn't work..."<br />
+    Think of this as the subject of an email — a concise description of what the email is about.</h2>
+    <%= f.text_field :summary %>
+  </p>
+
+  <p>
+    <b>Explain the problem/question in detail</b>
+    <h2>This is about detail. Please be as specific as possible. If it's a bug, tell us the steps we need to take to recreate the issue, what you expected to happen, and what actually happened.</h2>
+    <%= f.text_area :explination, :size => "100%x10" %>
+  </p>
+
+    <%= f.hidden_field :created_by, :value => current_user.login %>
+    <%= f.hidden_field :status, :value => 'Open' %>
+
+  <p>
+    <%= f.submit "Submit this support request" %><br />
+    <!-- <h2>We'll get back to you within a few hours during normal business hours (Mon-Fri 8AM - 5PM CST, 15:00 - 22:00 GMT).<br />
+    Emails received after hours will be responded to the next business day.</h2> -->
+  </p>
+<% end %>
+</div>
