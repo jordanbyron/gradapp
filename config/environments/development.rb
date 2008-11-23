@@ -26,6 +26,6 @@ config.action_mailer.smtp_settings = {
   :port           => 25,
   :domain         => 'www.jordanbyron.com',
   :authentication => :login,
-  :user_name      => 'jordan@jordanbyron.com',
-  :password       => 'xcE$AJuB'
+  :user_name      => 'dss_mailer@jordanbyron.com',
+  :password       => 'RaBQa2ZD'
 }
