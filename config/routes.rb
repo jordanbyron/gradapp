@@ -38,6 +38,7 @@ ActionController::Routing::Routes.draw do |map|
 
   #Support Path
   map.support '/support', :controller => 'support_requests', :action => 'new'
+  map.support_thank_you '/support/thank_you', :controller => 'support_requests', :action => 'thank_you'
 
 	#User Autentication Routes
 	map.resources :users, :controller => 'users'

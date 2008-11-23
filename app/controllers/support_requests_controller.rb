@@ -44,11 +44,14 @@ class SupportRequestsController < ApplicationController
 
     respond_to do |format|
       if @support_request.save
-        flash[:notice] = 'SupportRequest was successfully created.'
-        format.html { redirect_to(@support_request) }
-        format.xml  { render :xml => @support_request, :status => :created, :location => @support_request }
+        #flash[:notice] = 'SupportRequest was successfully created.'
+        
+        Notifier.deliver_support_request_submitted(@support_request, current_user)
+        
+        format.html { redirect_to support_thank_you_path }
+        #format.xml  { render :xml => @support_request, :status => :created, :location => @support_request }
       else
-        format.html { render :action => "new" }
+        format.html { render support_path }
         format.xml  { render :xml => @support_request.errors, :status => :unprocessable_entity }
       end
     end
@@ -81,5 +84,9 @@ class SupportRequestsController < ApplicationController
       format.html { redirect_to(support_requests_url) }
       format.xml  { head :ok }
     end
+  end
+  
+  def thank_you
+    
   end
 end

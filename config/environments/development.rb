@@ -15,4 +15,17 @@ config.action_controller.perform_caching             = false
 config.action_view.cache_template_extensions         = false
 
 # Don't care if the mailer can't send
-config.action_mailer.raise_delivery_errors = false
+config.action_mailer.raise_delivery_errors = true
+
+# set delivery method to :smtp, :sendmail or :test
+config.action_mailer.delivery_method = :smtp
+
+# these options are only needed if you choose smtp delivery
+config.action_mailer.smtp_settings = {
+  :address        => 'mail.jordanbyron.com',
+  :port           => 25,
+  :domain         => 'www.jordanbyron.com',
+  :authentication => :login,
+  :user_name      => 'jordan@jordanbyron.com',
+  :password       => 'xcE$AJuB'
+}
