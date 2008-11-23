@@ -122,8 +122,8 @@
     </tr>
 </table>
 
-  <p><label for="applicant_status_id"><b>Status:</b></label>
-    <%= select("graduate_applicant", "applicant_status_id", ApplicantStatus.find(:all).collect {|d| [d.status, d.id] }) %></p>
+  <p><label for="department_status_id"><b>Status:</b></label>
+    <%= select("graduate_applicant", "department_status_id", DepartmentStatus.find(:all).collect {|d| [d.status, d.id] }) %></p>
   <p>
 
   <p>

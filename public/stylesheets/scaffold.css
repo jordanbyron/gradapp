@@ -142,7 +142,7 @@ img.navimage {
 	font-style: normal;
 }
 
-#support input, textarea, select{
+#support input,#support textarea, #support select{
 	font-size: 16px;
 }
 

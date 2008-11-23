@@ -1,7 +1,7 @@
 Submitted on: <%= @support_request.created_datetime %>
 ---
 <%= @user.full_name %>
-<%= @user.department.name %>
+<% if @user.graduate_coordinator %><%= @user.department.name %><% else %>Administrator<% end %>
 <%= @user.email %>
 ---
 Type: <%= @support_request.support_request_type %>

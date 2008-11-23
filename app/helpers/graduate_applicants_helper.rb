@@ -2,7 +2,7 @@ module GraduateApplicantsHelper
 
   def status_selection(status)
     options = "<option value=''>All</option>"
-    ApplicantStatus.find(:all).each do |s|
+    DepartmentStatus.find(:all).each do |s|
       if s.id == status.to_i
         options += "<option value=#{s.id} selected='selected'>#{s.status}</option>"
       else

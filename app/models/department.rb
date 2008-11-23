@@ -5,6 +5,7 @@ class Department < ActiveRecord::Base
   has_many :degree_requirements, :through => :degree_programs
   has_many :graduate_applicants, :through => :degree_programs
   has_many :application_requirements
+  has_many :department_statuses
   
   has_many :correspondence_templates
   

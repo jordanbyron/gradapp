@@ -28,6 +28,7 @@ class DepartmentStatusesController < ApplicationController
   # GET /department_statuses/new.xml
   def new
     @department_status = DepartmentStatus.new
+    @department_status.department = Department.find(params[:department_id])
 
     respond_to do |format|
       format.html # new.html.erb
@@ -47,8 +48,8 @@ class DepartmentStatusesController < ApplicationController
 
     respond_to do |format|
       if @department_status.save
-        flash[:notice] = 'DepartmentStatus was successfully created.'
-        format.html { redirect_to(@department_status) }
+        flash[:notice] = 'Status was successfully created.'
+        format.html { redirect_to department_department_statuses_path(@department_status.department) }
         format.xml  { render :xml => @department_status, :status => :created, :location => @department_status }
       else
         format.html { render :action => "new" }
@@ -64,8 +65,8 @@ class DepartmentStatusesController < ApplicationController
 
     respond_to do |format|
       if @department_status.update_attributes(params[:department_status])
-        flash[:notice] = 'DepartmentStatus was successfully updated.'
-        format.html { redirect_to(@department_status) }
+        flash[:notice] = 'Status was successfully updated.'
+        format.html { redirect_to department_department_statuses_path(@department_status.department) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

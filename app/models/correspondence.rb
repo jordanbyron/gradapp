@@ -11,6 +11,10 @@ class Correspondence < ActiveRecord::Base
   def sent_on
     created_at.strftime("%m/%d/%Y")
   end
+
+  def sent_datetime
+    created_at.strftime("%m/%d/%Y %I:%M %p")
+  end
   
   def body_html
 		r = RedCloth.new(text)

@@ -1,6 +1,6 @@
 class GraduateApplicant < ActiveRecord::Base
   belongs_to :degree_program
-  belongs_to :applicant_status
+  belongs_to :department_status
   has_many :notes
   has_many :applicant_requirements, :order => "requirement"
   has_many :correspondences
@@ -17,7 +17,7 @@ class GraduateApplicant < ActiveRecord::Base
 
 	def self.search(search,status,degree_program,page,pagination_pref,department_id)
 		paginate  :per_page => pagination_pref, :page => page,
-              :conditions => ['(first_name like ? or last_name like ? or studentID like ?) and department_id= ? and applicant_status_id like ? and degree_program_id like ?', "%#{search}%","%#{search}%","%#{search}%", department_id,"%#{status}%","%#{degree_program}%"],
+              :conditions => ['(first_name like ? or last_name like ? or studentID like ?) and department_id= ? and department_status_id like ? and degree_program_id like ?', "%#{search}%","%#{search}%","%#{search}%", department_id,"%#{status}%","%#{degree_program}%"],
               :order => 'last_name'
 	end
 end

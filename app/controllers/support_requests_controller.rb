@@ -1,4 +1,5 @@
 class SupportRequestsController < ApplicationController
+
   # GET /support_requests
   # GET /support_requests.xml
   def index
@@ -51,7 +52,7 @@ class SupportRequestsController < ApplicationController
         format.html { redirect_to support_thank_you_path }
         #format.xml  { render :xml => @support_request, :status => :created, :location => @support_request }
       else
-        format.html { render support_path }
+        format.html { render :action => "new" }
         format.xml  { render :xml => @support_request.errors, :status => :unprocessable_entity }
       end
     end

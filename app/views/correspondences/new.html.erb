@@ -15,6 +15,7 @@
 <% form_for(@correspondence) do |f| %>
   <%= f.hidden_field :graduate_applicant_id %>
   <%= f.hidden_field :sent_date_time %>
+  <%= f.hidden_field :created_by, :value => current_user.full_name %>
   
   <p>
     <b>Body</b><br />

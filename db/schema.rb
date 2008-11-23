@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 36) do
+ActiveRecord::Schema.define(:version => 39) do
 
   create_table "announcements", :force => true do |t|
     t.text     "message"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(:version => 36) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "requirement"
+    t.string   "requirement_value"
   end
 
   create_table "applicant_statuses", :force => true do |t|
@@ -64,6 +65,7 @@ ActiveRecord::Schema.define(:version => 36) do
     t.string   "correspondence_type"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "created_by"
   end
 
   create_table "course_templates", :force => true do |t|
@@ -96,6 +98,7 @@ ActiveRecord::Schema.define(:version => 36) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "applicant_status_id"
+    t.integer  "department_id"
   end
 
   create_table "departments", :force => true do |t|
@@ -124,7 +127,7 @@ ActiveRecord::Schema.define(:version => 36) do
     t.string   "studentID"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "applicant_status_id"
+    t.integer  "department_status_id"
     t.integer  "degree_program_id"
   end
 

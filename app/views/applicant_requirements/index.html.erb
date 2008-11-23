@@ -8,6 +8,7 @@
   <tr>
     <th>Application Requirement</th>
     <th>Met</th>
+    <th>Value</th>
     <th>Save</th>
   </tr>
 
@@ -17,6 +18,9 @@
       <td><%=h applicant_requirement.requirement %></td>
       <td align=center>
         <%= f.check_box :met %>
+      </td>
+      <td>
+        <%= f.text_field :requirement_value %>
       </td>
       <td>
         <%= f.submit 'Save' %>

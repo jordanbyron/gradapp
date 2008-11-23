@@ -8,10 +8,14 @@
     <%= f.text_field :status %>
   </p>
 
+  <p><b>School Status</b><br />
+    <%= select("department_status", "applicant_status_id", ApplicantStatus.find(:all).collect {|d| [d.status, d.id] }) %></p>
+  <p>
+
+
   <p>
     <%= f.submit "Update" %>
   </p>
 <% end %>
 
-<%= link_to 'Show', @department_status %> |
-<%= link_to 'Back', department_statuses_path %>
+<%= link_to 'Back', department_department_statuses_path(@department_status.department)  %>

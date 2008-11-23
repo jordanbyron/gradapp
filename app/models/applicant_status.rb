@@ -1,5 +1,5 @@
 class ApplicantStatus < ActiveRecord::Base
-  has_many :graduate_applicants
+  has_many :department_statuses
 
   validates_presence_of   :status
   validates_presence_of   :short_status 

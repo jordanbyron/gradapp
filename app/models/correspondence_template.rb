@@ -57,7 +57,7 @@ class CorrespondenceTemplate < ActiveRecord::Base
     end
 
     newBody = newBody.gsub("^DegreeProgram^", graduate_applicant.degree_program.name)
-    newBody = newBody.gsub("^ApplicantStatus^",graduate_applicant.applicant_status.status)
+    newBody = newBody.gsub("^ApplicantStatus^",graduate_applicant.department_status.status)
     newBody = newBody.gsub("^StudentID^",graduate_applicant.studentID)
     newBody = newBody.gsub("^GPA^",graduate_applicant.gpa.to_s)
   end

@@ -9,7 +9,9 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :prerequisite_templates, :path_prefix => '/departments/:department_id/degree_programs/:degree_program_id/ppos_templates/:ppos_template_id'
   map.resources :ppos_templates, :path_prefix => '/departments/:department_id/degree_programs/:degree_program_id'
   map.resources :department_statuses, :path_prefix => '/departments/:department_id'
-  map.resources :applicant_statuses, :has_many => :graduate_applicants
+  map.resources :department_statuses, :has_many => :graduate_applicants
+  map.resources :department_statuses
+  map.resources :applicant_statuses, :has_many => :department_statuses
   map.resources :correspondences
   map.resources :correspondence_templates
   map.resources :degree_requirements, :path_prefix => '/departments/:department_id/degree_programs/:degree_program_id'
@@ -25,6 +27,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :linkbox
   map.resources :departments
   map.resources :departments, :has_many => :application_requirements
+  map.resources :departments, :has_many => :department_statuses
   map.resources :departments, :has_many => :degree_programs
   map.resources :setup
   map.resources :ppos_prerequisites

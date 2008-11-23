@@ -14,6 +14,7 @@
 <table>
   <tr>
     <th>Sent date</th>
+    <th>Sent by</th>
     <th>Text</th>
     <th>Type</th>
     <th colspan=2>Controls</th>
@@ -22,6 +23,7 @@
 <% for correspondence in @correspondences %>
   <tr id="<%= dom_id(correspondence) %>" class="<%= cycle('even', 'odd') %>">
     <td><%=h correspondence.sent_on %></td>
+    <td><%=h correspondence.created_by %></td>
     <td><%=h correspondence.body_short %></td>
     <td><%=h correspondence.correspondence_type %></td>
     <td><%= link_to 'Show', graduate_applicant_correspondence_path(@graduate_applicant, correspondence) %></td>

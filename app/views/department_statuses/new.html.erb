@@ -1,16 +1,22 @@
-<h1>New department_status</h1>
+<h1>New Status</h1>
 
 <%= error_messages_for :department_status %>
 
 <% form_for(@department_status) do |f| %>
-    <p>
+  <p>
     <b>Status</b><br />
     <%= f.text_field :status %>
   </p>
+  
+  <p><b>School Status</b><br />
+    <%= select("department_status", "applicant_status_id", ApplicantStatus.find(:all).collect {|d| [d.status, d.id] }) %></p>
+  <p>
+
+  <%= f.hidden_field :department_id, :value => @department_status.department_id %>
   
     <p>
     <%= f.submit "Create" %>
   </p>
 <% end %>
 
-<%= link_to 'Back', department_statuses_path %>
+<%= link_to 'Back', department_department_statuses_path(@department_status.department) %>
