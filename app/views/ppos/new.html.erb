@@ -97,8 +97,8 @@
                 <%= course_form.hidden_field :credits, :value => ppos_course.credits %>
               </td>
               <td align=center>
-                <input id="ppos_course_attributes__taken" name="ppos[course_attributes][][taken]" type="checkbox" value="1" />
-                 <%= observe_field  :ppos_course_attributes__taken, 
+                <input id='<%= ['ppos_course_attributes__taken', ppos_course.short_dept_name, ppos_course.course_number].join('_') %>', name="ppos[course_attributes][][taken]" type="checkbox" value="1" />
+                 <%= observe_field  ['ppos_course_attributes__taken', ppos_course.short_dept_name, ppos_course.course_number].join('_'), 
                                     :url => { :action => :update_subtotal,
                                               :new_count => ppos_course.credits,
                                               :header_position => ppos_header.position }, 

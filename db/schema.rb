@@ -127,7 +127,7 @@ ActiveRecord::Schema.define(:version => 39) do
     t.string   "studentID"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "department_status_id"
+    t.integer  "applicant_status_id"
     t.integer  "degree_program_id"
   end
 

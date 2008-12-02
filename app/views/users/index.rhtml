@@ -34,8 +34,8 @@
     <% else %>
       <%= image_tag("false.png", :class => "table_image") %>
     <% end %></td>
-    <td><%= link_to 'Edit', edit_user_path(user) %></td>
-    <td><%= link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to image_tag("edit.png",  :class => "table_image",:border => 0), edit_user_path(user) %></td>
+    <td><%= link_to image_tag("remove.png",  :class => "table_image",:border => 0), user, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>

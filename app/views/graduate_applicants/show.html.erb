@@ -50,7 +50,7 @@
 			E-mail:
 		</td>
 		<td>
-			<%=h @graduate_applicant.email %>
+			<%= link_to  @graduate_applicant.email, new_graduate_applicant_correspondence_path(@graduate_applicant) %>
     	</td>
     </tr>
     <tr class="odd">

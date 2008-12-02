@@ -40,8 +40,8 @@
 <p><label for="password_confirmation">Confirm Change Password</label><br/>
 <%= f.password_field :password_confirmation %></p>
 
-<% else %>
-
+<% end %>
+<% if current_user.admin? %>
 <p><label for="admin">Administrator</label>
 <%= check_box("user", "admin") %>
 
