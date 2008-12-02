@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 39) do
+ActiveRecord::Schema.define(:version => 40) do
 
   create_table "announcements", :force => true do |t|
     t.text     "message"
@@ -139,17 +139,6 @@ ActiveRecord::Schema.define(:version => 39) do
     t.datetime "updated_at"
   end
 
-  create_table "logged_exceptions", :force => true do |t|
-    t.string   "exception_class"
-    t.string   "controller_name"
-    t.string   "action_name"
-    t.text     "message"
-    t.text     "backtrace"
-    t.text     "environment"
-    t.text     "request"
-    t.datetime "created_at"
-  end
-
   create_table "notes", :force => true do |t|
     t.integer  "graduate_applicant_id"
     t.text     "text"
@@ -239,6 +228,7 @@ ActiveRecord::Schema.define(:version => 39) do
     t.boolean  "graduate_coordinator"
     t.integer  "department_id"
     t.integer  "pagination_pref"
+    t.boolean  "change_password"
   end
 
 end

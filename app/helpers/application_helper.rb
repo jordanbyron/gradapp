@@ -9,4 +9,11 @@ module ApplicationHelper
     @current_announcements ||= Announcement.current_announcements(session[:announcement_hide_time])
   end
 
+  def production?
+    @is_production ||=(ENV['RAILS_ENV']=='production')
+  end
+
+  def version
+    '1.0 RC1'
+  end
 end

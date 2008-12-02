@@ -17,7 +17,7 @@ class User < ActiveRecord::Base
 
   # prevents a user from submitting a crafted form that bypasses activation
   # anything else you want your user to change should be added here.
-  attr_accessible :login, :email, :password, :password_confirmation, :first_name, :last_name, :admin, :department_id, :graduate_coordinator, :pagination_pref
+  attr_accessible :login, :email, :password, :password_confirmation, :first_name, :last_name, :admin, :department_id, :graduate_coordinator, :pagination_pref, :change_password
 
 	def self.search(search,page)
 		paginate  :per_page => 10, :page => page,
@@ -77,6 +77,13 @@ class User < ActiveRecord::Base
   # Returns true if the user has just been activated.
   def recently_activated?
     @activated
+  end
+
+  def self.newpass( len )
+    chars = ("a".."z").to_a + ("A".."Z").to_a + ("0".."9").to_a
+    newpass = ""
+    1.upto(len) { |i| newpass << chars[rand(chars.size-1)] }
+    return newpass
   end
 
   protected

@@ -48,6 +48,7 @@ ActionController::Routing::Routes.draw do |map|
 	map.resource :session, :controller => 'session'
 	map.login '/login', :controller => 'session', :action => 'new'
 	map.logout '/logout', :controller => 'session', :action => 'destroy'
+  map.change_password '/change_password/:user_id', :controller => 'users', :action => 'change_password'
 	#End User Autentication Routes
 
   # Install the default routes as the lowest priority.

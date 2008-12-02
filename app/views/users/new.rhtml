@@ -28,13 +28,15 @@
               :locals  => {:user => @user}
      end %>
 
+<!--
 <p><label for="password">Password</label><br/>
 <%= f.password_field :password %></p>
 
 <p><label for="password_confirmation">Confirm Password</label><br/>
-<%= f.password_field :password_confirmation %></p>
+<%= f.password_field :password_confirmation %></p> -->
 
 <%= f.hidden_field :pagination_pref, :value =>10 %>
+<%= f.hidden_field :change_password, :value => true %>
 
 <p><%= submit_tag 'Add' %></p>
 <% end -%>

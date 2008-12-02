@@ -11,7 +11,13 @@ class SessionController < ApplicationController
         current_user.remember_me unless current_user.remember_token?
         cookies[:auth_token] = { :value => self.current_user.remember_token , :expires => self.current_user.remember_token_expires_at }
       end
-      redirect_back_or_default('/')
+
+      if current_user.change_password
+        redirect_to change_password_path(current_user.id)
+      else
+        redirect_back_or_default('/')
+      end
+        
       flash[:notice] = "Logged in successfully"
     else
       flash[:error] = "Authentication Failed."

@@ -33,6 +33,9 @@ class UsersController < ApplicationController
     # uncomment at your own risk
     # reset_session
     @user = User.new(params[:user])
+    password = User.newpass(10)
+    @user.password = password
+    @user.password_confirmation = password
     @user.save
 
     @show_graduate_coordinator = false
@@ -43,11 +46,15 @@ class UsersController < ApplicationController
     end
 
     if @user.errors.empty?
+    
       if User.count() == 1 #//Set newly created user as current user
         self.current_user = @user 
       end
+      
+      Notifier.deliver_user_added( @user, password ) # Email the user's credentials
+
       redirect_to(users_path)
-      flash[:notice] = "User " + @user.login + " Created"
+      flash[:notice] = "User " + @user.login + " Created. Credentials have been emailed to " + @user.email
     else
       render :action => 'new'
     end
@@ -81,11 +88,18 @@ class UsersController < ApplicationController
     else
     respond_to do |format|
       if @user.update_attributes(params[:user])
-        flash[:notice] = 'User was successfully updated.'
+      
+        if params[:commit] == 'Update'
+          flash[:notice] = 'User was successfully updated.'
         
+          format.html { redirect_to(edit_user_path(@user)) }
+          format.xml  { head :ok }
+        else
+          flash[:notice] = 'Password was successfully changed.'
         
-        format.html { redirect_to(edit_user_path(@user)) }
-        format.xml  { head :ok }
+          format.html { redirect_to(home_path) }
+          format.xml  { head :ok }
+        end
       else
         @show_graduate_coordinator = false
     
@@ -107,13 +121,26 @@ class UsersController < ApplicationController
   
   def destroy
     @user = User.find(params[:id])
+    
     if self.current_user == @user
-	  flash[:error] = 'Cannot Destroy Current User.'
-	else
+      flash[:error] = 'Cannot Destroy Current User.'
+    else
       @user.destroy
-	  flash[:notice] = 'User destroyed.'
-	end
+      flash[:notice] = 'User destroyed.'
+    end
 	
-	redirect_to(users_path)
+    redirect_to(users_path)
+  end
+  
+  def change_password
+    @user = User.find(params[:user_id])
+    
+    if current_user != @user
+      access_denied
+    else      
+      respond_to do |format|
+        format.html
+      end
+    end
   end	
 end

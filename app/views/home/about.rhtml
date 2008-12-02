@@ -2,8 +2,18 @@
 
 <h1>About GradApp</h1>
 
+<h3>Version</h3>
+
+<i><%= version %></i>
+
 <h3>Project Goal Statement</h3>
 
 <i>Deliver a standardized system for the electronic tracking of graduate applicants as well as the generation of template forms and planned programs of study.</i>
 
-<h3>Developed by <a href="http://www.ducksoupsoftware.com">Duck Soup Software</a></h3>
+<h3>Developed by</h3>
+
+<i><%= link_to "Duck Soup Software", "http://www.ducksoupsoftware.com", :popup => true %></i>
+
+<h3>Support</h3>
+
+<i>Please log in or send an email to <%= mail_to 'Jordan@DuckSoupSoftware.com', 'Jordan@DuckSoupSoftware.com', :subject => 'Support - GradApp' %></i>
