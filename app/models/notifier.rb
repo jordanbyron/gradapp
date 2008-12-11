@@ -13,6 +13,7 @@ class Notifier < ActionMailer::Base
   def user_added( user, password )
     recipients user.email
     from  "donotreply@ducksoupsoftware.com"
+    content_type "text/html"
     subject user.first_name + ", Welcome to GradApp!"
     # Email body substitutions go here
     body :user => user, :password => password
