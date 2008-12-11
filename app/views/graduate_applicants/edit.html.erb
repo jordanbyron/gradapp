@@ -122,7 +122,7 @@
     </tr>
 </table>
   <p><label for="department_status_id"><b>Status:</b></label>
-    <%= select("graduate_applicant", "department_status_id", DepartmentStatus.find(:all).collect {|d| [d.status, d.id] }) %></p>
+    <%= select("graduate_applicant", "department_status_id", DepartmentStatus.find(:all, :conditions => { :department_id => current_user.department_id }).collect {|d| [d.status, d.id] }) %></p>
   <p>
 
   <p>

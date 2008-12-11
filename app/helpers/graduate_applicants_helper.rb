@@ -2,7 +2,7 @@ module GraduateApplicantsHelper
 
   def status_selection(status)
     options = "<option value=''>All</option>"
-    DepartmentStatus.find(:all).each do |s|
+    DepartmentStatus.find(:all, :conditions => { :department_id => current_user.department_id }).each do |s|
       if s.id == status.to_i
         options += "<option value=#{s.id} selected='selected'>#{s.status}</option>"
       else
