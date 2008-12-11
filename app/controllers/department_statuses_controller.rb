@@ -4,7 +4,7 @@ class DepartmentStatusesController < ApplicationController
   # GET /department_statuses
   # GET /department_statuses.xml
   def index
-    @department_statuses = DepartmentStatus.find(:all)
+    @department_statuses = DepartmentStatus.find(:all, :conditions =>{ :department_id => current_user.department_id })
     @department = Department.find(params[:department_id])
     
     respond_to do |format|

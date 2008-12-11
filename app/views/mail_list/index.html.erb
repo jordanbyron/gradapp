@@ -7,7 +7,7 @@
 </p>
 
 <% form_tag :controller => 'mail_list', :action => 'generate_list' do %>
-  <%= select("graduate_applicant","applicant_status_id", ApplicantStatus.find(:all).collect {|d| [d.status, d.id] }) %>
+  <%= select("graduate_applicant","department_status_id", DepartmentStatus.find(:all, :conditions =>{ :department_id => current_user.department_id }).collect {|d| [d.status, d.id] }) %>
   <%= submit_tag "Generate" %>
 <%end%>
 

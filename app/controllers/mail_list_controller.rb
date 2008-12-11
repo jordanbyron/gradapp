@@ -9,10 +9,10 @@ class MailListController < ApplicationController
 
 	def generate_list
 
-		@graduate_applicants = GraduateApplicant.find(:all, :conditions => {:applicant_status_id => params[:graduate_applicant][:applicant_status_id]})
+		@graduate_applicants = GraduateApplicant.find(:all, :conditions => {:department_status_id => params[:graduate_applicant][:department_status_id]})
 
         for graduate_applicant in @graduate_applicants
-          @text_status = ApplicantStatus.find(graduate_applicant.applicant_status_id).status
+          @text_status = graduate_applicant.department_status.status
         end
 
 
