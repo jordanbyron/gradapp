@@ -23,7 +23,7 @@ config.action_mailer.delivery_method = :smtp
 # these options are only needed if you choose smtp delivery
 config.action_mailer.smtp_settings = {
   :address        => 'mail.jordanbyron.com',
-  :port           => 25,
+  :port           => 587,
   :domain         => 'www.jordanbyron.com',
   :authentication => :login,
   :user_name      => 'dss_mailer@jordanbyron.com',

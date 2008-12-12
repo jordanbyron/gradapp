@@ -17,7 +17,7 @@ class User < ActiveRecord::Base
 
   # prevents a user from submitting a crafted form that bypasses activation
   # anything else you want your user to change should be added here.
-  attr_accessible :login, :email, :password, :password_confirmation, :first_name, :last_name, :admin, :department_id, :graduate_coordinator, :pagination_pref, :change_password
+  attr_accessible :login, :email, :password, :password_confirmation, :first_name, :last_name, :admin, :department_id, :graduate_coordinator, :pagination_pref, :change_password, :login_count, :last_login
 
 	def self.search(search,page)
 		paginate  :per_page => 10, :page => page,
@@ -25,6 +25,14 @@ class User < ActiveRecord::Base
               :order => 'login'
 	end
 
+  def last_login_date
+    if last_login == nil
+      'Never!'
+    else
+      last_login.strftime("%B %d, %Y")
+    end
+  end
+  
   def full_name
     [first_name, last_name].join(' ')
   end

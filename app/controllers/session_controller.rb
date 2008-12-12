@@ -17,6 +17,14 @@ class SessionController < ApplicationController
       else
         redirect_back_or_default('/')
       end
+      
+      if current_user.login_count == nil
+        current_user.login_count = 0
+      end
+      
+      current_user.last_login = DateTime.now()
+      current_user.login_count += 1
+      current_user.save
         
       flash[:notice] = "Logged in successfully"
     else
