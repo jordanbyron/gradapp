@@ -1,9 +1,10 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :announcements
-  map.resources :support_requests
+
+  # Home Controller
   map.home '', :controller =>'home', :action => 'index' # Set Root To The Home Controller
   map.about '/about', :controller => 'home', :action => 'about' # Set about path
   
+  map.resources :support_requests
   map.resources :course_templates, :path_prefix => '/departments/:department_id/degree_programs/:degree_program_id/ppos_templates/:ppos_template_id/header_templates/:header_template_id'
   map.resources :header_templates, :path_prefix => '/departments/:department_id/degree_programs/:degree_program_id/ppos_templates/:ppos_template_id'
   map.resources :prerequisite_templates, :path_prefix => '/departments/:department_id/degree_programs/:degree_program_id/ppos_templates/:ppos_template_id'
@@ -17,12 +18,15 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :degree_requirements, :path_prefix => '/departments/:department_id/degree_programs/:degree_program_id'
   map.resources :degree_programs
   map.resources :correspondences
+  map.resources :attachments
   map.resources :notes
   map.resources :applicant_requirements, :path_prefix => '/graduate_applicants/:graduate_applicant_id'
+  map.resources :announcements
   map.resources :application_requirements
   map.resources :graduate_applicants
   map.resources :graduate_applicants, :has_many => :correspondences
   map.resources :graduate_applicants, :has_many => :notes
+  map.resources :graduate_applicants, :has_many => :attachments
   map.resources :mail_list
   map.resources :linkbox
   map.resources :departments

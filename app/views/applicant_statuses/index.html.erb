@@ -1,3 +1,5 @@
+<% title [@department.name,'Department'].join(' ') + ' | Applicant Statuses' %>
+
 <h1>Applicant Statuses</h1>
 
 <table>
@@ -11,8 +13,8 @@
   <tr class="<%= cycle('even', 'odd') %>">
     <td><%=h applicant_status.status %></td>
     <td><%=h applicant_status.short_status %></td>
-    <td><%= link_to image_tag("edit.png",  :class => "table_image",:border => 0), edit_applicant_status_path(applicant_status) %></td>
-    <td><%= link_to image_tag("remove.png", :class => "table_image",:border => 0), applicant_status, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to image_tag("edit.png",  :class => "table_image",:border => 0, :alt => "Edit", :title => "Edit this Applicant Status"), edit_applicant_status_path(applicant_status) %></td>
+    <td><%= link_to image_tag("remove.png", :class => "table_image",:border => 0, :alt => "Remove", :title => "Remove this Applicant Status"), applicant_status, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>

@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  gradaute_applicant_id: 1
+  title: MyString
+  description: MyText
+  created_by: MyString
+
+two:
+  gradaute_applicant_id: 1
+  title: MyString
+  description: MyText
+  created_by: MyString

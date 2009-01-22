@@ -4,6 +4,8 @@
            :locals  => {:page               => 'Notes',
                         :graduate_applicant => @graduate_applicant } %>
 
+<% if @notes.total_entries > 0 %>
+
 <% form_tag graduate_applicant_notes_path(@graduate_applicant), :method => 'get' do %>
 		<%= text_field_tag :search, params[:search] %>
 		<%= submit_tag "Search" %>
@@ -30,11 +32,11 @@
       <%= note.created_by %>
     </td>
     <td>
-      <%= link_to image_tag("edit.png",  :class => "table_image",:border => 0),
+      <%= link_to image_tag("edit.png",  :class => "table_image",:border => 0, :alt => "Edit", :title => "Edit this Note"),
       edit_graduate_applicant_note_path(@graduate_applicant.id,note) %>
     </td>
     <td>
-    <%= link_to image_tag("remove.png", :class => "table_image",:border => 0),
+    <%= link_to image_tag("remove.png", :class => "table_image",:border => 0, :alt => "Remove", :title => "Remove this Note"),
       note,
       :confirm => 'Are you sure?',
       :method => :delete %>
@@ -44,6 +46,12 @@
 </table>
 
 <%= will_paginate @notes %>
+
+<% else %>
+<p>
+<h2>There are currently no notes for this applicant.</h2>
+</p>
+<% end %>
 
 <% if flash[:new_note_div] %>
   <div id="new_note_div">

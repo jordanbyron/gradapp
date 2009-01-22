@@ -15,6 +15,8 @@ class GraduateApplicantsController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @graduate_applicants }
+      format.pdf  {   @graduate_applicants = GraduateApplicant.find(:all, :conditions =>{ :department_id => current_user.department_id },:order => :last_name)
+                      render :layout => false }
     end
   end
 
@@ -27,6 +29,7 @@ class GraduateApplicantsController < ApplicationController
       respond_to do |format|
         format.html # show.html.erb
         format.xml  { render :xml => @graduate_applicant }
+        format.pdf  { render :layout => false }
       end
     end
   end
@@ -35,6 +38,8 @@ class GraduateApplicantsController < ApplicationController
   # GET /graduate_applicants/new.xml
   def new
     @graduate_applicant = GraduateApplicant.new
+    
+    @graduate_applicant.country = "United States"     #Set US as default country. Sloppy, but it works
 
     respond_to do |format|
       format.html # new.html.erb
@@ -67,6 +72,9 @@ class GraduateApplicantsController < ApplicationController
 
     respond_to do |format|
       if @graduate_applicant.save
+      
+        clear_application_received_date
+      
         flash[:notice] = 'Graduate Applicant was successfully created.'
         format.html { redirect_to(@graduate_applicant) }
         format.xml  { render :xml => @graduate_applicant, :status => :created, :location => @graduate_applicant }
@@ -81,9 +89,12 @@ class GraduateApplicantsController < ApplicationController
   # PUT /graduate_applicants/1.xml
   def update
     @graduate_applicant = GraduateApplicant.find(params[:id])
-
+    
     respond_to do |format|
       if @graduate_applicant.update_attributes(params[:graduate_applicant])
+      
+        clear_application_received_date
+        
         flash[:notice] = 'Graduate Applicant was successfully updated.'
         format.html { redirect_to(@graduate_applicant) }
         format.xml  { head :ok }
@@ -124,8 +135,20 @@ class GraduateApplicantsController < ApplicationController
     @graduate_applicant.degree_program.degree_requirements.each do |r|
       @graduate_applicant.applicant_requirements.build(:requirement => r.description, 
                                                        :met => false)
-    end                      
+    end  
   end   
  
+ def clear_application_received_date
+    # Check to be sure the Application was received, otherwise clear the date
+    if params[:application_received_by_graduate_office] != "on"
+      @graduate_applicant.date_application_received_by_graduate_office = nil
+      @graduate_applicant.save
+    end
+    
+    if params[:application_received_by_department] != "on"
+      @graduate_applicant.date_application_received_by_department = nil
+      @graduate_applicant.save
+    end
+ end
   
 end

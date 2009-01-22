@@ -2,7 +2,7 @@
 
 <h1>Graduate Applicants</h1>
 
-<p style="color: green"><%= flash[:notice] %></p>
+<p style="color: #fff; font-style: italic"><%= flash[:notice] %></p>
 
 <% form_tag graduate_applicants_path, :method => 'get' do %>
 	<p>
@@ -18,7 +18,7 @@
 	<tr>
 		<th>First Name</th>
     	<th>Last Name</th>
-    	<th>Banner ID</th>
+    	<th>Student ID</th>
     	<th>Status</th>
     	<th colspan=3>Controls</th>
 	</tr>
@@ -37,13 +37,13 @@
           <%= applicants.department_status.status %>
         </td>
         <td>
-          <%= link_to image_tag("contact.png", :alt => "Contact Info", :class => "table_image", :border => 0), graduate_applicant_path(applicants) %>
+          <%= link_to image_tag("contact.png", :alt => "Contact Info", :class => "table_image", :border => 0, :alt => applicants.full_name + "'s Contact Information", :title => applicants.full_name + "'s Contact Information"), graduate_applicant_path(applicants) %>
         </td>
         <td>
-          <%= link_to image_tag("note.png", :alt => "Notes", :class => "table_image", :border => 0), graduate_applicant_notes_path(applicants) %>
+          <%= link_to image_tag("note.png", :alt => "Notes", :class => "table_image", :border => 0, :alt => applicants.full_name + "'s Notes", :title => applicants.full_name + "'s Notes"), graduate_applicant_notes_path(applicants) %>
         </td>
         <td>
-          <%= link_to image_tag("correspondence.png", :alt => "Correspondence", :class => "table_image", :border => 0), graduate_applicant_correspondences_path(applicants) %>
+          <%= link_to image_tag("correspondence.png", :alt => "Correspondence", :class => "table_image", :border => 0, :alt => applicants.full_name + "'s Correspondence", :title => applicants.full_name + "'s Correspondence"), graduate_applicant_correspondences_path(applicants) %>
         </td>
       </tr>
   <% end %>
@@ -54,5 +54,5 @@
 <p>
   <%= link_to 'New Graduate Applicant', new_graduate_applicant_path %> |
   <%= link_to 'Generate Mailing List', :controller => 'mail_list' %> |
-  Print / Email List of Applicants
+  <%= link_to 'Export as PDF', formatted_graduate_applicants_path(:pdf), :popup => true  %>
 </p>

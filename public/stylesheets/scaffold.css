@@ -132,14 +132,13 @@ img.navimage {
 #warning h1{
 	color: red;
 }
-#support b{
-	display: inline;
-}
+
 #support h2{
 	font-size: 12px;
 	margin-bottom: 1px;
 	font-weight: normal;
 	font-style: normal;
+	margin-top: 0;
 }
 
 #support input,#support textarea, #support select{

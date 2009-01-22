@@ -82,7 +82,8 @@ class DepartmentStatusesController < ApplicationController
     @department_status.destroy
 
     respond_to do |format|
-      format.html { redirect_to(department_statuses_url) }
+      flash[:notice] = 'Status was successfully deleted.'
+      format.html { redirect_to department_department_statuses_path(@department_status.department)  }
       format.xml  { head :ok }
     end
   end

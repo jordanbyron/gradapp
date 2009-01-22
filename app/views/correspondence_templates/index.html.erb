@@ -20,8 +20,8 @@
 <% for correspondence_template in @correspondence_templates %>
   <tr class="<%= cycle('even', 'odd') %>">
     <td><%=h correspondence_template.title %></td>
-    <td><%= link_to image_tag("edit.png",  :class => "table_image",:border => 0), edit_correspondence_template_path(correspondence_template) %></td>
-    <td><%= link_to image_tag("remove.png", :class => "table_image",:border => 0), correspondence_template, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to image_tag("edit.png",  :class => "table_image",:border => 0, :alt => "Edit", :title => "Edit this Correspondence Template"), edit_correspondence_template_path(correspondence_template) %></td>
+    <td><%= link_to image_tag("remove.png", :class => "table_image",:border => 0, :alt => "Remove", :title => "Remove this Correspondence Template"), correspondence_template, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>

@@ -1,0 +1,27 @@
+<p>
+<b>Application Received by Graduate Office</b>
+<input type="checkbox" id="application_received_by_graduate_office" name="application_received_by_graduate_office" <%= application_received_by_graduate_office_checked(@graduate_applicant) %> />
+
+<%= observe_field(  :application_received_by_graduate_office,
+                    :on => :selected,
+                    :update => :department_div,
+                    :function => visual_effect(:toggle_appear, "app_received_by_grad_office_div")) %>
+
+  <div id="app_received_by_grad_office_div" <%= application_received_by_graduate_office_visibility(@graduate_applicant) %>>
+    <%= date_select("graduate_applicant", :date_application_received_by_graduate_office, :order => [:day, :month, :year]) %>
+  </div>
+</p>
+
+<p>
+<b>Application Received by Department</b>
+<input type="checkbox" id="application_received_by_department" name="application_received_by_department" <%= application_received_by_department_checked(@graduate_applicant) %> />
+
+<%= observe_field(  :application_received_by_department,
+                    :on => :selected,
+                    :update => :department_div,
+                    :function => visual_effect(:toggle_appear, "app_received_by_department_div")) %>
+
+<div id="app_received_by_department_div" <%= application_received_by_department_visibility(@graduate_applicant) %>>
+  <%= date_select("graduate_applicant", :date_application_received_by_department, :order => [:day, :month, :year]) %>
+</div>
+</p>

@@ -14,6 +14,6 @@ module ApplicationHelper
   end
 
   def version
-    '1.0 RC1'
+    '1.0 RC2 (Bufflehead)'
   end
 end

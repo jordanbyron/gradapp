@@ -1,5 +1,5 @@
 # This file is auto-generated from the current state of the database. Instead of editing this file, 
-# please use the migrations feature of ActiveRecord to incrementally modify your database, and
+# please use the migrations feature of Active Record to incrementally modify your database, and
 # then regenerate this schema definition.
 #
 # Note that this schema.rb definition is the authoritative source for your database schema. If you need
@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 42) do
+ActiveRecord::Schema.define(:version => 20090122024115) do
 
   create_table "announcements", :force => true do |t|
     t.text     "message"
@@ -41,6 +41,19 @@ ActiveRecord::Schema.define(:version => 42) do
     t.string   "description"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "attachments", :force => true do |t|
+    t.integer  "graduate_applicant_id"
+    t.string   "title"
+    t.text     "description"
+    t.string   "created_by"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "file_file_name"
+    t.string   "file_content_type"
+    t.integer  "file_file_size"
+    t.datetime "file_updated_at"
   end
 
   create_table "consentrations_templates", :force => true do |t|
@@ -129,6 +142,9 @@ ActiveRecord::Schema.define(:version => 42) do
     t.datetime "updated_at"
     t.integer  "department_status_id"
     t.integer  "degree_program_id"
+    t.datetime "date_application_received_by_graduate_office"
+    t.datetime "date_application_received_by_department"
+    t.string   "country"
   end
 
   create_table "header_templates", :force => true do |t|

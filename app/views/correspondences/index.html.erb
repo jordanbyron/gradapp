@@ -4,6 +4,7 @@
            :locals  => {:page               => 'Correspondence',
                         :graduate_applicant => @graduate_applicant } %>
 
+<% if @correspondences.total_entries > 0 %>
 <% form_tag graduate_applicant_correspondences_path(@graduate_applicant), :method => 'get' do %>
 		<%= text_field_tag :search, params[:search] %>
 		<%= submit_tag "Search" %>
@@ -27,7 +28,7 @@
     <td><%=h correspondence.body_short %></td>
     <td><%=h correspondence.correspondence_type %></td>
     <td><%= link_to 'Show', graduate_applicant_correspondence_path(@graduate_applicant, correspondence) %></td>
-    <td><%= link_to image_tag("remove.png", :border => 0), correspondence, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to image_tag("remove.png", :border => 0, :alt => "Remove", :title => "Remove this Correspondence"), correspondence, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
@@ -36,6 +37,11 @@
 
 <br />
 
+<% else %>
+<p>
+<h2>Currently no correspondence has been sent to this applicant.</h2>
+</p>
+<% end %>
 <p>
   <%= link_to 'Send Correspondence', new_graduate_applicant_correspondence_path(@graduate_applicant) %> | 
   <%= link_to 'Back to Graduate Applicants', graduate_applicants_path %>

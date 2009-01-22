@@ -1,0 +1,34 @@
+<% title 'Graduate Applicant | ' + @graduate_applicant.full_name + ' | Attachments' %>
+
+<%= render :partial => 'graduate_applicants/navigation',
+           :locals  => {:page               => 'Attachments',
+                        :graduate_applicant => @graduate_applicant } %>
+<% if @attachments.length > 0 %>
+<table>
+  <tr>
+    <th>File</th>
+    <th>Description</th>
+    <th>Created by</th>
+    <th colspan=1>Controls</th>
+  </tr>
+
+<% for attachment in @attachments %>
+  <tr>
+    <td><%= link_to attachment.file.original_filename, attachment.file.url, :popup => :true %></td>
+    <td><%=h attachment.title %></td>
+    <td><%=h attachment.created_by %></td>
+    <td><%= link_to image_tag("remove.png", :class => "table_image",:border => 0, :alt => "Remove", :title => "Remove this Attachment"), graduate_applicant_attachment_path(@graduate_applicant,attachment), :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<% else %>
+<p>
+<h2>There are currently no attachments for this applicant.</h2>
+</p>
+Be the first to add a 
+<% end %>
+
+<%= link_to 'New Attachment', new_graduate_applicant_attachment_path(@graduate_applicant) %>

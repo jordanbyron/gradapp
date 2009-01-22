@@ -1,0 +1,21 @@
+
+<p>
+  <b>Title:</b>
+  <%=h @attachments.title %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @attachments.description %>
+</p>
+
+<p>
+  <b>Created by:</b>
+  <%=h @attachments.created_by %>
+</p>
+
+<%= link_to @attachments.file.original_filename, @attachments.file.url, :popup => :true %>
+
+<p>
+<%= link_to 'Back', graduate_applicant_attachments_path(@attachments.graduate_applicant) %>
+</p>

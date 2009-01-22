@@ -19,8 +19,8 @@
 <% for degree_requirement in @degree_requirements %>
   <tr class="<%= cycle('even', 'odd') %>">
     <td><%=h degree_requirement.description %></td>
-    <td><%= link_to image_tag("edit.png",  :class => "table_image",:border => 0), edit_degree_requirement_path(@department.id, @degree_program.id, degree_requirement) %></td>
-    <td><%= link_to image_tag("remove.png", :class => "table_image",:border => 0), degree_requirement_path(@department.id, @degree_program.id, degree_requirement.id), :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to image_tag("edit.png",  :class => "table_image",:border => 0, :alt => "Edit", :title => "Edit this Degree Requirement"), edit_degree_requirement_path(@department.id, @degree_program.id, degree_requirement) %></td>
+    <td><%= link_to image_tag("remove.png", :class => "table_image",:border => 0, :alt => "Remove", :title => "Remove this Degree Requirement"), degree_requirement_path(@department.id, @degree_program.id, degree_requirement.id), :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>

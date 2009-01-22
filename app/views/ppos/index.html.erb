@@ -3,13 +3,14 @@
 <%= render :partial => 'graduate_applicants/navigation',
            :locals  => {:page               => 'PPoS',
                         :graduate_applicant => @graduate_applicant } %>
+<% if @ppos.length > 0 %>
 
 <table>
   <tr>
     <th>Created on</th>
     <th>Created by</th>
     <th>Expires on</th>
-    <th colspan=3>Controls</th>
+    <th colspan=4>Controls</th>
   </tr>
 
 <% for ppos in @ppos %>
@@ -17,13 +18,21 @@
     <td><%=h ppos.created_date %></td>
     <td><%=h ppos.created_by_full_name %></td>
     <td><%=h ppos.expires_date %></td>
-    <td><%= link_to 'Show', ppo_path(@graduate_applicant.id,ppos) %></td>
-    <td><%= link_to "Print", { :action => "print", :graduate_applicant_id => @graduate_applicant.id, :ppos_id => ppos.id }, :popup => true %></td>
-    <td><%= link_to 'Destroy', ppo_path(@graduate_applicant.id,ppos), :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Export as PDF', formatted_ppo_path(@graduate_applicant,ppos,:pdf), :popup => true %></td>
+    <td><%= link_to image_tag("print.png", :border => 0, :alt => "Print", :title => "Print this Planned Program of Study"), { :action => "print", :graduate_applicant_id => @graduate_applicant.id, :ppos_id => ppos.id }, :popup => true %></td>
+    <td><%= link_to image_tag("edit.png", :border => 0, :alt => "Edit", :title => "Edit this Planned Program of Study"), ppo_path(@graduate_applicant.id,ppos) %></td>
+    <td><%= link_to image_tag("remove.png", :border => 0, :alt => "Remove", :title => "Remove this Planned Program of Study"), ppo_path(@graduate_applicant.id,ppos), :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
+
+<% else %>
+<p>
+<h2>There are currently no planned programs of study for this applicant.</h2>
+</p>
+Be the first to  
+<% end %>
 
 <%=link_to 'Create New Planned Program of Study', new_ppo_path(@graduate_applicant.id) %>

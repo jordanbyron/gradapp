@@ -2,7 +2,7 @@
 
 <h1>New Graduate Applicant</h1>
 
-<p style="color: green"><%= flash[:notice] %></p>
+<p style="color: #fff; font-style: italic"><%= flash[:notice] %></p>
 
 <%= error_messages_for :graduate_applicant %>
 
@@ -40,6 +40,9 @@
 			<%= f.text_field :suffix %>
     	</td>
     </tr>
+</table>
+<br />
+<table>
 	<tr>
 		<td class="tablehead">
 			Address 1:
@@ -80,6 +83,16 @@
 			<%= f.text_field :zip %>
     	</td>
     </tr>
+    <td class="tablehead">
+			Country:
+		</td>
+		<td>
+			<%= country_select("graduate_applicant", "country") %>
+    	</td>
+    </tr>
+</table>
+<br />
+<table>
     <tr>
 		<td class="tablehead">
 			Phone (day):
@@ -104,6 +117,9 @@
 			<%= f.text_field :email %>
     	</td>
     </tr>
+</table>
+<br />
+<table>
     <tr>
 		<td class="tablehead">
 			Student ID:
@@ -123,13 +139,16 @@
 </table>
 
   <p><label for="department_status_id"><b>Status:</b></label>
-    <%= select("graduate_applicant", "department_status_id", DepartmentStatus.find(:all, :conditions =>{ :department_id => current_user.department_id }).collect {|d| [d.status, d.id] }) %></p>
+    <%= select("graduate_applicant", "department_status_id", DepartmentStatus.find(:all, :conditions =>{ :department_id => current_user.department_id }, :order => :status).collect {|d| [d.status, d.id] }) %></p>
   <p>
 
   <p>
     <b>Degree Program:</b>
-    <%= select("graduate_applicant", "degree_program_id", DegreeProgram.find(:all, :conditions => { :department_id => current_user.department_id }).collect {|d| [d.name, d.id] }) %>
+    <%= select("graduate_applicant", "degree_program_id", DegreeProgram.find(:all, :conditions => { :department_id => current_user.department_id }, :order => :name).collect {|d| [d.name, d.id] }) %>
   </p>
+
+  <%= render :partial => 'application_received',
+      :locals  => {:graduate_applicant => @graduate_applicant} %>
 
   <p>
     <%= f.submit "Create" %>

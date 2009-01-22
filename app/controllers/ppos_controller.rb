@@ -19,9 +19,11 @@ class PposController < ApplicationController
     @ppos = Ppos.find(params[:id])
     @graduate_applicant = @ppos.graduate_applicant
 
+    prawnto :prawn => { :page_layout => :landscape }
+    
     respond_to do |format|
       format.html # show.html.erb
-      format.xml  { render :xml => @ppos }
+      format.pdf  { render :layout => false }
     end
   end
 

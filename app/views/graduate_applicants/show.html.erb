@@ -23,10 +23,11 @@
 		</td>
 		<td>
 			<%=h @graduate_applicant.address1 %>
-    		<%=h @graduate_applicant.address2 %>&nbsp;
+    		<%=h @graduate_applicant.address2 %>,
     		<%=h @graduate_applicant.city %>,
     		<%=h @graduate_applicant.state %>
-    		<%=h @graduate_applicant.zip %>
+    		<%=h @graduate_applicant.zip %>,
+        <%=h @graduate_applicant.country %>
     	</td>
     </tr>
 	<tr class="even">
@@ -50,7 +51,7 @@
 			E-mail:
 		</td>
 		<td>
-			<%= link_to  @graduate_applicant.email, new_graduate_applicant_correspondence_path(@graduate_applicant) %>
+			<%= link_to  @graduate_applicant.email, new_graduate_applicant_correspondence_path(@graduate_applicant), :title => "Email this Graduate Applicant" %>
     	</td>
     </tr>
     <tr class="odd">
@@ -61,6 +62,9 @@
 			<%=h @graduate_applicant.studentID %>
     	</td>
     </tr>
+  </table>
+  <p>
+  <table>
     <tr class="even">
 		<td class="tablehead">
 			GPA:
@@ -85,9 +89,29 @@
 			<%=h DegreeProgram.find(@graduate_applicant.degree_program_id).name %>
     	</td>
     </tr>
+  </table>
+  <p>
+  <table>
+    <tr class="odd">
+		<td class="tablehead">
+			Received by Graduate Office:
+		</td>
+		<td>
+			<%=h @graduate_applicant.received_by_graduate_office_on %>
+    	</td>
+    </tr>
+    <tr class="even">
+		<td class="tablehead">
+      Received by Department:
+		</td>
+		<td>
+			<%=h @graduate_applicant.received_by_department_on %>
+    	</td>
+    </tr>
 </table>
 </div>
 
   <p><%= link_to 'Edit', edit_graduate_applicant_path(@graduate_applicant) %> |
   <%= link_to 'Delete Applicant', @graduate_applicant, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to 'Export as PDF', formatted_graduate_applicant_path(@graduate_applicant,:pdf), :popup => true  %> | 
   <%= link_to 'Back to Graduate Applicants', graduate_applicants_path %></p>

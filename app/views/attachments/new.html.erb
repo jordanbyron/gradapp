@@ -1,0 +1,21 @@
+<h1>New Attachment</h1>
+
+<%= error_messages_for :attachment %>
+
+<% form_for @attachment, :html => { :multipart => true } do |f| %>
+
+  <%= f.hidden_field :graduate_applicant_id %>
+
+  <p>
+    <b>Description</b><br />
+    <%= f.text_field :title %>
+  </p>
+
+  <%= f.file_field :file %>
+
+  <%= f.hidden_field :created_by %>
+
+  <p>
+    <%= f.submit "Create" %> <%= link_to 'Cancel', graduate_applicant_attachments_path(@graduate_applicant) %>
+  </p>
+<% end %>
