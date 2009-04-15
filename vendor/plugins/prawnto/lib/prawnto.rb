@@ -2,6 +2,7 @@ require 'action_controller'
 require 'action_view'
 
 require 'prawn'
+require 'prawn/layout'
 require 'prawnto/action_controller'
 require 'prawnto/action_view'
 
