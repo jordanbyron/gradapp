@@ -1,6 +1,6 @@
 current_date = Time.now.localtime.strftime("%m/%d/%Y")
 
-pdf.font.size = 10
+# pdf.font.size = 10
 pdf.text "Graduate Applicants", :size => 24, :spacing => 4
 pdf.text "#{current_user.department.name} Department", :size => 12, :spacing => 15
 
