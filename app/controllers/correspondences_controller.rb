@@ -20,6 +20,7 @@ class CorrespondencesController < ApplicationController
     if params[:correspondence_template_id] != nil
       @correspondence_template = CorrespondenceTemplate.find(params[:correspondence_template_id][0])
       @correspondence.text = @correspondence_template.generate(@graduate_applicant)
+      @correspondence.subject = @correspondence_template.subject
     end
 
     respond_to do |format|
@@ -31,6 +32,8 @@ class CorrespondencesController < ApplicationController
   def show
     @correspondence = Correspondence.find(params[:id])
     @graduate_applicant = GraduateApplicant.find(params[:graduate_applicant_id])
+    
+    @action = flash[:action]
 
     respond_to do |format|
       format.html # show.html.erb
@@ -57,7 +60,9 @@ class CorrespondencesController < ApplicationController
     
     respond_to do |format|
       if @correspondence.save
-          format.html { redirect_to graduate_applicant_correspondence_path(@graduate_applicant, @correspondence) }
+        flash[:action] = @correspondence.correspondence_type
+      
+        format.html { redirect_to graduate_applicant_correspondence_path(@graduate_applicant, @correspondence) }
       else
         format.html { render :action => "new" }
       end

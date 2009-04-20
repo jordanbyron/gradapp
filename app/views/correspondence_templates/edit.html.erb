@@ -6,8 +6,13 @@
 
 <% form_for(@correspondence_template) do |f| %>
   <p>
-    <b>Title</b><br />
+    <b>Template Name</b><br />
     <%= f.text_field :title %>
+  </p>
+  
+  <p>
+    <b>Subject</b><br />
+    <%= f.text_field :subject %>
   </p>
 
   <p>

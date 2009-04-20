@@ -1,14 +1,31 @@
 <% title 'Graduate Applicant | ' + @graduate_applicant.full_name + ' | Correspondence' %>
 
+<script type="text/javascript">
+//<![CDATA[
+	onload = function()
+	{    
+    <% if @action != nil && @action == 'Print' %>
+      openInBackground('<%= url_for :action => "print", :graduate_applicant_id => @correspondence.graduate_applicant.id, :correspondence_id => @correspondence.id %>',false);
+    <% elsif @action != nil && @action == 'Email' %>
+      openInBackground('<%= mail_to @correspondence.graduate_applicant.email, 'Email', :body => @correspondence.text, :subject => @correspondence.subject %>',true);
+    <% end %>
+	}
+//]]>
+</script>
+
 <p>
   <b>Sent date time:</b>
   <%=h @correspondence.sent_datetime %>
+</p>
+<hr>
+<p>
+  <b><%=h @correspondence.subject %></b>
 </p>
 
 <p>
   <%= @correspondence.body_html %>
 </p>
-
+<hr>
 <p>
   <b>Type:</b>
   <%=h @correspondence.correspondence_type %>
@@ -16,6 +33,6 @@
 
 <p>
   <%= link_to 'Print', { :action => "print", :graduate_applicant_id => @correspondence.graduate_applicant.id, :correspondence_id => @correspondence.id }, :popup => true %> |
-  <%= mail_to @correspondence.graduate_applicant.email, 'Email', :body => @correspondence.text %> | 
+  <%= mail_to @correspondence.graduate_applicant.email, 'Email', :body => @correspondence.text, :subject => @correspondence.subject %> | 
   <%= link_to 'Back', graduate_applicant_correspondences_path(@correspondence.graduate_applicant) %>
 </p>
