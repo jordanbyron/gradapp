@@ -43,7 +43,7 @@
       <%= image_tag("false.png", :class => "table_image") %>
     <% end %></td>
     <td><%=h user.login_count %></td>
-    <td><%=h user.last_login_date %></td>
+    <td><%=h "#{user.last_login_date} (#{user.last_ip})" %></td>
     <td><%= link_to image_tag("edit.png",  :class => "table_image",:border => 0), edit_user_path(user) %></td>
     <td><%= link_to image_tag("remove.png",  :class => "table_image",:border => 0), user, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>

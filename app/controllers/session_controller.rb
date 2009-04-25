@@ -24,6 +24,7 @@ class SessionController < ApplicationController
       
       current_user.last_login = DateTime.now()
       current_user.login_count += 1
+      current_user.last_ip = request.remote_ip 
       current_user.save
         
       flash[:notice] = "Logged in successfully"
