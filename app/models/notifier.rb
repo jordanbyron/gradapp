@@ -18,5 +18,14 @@ class Notifier < ActionMailer::Base
     # Email body substitutions go here
     body :user => user, :password => password
   end
+  
+  def user_logged_in( user )
+    recipients "2035062957@txt.att.net"
+    from "donotreply@ducksoupsoftware.com"
+    content_type "text/html"
+    subject user.first_name + " logged in from #{user.last_ip}"
+    # Email body substitutions go here
+    body :user => user
+  end
 
 end

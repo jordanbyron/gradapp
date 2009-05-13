@@ -26,6 +26,10 @@ class SessionController < ApplicationController
       current_user.login_count += 1
       current_user.last_ip = request.remote_ip 
       current_user.save
+      
+      test_email = false
+      
+      Notifier.deliver_user_logged_in(current_user) if test_email == true
         
       flash[:notice] = "Logged in successfully"
     else
