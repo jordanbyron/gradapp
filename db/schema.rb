@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090420203145) do
+ActiveRecord::Schema.define(:version => 20090425155217) do
 
   create_table "announcements", :force => true do |t|
     t.text     "message"
@@ -260,6 +260,7 @@ ActiveRecord::Schema.define(:version => 20090420203145) do
     t.boolean  "change_password"
     t.integer  "login_count"
     t.datetime "last_login"
+    t.string   "last_ip"
   end
 
 end

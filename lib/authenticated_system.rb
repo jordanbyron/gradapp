@@ -57,11 +57,7 @@ module AuthenticatedSystem
     # Filter method to enforce Graduate Coordinator access rights
     def gc_required
       if logged_in? && current_user.graduate_coordinator
-        if current_user.department.license_expired 
-          access_denied_license
-        else
-          true
-        end
+         return true
       else
         access_denied
       end

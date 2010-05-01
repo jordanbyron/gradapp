@@ -39,6 +39,7 @@ class DepartmentStatusesController < ApplicationController
   # GET /department_statuses/1/edit
   def edit
     @department_status = DepartmentStatus.find(params[:id])
+    @department = Department.find(params[:department_id])
   end
 
   # POST /department_statuses
@@ -52,6 +53,7 @@ class DepartmentStatusesController < ApplicationController
         format.html { redirect_to department_department_statuses_path(@department_status.department) }
         format.xml  { render :xml => @department_status, :status => :created, :location => @department_status }
       else
+        @department = Department.find(params[:department_id])
         format.html { render :action => "new" }
         format.xml  { render :xml => @department_status.errors, :status => :unprocessable_entity }
       end

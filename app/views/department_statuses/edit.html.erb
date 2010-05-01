@@ -4,7 +4,7 @@
 
 <%= error_messages_for :department_status %>
 
-<% form_for(@department_status) do |f| %>
+<% form_for :department_status, @department_status, :url => department_department_status_path(@department,@department_status), :html => { :method => :put} do |f| %>
    <p>
     <b>Status</b><br />
     <%= f.text_field :status %>
