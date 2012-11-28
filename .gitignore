@@ -1,0 +1,4 @@
+.powrc
+config/database.yml
+log
+db/*.sqlite3
