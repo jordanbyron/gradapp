@@ -111,19 +111,6 @@ module AuthenticatedSystem
       end
     end
 
-    def access_denied_license
-      respond_to do |format|
-        format.html do
-          store_location
-          redirect_to home_path
-          flash[:error] = "Your Department License Has Expired!"
-        end
-        format.any do
-          request_http_basic_authentication 'Web Password'
-        end
-      end
-    end
-
     # Store the URI of the current request in the session.
     #
     # We can return to this location by calling #redirect_back_or_default.
